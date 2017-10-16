@@ -154,6 +154,8 @@ public class GameLogic {
      */
     public void newGame() {
         currentGame.setColorMoveCount(0); // if new game is started, set the wrongMoveCounter to 0
+        currentGame.setWrongDubbletapCount(0);
+        currentGame.setWrongNumberCount(0);
         System.arraycopy(cards, 0, randomCards, 0, cards.length);
         randomize(randomCards);
 

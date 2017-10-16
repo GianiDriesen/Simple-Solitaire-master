@@ -33,6 +33,7 @@ import static de.tobiasbielefeld.solitaire.SharedData.*;
 
 public class HandlerHint extends Handler {
 
+
     boolean soundPlayed = false;
 
     public void handleMessage(Message msg) {

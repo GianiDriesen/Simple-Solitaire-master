@@ -173,6 +173,14 @@ public abstract class Game {
 
     abstract public int getWrongDubbletapCount();
 
+    abstract public void setFlipThroughMainstackCount(int count);
+
+    abstract public int getFlipThroughMainstackCount();
+
+    abstract public void incrementHintCount();
+
+    abstract public int getHintCount();
+
     /**
      * Tests if the card can be added to the movement to place on another stack.
      *

@@ -59,6 +59,8 @@ public class Klondike extends Game {
     private int wrongColorCounter = 0;
     private int wrongNumberCounter = 0;
     private int wrongDubbletapCounter = 0;
+    private int flipThroughMainStackCounter = 0;
+    private int hintCounter = 0;
     private boolean dubbeltap = false;
 
     protected String PREF_KEY_DRAW_OLD, PREF_KEY_DRAW, DEFAULT_DRAW;
@@ -97,6 +99,18 @@ public class Klondike extends Game {
     public int getWrongDubbletapCount() {
         return wrongDubbletapCounter;
     }
+
+    public void setFlipThroughMainstackCount(int count) {
+        this.flipThroughMainStackCounter = count;
+    }
+
+    public void incrementHintCount() {
+        hintCounter++;
+    }
+
+    public int getHintCount() {return hintCounter;}
+
+    public int getFlipThroughMainstackCount() {return flipThroughMainStackCounter;}
 
     public void setStacks(RelativeLayout layoutGame, boolean isLandscape) {
 
@@ -182,6 +196,8 @@ public class Klondike extends Game {
     public int onMainStackTouch() {
 
         boolean deal3 = sharedStringEquals(PREF_KEY_DRAW_OLD, DEFAULT_DRAW,"3");
+        flipThroughMainStackCounter++;
+        System.out.println("Flip through main stack: " + flipThroughMainStackCounter);
 
         //if there are cards on the main stack
         if (getMainStack().getSize() > 0) {
@@ -381,6 +397,9 @@ public class Klondike extends Game {
 
     public CardAndStack hintTest() {
         Card card;
+
+        incrementHintCount();
+        System.out.println("Hint button pressed: " + getHintCount());
 
         for (int i = 0; i <= 6; i++) {
 
