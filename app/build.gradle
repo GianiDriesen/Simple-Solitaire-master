@@ -1,0 +1,30 @@
+apply plugin: 'com.android.application'
+
+android {
+
+    compileSdkVersion 25
+    buildToolsVersion "25.0.2"
+    defaultConfig {
+        buildConfigField "long", "TIMESTAMP", System.currentTimeMillis() + "L"
+        applicationId "de.tobiasbielefeld.solitaire"
+        minSdkVersion 11
+        targetSdkVersion 25
+        versionCode 56
+        versionName "3.8.6"
+
+        vectorDrawables.useSupportLibrary = true
+    }
+    buildTypes {
+        release {
+            proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
+        }
+    }
+    sourceSets { main { java.srcDirs = ['src/main/java'] } }
+}
+
+dependencies {
+    compile fileTree(include: ['*.jar'], dir: 'libs')
+    compile 'com.android.support:appcompat-v7:25.3.1'
+    compile 'com.android.support:design:25.3.1'
+    compile 'com.github.yukuku:ambilwarna:2.0.1'
+}
