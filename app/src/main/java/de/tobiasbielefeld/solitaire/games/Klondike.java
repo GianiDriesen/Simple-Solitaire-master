@@ -56,7 +56,7 @@ import static de.tobiasbielefeld.solitaire.games.Game.testMode3.DESCENDING;
 
 public class Klondike extends Game {
 
-    private int wrongMoveCounter = 0; // counter for wrong moves
+    private int wrongMoveCounter = 0;
     private boolean dubbeltap = false;
 
     protected String PREF_KEY_DRAW_OLD, PREF_KEY_DRAW, DEFAULT_DRAW;
