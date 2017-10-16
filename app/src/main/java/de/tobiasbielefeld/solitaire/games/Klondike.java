@@ -108,7 +108,10 @@ public class Klondike extends Game {
         hintCounter++;
     }
 
-    public int getHintCount() {return hintCounter;}
+    public int getHintCount() {
+
+        return hint.getCounter();
+    }
 
     public int getFlipThroughMainstackCount() {return flipThroughMainStackCounter;}
 
@@ -397,9 +400,6 @@ public class Klondike extends Game {
 
     public CardAndStack hintTest() {
         Card card;
-
-        incrementHintCount();
-        System.out.println("Hint button pressed: " + getHintCount());
 
         for (int i = 0; i <= 6; i++) {
 
