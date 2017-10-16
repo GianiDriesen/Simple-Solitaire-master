@@ -127,7 +127,7 @@ public class Card {
         for (Card card : cards)
             list.add(card.isUp ? 1 : 0);
 
-        saveErrorCount(ERROR, currentGame.getWrongMoveCount()); // saving errorCount
+        saveErrorCount(ERROR, currentGame.getColorMoveCount()); // saving errorCount
 
         putIntList(CARDS, list);
     }

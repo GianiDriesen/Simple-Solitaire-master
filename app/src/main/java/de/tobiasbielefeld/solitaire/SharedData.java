@@ -506,7 +506,7 @@ public class SharedData {
 
         System.out.println("Saving errorCount: " + s);
 
-        savedGameData.edit().putString(name, s).apply(); // saving errorCount as ERROR
+        //savedGameData.edit().putString(name, s).apply(); // saving errorCount as ERROR
 
     }
 

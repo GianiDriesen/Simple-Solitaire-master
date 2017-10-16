@@ -153,7 +153,7 @@ public class GameLogic {
      * starts a new game. The only difference to a re-deal is the shuffling of the cards
      */
     public void newGame() {
-        currentGame.setWrongMoveCount(0); // if new game is started, set the wrongMoveCounter to 0
+        currentGame.setColorMoveCount(0); // if new game is started, set the wrongMoveCounter to 0
         System.arraycopy(cards, 0, randomCards, 0, cards.length);
         randomize(randomCards);
 

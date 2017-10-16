@@ -56,7 +56,9 @@ import static de.tobiasbielefeld.solitaire.games.Game.testMode3.DESCENDING;
 
 public class Klondike extends Game {
 
-    private int wrongMoveCounter = 0;
+    private int wrongColorCounter = 0;
+    private int wrongNumberCounter = 0;
+    private int wrongDubbletapCounter = 0;
     private boolean dubbeltap = false;
 
     protected String PREF_KEY_DRAW_OLD, PREF_KEY_DRAW, DEFAULT_DRAW;
@@ -74,10 +76,26 @@ public class Klondike extends Game {
         DEFAULT_DRAW = DEFAULT_KLONDIKE_DRAW;
     }
 
-    public int getWrongMoveCount() {return wrongMoveCounter;}
+    public int getColorMoveCount() {return wrongColorCounter;}
 
-    public void setWrongMoveCount(int sameColorCounter) {
-        this.wrongMoveCounter = sameColorCounter;
+    public void setColorMoveCount(int sameColorCounter) {
+        this.wrongColorCounter = sameColorCounter;
+    }
+
+    public void setWrongNumberCount(int count) {
+        this.wrongNumberCounter = count;
+    }
+
+    public int getWrongNumberCount() {
+        return wrongNumberCounter;
+    }
+
+    public void setWrongDubbletapCount(int count) {
+        this.wrongDubbletapCounter = count;
+    }
+
+    public int getWrongDubbletapCount() {
+        return wrongDubbletapCounter;
     }
 
     public void setStacks(RelativeLayout layoutGame, boolean isLandscape) {
@@ -322,28 +340,28 @@ public class Klondike extends Game {
         boolean fault = false;
 
         if(stack == null && dubbeltap == false) {
-            wrongMoveCounter++;
-            System.out.println("No legitimate move: " + wrongMoveCounter);
+            wrongDubbletapCounter++;
+            System.out.println("No legitimate move: " + wrongDubbletapCounter);
         }
 
         // check if card is place on the aces stacks, if so check value and symbol of card
         else if(((stack.getId() == 7) || (stack.getId() == 8) || (stack.getId() == 9) || (stack.getId() == 10)) && dubbeltap == false) { // this works
             if((stack.getTopCard().getValue() != card.getValue() - 1) || (stack.getTopCard().getColor() != card.getColor())) {
-                wrongMoveCounter++;
-                System.out.println("Wrong number on aces stack " + wrongMoveCounter);
+                wrongColorCounter++;
+                System.out.println("Wrong number on aces stack " + wrongColorCounter);
             }
         }
         else {
             // check if card has the same color as card on top of the stack
             // problem with movement of cards, sometimes it counts an error twice
             if ((stack.getTopCard().getColor() % 2 == card.getColor() % 2) && dubbeltap == false && fault == false) {
-                wrongMoveCounter++;
-                System.out.println("Wrong color " + wrongMoveCounter + ", fault= " + fault);
+                wrongColorCounter++;
+                System.out.println("Wrong color " + wrongColorCounter + ", fault= " + fault);
                 fault = true;
             }
             else if((stack.getTopCard().getValue() != card.getValue() + 1) && fault == false && dubbeltap == false) {
-                wrongMoveCounter++;
-                System.out.println("Wrong value " + wrongMoveCounter + ", fault= " + fault);
+                wrongNumberCounter++;
+                System.out.println("Wrong value " + wrongNumberCounter + ", fault= " + fault);
                 fault = true;
             }
         }

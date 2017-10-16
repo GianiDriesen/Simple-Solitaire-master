@@ -161,9 +161,17 @@ public abstract class Game {
 
     abstract public void faultCounter(Stack stack, Card card); // test function, can be removed if not working
 
-    abstract public void setWrongMoveCount(int sameColorCount); // function to set errorCounter to 0
+    abstract public void setColorMoveCount(int sameColorCount); // function to set errorCounter to 0
 
-    abstract public int getWrongMoveCount();
+    abstract public int getColorMoveCount();
+
+    abstract public void setWrongNumberCount(int count); // method to set the wrong number count
+
+    abstract public int getWrongNumberCount();
+
+    abstract public void setWrongDubbletapCount(int count);
+
+    abstract public int getWrongDubbletapCount();
 
     /**
      * Tests if the card can be added to the movement to place on another stack.
