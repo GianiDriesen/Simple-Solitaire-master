@@ -60,7 +60,6 @@ public class Klondike extends Game {
     private int wrongNumberCounter = 0;
     private int wrongDubbletapCounter = 0;
     private int flipThroughMainStackCounter = 0;
-    private int hintCounter = 0;
     private boolean dubbeltap = false;
 
     protected String PREF_KEY_DRAW_OLD, PREF_KEY_DRAW, DEFAULT_DRAW;
@@ -102,15 +101,6 @@ public class Klondike extends Game {
 
     public void setFlipThroughMainstackCount(int count) {
         this.flipThroughMainStackCounter = count;
-    }
-
-    public void incrementHintCount() {
-        hintCounter++;
-    }
-
-    public int getHintCount() {
-
-        return hint.getCounter();
     }
 
     public int getFlipThroughMainstackCount() {return flipThroughMainStackCounter;}
@@ -400,6 +390,8 @@ public class Klondike extends Game {
 
     public CardAndStack hintTest() {
         Card card;
+        System.out.println("Hint counter: " + hint.getCounter());
+
 
         for (int i = 0; i <= 6; i++) {
 
