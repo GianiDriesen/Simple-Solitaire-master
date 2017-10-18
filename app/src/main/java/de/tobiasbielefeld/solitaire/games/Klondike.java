@@ -61,6 +61,7 @@ public class Klondike extends Game {
     private int wrongDubbletapCounter = 0;
     private int flipThroughMainStackCounter = 0;
     private boolean dubbeltap = false;
+    private boolean hintUsed = false;
 
     protected String PREF_KEY_DRAW_OLD, PREF_KEY_DRAW, DEFAULT_DRAW;
 
@@ -104,6 +105,14 @@ public class Klondike extends Game {
     }
 
     public int getFlipThroughMainstackCount() {return flipThroughMainStackCounter;}
+
+    public boolean getHintUsed() {
+        return hintUsed;
+    }
+
+    public void setHintUsed(boolean hint) {
+        this.hintUsed = hint;
+    }
 
     public void setStacks(RelativeLayout layoutGame, boolean isLandscape) {
 
@@ -348,35 +357,34 @@ public class Klondike extends Game {
     public void faultCounter(Stack stack, Card card) {  // test function, can be removed if not working
         boolean fault = false;
 
-        if(stack == null && dubbeltap == false) {
-            wrongDubbletapCounter++;
-            System.out.println("No legitimate move: " + wrongDubbletapCounter);
-        }
+        if(hintUsed == false) {
+            if(stack == null && dubbeltap == false) {
+                wrongDubbletapCounter++;
+                System.out.println("No legitimate move: " + wrongDubbletapCounter);
+            }
 
-        // check if card is place on the aces stacks, if so check value and symbol of card
-        else if(((stack.getId() == 7) || (stack.getId() == 8) || (stack.getId() == 9) || (stack.getId() == 10)) && dubbeltap == false) { // this works
-            if((stack.getTopCard().getValue() != card.getValue() - 1) || (stack.getTopCard().getColor() != card.getColor())) {
-                wrongColorCounter++;
-                System.out.println("Wrong number on aces stack " + wrongColorCounter);
+            // check if card is place on the aces stacks, if so check value and symbol of card
+            else if(((stack.getId() == 7) || (stack.getId() == 8) || (stack.getId() == 9) || (stack.getId() == 10)) && dubbeltap == false) { // this works
+                if((stack.getTopCard().getValue() != card.getValue() - 1) || (stack.getTopCard().getColor() != card.getColor())) {
+                    wrongColorCounter++;
+                    System.out.println("Wrong number on aces stack " + wrongColorCounter);
+                }
+            }
+            else {
+                // check if card has the same color as card on top of the stack
+                // problem with movement of cards, sometimes it counts an error twice
+                if ((stack.getTopCard().getColor() % 2 == card.getColor() % 2) && dubbeltap == false && fault == false) {
+                    wrongColorCounter++;
+                    System.out.println("Wrong color " + wrongColorCounter + ", fault= " + fault);
+                    fault = true;
+                }
+                else if((stack.getTopCard().getValue() != card.getValue() + 1) && fault == false && dubbeltap == false) {
+                    wrongNumberCounter++;
+                    System.out.println("Wrong value " + wrongNumberCounter + ", fault= " + fault);
+                    fault = true;
+                }
             }
         }
-        else {
-            // check if card has the same color as card on top of the stack
-            // problem with movement of cards, sometimes it counts an error twice
-            if ((stack.getTopCard().getColor() % 2 == card.getColor() % 2) && dubbeltap == false && fault == false) {
-                wrongColorCounter++;
-                System.out.println("Wrong color " + wrongColorCounter + ", fault= " + fault);
-                fault = true;
-            }
-            else if((stack.getTopCard().getValue() != card.getValue() + 1) && fault == false && dubbeltap == false) {
-                wrongNumberCounter++;
-                System.out.println("Wrong value " + wrongNumberCounter + ", fault= " + fault);
-                fault = true;
-            }
-        }
-
-
-
 
     }
 
@@ -390,6 +398,7 @@ public class Klondike extends Game {
 
     public CardAndStack hintTest() {
         Card card;
+        hintUsed = true;
         System.out.println("Hint counter: " + hint.getCounter());
 
 

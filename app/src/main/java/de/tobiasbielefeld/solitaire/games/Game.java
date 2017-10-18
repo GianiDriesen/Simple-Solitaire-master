@@ -177,6 +177,10 @@ public abstract class Game {
 
     abstract public int getFlipThroughMainstackCount();
 
+    abstract public boolean getHintUsed();
+
+    abstract public void setHintUsed(boolean hint);
+
 
     /**
      * Tests if the card can be added to the movement to place on another stack.
