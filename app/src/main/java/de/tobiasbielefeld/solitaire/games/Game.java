@@ -181,6 +181,9 @@ public abstract class Game {
 
     abstract public void setHintUsed(boolean hint);
 
+    abstract public void incrementUndoCounter();
+
+    abstract public int getUndoCounter();
 
     /**
      * Tests if the card can be added to the movement to place on another stack.

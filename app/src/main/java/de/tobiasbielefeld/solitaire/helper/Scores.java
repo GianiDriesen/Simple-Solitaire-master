@@ -110,6 +110,9 @@ public class Scores {
         int[] originIDs = new int[cards.size()];
         int[] destinationIDs = new int[stacks.size()];
 
+        currentGame.incrementUndoCounter();
+        System.out.println("Undo counter: " + currentGame.getUndoCounter());
+
         for (int i = 0; i < originIDs.length; i++) {
             originIDs[i] = cards.get(i).getStackId();
             destinationIDs[i] = stacks.get(i).getId();
