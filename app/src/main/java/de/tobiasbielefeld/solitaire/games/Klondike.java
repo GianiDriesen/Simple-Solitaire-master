@@ -61,6 +61,7 @@ public class Klondike extends Game {
     private int wrongDubbletapCounter = 0;
     private int flipThroughMainStackCounter = 0;
     private int undoCounter = 0;
+    private int hintCounter = 0;
 
     private boolean dubbeltap = false;
     private boolean hintUsed = false;
@@ -122,6 +123,18 @@ public class Klondike extends Game {
 
     public int getUndoCounter() {
         return undoCounter;
+    }
+
+    public void setUndoCounter(int counter) {
+        this.undoCounter = counter;
+    }
+
+    public void setHintCounter(int counter) {
+        this.hintCounter = counter;
+    }
+
+    public int getHintCounter() {
+        return hintCounter;
     }
 
     public void setStacks(RelativeLayout layoutGame, boolean isLandscape) {
@@ -395,7 +408,6 @@ public class Klondike extends Game {
                 }
             }
         }
-
     }
 
     public boolean addCardToMovementTest(Card card) {
@@ -409,7 +421,6 @@ public class Klondike extends Game {
     public CardAndStack hintTest() {
         Card card;
         hintUsed = true;
-        System.out.println("Hint counter: " + hint.getCounter());
 
 
         for (int i = 0; i <= 6; i++) {

@@ -183,7 +183,13 @@ public abstract class Game {
 
     abstract public void incrementUndoCounter();
 
+    abstract public void setUndoCounter(int counter);
+
     abstract public int getUndoCounter();
+
+    abstract public void setHintCounter(int counter);
+
+    abstract public int getHintCounter();
 
     /**
      * Tests if the card can be added to the movement to place on another stack.

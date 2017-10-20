@@ -62,6 +62,7 @@ public class HandlerHint extends Handler {
             hint.handlerHint.sendEmptyMessageDelayed(0, 100);
         } else {
             soundPlayed = false;
+            currentGame.setHintCounter(currentGame.getHintCounter() + 1);
             currentGame.setHintUsed(false);
             hint.setCounter(0);
         }
