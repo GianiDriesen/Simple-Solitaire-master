@@ -68,6 +68,14 @@ public class GameLogic {
         putBoolean(GAME_WON_AND_RELOADED, wonAndReloaded);
         putBoolean(GAME_MOVED_FIRST_CARD, movedFirstCard);
         putInt(GAME_NUMBER_OF_WON_GAMES, numberWonGames);
+
+        // saving own created counter when game is closed
+        putInt("UNDOCOUNT", currentGame.getUndoCounter());
+        putInt("WRONGCOLORCOUNT", currentGame.getColorMoveCount());
+        putInt("WRONGNUMBERCOUNT", currentGame.getWrongNumberCount());
+        putInt("WRONGDUBBLETAPCOUNT", currentGame.getWrongDubbletapCount());
+        putInt("FLIPMAINSTACKCOUNT", currentGame.getFlipThroughMainstackCount());
+        putInt("HINTCOUNT", currentGame.getHintCounter());
         // Timer will be saved in onPause()
         for (Stack stack : stacks)
             stack.save();
@@ -97,6 +105,14 @@ public class GameLogic {
         won = getBoolean(GAME_WON, DEFAULT_WON);
         wonAndReloaded = getBoolean(GAME_WON_AND_RELOADED, DEFAULT_WON_AND_RELOADED);
         movedFirstCard = getBoolean(GAME_MOVED_FIRST_CARD, DEFAULT_MOVED_FIRST_CARD);
+
+        // loading created counters when games is booted up
+        currentGame.setUndoCounter(getInt("UNDOCOUNT", 0));
+        currentGame.setFlipThroughMainstackCount(getInt("FLIPMAINSTACKCOUNT", 0));
+        currentGame.setHintCounter(getInt("HINTCOUNT", 0));
+        currentGame.setWrongDubbletapCount(getInt("WRONGDUBBLETAPCOUNT", 0));
+        currentGame.setWrongNumberCount(getInt("WRONGNUMBERCOUNT", 0));
+        currentGame.setColorMoveCount(getInt("WRONGCOLORCOUNT", 0));
         //update and reset
         Card.updateCardDrawableChoice();
         Card.updateCardBackgroundChoice();
