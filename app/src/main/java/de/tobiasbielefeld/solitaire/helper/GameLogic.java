@@ -171,12 +171,14 @@ public class GameLogic {
      * starts a new game. The only difference to a re-deal is the shuffling of the cards
      */
     public void newGame() {
+        ArrayList<String> newTimestamps = new ArrayList<>();
         currentGame.setColorMoveCount(0); // if new game is started, set the wrongMoveCounter to 0
         currentGame.setWrongDubbletapCount(0);
         currentGame.setWrongNumberCount(0);
         currentGame.setUndoCounter(0);
         currentGame.setFlipThroughMainstackCount(0);
         currentGame.setHintCounter(0);
+        currentGame.setTimestamps(newTimestamps);
         System.arraycopy(cards, 0, randomCards, 0, cards.length);
         randomize(randomCards);
 
@@ -234,6 +236,7 @@ public class GameLogic {
             autoComplete.hideButton();
             animate.winAnimation();
             won = true;
+            putInt("NUMBERWONGAMES", numberWonGames);
         }
     }
 
