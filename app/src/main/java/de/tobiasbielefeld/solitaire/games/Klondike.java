@@ -20,7 +20,9 @@ package de.tobiasbielefeld.solitaire.games;
 
 import android.widget.RelativeLayout;
 
+import java.text.DateFormat;
 import java.util.ArrayList;
+import java.util.Date;
 
 import de.tobiasbielefeld.solitaire.classes.Card;
 import de.tobiasbielefeld.solitaire.classes.CardAndStack;
@@ -63,6 +65,8 @@ public class Klondike extends Game {
     private int undoCounter = 0;
     private int hintCounter = 0;
 
+    private ArrayList<String> timestamps;
+
     private boolean dubbeltap = false;
     private boolean hintUsed = false;
 
@@ -79,6 +83,8 @@ public class Klondike extends Game {
         PREF_KEY_DRAW_OLD = PREF_KEY_KLONDIKE_DRAW_OLD;
         PREF_KEY_DRAW = PREF_KEY_KLONDIKE_DRAW;
         DEFAULT_DRAW = DEFAULT_KLONDIKE_DRAW;
+
+        timestamps = new ArrayList<>();
     }
 
     public int getColorMoveCount() {return wrongColorCounter;}
@@ -135,6 +141,14 @@ public class Klondike extends Game {
 
     public int getHintCounter() {
         return hintCounter;
+    }
+
+    public void setTimestamps(ArrayList<String> fetchedTimestamps) {
+        this.timestamps = fetchedTimestamps;
+    }
+
+    public ArrayList<String> getTimestamps() {
+        return this.timestamps;
     }
 
     public void setStacks(RelativeLayout layoutGame, boolean isLandscape) {
@@ -377,7 +391,7 @@ public class Klondike extends Game {
             return false;
     }
 
-    public void faultCounter(Stack stack, Card card) {  // test function, can be removed if not working
+    public void faultCounter(Stack stack, Card card) {  // function to count various fault moves
         boolean fault = false;
 
         if(hintUsed == false) {
@@ -406,6 +420,16 @@ public class Klondike extends Game {
                     System.out.println("Wrong value " + wrongNumberCounter + ", fault= " + fault);
                     fault = true;
                 }
+            }
+        }
+    }
+
+    public void timeStampForOneMove(float X, float Y) { // function to get the timestamp whenever a card is touched, used to calculate the time needed to do one move or to think of a move
+        String currentDateTimeString = DateFormat.getDateTimeInstance().format(new Date());
+        for (int i = 0; i < stacks.length; i++) {
+            if (stacks[i].isOnLocation(X, Y)) {
+                timestamps.add(currentDateTimeString);
+                System.out.println(timestamps);
             }
         }
     }

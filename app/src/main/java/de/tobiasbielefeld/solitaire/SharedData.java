@@ -631,6 +631,27 @@ public class SharedData {
         savedGameData.edit().putBoolean(name, value).apply();
     }
 
+    public static void putStringList(String name, ArrayList<String> list) { // function to save the timestamps into savedGameData
+        String s = " ";
+        for (String i: list) {
+            s += i + "-";
+        }
+        savedGameData.edit().putString(name, s).apply();
+    }
+
+    public static ArrayList<String> getStringList(String name) { // function to fetch timestamps saved in savedGameData
+        String s = savedGameData.getString(name, "");
+        System.out.println("String: " + s);
+        StringTokenizer st = new StringTokenizer(s, "-");
+        ArrayList<String> result = new ArrayList<>();
+
+        while (st.hasMoreTokens()) {
+            result.add(st.nextToken());
+        }
+
+        return result;
+    }
+
     /**
      * Gets data for shared data (same for every game)
      *

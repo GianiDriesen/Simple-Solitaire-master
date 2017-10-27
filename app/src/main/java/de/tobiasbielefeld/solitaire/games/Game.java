@@ -191,6 +191,12 @@ public abstract class Game {
 
     abstract public int getHintCounter();
 
+    abstract public void timeStampForOneMove(float X, float Y);
+
+    abstract public void setTimestamps(ArrayList<String> fetchedTimestamps);
+
+    abstract public ArrayList<String> getTimestamps();
+
     /**
      * Tests if the card can be added to the movement to place on another stack.
      *
@@ -318,6 +324,7 @@ public abstract class Game {
      * @return True if the main stack got touched, false otherwise
      */
     public boolean testIfMainStackTouched(float X, float Y) {
+        timeStampForOneMove(X, Y);
         return getMainStack().isOnLocation(X, Y);
     }
 

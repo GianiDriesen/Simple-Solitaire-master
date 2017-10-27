@@ -282,7 +282,6 @@ public class GameManager extends CustomAppCompatActivity implements View.OnTouch
      * @return True to end the input
      */
     private boolean motionActionDown(CustomImageView v, MotionEvent event, float X, float Y) {
-
         //if the main stack got touched
         if (currentGame.hasMainStack() && currentGame.testIfMainStackTouched(X, Y)) {
             //test if the redeal counter needs to be updated
