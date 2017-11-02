@@ -38,6 +38,7 @@ import de.tobiasbielefeld.solitaire.helper.Animate;
 import de.tobiasbielefeld.solitaire.helper.AutoComplete;
 import de.tobiasbielefeld.solitaire.helper.Bitmaps;
 import de.tobiasbielefeld.solitaire.helper.CardHighlight;
+import de.tobiasbielefeld.solitaire.helper.EntityMapper;
 import de.tobiasbielefeld.solitaire.helper.GameLogic;
 import de.tobiasbielefeld.solitaire.helper.Hint;
 import de.tobiasbielefeld.solitaire.helper.MovingCards;
@@ -202,6 +203,8 @@ public class SharedData {
 
     public static int NUMBER_OF_CARD_BACKGROUNDS;
     public static int NUMBER_OF_CARD_THEMES;
+
+    public static EntityMapper entityMapper = EntityMapper.UNIQUEMAPPER;
 
     /**
      * Reload the needed data. Because if the android device runs out of memory, the app gets
@@ -559,6 +562,10 @@ public class SharedData {
         }
 
         return result;
+    }
+
+    public static EntityMapper getEntityMapper() {
+        return entityMapper;
     }
 
     /**

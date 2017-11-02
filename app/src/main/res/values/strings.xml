@@ -60,5 +60,7 @@
     <string name="dialog_win_score">Score: %1$d</string>
     <string name="dialog_win_bonus">Bonus: %1$d</string>
     <string name="dialog_win_total">Total: %1$d</string>
+    <string name="title_activity_start">StartActivity</string>
+    <string name="title_activity_login">LoginActivity</string>
 
 </resources>
