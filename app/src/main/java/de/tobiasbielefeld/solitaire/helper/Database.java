@@ -13,9 +13,9 @@ public enum Database {
 
     CONNECTION;
     private static final String DATABASE_DRIVER = "com.mysql.jdbc.Driver";
-    private static final String DATABASE_URL = "jdbc:mysql://0.0.0.0:3306/24uloopmodel";
+    private static final String DATABASE_URL = "jdbc:mysql://127.0.0.1:3306/solitairedb";
     private static final String DATABASE_USERNAME = "root";
-    private static final String DATABASE_PASSWORD = "Giani1995";
+    private static final String DATABASE_PASSWORD = "root";
 
     private Connection con;
 
