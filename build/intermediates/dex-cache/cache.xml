@@ -3,147 +3,21 @@
 
     <item
         is-multidex="true"
-        jar="C:\Users\nicol\.android\build-cache\98fc99eb61a344e912268b59fd31f0daea039b2f\output\jars\classes.jar"
+        jar="E:\AndroidStudioProjects\Simple-Solitaire-master\app\build\intermediates\incremental-classes\debug\instant-run-bootstrap.jar"
         jumboMode="true"
         optimize="true"
         revision="25.0.2"
-        sha1="efb8cb62d47d157c29d1521daac7eefd4cb881ee">
-        <dex dex="C:\Users\nicol\Desktop\Simple-Solitaire-master\app\build\intermediates\transforms\dex\debug\folders\1000\10\classes_b47c24ca405cd13daf1815ad8d6db859c6de3ee0\classes.dex" />
+        sha1="978cd17c702d34acc3f750393e4b83612be320e6">
+        <dex dex="E:\AndroidStudioProjects\Simple-Solitaire-master\app\build\intermediates\transforms\dex\debug\folders\1000\10000\instant-run-bootstrap_8c3b56290e18259f09f5154402f63504bb605d0a\classes.dex" />
     </item>
     <item
         is-multidex="true"
-        jar="C:\Users\nicol\.android\build-cache\1519939057e3574791b0fc43b887e44d45195048\output\jars\classes.jar"
-        jumboMode="true"
-        optimize="true"
-        revision="25.0.2"
-        sha1="da27a32db6af8954ee8061537c7d476fcb1df46f">
-        <dex dex="C:\Users\nicol\Desktop\Simple-Solitaire-master\app\build\intermediates\transforms\dex\debug\folders\1000\10\classes_cc69642748a23024d2267fde3affa071e4a4eb7d\classes.dex" />
-    </item>
-    <item
-        is-multidex="true"
-        jar="C:\Users\nicol\.android\build-cache\d952112bf617aaf304d1dea38d667dda72be22ba\output\jars\classes.jar"
-        jumboMode="true"
-        optimize="true"
-        revision="25.0.2"
-        sha1="45f697922e6f072daa12f8a2995dc77ab03c11da">
-        <dex dex="C:\Users\nicol\Desktop\Simple-Solitaire-master\app\build\intermediates\transforms\dex\debug\folders\1000\10\classes_75d7a873430b7588f3b6a89aec69810192e0e5e1\classes.dex" />
-    </item>
-    <item
-        is-multidex="true"
-        jar="C:\Users\nicol\.android\build-cache\28fa6a7e1f5fbe6fb7decefc540865e67f3cd369\output\jars\classes.jar"
-        jumboMode="true"
-        optimize="true"
-        revision="25.0.2"
-        sha1="d7c42c80f6509b9ea4db28ca7859ffae08ec5741">
-        <dex dex="C:\Users\nicol\Desktop\Simple-Solitaire-master\app\build\intermediates\transforms\dex\debug\folders\1000\10\classes_3de8931ea0d2b335a163a31023774efa5697b4ec\classes.dex" />
-    </item>
-    <item
-        is-multidex="true"
-        jar="C:\Users\nicol\.android\build-cache\cc10200612d3bf6b8e02af8ec14b240309383195\output\jars\classes.jar"
-        jumboMode="true"
-        optimize="true"
-        revision="25.0.2"
-        sha1="7ed87c7f833e46dacace668e63cb8c4b67cb3172">
-        <dex dex="C:\Users\nicol\Desktop\Simple-Solitaire-master\app\build\intermediates\transforms\dex\debug\folders\1000\10\classes_4ff9ddc92169ce3a20e41e1d31acb04974a058f5\classes.dex" />
-    </item>
-    <item
-        is-multidex="true"
-        jar="C:\Users\nicol\AppData\Local\Android\sdk\extras\android\m2repository\com\android\support\support-annotations\25.3.1\support-annotations-25.3.1.jar"
-        jumboMode="true"
-        optimize="true"
-        revision="25.0.2"
-        sha1="bf8841d29fa39e077730e7a91222c2ce269fa7c9">
-        <dex dex="C:\Users\nicol\Desktop\Simple-Solitaire-master\app\build\intermediates\transforms\dex\debug\folders\1000\10\support-annotations-25.3.1_fb23df1c8a821e6abd1dafd376d9884e0f97905f\classes.dex" />
-    </item>
-    <item
-        is-multidex="true"
-        jar="C:\Users\nicol\Desktop\Simple-Solitaire-master\app\build\intermediates\incremental-runtime-classes\debug\instant-run.jar"
+        jar="E:\AndroidStudioProjects\Simple-Solitaire-master\app\build\intermediates\incremental-runtime-classes\debug\instant-run.jar"
         jumboMode="true"
         optimize="true"
         revision="25.0.2"
         sha1="3be78ebc2706b2e1fe2f12d5726887a92d6c183b">
-        <dex dex="C:\Users\nicol\Desktop\Simple-Solitaire-master\app\build\intermediates\transforms\dex\debug\folders\1000\10000\instant-run_6dc3371540ab8a839fd0116bc606fe8d9b25b900\classes.dex" />
-    </item>
-    <item
-        is-multidex="true"
-        jar="C:\Users\nicol\.android\build-cache\122e2359bfba31d9abf10974a385e56ac1b7170e\output\jars\classes.jar"
-        jumboMode="true"
-        optimize="true"
-        revision="25.0.2"
-        sha1="052f5f840f21174a3ecf6544130194e2652cbb73">
-        <dex dex="C:\Users\nicol\Desktop\Simple-Solitaire-master\app\build\intermediates\transforms\dex\debug\folders\1000\10\classes_36c540880c2f0799b15b4d5a904b70a888c488ae\classes.dex" />
-    </item>
-    <item
-        is-multidex="true"
-        jar="C:\Users\nicol\.android\build-cache\b607adfa98b01e54b76336d279a347e9c53669e9\output\jars\classes.jar"
-        jumboMode="true"
-        optimize="true"
-        revision="25.0.2"
-        sha1="6ef31f1555bb4cc513ec8d52711365a8b89f3600">
-        <dex dex="C:\Users\nicol\Desktop\Simple-Solitaire-master\app\build\intermediates\transforms\dex\debug\folders\1000\10\classes_b0a15e89a77205095f4f0b55660638d400239a83\classes.dex" />
-    </item>
-    <item
-        is-multidex="true"
-        jar="C:\Users\nicol\Desktop\Simple-Solitaire-master\app\build\intermediates\incremental-classes\debug\instant-run-bootstrap.jar"
-        jumboMode="true"
-        optimize="true"
-        revision="25.0.2"
-        sha1="c44f7e2c494871cb2134cbb09c97c4eac4cb37e4">
-        <dex dex="C:\Users\nicol\Desktop\Simple-Solitaire-master\app\build\intermediates\transforms\dex\debug\folders\1000\10000\instant-run-bootstrap_41e64f9cc5f4e015e093d7c6f7bdd4ef493f30f8\classes.dex" />
-    </item>
-    <item
-        is-multidex="true"
-        jar="C:\Users\nicol\.android\build-cache\057db93bd2992e497ddf8273bc3bf2c82f229a14\output\jars\classes.jar"
-        jumboMode="true"
-        optimize="true"
-        revision="25.0.2"
-        sha1="38789e20ace9ab7dbd00554bd2673ab424478d3b">
-        <dex dex="C:\Users\nicol\Desktop\Simple-Solitaire-master\app\build\intermediates\transforms\dex\debug\folders\1000\10\classes_5795bafefce537c2832cd2f780d33f6e3d923fb3\classes.dex" />
-    </item>
-    <item
-        is-multidex="true"
-        jar="C:\Users\nicol\.android\build-cache\69e64c13813bf94f17108f1dd1f8b6971b02eac9\output\jars\classes.jar"
-        jumboMode="true"
-        optimize="true"
-        revision="25.0.2"
-        sha1="47635644d0d5c103c1dd8360549eb9ba3225c7d3">
-        <dex dex="C:\Users\nicol\Desktop\Simple-Solitaire-master\app\build\intermediates\transforms\dex\debug\folders\1000\10\classes_7caa4528a2af2b94cf121224717720ff57657037\classes.dex" />
-    </item>
-    <item
-        is-multidex="true"
-        jar="C:\Users\nicol\.android\build-cache\f6e2dd572bb041a2adb81c3a223caf9fc6f43924\output\jars\classes.jar"
-        jumboMode="true"
-        optimize="true"
-        revision="25.0.2"
-        sha1="150252b33b00274cc868578ade018fda0d43a3eb">
-        <dex dex="C:\Users\nicol\Desktop\Simple-Solitaire-master\app\build\intermediates\transforms\dex\debug\folders\1000\10\classes_0d97914aa659238ddf1a0bc56a408b03fd8e7de2\classes.dex" />
-    </item>
-    <item
-        is-multidex="true"
-        jar="C:\Users\nicol\.android\build-cache\b56f6615b72dda136c192c5ea942696d5486f406\output\jars\classes.jar"
-        jumboMode="true"
-        optimize="true"
-        revision="25.0.2"
-        sha1="95519720620b553f63afc789beba9ad582807f7c">
-        <dex dex="C:\Users\nicol\Desktop\Simple-Solitaire-master\app\build\intermediates\transforms\dex\debug\folders\1000\10\classes_e0fc6c8cb7ffeeca7ed241a66f003144a49728ff\classes.dex" />
-    </item>
-    <item
-        is-multidex="true"
-        jar="C:\Users\nicol\.android\build-cache\ecf6b721c37d4db9522fac5f161741d84e3b5f26\output\jars\classes.jar"
-        jumboMode="true"
-        optimize="true"
-        revision="25.0.2"
-        sha1="d4cf6227dd6a2ceff0f7dcf0c324380b7abf2c28">
-        <dex dex="C:\Users\nicol\Desktop\Simple-Solitaire-master\app\build\intermediates\transforms\dex\debug\folders\1000\10\classes_4679512582142309a42b3ecc50a1fe0aea18e526\classes.dex" />
-    </item>
-    <item
-        is-multidex="true"
-        jar="C:\Users\nicol\.android\build-cache\86b0d688700c50468d2943478bb81b4b8b22dceb\output\jars\classes.jar"
-        jumboMode="true"
-        optimize="true"
-        revision="25.0.2"
-        sha1="4a26a1154d053ab11aaf4c3967c42a4d66390991">
-        <dex dex="C:\Users\nicol\Desktop\Simple-Solitaire-master\app\build\intermediates\transforms\dex\debug\folders\1000\10\classes_30fa5c1c6305ba2459b51d1a4f0c0beb0cf4ba56\classes.dex" />
+        <dex dex="E:\AndroidStudioProjects\Simple-Solitaire-master\app\build\intermediates\transforms\dex\debug\folders\1000\10000\instant-run_4f881f5283b8e03f3f9de4ce33edf72347baaa72\classes.dex" />
     </item>
 
 </items>
