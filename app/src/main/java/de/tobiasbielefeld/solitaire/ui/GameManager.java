@@ -285,6 +285,7 @@ public class GameManager extends CustomAppCompatActivity implements View.OnTouch
         //if the main stack got touched
         if (currentGame.hasMainStack() && currentGame.testIfMainStackTouched(X, Y)) {
             //test if the redeal counter needs to be updated
+            currentGame.stackCounter(cards[v.getId()].getStack().getId());
             if (currentGame.hasLimitedRecycles() && currentGame.getDealStack().isEmpty()) {
                 if (currentGame.getRemainingNumberOfRecycles() == 0) {
                     return true;
