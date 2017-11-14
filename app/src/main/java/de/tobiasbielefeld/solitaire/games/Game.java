@@ -197,6 +197,12 @@ public abstract class Game {
 
     abstract public ArrayList<String> getTimestamps();
 
+    abstract public void stackCounter(int stackId);
+
+    abstract public void setStackCounter(int[] stackCounter);
+
+    abstract public int[] getStackCounter();
+
     /**
      * Tests if the card can be added to the movement to place on another stack.
      *

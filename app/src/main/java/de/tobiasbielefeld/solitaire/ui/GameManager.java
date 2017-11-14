@@ -355,7 +355,7 @@ public class GameManager extends CustomAppCompatActivity implements View.OnTouch
 
                 }
             }
-
+            currentGame.stackCounter(cards[v.getId()].getStack().getId());
             if (currentGame.addCardToMovementTest((cards[v.getId()]))) {
                 tapped = new CardAndStack(cards[v.getId()], cards[v.getId()].getStack());
 

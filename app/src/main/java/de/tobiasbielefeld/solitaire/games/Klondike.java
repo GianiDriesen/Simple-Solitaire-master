@@ -22,6 +22,7 @@ import android.widget.RelativeLayout;
 
 import java.text.DateFormat;
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.Date;
 
 import de.tobiasbielefeld.solitaire.classes.Card;
@@ -65,6 +66,8 @@ public class Klondike extends Game {
     private int undoCounter = 0;
     private int hintCounter = 0;
 
+    private int[] stackCounter = new int[15];
+
     private ArrayList<String> timestamps;
 
     private boolean dubbeltap = false;
@@ -85,6 +88,7 @@ public class Klondike extends Game {
         DEFAULT_DRAW = DEFAULT_KLONDIKE_DRAW;
 
         timestamps = new ArrayList<>();
+        Arrays.fill(stackCounter, 0);
     }
 
     public int getColorMoveCount() {return wrongColorCounter;}
@@ -141,6 +145,14 @@ public class Klondike extends Game {
 
     public int getHintCounter() {
         return hintCounter;
+    }
+
+    public void setStackCounter(int[] stackCounter) {
+        this.stackCounter = stackCounter;
+    }
+
+    public int[] getStackCounter() {
+        return stackCounter;
     }
 
     public void setTimestamps(ArrayList<String> fetchedTimestamps) {
@@ -432,6 +444,16 @@ public class Klondike extends Game {
                 System.out.println(timestamps);
             }
         }
+    }
+
+    public void stackCounter(int stackId) {
+        for(int i = 0; i < stacks.length; i++) {
+            if(stackId == stacks[i].getId()) {
+                stackCounter[i]++;
+                System.out.println("Stackcounter: " + Arrays.toString(stackCounter));
+            }
+        }
+
     }
 
     public boolean addCardToMovementTest(Card card) {

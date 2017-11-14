@@ -77,6 +77,7 @@ public class GameLogic {
         putInt("FLIPMAINSTACKCOUNT", currentGame.getFlipThroughMainstackCount());
         putInt("HINTCOUNT", currentGame.getHintCounter());
         putStringList("TIMESTAMPS", currentGame.getTimestamps());
+        putIntArray("STACKCOUNTS", currentGame.getStackCounter());
         // Timer will be saved in onPause()
         for (Stack stack : stacks)
             stack.save();
@@ -115,6 +116,7 @@ public class GameLogic {
         currentGame.setWrongNumberCount(getInt("WRONGNUMBERCOUNT", 0));
         currentGame.setColorMoveCount(getInt("WRONGCOLORCOUNT", 0));
         currentGame.setTimestamps(getStringList("TIMESTAMPS"));
+        currentGame.setStackCounter(getIntArray("STACKCOUNTS"));
         //update and reset
         Card.updateCardDrawableChoice();
         Card.updateCardBackgroundChoice();

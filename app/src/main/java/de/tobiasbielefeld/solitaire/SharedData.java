@@ -646,9 +646,16 @@ public class SharedData {
         savedGameData.edit().putString(name, s).apply();
     }
 
+    public static void putIntArray(String name, int[] array) {
+        String s = " ";
+        for(int i: array) {
+            s += i + ",";
+        }
+        savedGameData.edit().putString(name, s).apply();
+    }
+
     public static ArrayList<String> getStringList(String name) { // function to fetch timestamps saved in savedGameData
         String s = savedGameData.getString(name, "");
-        System.out.println("String: " + s);
         StringTokenizer st = new StringTokenizer(s, "-");
         ArrayList<String> result = new ArrayList<>();
 
@@ -657,6 +664,27 @@ public class SharedData {
         }
 
         return result;
+    }
+
+    public static int[] getIntArray(String name) {
+        String s = savedGameData.getString(name, "");
+        StringTokenizer st = new StringTokenizer(s, ",");
+        ArrayList<Integer> result = new ArrayList<>();
+
+        int[] stackCounter = new int[15];
+        int counter = 0;
+
+        while (st.hasMoreTokens()) {
+            result.add(Integer.parseInt(st.nextToken()));
+        }
+
+        for(Integer i : result) {
+            stackCounter[counter++] = i.intValue();
+        }
+
+        return stackCounter;
+
+
     }
 
     /**
