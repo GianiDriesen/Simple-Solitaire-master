@@ -282,6 +282,7 @@ public class GameManager extends CustomAppCompatActivity implements View.OnTouch
      * @return True to end the input
      */
     private boolean motionActionDown(CustomImageView v, MotionEvent event, float X, float Y) {
+
         //if the main stack got touched
         if (currentGame.hasMainStack() && currentGame.testIfMainStackTouched(X, Y)) {
             //test if the redeal counter needs to be updated
@@ -297,6 +298,7 @@ public class GameManager extends CustomAppCompatActivity implements View.OnTouch
             currentGame.mainStackTouch();
             return resetTappedCard();
         }
+
 
         if (v.belongsToStack() && getSharedBoolean(PREF_KEY_TAP_TO_SELECT_ENABLED, DEFAULT_TAP_TO_SELECT_ENABLED)) {
             if (tapped != null && tapped.getStack() != stacks[v.getId()] && currentGame.addCardToMovementTest(tapped.getCard())) {

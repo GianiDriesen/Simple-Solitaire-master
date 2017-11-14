@@ -181,6 +181,7 @@ public class GameLogic {
         currentGame.setFlipThroughMainstackCount(0);
         currentGame.setHintCounter(0);
         currentGame.setTimestamps(newTimestamps);
+        currentGame.setStackCounter(new int[15]);
         System.arraycopy(cards, 0, randomCards, 0, cards.length);
         randomize(randomCards);
 

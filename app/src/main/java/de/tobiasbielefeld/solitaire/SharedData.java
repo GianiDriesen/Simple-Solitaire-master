@@ -647,7 +647,7 @@ public class SharedData {
     }
 
     public static void putIntArray(String name, int[] array) {
-        String s = " ";
+        String s = "";
         for(int i: array) {
             s += i + ",";
         }
@@ -675,6 +675,7 @@ public class SharedData {
         int counter = 0;
 
         while (st.hasMoreTokens()) {
+            //System.out.println("st: " + st.nextToken());
             result.add(Integer.parseInt(st.nextToken()));
         }
 
