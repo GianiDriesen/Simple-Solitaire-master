@@ -12,12 +12,15 @@ import android.widget.EditText;
 import android.widget.Toast;
 
 import de.tobiasbielefeld.solitaire.classes.Person;
+import de.tobiasbielefeld.solitaire.helper.Database;
+import de.tobiasbielefeld.solitaire.helper.EntityMapper;
 import de.tobiasbielefeld.solitaire.ui.GameSelector;
 
 public class LoginActivity extends AppCompatActivity {
 
     private EditText username;
     private EditText password;
+    private EntityMapper entityMapper = SharedData.getEntityMapper();
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -27,9 +30,7 @@ public class LoginActivity extends AppCompatActivity {
     }
 
     public void loginApp(View view) {
-        SharedData.getEntityMapper().getPersonMapper().getPersonByUsername(username.getText().toString());
-        new CheckPerson().execute();
-
+        new DatabaseLogin().execute();
     }
 
     public void registerApp(View view) {
@@ -43,25 +44,37 @@ public class LoginActivity extends AppCompatActivity {
         password  = (EditText) findViewById(R.id.password);
     }
 
+    private class DatabaseLogin extends AsyncTask<Void,Void,Void> {
+        protected Void doInBackground(Void... voids) {
+            Database.CONNECTION.makeConnection();
+            return null;
+        }
+
+        protected void onPostExecute(Void Void) {
+            new CheckPerson().execute();
+        }
+    }
+
     private class CheckPerson extends AsyncTask<Void, Void, Person> {
         protected Person doInBackground(Void... voids) {
+            entityMapper.getPersonMapper().getPersonByUsername(username.getText().toString());
             Person person = new Person();
-            while (!SharedData.getEntityMapper().dataReceived) {
+            while (!entityMapper.dataReceived) {
                 if (isCancelled()) break;}
-            if (SharedData.getEntityMapper().dataReceived) {
-                person = SharedData.getEntityMapper().person;
-                SharedData.getEntityMapper().dataGrabbed();
+            if (entityMapper.dataReceived) {
+                person = entityMapper.person;
+                entityMapper.dataGrabbed();
             }
             return person;
         }
 
         protected void onPostExecute(Person person) {
-            if (person.getPassword() == password.getText().toString()) {
+            if (person.getPassword().equals(password.getText().toString())) {
                 Intent intent = new Intent(LoginActivity.this, GameSelector.class);
                 startActivity(intent);
             }
             else {
-                System.out.println("Login failed.");
+                Toast.makeText(LoginActivity.this,"Login credentials are wrong. ",Toast.LENGTH_SHORT).show();
             }
         }
     }

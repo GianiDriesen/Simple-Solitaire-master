@@ -30,7 +30,7 @@ public enum PersonMapper {
 	 * @return Person object (or null if it was not found)
 	 */
 	public void getPersonByUsername(String username) {
-		String select = "SELECT * FROM Person where rnummer = ?";
+		String select = "SELECT * FROM Person where username = ?";
 		Person person = null;
 		try {
 			PreparedStatement prepstat = Database.CONNECTION.getConnection().prepareStatement(select);
@@ -39,7 +39,7 @@ public enum PersonMapper {
 		} catch (SQLException e) {
 			e.printStackTrace();
 		}
-		SharedData.getEntityMapper().setTmpPerson(person);
+		EntityMapper.UNIQUEMAPPER.setTmpPerson(person);
 	}
 
 
@@ -201,7 +201,7 @@ public enum PersonMapper {
 			int level = rset.getInt("level");
 			int avgScore = rset.getInt("avgScore");
 			int avgMoves = rset.getInt("avgMoves");
-			int avgTijd = rset.getInt("avgTijd");
+			int avgTijd = rset.getInt("avgTime");
 			int gamesSucces = rset.getInt("gamesSucces");
 			int gamesFailed = rset.getInt("gamesFailed");
 			person = new Person(id, username, password, age, gender, level, avgScore, avgMoves, avgTijd, gamesSucces,gamesFailed);
