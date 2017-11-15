@@ -69,12 +69,16 @@ public class LoginActivity extends AppCompatActivity {
         }
 
         protected void onPostExecute(Person person) {
-            if (person.getPassword().equals(password.getText().toString())) {
-                Intent intent = new Intent(LoginActivity.this, GameSelector.class);
-                startActivity(intent);
+            if (!person.equals(null)) {
+                if (person.getPassword().equals(password.getText().toString())) {
+                    Intent intent = new Intent(LoginActivity.this, GameSelector.class);
+                    startActivity(intent);
+                } else {
+                    Toast.makeText(LoginActivity.this, "Login credentials are wrong. ", Toast.LENGTH_SHORT).show();
+                }
             }
             else {
-                Toast.makeText(LoginActivity.this,"Login credentials are wrong. ",Toast.LENGTH_SHORT).show();
+                Toast.makeText(LoginActivity.this, "Login credentials are wrong. ", Toast.LENGTH_SHORT).show();
             }
         }
     }
