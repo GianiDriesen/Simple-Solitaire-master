@@ -53,10 +53,16 @@ public class HandlerHint extends Handler {
                         sounds.playSound(Sounds.names.HINT);
                         soundPlayed = true;
                     }
-                    hint.move(cardAndStack.getCard(), cardAndStack.getStack());
+                    // @NG
+                    if(hint.getHintVisible() == true) {
+                        hint.move(cardAndStack.getCard(), cardAndStack.getStack());
+                        hint.setCounter(hint.getCounter() + 1);
+                        hint.setHintVisible(false);
+                    }
+
                 }
 
-                hint.setCounter(hint.getCounter() + 1);
+
             }
 
             hint.handlerHint.sendEmptyMessageDelayed(0, 100);

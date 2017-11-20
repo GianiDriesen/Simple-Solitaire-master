@@ -1,16 +1,13 @@
 package de.tobiasbielefeld.solitaire.helper;
 
-import de.tobiasbielefeld.solitaire.SharedData;
-import de.tobiasbielefeld.solitaire.helper.EntityMapper;
-import de.tobiasbielefeld.solitaire.classes.Person;
-
-
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
 import java.util.LinkedList;
 import java.util.List;
+
+import de.tobiasbielefeld.solitaire.classes.Person;
 
 /**
  * Singleton to map Person entities to-and-from the database.
@@ -30,7 +27,7 @@ public enum PersonMapper {
 	 * @return Person object (or null if it was not found)
 	 */
 	public void getPersonByUsername(String username) {
-		String select = "SELECT * FROM Person where username = ?";
+		String select = "SELECT * FROM person where username = ?";
 		Person person = null;
 		try {
 			PreparedStatement prepstat = Database.CONNECTION.getConnection().prepareStatement(select);
@@ -82,7 +79,7 @@ public enum PersonMapper {
         List<Person> persons = new LinkedList<Person>();
         try {
             Statement stmt = Database.CONNECTION.getConnection().createStatement();
-            ResultSet rset = stmt.executeQuery("SELECT * FROM Person ORDER BY rnummer");
+            ResultSet rset = stmt.executeQuery("SELECT * FROM person ORDER BY rnummer");
             while (rset.next()) {
                 persons.add(new Person(rset.getString("username"), rset.getString("password") , rset.getInt("age"),
 								rset.getBoolean("gender"), rset.getInt("level"), rset.getInt("avgScore"), rset.getInt("avgMoves"),
@@ -101,7 +98,7 @@ public enum PersonMapper {
      * @return A Collection of all persons
      */
     public List<Person> getPersonsByX(int teamID) {
-    	String select = "SELECT * FROM Person where X = ?";
+    	String select = "SELECT * FROM person where X = ?";
         List<Person> persons = new LinkedList<Person>();
         
         try {
@@ -125,7 +122,7 @@ public enum PersonMapper {
 	 * @return Number of rows affected (should be 1)
 	 */
 	public int deletePerson(int id) {
-		String sql = "DELETE FROM Person WHERE id = ?";
+		String sql = "DELETE FROM person WHERE id = ?";
 		return eMapper.executeDelete(sql, id);
 	}
 
@@ -136,7 +133,7 @@ public enum PersonMapper {
 	 */
 	public int updatePerson(Person person) {
 		int rowsAffected = 0;
-		String sql = "UPDATE Person SET password = ?, age = ?, gender = ?,  level = ?, avgScore = ?, avgMoves = ?, avgTime = ?, gamesSucces = ?, gamesFailed =?, WHERE username = ?";
+		String sql = "UPDATE person SET password = ?, age = ?, gender = ?,  level = ?, avgScore = ?, avgMoves = ?, avgTime = ?, gamesSucces = ?, gamesFailed =?, WHERE username = ?";
 		try {
 			PreparedStatement pstmt = Database.CONNECTION.getConnection().prepareStatement(sql);
 			pstmt.setString(10, person.getUsername());

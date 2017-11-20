@@ -41,8 +41,21 @@ public class Hint {
     private int counter = 0;                                                                        //counter to know how many hints were shown
     private Card[] visited = new Card[MAX_NUMBER_OF_HINTS];                                         //array for already shown cards in hint
 
+    // @NG
+    private boolean hintVisible = false;
+
     public void showHint() {
         handlerHint.sendEmptyMessage(0);
+    }
+
+    // @NG
+    public void setHintVisible(boolean visible) {
+        hintVisible = visible;
+    }
+
+    // @NG
+    public boolean getHintVisible() {
+        return hintVisible;
     }
 
     /**
@@ -65,6 +78,7 @@ public class Hint {
 
         for (int i = 0; i < currentCards.size(); i++)
             animate.cardHint(currentCards.get(i), i, destination);
+
     }
 
     /**

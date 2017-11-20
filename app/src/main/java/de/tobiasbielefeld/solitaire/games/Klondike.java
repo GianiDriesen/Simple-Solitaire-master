@@ -59,17 +59,26 @@ import static de.tobiasbielefeld.solitaire.games.Game.testMode3.DESCENDING;
 
 public class Klondike extends Game {
 
+    // @NG
     private int wrongColorCounter = 0;
     private int wrongNumberCounter = 0;
     private int wrongDubbletapCounter = 0;
+
+    // @NG
     private int flipThroughMainStackCounter = 0;
     private int undoCounter = 0;
     private int hintCounter = 0;
 
+    // @NG
+    private boolean moveAvailable = false;
+
+    // @NG
     private int[] stackCounter = new int[15];
 
+    // @NG
     private ArrayList<String> timestamps;
 
+    // @NG
     private boolean dubbeltap = false;
     private boolean hintUsed = false;
 
@@ -91,6 +100,7 @@ public class Klondike extends Game {
         Arrays.fill(stackCounter, 0);
     }
 
+    // @NG for all the following getters and setters
     public int getColorMoveCount() {return wrongColorCounter;}
 
     public void setColorMoveCount(int sameColorCounter) {
@@ -145,6 +155,14 @@ public class Klondike extends Game {
 
     public int getHintCounter() {
         return hintCounter;
+    }
+
+    public boolean getMoveAvailable() {
+        return moveAvailable;
+    }
+
+    public void setMoveAvailable(boolean moveAvailable) {
+        this.moveAvailable = moveAvailable;
     }
 
     public void setStackCounter(int[] stackCounter) {
@@ -247,6 +265,7 @@ public class Klondike extends Game {
     public int onMainStackTouch() {
 
         boolean deal3 = sharedStringEquals(PREF_KEY_DRAW_OLD, DEFAULT_DRAW,"3");
+        // @NG
         flipThroughMainStackCounter++;
         System.out.println("Flip through main stack: " + flipThroughMainStackCounter);
 
@@ -403,13 +422,14 @@ public class Klondike extends Game {
             return false;
     }
 
-    public void faultCounter(Stack stack, Card card) {  // function to count various fault moves
+    // @NG function to count various fault moves
+    public void faultCounter(Stack stack, Card card) {
         boolean fault = false;
 
         if(hintUsed == false) {
             if(stack == null && dubbeltap == false) {
                 wrongDubbletapCounter++;
-                System.out.println("No legitimate move: " + wrongDubbletapCounter);
+                System.out.println("DubbelTap fault " + wrongDubbletapCounter);
             }
 
             // check if card is place on the aces stacks, if so check value and symbol of card
@@ -436,7 +456,8 @@ public class Klondike extends Game {
         }
     }
 
-    public void timeStampForOneMove(float X, float Y) { // function to get the timestamp whenever a card is touched, used to calculate the time needed to do one move or to think of a move
+    // @NG function to get the timestamp whenever a card is touched, used to calculate the time needed to do one move or to think of a move
+    public void timeStampForOneMove(float X, float Y) {
         String currentDateTimeString = DateFormat.getDateTimeInstance().format(new Date());
         for (int i = 0; i < stacks.length; i++) {
             if (stacks[i].isOnLocation(X, Y)) {
@@ -446,6 +467,7 @@ public class Klondike extends Game {
         }
     }
 
+    // @NG function to count how many times a stack is touched
     public void stackCounter(int stackId) {
         for(int i = 0; i < stacks.length; i++) {
             if(stackId == stacks[i].getId()) {
@@ -468,7 +490,6 @@ public class Klondike extends Game {
         Card card;
         hintUsed = true;
 
-
         for (int i = 0; i <= 6; i++) {
 
             Stack origin = stacks[i];
@@ -488,6 +509,7 @@ public class Klondike extends Game {
                     }
 
                     if (card.test(stacks[j])) {
+                        moveAvailable = true;
                         return new CardAndStack(card, stacks[j]);
                     }
                 }
@@ -499,6 +521,7 @@ public class Klondike extends Game {
             if (!hint.hasVisited(card)) {
                 for (int j = 7; j <= 10; j++) {
                     if (card.test(stacks[j])) {
+                        moveAvailable = true;
                         return new CardAndStack(card, stacks[j]);
                     }
                 }
@@ -515,6 +538,7 @@ public class Klondike extends Game {
             if (stacks[11 + i].getSize() > 0 && !hint.hasVisited(stacks[11 + i].getTopCard())) {
                 for (int j = 10; j >= 0; j--) {
                     if (stacks[11 + i].getTopCard().test(stacks[j])) {
+                        moveAvailable = true;
                         return new CardAndStack(stacks[11 + i].getTopCard(), stacks[j]);
                     }
                 }

@@ -77,6 +77,14 @@ public class Card {
         value = (id % 13) + 1;
     }
 
+    public float calculateCenterX() {
+        return width/2;
+    }
+
+    public float calculateCenterY() {
+        return height/2;
+    }
+
     /**
      * Sets the card drawables according to set preferences. Each card theme has one drawable file
      * with 52 cards in it. These will be loaded in bitmaps and applied to the cards. The bitmap array
@@ -268,6 +276,14 @@ public class Card {
     public boolean test(Stack destination) {
         return !((!isUp() || (destination.getSize() != 0 && !destination.getTopCard().isUp())) && !autoComplete.isRunning()) && currentGame.cardTest(destination, this);
         //return currentGame.cardTest(destination, this) && destination.topCardIsUp();
+    }
+
+    public void precision(float X, float Y) { // function to calculate the precision of a persons tap
+        float centerX = getX();
+        float centerY = getY();
+
+        System.out.println("centers: " + centerX + " " + centerY);
+        System.out.println("Event: " + X + " " + Y);
     }
 
     public int getColor() {
