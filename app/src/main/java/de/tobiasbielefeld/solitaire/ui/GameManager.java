@@ -240,14 +240,7 @@ public class GameManager extends CustomAppCompatActivity implements View.OnTouch
      * The motion events are put in extra methods, because before it got a bit unclear
      */
     public boolean onTouch(View view, MotionEvent event) {
-        // @NP code for measuring beta errors
-        hint.setHintVisible(false);
-        currentGame.hintTest();
-        System.out.println("Hint visible: " + hint.getHintVisible());
-        if(hint.getHintVisible() == false && currentGame.getMoveAvailable() == true) {
-            System.out.println("You could have done a move, beta error");
-            currentGame.setMoveAvailable(false);
-        }
+
 
         CustomImageView v = (CustomImageView) view;
         //if something important happens don't accept input
@@ -293,6 +286,16 @@ public class GameManager extends CustomAppCompatActivity implements View.OnTouch
 
         //if the main stack got touched
         if (currentGame.hasMainStack() && currentGame.testIfMainStackTouched(X, Y)) {
+
+            // @NP code for measuring beta errors, I think it's better to do that when the main stack is touched
+            hint.setHintVisible(false);
+            currentGame.hintTest();
+            System.out.println("Hint visible: " + hint.getHintVisible());
+            if(hint.getHintVisible() == false && currentGame.getMoveAvailable() == true) {
+                System.out.println("You could have done a move, beta error");
+                currentGame.setMoveAvailable(false);
+            }
+
             //test if the redeal counter needs to be updated
             currentGame.stackCounter(cards[v.getId()].getStack().getId());
             if (currentGame.hasLimitedRecycles() && currentGame.getDealStack().isEmpty()) {
