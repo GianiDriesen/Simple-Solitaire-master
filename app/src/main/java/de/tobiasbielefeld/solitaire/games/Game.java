@@ -207,6 +207,10 @@ public abstract class Game {
 
     abstract public int[] getStackCounter();
 
+    abstract public int getBetaError();
+
+    abstract public void setBetaError(int counter);
+
     /**
      * Tests if the card can be added to the movement to place on another stack.
      *

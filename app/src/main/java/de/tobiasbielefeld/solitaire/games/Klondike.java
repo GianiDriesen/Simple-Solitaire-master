@@ -68,6 +68,7 @@ public class Klondike extends Game {
     private int flipThroughMainStackCounter = 0;
     private int undoCounter = 0;
     private int hintCounter = 0;
+    private int betaError = 0;
 
     // @NG
     private boolean moveAvailable = false;
@@ -171,6 +172,14 @@ public class Klondike extends Game {
 
     public int[] getStackCounter() {
         return stackCounter;
+    }
+
+    public int getBetaError() {
+        return betaError;
+    }
+
+    public void setBetaError(int counter) {
+        betaError = counter;
     }
 
     public void setTimestamps(ArrayList<String> fetchedTimestamps) {

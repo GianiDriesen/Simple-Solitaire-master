@@ -69,7 +69,7 @@ public class GameLogic {
         putBoolean(GAME_MOVED_FIRST_CARD, movedFirstCard);
         putInt(GAME_NUMBER_OF_WON_GAMES, numberWonGames);
 
-        // saving own created counter when game is closed
+        // @NG saving own created counter when game is closed
         putInt("UNDOCOUNT", currentGame.getUndoCounter());
         putInt("WRONGCOLORCOUNT", currentGame.getColorMoveCount());
         putInt("WRONGNUMBERCOUNT", currentGame.getWrongNumberCount());
@@ -78,6 +78,7 @@ public class GameLogic {
         putInt("HINTCOUNT", currentGame.getHintCounter());
         putStringList("TIMESTAMPS", currentGame.getTimestamps());
         putIntArray("STACKCOUNTS", currentGame.getStackCounter());
+        putInt("BETAERROR", currentGame.getBetaError());
         // Timer will be saved in onPause()
         for (Stack stack : stacks)
             stack.save();
@@ -108,7 +109,7 @@ public class GameLogic {
         wonAndReloaded = getBoolean(GAME_WON_AND_RELOADED, DEFAULT_WON_AND_RELOADED);
         movedFirstCard = getBoolean(GAME_MOVED_FIRST_CARD, DEFAULT_MOVED_FIRST_CARD);
 
-        // loading created counters when games is booted up
+        // @NG loading created counters when game is booted up
         currentGame.setUndoCounter(getInt("UNDOCOUNT", 0));
         currentGame.setFlipThroughMainstackCount(getInt("FLIPMAINSTACKCOUNT", 0));
         currentGame.setHintCounter(getInt("HINTCOUNT", 0));
@@ -117,6 +118,7 @@ public class GameLogic {
         currentGame.setColorMoveCount(getInt("WRONGCOLORCOUNT", 0));
         currentGame.setTimestamps(getStringList("TIMESTAMPS"));
         currentGame.setStackCounter(getIntArray("STACKCOUNTS"));
+        currentGame.setBetaError(getInt("BETAERROR", 0));
         //update and reset
         Card.updateCardDrawableChoice();
         Card.updateCardBackgroundChoice();
@@ -173,6 +175,7 @@ public class GameLogic {
      * starts a new game. The only difference to a re-deal is the shuffling of the cards
      */
     public void newGame() {
+        // @NG
         ArrayList<String> newTimestamps = new ArrayList<>();
         currentGame.setColorMoveCount(0); // if new game is started, set the wrongMoveCounter to 0
         currentGame.setWrongDubbletapCount(0);
@@ -182,6 +185,7 @@ public class GameLogic {
         currentGame.setHintCounter(0);
         currentGame.setTimestamps(newTimestamps);
         currentGame.setStackCounter(new int[15]);
+        currentGame.setBetaError(0);
         System.arraycopy(cards, 0, randomCards, 0, cards.length);
         randomize(randomCards);
 

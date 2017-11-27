@@ -52,7 +52,50 @@ import de.tobiasbielefeld.solitaire.helper.Sounds;
 import de.tobiasbielefeld.solitaire.helper.Timer;
 import de.tobiasbielefeld.solitaire.ui.settings.Settings;
 
-import static de.tobiasbielefeld.solitaire.SharedData.*;
+import static de.tobiasbielefeld.solitaire.SharedData.DEFAULT_BACKGROUND_COLOR;
+import static de.tobiasbielefeld.solitaire.SharedData.DEFAULT_BACKGROUND_COLOR_CUSTOM;
+import static de.tobiasbielefeld.solitaire.SharedData.DEFAULT_BACKGROUND_COLOR_TYPE;
+import static de.tobiasbielefeld.solitaire.SharedData.DEFAULT_DOUBLE_TAP_ALL_CARDS;
+import static de.tobiasbielefeld.solitaire.SharedData.DEFAULT_DOUBLE_TAP_ENABLE;
+import static de.tobiasbielefeld.solitaire.SharedData.DEFAULT_DOUBLE_TAP_FOUNDATION_FIRST;
+import static de.tobiasbielefeld.solitaire.SharedData.DEFAULT_LEFT_HANDED_MODE;
+import static de.tobiasbielefeld.solitaire.SharedData.DEFAULT_MENU_BAR_POSITION_LANDSCAPE;
+import static de.tobiasbielefeld.solitaire.SharedData.DEFAULT_MENU_BAR_POSITION_PORTRAIT;
+import static de.tobiasbielefeld.solitaire.SharedData.DEFAULT_SINGLE_TAP_ENABLED;
+import static de.tobiasbielefeld.solitaire.SharedData.DEFAULT_TAP_TO_SELECT_ENABLED;
+import static de.tobiasbielefeld.solitaire.SharedData.GAME;
+import static de.tobiasbielefeld.solitaire.SharedData.PREF_KEY_BACKGROUND_COLOR;
+import static de.tobiasbielefeld.solitaire.SharedData.PREF_KEY_BACKGROUND_COLOR_CUSTOM;
+import static de.tobiasbielefeld.solitaire.SharedData.PREF_KEY_BACKGROUND_COLOR_TYPE;
+import static de.tobiasbielefeld.solitaire.SharedData.PREF_KEY_DOUBLE_TAP_ALL_CARDS;
+import static de.tobiasbielefeld.solitaire.SharedData.PREF_KEY_DOUBLE_TAP_ENABLED;
+import static de.tobiasbielefeld.solitaire.SharedData.PREF_KEY_DOUBLE_TAP_FOUNDATION_FIRST;
+import static de.tobiasbielefeld.solitaire.SharedData.PREF_KEY_LEFT_HANDED_MODE;
+import static de.tobiasbielefeld.solitaire.SharedData.PREF_KEY_SINGLE_TAP_ENABLE;
+import static de.tobiasbielefeld.solitaire.SharedData.PREF_KEY_TAP_TO_SELECT_ENABLED;
+import static de.tobiasbielefeld.solitaire.SharedData.RESTART_DIALOG;
+import static de.tobiasbielefeld.solitaire.SharedData.WON_DIALOG;
+import static de.tobiasbielefeld.solitaire.SharedData.animate;
+import static de.tobiasbielefeld.solitaire.SharedData.autoComplete;
+import static de.tobiasbielefeld.solitaire.SharedData.cardHighlight;
+import static de.tobiasbielefeld.solitaire.SharedData.cards;
+import static de.tobiasbielefeld.solitaire.SharedData.currentGame;
+import static de.tobiasbielefeld.solitaire.SharedData.gameLogic;
+import static de.tobiasbielefeld.solitaire.SharedData.getSharedBoolean;
+import static de.tobiasbielefeld.solitaire.SharedData.getSharedInt;
+import static de.tobiasbielefeld.solitaire.SharedData.getSharedString;
+import static de.tobiasbielefeld.solitaire.SharedData.hint;
+import static de.tobiasbielefeld.solitaire.SharedData.lg;
+import static de.tobiasbielefeld.solitaire.SharedData.max;
+import static de.tobiasbielefeld.solitaire.SharedData.min;
+import static de.tobiasbielefeld.solitaire.SharedData.movingCards;
+import static de.tobiasbielefeld.solitaire.SharedData.recordList;
+import static de.tobiasbielefeld.solitaire.SharedData.savedGameData;
+import static de.tobiasbielefeld.solitaire.SharedData.scores;
+import static de.tobiasbielefeld.solitaire.SharedData.sharedStringEqualsDefault;
+import static de.tobiasbielefeld.solitaire.SharedData.sounds;
+import static de.tobiasbielefeld.solitaire.SharedData.stacks;
+import static de.tobiasbielefeld.solitaire.SharedData.timer;
 import static de.tobiasbielefeld.solitaire.classes.Stack.SpacingDirection.DOWN;
 import static de.tobiasbielefeld.solitaire.classes.Stack.SpacingDirection.NONE;
 
@@ -241,7 +284,6 @@ public class GameManager extends CustomAppCompatActivity implements View.OnTouch
      */
     public boolean onTouch(View view, MotionEvent event) {
 
-
         CustomImageView v = (CustomImageView) view;
         //if something important happens don't accept input
         if (stopConditions())
@@ -292,7 +334,8 @@ public class GameManager extends CustomAppCompatActivity implements View.OnTouch
             currentGame.hintTest();
             System.out.println("Hint visible: " + hint.getHintVisible());
             if(hint.getHintVisible() == false && currentGame.getMoveAvailable() == true) {
-                System.out.println("You could have done a move, beta error");
+                currentGame.setBetaError(currentGame.getBetaError() + 1);
+                System.out.println("Beta error: " + currentGame.getBetaError());
                 currentGame.setMoveAvailable(false);
             }
 
