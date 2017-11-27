@@ -1,13 +1,13 @@
 package de.tobiasbielefeld.solitaire.helper;
 
+import de.tobiasbielefeld.solitaire.classes.GamePlayed;
 import de.tobiasbielefeld.solitaire.classes.Person;
-import de.tobiasbielefeld.solitaire.helper.Database;
 
-import java.security.Permission;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.LinkedList;
+import java.util.List;
 
 /**
  * Contains standard methods for mappers
@@ -16,14 +16,17 @@ public enum EntityMapper {
     UNIQUEMAPPER;
 
     public Person person;
-    public LinkedList<Person> persons;
+    public List<Person> persons;
+    public GamePlayed game;
+    public List<GamePlayed> games;
     public boolean dataReceived;
     public void dataGrabbed() { // allow to reset the flag and all entities.
         this.dataReceived = false;
         person = null;
         persons = new LinkedList<>();
     }
-    public PersonMapper personMapper = PersonMapper.UNIQUEMAPPER;
+    private PersonMapper personMapper = PersonMapper.UNIQUEMAPPER;
+    private GameMapper gameMapper = GameMapper.UNIQUEMAPPER;
 
     EntityMapper() {}
 
@@ -62,8 +65,27 @@ public enum EntityMapper {
         return personMapper;
     }
 
+    public GameMapper getGameMapper() {return gameMapper;}
+
+
+
     public void setTmpPerson(Person person){
         this.person = person;
+        this.dataReceived = true;
+    }
+
+    public void setTmpPersons(List<Person> persons) {
+        this.persons = persons;
+        this.dataReceived = true;
+    }
+
+    public void setTmpGame(GamePlayed game) {
+        this.game = game;
+        this.dataReceived = true;
+    }
+
+    public void setTmpGames (List<GamePlayed> games) {
+        this.games = games;
         this.dataReceived = true;
     }
 }

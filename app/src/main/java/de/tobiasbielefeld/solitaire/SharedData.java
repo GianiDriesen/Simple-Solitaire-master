@@ -28,6 +28,7 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.StringTokenizer;
 
+import de.tobiasbielefeld.solitaire.classes.Person;
 import de.tobiasbielefeld.solitaire.helper.BackgroundMusic;
 import de.tobiasbielefeld.solitaire.classes.Card;
 import de.tobiasbielefeld.solitaire.classes.Stack;
@@ -205,6 +206,7 @@ public class SharedData {
     public static int NUMBER_OF_CARD_THEMES;
 
     public static EntityMapper entityMapper = EntityMapper.UNIQUEMAPPER;
+    public static Person user = null;
 
     /**
      * Reload the needed data. Because if the android device runs out of memory, the app gets

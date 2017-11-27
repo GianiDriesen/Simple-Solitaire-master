@@ -14,6 +14,7 @@ import android.widget.Toast;
 import de.tobiasbielefeld.solitaire.classes.Person;
 import de.tobiasbielefeld.solitaire.helper.Database;
 import de.tobiasbielefeld.solitaire.helper.EntityMapper;
+import de.tobiasbielefeld.solitaire.helper.PersonColumns;
 import de.tobiasbielefeld.solitaire.ui.GameSelector;
 
 public class LoginActivity extends AppCompatActivity {
@@ -57,7 +58,7 @@ public class LoginActivity extends AppCompatActivity {
 
     private class CheckPerson extends AsyncTask<Void, Void, Person> {
         protected Person doInBackground(Void... voids) {
-            entityMapper.getPersonMapper().getPersonByUsername(username.getText().toString());
+            entityMapper.getPersonMapper().getPersonByX(username.getText().toString(), PersonColumns.USERNAME);
             Person person = new Person();
             while (!entityMapper.dataReceived) {
                 if (isCancelled()) break;}
@@ -72,6 +73,7 @@ public class LoginActivity extends AppCompatActivity {
             if (!person.equals(null)) {
                 if (person.getPassword().equals(password.getText().toString())) {
                     Intent intent = new Intent(LoginActivity.this, GameSelector.class);
+                    SharedData.user = person;
                     startActivity(intent);
                 } else {
                     Toast.makeText(LoginActivity.this, "Login credentials are wrong. ", Toast.LENGTH_SHORT).show();

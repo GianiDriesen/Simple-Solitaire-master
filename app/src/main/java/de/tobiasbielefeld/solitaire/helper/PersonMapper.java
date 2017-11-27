@@ -22,21 +22,47 @@ public enum PersonMapper {
     private EntityMapper eMapper = EntityMapper.UNIQUEMAPPER;
 
 	/**
-	 * Get a Person object by its id
-	 * @param username The id of the Person to be found
+	 * Get a Person object by X
+	 * @param string The item of the Person to be found
+	 * @param column the column the item must be found
 	 * @return Person object (or null if it was not found)
 	 */
-	public void getPersonByUsername(String username) {
-		String select = "SELECT * FROM person where username = ?";
+	public void getPersonByX(String string, PersonColumns column) {
+		String select = "SELECT * FROM person where "+column.getColName()+" = ?";
+		System.out.println(select);
 		Person person = null;
 		try {
 			PreparedStatement prepstat = Database.CONNECTION.getConnection().prepareStatement(select);
-			prepstat.setString(1, username);
+			prepstat.setString(1, string);
 			person = queryPerson(prepstat);
 		} catch (SQLException e) {
 			e.printStackTrace();
 		}
 		EntityMapper.UNIQUEMAPPER.setTmpPerson(person);
+	}
+
+	/**
+	 * Get all persons where X
+	 * @param  string the field value you're looking for in the database
+	 * @param  column the Column this item belongs to
+	 * @return A Collection of all persons
+	 */
+	public void getPersonsByX(String string, PersonColumns column) {
+		List<Person> persons = new LinkedList<Person>();
+		try {
+			Statement stmt = Database.CONNECTION.getConnection().createStatement();
+			ResultSet rset = stmt.executeQuery("SELECT * FROM person WHERE "+column.getColName()+" = '"+string+"' ORDER BY username ");
+			while (rset.next()) {
+				persons.add(new Person(rset.getString("username"), rset.getString("password") , rset.getInt("age"),
+						rset.getBoolean("gender"), rset.getInt("level"), rset.getInt("avgScore"), rset.getInt("avgMoves"),
+						rset.getInt("avgTime"), rset.getInt("gamesSucces"), rset.getInt("gamesFailed")));
+			}
+			rset.close();
+			stmt.close();
+		} catch (SQLException e) {
+			e.printStackTrace();
+		}
+		EntityMapper.UNIQUEMAPPER.setTmpPersons(persons);
 	}
 
 
@@ -75,7 +101,7 @@ public enum PersonMapper {
      * Get all persons
      * @return A Collection of all persons
      */
-    public List<Person> getPersons() {
+    public void getPersons() {
         List<Person> persons = new LinkedList<Person>();
         try {
             Statement stmt = Database.CONNECTION.getConnection().createStatement();
@@ -90,30 +116,7 @@ public enum PersonMapper {
         } catch (SQLException e) {
             e.printStackTrace();
         }
-        return persons;
-    }
-
-	/**
-     * Get all persons out of a team
-     * @return A Collection of all persons
-     */
-    public List<Person> getPersonsByX(int teamID) {
-    	String select = "SELECT * FROM person where X = ?";
-        List<Person> persons = new LinkedList<Person>();
-        
-        try {
-            PreparedStatement stmt = Database.CONNECTION.getConnection().prepareStatement(select);
-            ResultSet rset = stmt.executeQuery(select);
-            while (rset.next()) {
-				persons.add(new Person(rset.getString("username"), rset.getString("password") , rset.getInt("age"),
-						rset.getBoolean("gender"), rset.getInt("level"), rset.getInt("avgScore"), rset.getInt("avgMoves"),
-						rset.getInt("avgTime"), rset.getInt("gamesSucces"), rset.getInt("gamesFailed")));
-                }
-            stmt.close();
-        } catch (SQLException e) {
-            e.printStackTrace();
-        }
-        return persons;
+        EntityMapper.UNIQUEMAPPER.setTmpPersons(persons);
     }
     
 	/**

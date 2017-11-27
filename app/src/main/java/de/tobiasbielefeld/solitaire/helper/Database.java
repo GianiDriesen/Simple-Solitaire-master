@@ -14,8 +14,8 @@ public enum Database {
     CONNECTION;
     private static final String DATABASE_DRIVER = "com.mysql.jdbc.Driver";
     private static final String DATABASE_URL = "jdbc:mysql://10.0.2.2:3306/solitairedb"; // het IP adres was niet juist, dat moet 10.0.2.2 zijn omdat we met een emulator bezig zijn
-    private static final String DATABASE_USERNAME = "root";
-    private static final String DATABASE_PASSWORD = "root";
+    private static final String DATABASE_USERNAME = "Giani";
+    private static final String DATABASE_PASSWORD = "Giani1995";
 
     public Connection con;
 
