@@ -9,6 +9,8 @@ import java.sql.SQLException;
  * @author Koen Pelsmaekers
  * @editor Giani-Luigi Driesen
  */
+
+// @GN
 public enum Database {
 
     CONNECTION;

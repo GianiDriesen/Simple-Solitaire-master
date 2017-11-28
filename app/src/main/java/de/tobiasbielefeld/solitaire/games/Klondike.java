@@ -59,27 +59,27 @@ import static de.tobiasbielefeld.solitaire.games.Game.testMode3.DESCENDING;
 
 public class Klondike extends Game {
 
-    // @NG
+    // @GN
     private int wrongColorCounter = 0;
     private int wrongNumberCounter = 0;
     private int wrongDubbletapCounter = 0;
 
-    // @NG
+    // @GN
     private int flipThroughMainStackCounter = 0;
     private int undoCounter = 0;
     private int hintCounter = 0;
     private int betaError = 0;
 
-    // @NG
+    // @GN
     private boolean moveAvailable = false;
 
-    // @NG
+    // @GN
     private int[] stackCounter = new int[15];
 
-    // @NG
+    // @GN
     private ArrayList<String> timestamps;
 
-    // @NG
+    // @GN
     private boolean dubbeltap = false;
     private boolean hintUsed = false;
 
@@ -101,7 +101,7 @@ public class Klondike extends Game {
         Arrays.fill(stackCounter, 0);
     }
 
-    // @NG for all the following getters and setters
+    // @GN for all the following getters and setters
     public int getColorMoveCount() {return wrongColorCounter;}
 
     public void setColorMoveCount(int sameColorCounter) {
@@ -274,7 +274,7 @@ public class Klondike extends Game {
     public int onMainStackTouch() {
 
         boolean deal3 = sharedStringEquals(PREF_KEY_DRAW_OLD, DEFAULT_DRAW,"3");
-        // @NG
+        // @GN
         flipThroughMainStackCounter++;
         System.out.println("Flip through main stack: " + flipThroughMainStackCounter);
 
@@ -431,7 +431,7 @@ public class Klondike extends Game {
             return false;
     }
 
-    // @NG function to count various fault moves
+    // @GN function to count various fault moves
     public void faultCounter(Stack stack, Card card) {
         boolean fault = false;
 
@@ -465,7 +465,7 @@ public class Klondike extends Game {
         }
     }
 
-    // @NG function to get the timestamp whenever a card is touched, used to calculate the time needed to do one move or to think of a move
+    // @GN function to get the timestamp whenever a card is touched, used to calculate the time needed to do one move or to think of a move
     public void timeStampForOneMove(float X, float Y) {
         String currentDateTimeString = DateFormat.getDateTimeInstance().format(new Date());
         for (int i = 0; i < stacks.length; i++) {
@@ -476,7 +476,7 @@ public class Klondike extends Game {
         }
     }
 
-    // @NG function to count how many times a stack is touched
+    // @GN function to count how many times a stack is touched
     public void stackCounter(int stackId) {
         for(int i = 0; i < stacks.length; i++) {
             if(stackId == stacks[i].getId()) {

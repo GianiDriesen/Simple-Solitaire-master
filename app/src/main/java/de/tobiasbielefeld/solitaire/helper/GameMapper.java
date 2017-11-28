@@ -16,7 +16,7 @@ import de.tobiasbielefeld.solitaire.classes.GamePlayed;
  * @author Koen Pelsmaekers
  */
 
-// @NG
+// @GN
 public enum GameMapper {
     UNIQUEMAPPER();
 

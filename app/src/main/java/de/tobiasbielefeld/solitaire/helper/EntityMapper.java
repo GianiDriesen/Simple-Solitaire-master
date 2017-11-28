@@ -1,17 +1,19 @@
 package de.tobiasbielefeld.solitaire.helper;
 
-import de.tobiasbielefeld.solitaire.classes.GamePlayed;
-import de.tobiasbielefeld.solitaire.classes.Person;
-
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.LinkedList;
 import java.util.List;
 
+import de.tobiasbielefeld.solitaire.classes.GamePlayed;
+import de.tobiasbielefeld.solitaire.classes.Person;
+
 /**
  * Contains standard methods for mappers
  */
+
+// @GN
 public enum EntityMapper {
     UNIQUEMAPPER;
 

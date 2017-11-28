@@ -159,6 +159,7 @@ public abstract class Game {
      */
     abstract public boolean cardTest(Stack stack, Card card);
 
+    // @GN
     abstract public void faultCounter(Stack stack, Card card); // function to count the wrong color moves, dubbltap errors and wrongNumber erors
 
     abstract public void setColorMoveCount(int sameColorCount); // function to set errorCounter to 0

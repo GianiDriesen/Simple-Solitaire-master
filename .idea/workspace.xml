@@ -12,10 +12,18 @@
   <component name="ChangeListManager">
     <list default="true" id="61ebc4f1-8c6b-4787-b1e9-e8598d2c6b31" name="Default" comment="">
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/src/main/java/de/tobiasbielefeld/solitaire/classes/GamePlayed.java" afterPath="$PROJECT_DIR$/app/src/main/java/de/tobiasbielefeld/solitaire/classes/GamePlayed.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/app.iml" afterPath="$PROJECT_DIR$/app/app.iml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/src/main/java/de/tobiasbielefeld/solitaire/classes/Person.java" afterPath="$PROJECT_DIR$/app/src/main/java/de/tobiasbielefeld/solitaire/classes/Person.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/src/main/java/de/tobiasbielefeld/solitaire/games/Game.java" afterPath="$PROJECT_DIR$/app/src/main/java/de/tobiasbielefeld/solitaire/games/Game.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/src/main/java/de/tobiasbielefeld/solitaire/games/Klondike.java" afterPath="$PROJECT_DIR$/app/src/main/java/de/tobiasbielefeld/solitaire/games/Klondike.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/src/main/java/de/tobiasbielefeld/solitaire/helper/Database.java" afterPath="$PROJECT_DIR$/app/src/main/java/de/tobiasbielefeld/solitaire/helper/Database.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/src/main/java/de/tobiasbielefeld/solitaire/helper/EntityMapper.java" afterPath="$PROJECT_DIR$/app/src/main/java/de/tobiasbielefeld/solitaire/helper/EntityMapper.java" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/src/main/java/de/tobiasbielefeld/solitaire/helper/GameColumns.java" afterPath="$PROJECT_DIR$/app/src/main/java/de/tobiasbielefeld/solitaire/helper/GameColumns.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/src/main/java/de/tobiasbielefeld/solitaire/helper/GameLogic.java" afterPath="$PROJECT_DIR$/app/src/main/java/de/tobiasbielefeld/solitaire/helper/GameLogic.java" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/src/main/java/de/tobiasbielefeld/solitaire/helper/GameMapper.java" afterPath="$PROJECT_DIR$/app/src/main/java/de/tobiasbielefeld/solitaire/helper/GameMapper.java" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/src/main/java/de/tobiasbielefeld/solitaire/helper/PersonColumns.java" afterPath="$PROJECT_DIR$/app/src/main/java/de/tobiasbielefeld/solitaire/helper/PersonColumns.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/src/main/java/de/tobiasbielefeld/solitaire/helper/PersonMapper.java" afterPath="$PROJECT_DIR$/app/src/main/java/de/tobiasbielefeld/solitaire/helper/PersonMapper.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/src/main/java/de/tobiasbielefeld/solitaire/ui/GameManager.java" afterPath="$PROJECT_DIR$/app/src/main/java/de/tobiasbielefeld/solitaire/ui/GameManager.java" />
     </list>
     <ignored path="Simple-Solitaire-master.iws" />
     <ignored path=".idea/workspace.xml" />
@@ -50,29 +58,21 @@
       <file leaf-file-name="GameManager.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/app/src/main/java/de/tobiasbielefeld/solitaire/ui/GameManager.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="5019">
-              <caret line="334" column="53" lean-forward="false" selection-start-line="334" selection-start-column="53" selection-end-line="334" selection-end-column="53" />
+            <state relative-caret-position="256">
+              <caret line="331" column="18" lean-forward="false" selection-start-line="331" selection-start-column="18" selection-end-line="331" selection-end-column="18" />
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="GameLogic.java" pinned="false" current-in-tab="true">
+      <file leaf-file-name="GameLogic.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/app/src/main/java/de/tobiasbielefeld/solitaire/helper/GameLogic.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="420">
-              <caret line="191" column="31" lean-forward="false" selection-start-line="191" selection-start-column="31" selection-end-line="191" selection-end-column="31" />
+            <state relative-caret-position="256">
+              <caret line="212" column="12" lean-forward="false" selection-start-line="212" selection-start-column="12" selection-end-line="212" selection-end-column="12" />
               <folding>
-                <marker date="1511865636242" expanded="false" signature="1977:1988" ph=" { " />
-                <marker date="1511865636242" expanded="false" signature="2001:2007" ph=" }" />
-                <marker date="1511865636242" expanded="false" signature="6932:6974" ph="&quot;Loading data failed&quot;" />
-                <marker date="1511865636242" expanded="false" signature="7016:7054" ph="&quot;Loading data failed, starting new game…&quot;" />
-                <marker date="1511865636242" expanded="false" signature="11813:11824" ph=" { " />
-                <marker date="1511865636242" expanded="false" signature="11835:11841" ph=" }" />
-                <marker date="1511865636242" expanded="false" signature="11877:11888" ph=" { " />
-                <marker date="1511865636242" expanded="false" signature="11910:11916" ph=" }" />
-                <marker date="1511865636242" expanded="false" signature="12804:12815" ph=" { " />
-                <marker date="1511865636242" expanded="false" signature="12834:12840" ph=" }" />
+                <marker date="1511867587640" expanded="false" signature="9266:9308" ph="&quot;Loading data failed&quot;" />
+                <marker date="1511867587640" expanded="false" signature="9350:9388" ph="&quot;Loading data failed, starting new game…&quot;" />
               </folding>
             </state>
           </provider>
@@ -81,11 +81,9 @@
       <file leaf-file-name="Klondike.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/app/src/main/java/de/tobiasbielefeld/solitaire/games/Klondike.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="2121">
-              <caret line="181" column="28" lean-forward="false" selection-start-line="181" selection-start-column="28" selection-end-line="181" selection-end-column="28" />
+            <state relative-caret-position="256">
+              <caret line="103" column="10" lean-forward="false" selection-start-line="103" selection-start-column="10" selection-end-line="103" selection-end-column="10" />
               <folding>
-                <element signature="e#5710#5711#0" expanded="true" />
-                <element signature="e#5742#5743#0" expanded="true" />
                 <element signature="e#5787#5788#0" expanded="true" />
                 <element signature="e#5822#5823#0" expanded="true" />
               </folding>
@@ -93,11 +91,11 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="Game.java" pinned="false" current-in-tab="false">
+      <file leaf-file-name="Game.java" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/app/src/main/java/de/tobiasbielefeld/solitaire/games/Game.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="3591">
-              <caret line="211" column="51" lean-forward="false" selection-start-line="211" selection-start-column="13" selection-end-line="211" selection-end-column="51" />
+            <state relative-caret-position="-2096">
+              <caret line="161" column="10" lean-forward="false" selection-start-line="161" selection-start-column="10" selection-end-line="161" selection-end-column="10" />
               <folding />
             </state>
           </provider>
@@ -115,6 +113,7 @@
       <find>cardTest</find>
       <find>test</find>
       <find>cardtest</find>
+      <find>@NG</find>
     </findStrings>
   </component>
   <component name="Git.Settings">
@@ -1986,20 +1985,22 @@
         <option value="$PROJECT_DIR$/app/src/main/java/de/tobiasbielefeld/solitaire/helper/Scores.java" />
         <option value="$PROJECT_DIR$/app/src/main/AndroidManifest.xml" />
         <option value="$PROJECT_DIR$/app/src/main/java/de/tobiasbielefeld/solitaire/SharedData.java" />
-        <option value="$PROJECT_DIR$/app/src/main/java/de/tobiasbielefeld/solitaire/helper/PersonMapper.java" />
-        <option value="$PROJECT_DIR$/app/src/main/java/de/tobiasbielefeld/solitaire/helper/Database.java" />
         <option value="$PROJECT_DIR$/app/src/main/java/de/tobiasbielefeld/solitaire/classes/Card.java" />
         <option value="$PROJECT_DIR$/app/src/main/java/de/tobiasbielefeld/solitaire/handler/HandlerAutoComplete.java" />
         <option value="$PROJECT_DIR$/app/src/main/java/de/tobiasbielefeld/solitaire/helper/Hint.java" />
         <option value="$PROJECT_DIR$/app/src/main/java/de/tobiasbielefeld/solitaire/handler/HandlerHint.java" />
-        <option value="$PROJECT_DIR$/app/src/main/java/de/tobiasbielefeld/solitaire/games/Game.java" />
-        <option value="$PROJECT_DIR$/app/src/main/java/de/tobiasbielefeld/solitaire/games/Klondike.java" />
-        <option value="$PROJECT_DIR$/app/src/main/java/de/tobiasbielefeld/solitaire/ui/GameManager.java" />
-        <option value="$PROJECT_DIR$/app/src/main/java/de/tobiasbielefeld/solitaire/helper/GameLogic.java" />
-        <option value="$PROJECT_DIR$/app/src/main/java/de/tobiasbielefeld/solitaire/helper/GameColumns.java" />
         <option value="$PROJECT_DIR$/app/src/main/java/de/tobiasbielefeld/solitaire/classes/GamePlayed.java" />
+        <option value="$PROJECT_DIR$/app/src/main/java/de/tobiasbielefeld/solitaire/helper/GameLogic.java" />
+        <option value="$PROJECT_DIR$/app/src/main/java/de/tobiasbielefeld/solitaire/ui/GameManager.java" />
+        <option value="$PROJECT_DIR$/app/src/main/java/de/tobiasbielefeld/solitaire/games/Klondike.java" />
+        <option value="$PROJECT_DIR$/app/src/main/java/de/tobiasbielefeld/solitaire/games/Game.java" />
+        <option value="$PROJECT_DIR$/app/src/main/java/de/tobiasbielefeld/solitaire/classes/Person.java" />
+        <option value="$PROJECT_DIR$/app/src/main/java/de/tobiasbielefeld/solitaire/helper/Database.java" />
+        <option value="$PROJECT_DIR$/app/src/main/java/de/tobiasbielefeld/solitaire/helper/EntityMapper.java" />
+        <option value="$PROJECT_DIR$/app/src/main/java/de/tobiasbielefeld/solitaire/helper/GameColumns.java" />
         <option value="$PROJECT_DIR$/app/src/main/java/de/tobiasbielefeld/solitaire/helper/GameMapper.java" />
         <option value="$PROJECT_DIR$/app/src/main/java/de/tobiasbielefeld/solitaire/helper/PersonColumns.java" />
+        <option value="$PROJECT_DIR$/app/src/main/java/de/tobiasbielefeld/solitaire/helper/PersonMapper.java" />
       </list>
     </option>
   </component>
@@ -2025,8 +2026,6 @@
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
-      <pane id="PackagesPane" />
-      <pane id="ProjectPane" />
       <pane id="AndroidView">
         <subPane>
           <PATH>
@@ -2079,28 +2078,6 @@
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
           </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="Simple-Solitaire-master" />
-              <option name="myItemType" value="com.android.tools.idea.navigator.nodes.AndroidViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="app" />
-              <option name="myItemType" value="com.android.tools.idea.navigator.nodes.android.AndroidModuleNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="java" />
-              <option name="myItemType" value="com.android.tools.idea.navigator.nodes.android.AndroidSourceTypeNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="solitaire" />
-              <option name="myItemType" value="com.android.tools.idea.navigator.nodes.android.AndroidPsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="classes" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-          </PATH>
         </subPane>
       </pane>
       <pane id="Scratches" />
@@ -2118,6 +2095,8 @@
           </PATH>
         </subPane>
       </pane>
+      <pane id="ProjectPane" />
+      <pane id="PackagesPane" />
     </panes>
   </component>
   <component name="PropertiesComponent">
@@ -2127,126 +2106,6 @@
     <property name="android.profiler.active" value="true" />
     <property name="android.project.structure.last.selected" value="mysql-connector-java-5.1.39-bin" />
     <property name="android.project.structure.proportion" value="0.15" />
-  </component>
-  <component name="RestoreUpdateTree" date="Moments ago" ActionInfo="_Update">
-    <UpdatedFiles>
-      <FILE-GROUP>
-        <option name="myUpdateName" value="Updated from server" />
-        <option name="myStatusName" value="Changed on server" />
-        <option name="mySupportsDeletion" value="false" />
-        <option name="myCanBeAbsent" value="false" />
-        <option name="myId" value="CHANGED_ON_SERVER" />
-        <FILE-GROUP>
-          <option name="myUpdateName" value="Updated" />
-          <option name="myStatusName" value="Changed" />
-          <option name="mySupportsDeletion" value="false" />
-          <option name="myCanBeAbsent" value="false" />
-          <option name="myId" value="UPDATED" />
-          <PATH vcs="Git" revision="">$PROJECT_DIR$/app/app.iml</PATH>
-          <PATH vcs="Git" revision="">$PROJECT_DIR$/app/src/main/java/de/tobiasbielefeld/solitaire/LoginActivity.java</PATH>
-          <PATH vcs="Git" revision="">$PROJECT_DIR$/app/src/main/java/de/tobiasbielefeld/solitaire/SharedData.java</PATH>
-          <PATH vcs="Git" revision="">$PROJECT_DIR$/app/src/main/java/de/tobiasbielefeld/solitaire/helper/Database.java</PATH>
-          <PATH vcs="Git" revision="">$PROJECT_DIR$/app/src/main/java/de/tobiasbielefeld/solitaire/helper/EntityMapper.java</PATH>
-          <PATH vcs="Git" revision="">$PROJECT_DIR$/app/src/main/java/de/tobiasbielefeld/solitaire/helper/GameLogic.java</PATH>
-          <PATH vcs="Git" revision="">$PROJECT_DIR$/app/src/main/java/de/tobiasbielefeld/solitaire/helper/PersonMapper.java</PATH>
-        </FILE-GROUP>
-        <FILE-GROUP>
-          <option name="myUpdateName" value="Created" />
-          <option name="myStatusName" value="Created" />
-          <option name="mySupportsDeletion" value="false" />
-          <option name="myCanBeAbsent" value="false" />
-          <option name="myId" value="CREATED" />
-          <PATH vcs="Git" revision="">$PROJECT_DIR$/app/src/main/java/de/tobiasbielefeld/solitaire/classes/GamePlayed.java</PATH>
-          <PATH vcs="Git" revision="">$PROJECT_DIR$/app/src/main/java/de/tobiasbielefeld/solitaire/helper/GameColumns.java</PATH>
-          <PATH vcs="Git" revision="">$PROJECT_DIR$/app/src/main/java/de/tobiasbielefeld/solitaire/helper/GameMapper.java</PATH>
-          <PATH vcs="Git" revision="">$PROJECT_DIR$/app/src/main/java/de/tobiasbielefeld/solitaire/helper/PersonColumns.java</PATH>
-        </FILE-GROUP>
-        <FILE-GROUP>
-          <option name="myUpdateName" value="Deleted" />
-          <option name="myStatusName" value="Deleted" />
-          <option name="mySupportsDeletion" value="false" />
-          <option name="myCanBeAbsent" value="true" />
-          <option name="myId" value="REMOVED_FROM_REPOSITORY" />
-        </FILE-GROUP>
-        <FILE-GROUP>
-          <option name="myUpdateName" value="Restored" />
-          <option name="myStatusName" value="Will be restored" />
-          <option name="mySupportsDeletion" value="false" />
-          <option name="myCanBeAbsent" value="false" />
-          <option name="myId" value="RESTORED" />
-        </FILE-GROUP>
-      </FILE-GROUP>
-      <FILE-GROUP>
-        <option name="myUpdateName" value="Modified" />
-        <option name="myStatusName" value="Modified" />
-        <option name="mySupportsDeletion" value="false" />
-        <option name="myCanBeAbsent" value="false" />
-        <option name="myId" value="MODIFIED" />
-      </FILE-GROUP>
-      <FILE-GROUP>
-        <option name="myUpdateName" value="Skipped" />
-        <option name="myStatusName" value="Skipped" />
-        <option name="mySupportsDeletion" value="false" />
-        <option name="myCanBeAbsent" value="false" />
-        <option name="myId" value="SKIPPED" />
-      </FILE-GROUP>
-      <FILE-GROUP>
-        <option name="myUpdateName" value="Merged with conflicts" />
-        <option name="myStatusName" value="Will be merged with conflicts" />
-        <option name="mySupportsDeletion" value="false" />
-        <option name="myCanBeAbsent" value="false" />
-        <option name="myId" value="MERGED_WITH_CONFLICTS" />
-      </FILE-GROUP>
-      <FILE-GROUP>
-        <option name="myUpdateName" value="Merged with tree conflicts" />
-        <option name="myStatusName" value="Merged with tree conflicts" />
-        <option name="mySupportsDeletion" value="false" />
-        <option name="myCanBeAbsent" value="false" />
-        <option name="myId" value="MERGED_WITH_TREE_CONFLICT" />
-      </FILE-GROUP>
-      <FILE-GROUP>
-        <option name="myUpdateName" value="Merged with property conflicts" />
-        <option name="myStatusName" value="Will be merged with property conflicts" />
-        <option name="mySupportsDeletion" value="false" />
-        <option name="myCanBeAbsent" value="false" />
-        <option name="myId" value="MERGED_WITH_PROPERTY_CONFLICT" />
-      </FILE-GROUP>
-      <FILE-GROUP>
-        <option name="myUpdateName" value="Merged" />
-        <option name="myStatusName" value="Will be merged" />
-        <option name="mySupportsDeletion" value="false" />
-        <option name="myCanBeAbsent" value="false" />
-        <option name="myId" value="MERGED" />
-      </FILE-GROUP>
-      <FILE-GROUP>
-        <option name="myUpdateName" value="Not in repository" />
-        <option name="myStatusName" value="Not in repository" />
-        <option name="mySupportsDeletion" value="true" />
-        <option name="myCanBeAbsent" value="false" />
-        <option name="myId" value="UNKNOWN" />
-      </FILE-GROUP>
-      <FILE-GROUP>
-        <option name="myUpdateName" value="Locally added" />
-        <option name="myStatusName" value="Locally added" />
-        <option name="mySupportsDeletion" value="false" />
-        <option name="myCanBeAbsent" value="false" />
-        <option name="myId" value="LOCALLY_ADDED" />
-      </FILE-GROUP>
-      <FILE-GROUP>
-        <option name="myUpdateName" value="Locally removed" />
-        <option name="myStatusName" value="Locally removed" />
-        <option name="mySupportsDeletion" value="false" />
-        <option name="myCanBeAbsent" value="false" />
-        <option name="myId" value="LOCALLY_REMOVED" />
-      </FILE-GROUP>
-      <FILE-GROUP>
-        <option name="myUpdateName" value="Switched" />
-        <option name="myStatusName" value="Switched" />
-        <option name="mySupportsDeletion" value="false" />
-        <option name="myCanBeAbsent" value="false" />
-        <option name="myId" value="SWITCHED" />
-      </FILE-GROUP>
-    </UpdatedFiles>
   </component>
   <component name="RunDashboard">
     <option name="ruleStates">
@@ -2331,7 +2190,7 @@
       <option name="ACTIVITY_CLASS" value="" />
       <method>
         <option name="Android.Gradle.BeforeRunTask" enabled="true" />
-        <option name="com.android.instantApps.provision.BeforeRunTask" enabled="true" clearCache="false" clearProvisionedDevices="false" myTimestamp="1511866868427" />
+        <option name="com.android.instantApps.provision.BeforeRunTask" enabled="true" clearCache="false" clearProvisionedDevices="false" myTimestamp="1511867887489" />
       </method>
     </configuration>
     <configuration default="true" type="AndroidTestRunConfigurationType" factoryName="Android Instrumented Tests">
@@ -2379,7 +2238,7 @@
       </Profilers>
       <method>
         <option name="Android.Gradle.BeforeRunTask" enabled="true" />
-        <option name="com.android.instantApps.provision.BeforeRunTask" enabled="true" clearCache="false" clearProvisionedDevices="false" myTimestamp="1511866868427" />
+        <option name="com.android.instantApps.provision.BeforeRunTask" enabled="true" clearCache="false" clearProvisionedDevices="false" myTimestamp="1511867887489" />
       </method>
     </configuration>
     <configuration default="true" type="Application" factoryName="Application">
@@ -2411,27 +2270,6 @@
         </option>
         <option name="vmOptions" />
       </ExternalSystemSettings>
-      <method />
-    </configuration>
-    <configuration default="true" type="JUnit" factoryName="JUnit">
-      <extension name="coverage" enabled="false" merge="false" sample_coverage="true" runner="idea" />
-      <module name="" />
-      <option name="ALTERNATIVE_JRE_PATH_ENABLED" value="false" />
-      <option name="ALTERNATIVE_JRE_PATH" />
-      <option name="PACKAGE_NAME" />
-      <option name="MAIN_CLASS_NAME" />
-      <option name="METHOD_NAME" />
-      <option name="TEST_OBJECT" value="class" />
-      <option name="VM_PARAMETERS" />
-      <option name="PARAMETERS" />
-      <option name="WORKING_DIRECTORY" />
-      <option name="ENV_VARIABLES" />
-      <option name="PASS_PARENT_ENVS" value="true" />
-      <option name="TEST_SEARCH_SCOPE">
-        <value defaultName="singleModule" />
-      </option>
-      <envs />
-      <patterns />
       <method />
     </configuration>
     <configuration default="true" type="JarApplication" factoryName="JAR Application">
@@ -2562,7 +2400,7 @@
       <option name="ACTIVITY_CLASS" value="" />
       <method>
         <option name="Android.Gradle.BeforeRunTask" enabled="true" />
-        <option name="com.android.instantApps.provision.BeforeRunTask" enabled="true" clearCache="false" clearProvisionedDevices="false" myTimestamp="1511866868427" />
+        <option name="com.android.instantApps.provision.BeforeRunTask" enabled="true" clearCache="false" clearProvisionedDevices="false" myTimestamp="1511867887505" />
       </method>
     </configuration>
     <list size="1">
@@ -2724,7 +2562,14 @@
       <option name="project" value="LOCAL" />
       <updated>1511775093637</updated>
     </task>
-    <option name="localTasksCounter" value="19" />
+    <task id="LOCAL-00019" summary="Added annotation @NG">
+      <created>1511866885211</created>
+      <option name="number" value="00019" />
+      <option name="presentableId" value="LOCAL-00019" />
+      <option name="project" value="LOCAL" />
+      <updated>1511866885211</updated>
+    </task>
+    <option name="localTasksCounter" value="20" />
     <servers />
   </component>
   <component name="TodoView">
@@ -2740,7 +2585,7 @@
     <frame x="-9" y="-9" width="1938" height="1048" extended-state="6" />
     <editor active="true" />
     <layout>
-      <window_info id="Android Profiler" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32991204" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
+      <window_info id="Android Profiler" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="false" weight="0.32991204" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32863435" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
       <window_info id="Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32716763" sideWeight="0.49677765" order="14" side_tool="false" content_ui="tabs" />
       <window_info id="Build Variants" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="true" content_ui="tabs" />
@@ -2748,8 +2593,8 @@
       <window_info id="Image Layers" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
       <window_info id="Capture Analysis" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.3283237" sideWeight="0.3641246" order="8" side_tool="true" content_ui="tabs" />
+      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32716763" sideWeight="0.49785176" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32716763" sideWeight="0.5" order="10" side_tool="false" content_ui="tabs" />
-      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.32716763" sideWeight="0.49785176" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.3277533" sideWeight="0.5" order="11" side_tool="false" content_ui="tabs" />
       <window_info id="Logcat" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32601157" sideWeight="0.6358754" order="9" side_tool="false" content_ui="tabs" />
       <window_info id="Captures" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
@@ -2761,8 +2606,8 @@
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Device File Explorer" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="true" content_ui="tabs" />
       <window_info id="Theme Preview" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
-      <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="6" side_tool="true" content_ui="tabs" />
       <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.39647058" sideWeight="0.716971" order="3" side_tool="false" content_ui="tabs" />
+      <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="6" side_tool="true" content_ui="tabs" />
       <window_info id="Cvs" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
       <window_info id="Message" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="Commander" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
@@ -2801,7 +2646,8 @@
     <MESSAGE value="Adding more player actions and adjusting existing ones, plus adding the // @NG tag" />
     <MESSAGE value="small changes in measuring beta errors" />
     <MESSAGE value="saving beta error in sharedPreferences" />
-    <option name="LAST_COMMIT_MESSAGE" value="saving beta error in sharedPreferences" />
+    <MESSAGE value="Added annotation @NG" />
+    <option name="LAST_COMMIT_MESSAGE" value="Added annotation @NG" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
@@ -2810,7 +2656,6 @@
     <watches-manager />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/app/src/main/java/de/tobiasbielefeld/solitaire/games/AcesUp.java" />
     <entry file="file://$PROJECT_DIR$/app/src/main/java/de/tobiasbielefeld/solitaire/games/Canfield.java" />
     <entry file="file://$PROJECT_DIR$/app/src/main/java/de/tobiasbielefeld/solitaire/LoadGame.java">
       <provider selected="true" editor-type-id="text-editor">
@@ -2960,14 +2805,14 @@
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/app/src/main/AndroidManifest.xml">
-      <provider editor-type-id="android-manifest">
-        <state />
-      </provider>
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="231">
           <caret line="11" column="42" lean-forward="false" selection-start-line="11" selection-start-column="42" selection-end-line="11" selection-end-column="42" />
           <folding />
         </state>
+      </provider>
+      <provider editor-type-id="android-manifest">
+        <state />
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/app/src/main/java/de/tobiasbielefeld/solitaire/helper/Timer.java">
@@ -2984,31 +2829,10 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/main/java/de/tobiasbielefeld/solitaire/classes/Person.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-1353">
-          <caret line="5" column="13" lean-forward="false" selection-start-line="5" selection-start-column="13" selection-end-line="5" selection-end-column="13" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/app/src/main/java/de/tobiasbielefeld/solitaire/LoginActivity.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="630">
           <caret line="46" column="61" lean-forward="false" selection-start-line="46" selection-start-column="61" selection-end-line="46" selection-end-column="61" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/main/java/de/tobiasbielefeld/solitaire/helper/Database.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="377">
-          <caret line="27" column="7" lean-forward="false" selection-start-line="27" selection-start-column="7" selection-end-line="27" selection-end-column="7" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/main/java/de/tobiasbielefeld/solitaire/helper/PersonMapper.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="2394">
-          <caret line="135" column="30" lean-forward="false" selection-start-line="135" selection-start-column="30" selection-end-line="135" selection-end-column="30" />
         </state>
       </provider>
     </entry>
@@ -3103,43 +2927,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/main/java/de/tobiasbielefeld/solitaire/games/Game.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="3591">
-          <caret line="211" column="51" lean-forward="false" selection-start-line="211" selection-start-column="13" selection-end-line="211" selection-end-column="51" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/main/java/de/tobiasbielefeld/solitaire/games/Klondike.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="2121">
-          <caret line="181" column="28" lean-forward="false" selection-start-line="181" selection-start-column="28" selection-end-line="181" selection-end-column="28" />
-          <folding>
-            <element signature="e#5710#5711#0" expanded="true" />
-            <element signature="e#5742#5743#0" expanded="true" />
-            <element signature="e#5787#5788#0" expanded="true" />
-            <element signature="e#5822#5823#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/main/java/de/tobiasbielefeld/solitaire/ui/GameManager.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="5019">
-          <caret line="334" column="53" lean-forward="false" selection-start-line="334" selection-start-column="53" selection-end-line="334" selection-end-column="53" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/main/java/de/tobiasbielefeld/solitaire/helper/GameColumns.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="126">
-          <caret line="6" column="6" lean-forward="false" selection-start-line="6" selection-start-column="6" selection-end-line="6" selection-end-column="6" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/app/src/main/java/de/tobiasbielefeld/solitaire/classes/GamePlayed.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="168">
@@ -3148,9 +2935,71 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/java/de/tobiasbielefeld/solitaire/ui/GameManager.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="256">
+          <caret line="331" column="18" lean-forward="false" selection-start-line="331" selection-start-column="18" selection-end-line="331" selection-end-column="18" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/java/de/tobiasbielefeld/solitaire/games/Klondike.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="256">
+          <caret line="103" column="10" lean-forward="false" selection-start-line="103" selection-start-column="10" selection-end-line="103" selection-end-column="10" />
+          <folding>
+            <element signature="e#5787#5788#0" expanded="true" />
+            <element signature="e#5822#5823#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/java/de/tobiasbielefeld/solitaire/classes/Person.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="126">
+          <caret line="6" column="6" lean-forward="false" selection-start-line="6" selection-start-column="6" selection-end-line="6" selection-end-column="6" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/java/de/tobiasbielefeld/solitaire/helper/Database.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="210">
+          <caret line="12" column="6" lean-forward="false" selection-start-line="12" selection-start-column="6" selection-end-line="12" selection-end-column="6" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/java/de/tobiasbielefeld/solitaire/helper/GameLogic.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="256">
+          <caret line="212" column="12" lean-forward="false" selection-start-line="212" selection-start-column="12" selection-end-line="212" selection-end-column="12" />
+          <folding>
+            <marker date="1511867587640" expanded="false" signature="9266:9308" ph="&quot;Loading data failed&quot;" />
+            <marker date="1511867587640" expanded="false" signature="9350:9388" ph="&quot;Loading data failed, starting new game…&quot;" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/java/de/tobiasbielefeld/solitaire/helper/EntityMapper.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="168">
+          <caret line="15" column="6" lean-forward="false" selection-start-line="15" selection-start-column="6" selection-end-line="15" selection-end-column="6" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/java/de/tobiasbielefeld/solitaire/helper/GameColumns.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="93">
+          <caret line="6" column="6" lean-forward="false" selection-start-line="6" selection-start-column="6" selection-end-line="6" selection-end-column="6" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/app/src/main/java/de/tobiasbielefeld/solitaire/helper/GameMapper.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-3150">
+        <state relative-caret-position="21">
           <caret line="18" column="6" lean-forward="false" selection-start-line="18" selection-start-column="6" selection-end-line="18" selection-end-column="6" />
           <folding />
         </state>
@@ -3158,28 +3007,25 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/app/src/main/java/de/tobiasbielefeld/solitaire/helper/PersonColumns.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="15">
+        <state relative-caret-position="126">
           <caret line="6" column="6" lean-forward="false" selection-start-line="6" selection-start-column="6" selection-end-line="6" selection-end-column="6" />
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/main/java/de/tobiasbielefeld/solitaire/helper/GameLogic.java">
+    <entry file="file://$PROJECT_DIR$/app/src/main/java/de/tobiasbielefeld/solitaire/helper/PersonMapper.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="420">
-          <caret line="191" column="31" lean-forward="false" selection-start-line="191" selection-start-column="31" selection-end-line="191" selection-end-column="31" />
-          <folding>
-            <marker date="1511865636242" expanded="false" signature="1977:1988" ph=" { " />
-            <marker date="1511865636242" expanded="false" signature="2001:2007" ph=" }" />
-            <marker date="1511865636242" expanded="false" signature="6932:6974" ph="&quot;Loading data failed&quot;" />
-            <marker date="1511865636242" expanded="false" signature="7016:7054" ph="&quot;Loading data failed, starting new game…&quot;" />
-            <marker date="1511865636242" expanded="false" signature="11813:11824" ph=" { " />
-            <marker date="1511865636242" expanded="false" signature="11835:11841" ph=" }" />
-            <marker date="1511865636242" expanded="false" signature="11877:11888" ph=" { " />
-            <marker date="1511865636242" expanded="false" signature="11910:11916" ph=" }" />
-            <marker date="1511865636242" expanded="false" signature="12804:12815" ph=" { " />
-            <marker date="1511865636242" expanded="false" signature="12834:12840" ph=" }" />
-          </folding>
+        <state relative-caret-position="189">
+          <caret line="16" column="6" lean-forward="true" selection-start-line="16" selection-start-column="6" selection-end-line="16" selection-end-column="6" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/java/de/tobiasbielefeld/solitaire/games/Game.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-2096">
+          <caret line="161" column="10" lean-forward="false" selection-start-line="161" selection-start-column="10" selection-end-line="161" selection-end-column="10" />
+          <folding />
         </state>
       </provider>
     </entry>

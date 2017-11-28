@@ -13,6 +13,8 @@ import de.tobiasbielefeld.solitaire.classes.Person;
  * Singleton to map Person entities to-and-from the database.
  * @author Koen Pelsmaekers
  */
+
+// @GN
 public enum PersonMapper {
 	UNIQUEMAPPER();
 

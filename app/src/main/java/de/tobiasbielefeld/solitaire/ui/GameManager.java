@@ -329,7 +329,7 @@ public class GameManager extends CustomAppCompatActivity implements View.OnTouch
         //if the main stack got touched
         if (currentGame.hasMainStack() && currentGame.testIfMainStackTouched(X, Y)) {
 
-            // @NP code for measuring beta errors, I think it's better to do that when the main stack is touched
+            // @GN code for measuring beta errors, I think it's better to do that when the main stack is touched
             hint.setHintVisible(false);
             currentGame.hintTest();
             System.out.println("Hint visible: " + hint.getHintVisible());

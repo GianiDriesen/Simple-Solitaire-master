@@ -25,13 +25,46 @@ import java.util.ArrayList;
 import java.util.Random;
 
 import de.tobiasbielefeld.solitaire.R;
-import de.tobiasbielefeld.solitaire.SharedData;
 import de.tobiasbielefeld.solitaire.classes.Card;
-import de.tobiasbielefeld.solitaire.classes.GamePlayed;
 import de.tobiasbielefeld.solitaire.classes.Stack;
 import de.tobiasbielefeld.solitaire.ui.GameManager;
 
-import static de.tobiasbielefeld.solitaire.SharedData.*;
+import static de.tobiasbielefeld.solitaire.SharedData.DEFAULT_AUTO_START_NEW_GAME;
+import static de.tobiasbielefeld.solitaire.SharedData.DEFAULT_FIRST_RUN;
+import static de.tobiasbielefeld.solitaire.SharedData.DEFAULT_MOVED_FIRST_CARD;
+import static de.tobiasbielefeld.solitaire.SharedData.DEFAULT_WON;
+import static de.tobiasbielefeld.solitaire.SharedData.DEFAULT_WON_AND_RELOADED;
+import static de.tobiasbielefeld.solitaire.SharedData.GAME_FIRST_RUN;
+import static de.tobiasbielefeld.solitaire.SharedData.GAME_MOVED_FIRST_CARD;
+import static de.tobiasbielefeld.solitaire.SharedData.GAME_NUMBER_OF_PLAYED_GAMES;
+import static de.tobiasbielefeld.solitaire.SharedData.GAME_NUMBER_OF_WON_GAMES;
+import static de.tobiasbielefeld.solitaire.SharedData.GAME_RANDOM_CARDS;
+import static de.tobiasbielefeld.solitaire.SharedData.GAME_WON;
+import static de.tobiasbielefeld.solitaire.SharedData.GAME_WON_AND_RELOADED;
+import static de.tobiasbielefeld.solitaire.SharedData.PREF_KEY_AUTO_START_NEW_GAME;
+import static de.tobiasbielefeld.solitaire.SharedData.TIMER_END_TIME;
+import static de.tobiasbielefeld.solitaire.SharedData.animate;
+import static de.tobiasbielefeld.solitaire.SharedData.autoComplete;
+import static de.tobiasbielefeld.solitaire.SharedData.cards;
+import static de.tobiasbielefeld.solitaire.SharedData.currentGame;
+import static de.tobiasbielefeld.solitaire.SharedData.getBoolean;
+import static de.tobiasbielefeld.solitaire.SharedData.getInt;
+import static de.tobiasbielefeld.solitaire.SharedData.getIntArray;
+import static de.tobiasbielefeld.solitaire.SharedData.getIntList;
+import static de.tobiasbielefeld.solitaire.SharedData.getLong;
+import static de.tobiasbielefeld.solitaire.SharedData.getSharedBoolean;
+import static de.tobiasbielefeld.solitaire.SharedData.getStringList;
+import static de.tobiasbielefeld.solitaire.SharedData.movingCards;
+import static de.tobiasbielefeld.solitaire.SharedData.putBoolean;
+import static de.tobiasbielefeld.solitaire.SharedData.putInt;
+import static de.tobiasbielefeld.solitaire.SharedData.putIntArray;
+import static de.tobiasbielefeld.solitaire.SharedData.putIntList;
+import static de.tobiasbielefeld.solitaire.SharedData.putStringList;
+import static de.tobiasbielefeld.solitaire.SharedData.recordList;
+import static de.tobiasbielefeld.solitaire.SharedData.scores;
+import static de.tobiasbielefeld.solitaire.SharedData.sounds;
+import static de.tobiasbielefeld.solitaire.SharedData.stacks;
+import static de.tobiasbielefeld.solitaire.SharedData.timer;
 
 /**
  * Contains stuff for the game which i didn't know where i should put it.
@@ -71,7 +104,7 @@ public class GameLogic {
         putBoolean(GAME_MOVED_FIRST_CARD, movedFirstCard);
         putInt(GAME_NUMBER_OF_WON_GAMES, numberWonGames);
 
-        // @NG saving own created counter when game is closed
+        // @GN saving own created counter when game is closed
         putInt("UNDOCOUNT", currentGame.getUndoCounter());
         putInt("WRONGCOLORCOUNT", currentGame.getColorMoveCount());
         putInt("WRONGNUMBERCOUNT", currentGame.getWrongNumberCount());
@@ -111,7 +144,7 @@ public class GameLogic {
         wonAndReloaded = getBoolean(GAME_WON_AND_RELOADED, DEFAULT_WON_AND_RELOADED);
         movedFirstCard = getBoolean(GAME_MOVED_FIRST_CARD, DEFAULT_MOVED_FIRST_CARD);
 
-        // @NG loading created counters when game is booted up
+        // @GN loading created counters when game is booted up
         currentGame.setUndoCounter(getInt("UNDOCOUNT", 0));
         currentGame.setFlipThroughMainstackCount(getInt("FLIPMAINSTACKCOUNT", 0));
         currentGame.setHintCounter(getInt("HINTCOUNT", 0));
@@ -177,7 +210,7 @@ public class GameLogic {
      * starts a new game. The only difference to a re-deal is the shuffling of the cards
      */
     public void newGame() {
-        // @NG
+        // @GN
         ArrayList<String> newTimestamps = new ArrayList<>();
         currentGame.setColorMoveCount(0); // if new game is started, set the wrongMoveCounter to 0
         currentGame.setWrongDubbletapCount(0);

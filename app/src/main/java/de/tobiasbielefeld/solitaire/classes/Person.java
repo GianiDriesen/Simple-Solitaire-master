@@ -3,6 +3,8 @@ package de.tobiasbielefeld.solitaire.classes;
 /**
  * Class representation of Person.
  */
+
+// @GN
 public class Person {
 
     private int id;
