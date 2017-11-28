@@ -4,6 +4,7 @@ package de.tobiasbielefeld.solitaire.helper;
  * Created by GianiPC on 20/11/2017.
  */
 
+// @NG
 public enum GameColumns {
     ID ("id"),
     PERSONID ("personID"),

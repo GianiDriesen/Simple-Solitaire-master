@@ -15,6 +15,8 @@ import de.tobiasbielefeld.solitaire.classes.GamePlayed;
  * Singleton to map Person entities to-and-from the database.
  * @author Koen Pelsmaekers
  */
+
+// @NG
 public enum GameMapper {
     UNIQUEMAPPER();
 

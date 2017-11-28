@@ -4,6 +4,7 @@ package de.tobiasbielefeld.solitaire.helper;
  * Created by GianiPC on 27/11/2017.
  */
 
+// @NG
 public enum PersonColumns {
     USERNAME ("username"),
     PASSWORD ("password"),

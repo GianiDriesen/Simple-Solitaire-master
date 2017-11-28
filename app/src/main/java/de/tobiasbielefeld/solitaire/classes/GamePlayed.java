@@ -5,6 +5,8 @@ import java.sql.Date;
 /**
  * Class representation of Games Played by Persons.
  */
+
+// @NG
 public class GamePlayed {
 
     private int id;
