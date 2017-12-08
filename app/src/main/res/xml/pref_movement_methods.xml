@@ -1,14 +1,17 @@
-<PreferenceScreen xmlns:android="http://schemas.android.com/apk/res/android">
+<PreferenceScreen xmlns:tools="http://schemas.android.com/tools"
+    xmlns:android="http://schemas.android.com/apk/res/android">
 
     <PreferenceCategory android:title="@string/settings_double_tap">
         <CheckBoxPreference
-            android:defaultValue="true"
+            android:defaultValue="false"
             android:key="@string/pref_key_double_tap_enable"
+            android:clickable="false"
+            android:enabled="false"
             android:summary="@string/settings_double_tap_enable_text"
             android:title="@string/settings_double_tap_enable" />
 
         <CheckBoxPreference
-            android:defaultValue="true"
+            android:defaultValue="false"
             android:dependency="@string/pref_key_double_tap_enable"
             android:key="@string/pref_key_double_tap_all_cards"
             android:summary="@string/settings_double_tap_all_cards_text"
