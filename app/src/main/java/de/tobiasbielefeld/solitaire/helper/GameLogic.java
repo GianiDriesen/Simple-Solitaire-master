@@ -108,7 +108,6 @@ public class GameLogic {
         putInt("UNDOCOUNT", currentGame.getUndoCounter());
         putInt("WRONGCOLORCOUNT", currentGame.getColorMoveCount());
         putInt("WRONGNUMBERCOUNT", currentGame.getWrongNumberCount());
-        putInt("WRONGDUBBLETAPCOUNT", currentGame.getWrongDubbletapCount());
         putInt("FLIPMAINSTACKCOUNT", currentGame.getFlipThroughMainstackCount());
         putInt("HINTCOUNT", currentGame.getHintCounter());
         putStringList("TIMESTAMPS", currentGame.getTimestamps());
@@ -148,7 +147,6 @@ public class GameLogic {
         currentGame.setUndoCounter(getInt("UNDOCOUNT", 0));
         currentGame.setFlipThroughMainstackCount(getInt("FLIPMAINSTACKCOUNT", 0));
         currentGame.setHintCounter(getInt("HINTCOUNT", 0));
-        currentGame.setWrongDubbletapCount(getInt("WRONGDUBBLETAPCOUNT", 0));
         currentGame.setWrongNumberCount(getInt("WRONGNUMBERCOUNT", 0));
         currentGame.setColorMoveCount(getInt("WRONGCOLORCOUNT", 0));
         currentGame.setTimestamps(getStringList("TIMESTAMPS"));
@@ -213,7 +211,6 @@ public class GameLogic {
         // @GN
         ArrayList<String> newTimestamps = new ArrayList<>();
         currentGame.setColorMoveCount(0); // if new game is started, set the wrongMoveCounter to 0
-        currentGame.setWrongDubbletapCount(0);
         currentGame.setWrongNumberCount(0);
         currentGame.setUndoCounter(0);
         currentGame.setFlipThroughMainstackCount(0);

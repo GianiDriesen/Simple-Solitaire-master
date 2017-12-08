@@ -170,10 +170,6 @@ public abstract class Game {
 
     abstract public int getWrongNumberCount();
 
-    abstract public void setWrongDubbletapCount(int count);
-
-    abstract public int getWrongDubbletapCount();
-
     abstract public void setFlipThroughMainstackCount(int count);
 
     abstract public int getFlipThroughMainstackCount();

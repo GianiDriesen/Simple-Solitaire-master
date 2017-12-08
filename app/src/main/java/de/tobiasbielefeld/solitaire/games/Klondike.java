@@ -62,7 +62,6 @@ public class Klondike extends Game {
     // @GN
     private int wrongColorCounter = 0;
     private int wrongNumberCounter = 0;
-    private int wrongDubbletapCounter = 0;
 
     // @GN
     private int flipThroughMainStackCounter = 0;
@@ -114,14 +113,6 @@ public class Klondike extends Game {
 
     public int getWrongNumberCount() {
         return wrongNumberCounter;
-    }
-
-    public void setWrongDubbletapCount(int count) {
-        this.wrongDubbletapCounter = count;
-    }
-
-    public int getWrongDubbletapCount() {
-        return wrongDubbletapCounter;
     }
 
     public void setFlipThroughMainstackCount(int count) {
@@ -436,13 +427,9 @@ public class Klondike extends Game {
         boolean fault = false;
 
         if(hintUsed == false) {
-            if(stack == null && dubbeltap == false) {
-                wrongDubbletapCounter++;
-                System.out.println("DubbelTap fault " + wrongDubbletapCounter);
-            }
 
             // check if card is place on the aces stacks, if so check value and symbol of card
-            else if(((stack.getId() == 7) || (stack.getId() == 8) || (stack.getId() == 9) || (stack.getId() == 10)) && dubbeltap == false) { // this works
+            if(((stack.getId() == 7) || (stack.getId() == 8) || (stack.getId() == 9) || (stack.getId() == 10)) && dubbeltap == false) { // this works
                 if((stack.getTopCard().getValue() != card.getValue() - 1) || (stack.getTopCard().getColor() != card.getColor())) {
                     wrongColorCounter++;
                     System.out.println("Wrong number on aces stack " + wrongColorCounter);
