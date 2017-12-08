@@ -95,7 +95,22 @@ public class DialogPreferenceMenuHideGames extends DialogPreference implements V
             container.addView(entry);
         }
 
+        for(int i = 0; i < 7; i++) {
+            checkBoxes.get(i).setChecked(false);
+            checkBoxes.get(i).setVisibility(View.GONE);
 
+            linearLayouts.get(i).setVisibility(View.GONE);
+        }
+
+        for(int i = 8; i < 15; i++) {
+            checkBoxes.get(i).setChecked(false);
+            checkBoxes.get(i).setVisibility(View.GONE);
+
+            linearLayouts.get(i).setVisibility(View.GONE);
+        }
+
+        checkBoxes.get(7).setClickable(false);
+        linearLayouts.get(7).setClickable(false);
         super.onBindDialogView(view);
     }
 

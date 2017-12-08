@@ -448,8 +448,10 @@ public class Klondike extends Game {
                     System.out.println("Wrong value " + wrongNumberCounter + ", fault= " + fault);
                     fault = true;
                 }
+
             }
         }
+
     }
 
     // @GN function to get the timestamp whenever a card is touched, used to calculate the time needed to do one move or to think of a move

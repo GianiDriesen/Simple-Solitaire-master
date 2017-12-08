@@ -9,6 +9,7 @@
 
     <de.tobiasbielefeld.solitaire.dialogs.DialogPreferenceMenuHideGames
         android:key="@string/pref_key_menu_games"
+        android:enabled="true"
         android:negativeButtonText="@string/game_cancel"
         android:positiveButtonText="@string/game_confirm"
         android:summary="@string/settings_menu_games_description"
