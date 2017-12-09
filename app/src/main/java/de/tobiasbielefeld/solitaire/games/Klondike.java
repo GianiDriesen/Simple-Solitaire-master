@@ -71,6 +71,15 @@ public class Klondike extends Game {
 
     // @GN
     private boolean moveAvailable = false;
+    private boolean fault = false;
+
+
+    private boolean tapFaultColor = false;
+    private boolean tapFaultNumber = false;
+    private boolean oldTapFaultColor = false;
+    private boolean oldTapFaultNumber = false;
+
+    private boolean mainstack = false;
 
     // @GN
     private int[] stackCounter = new int[15];
@@ -171,6 +180,14 @@ public class Klondike extends Game {
 
     public void setBetaError(int counter) {
         betaError = counter;
+    }
+
+    public void setMainstackBoolean(boolean isTouched) {
+        mainstack = isTouched;
+    }
+
+    public boolean getMainstackBoolean() {
+        return mainstack;
     }
 
     public void setTimestamps(ArrayList<String> fetchedTimestamps) {
@@ -424,34 +441,59 @@ public class Klondike extends Game {
 
     // @GN function to count various fault moves
     public void faultCounter(Stack stack, Card card) {
-        boolean fault = false;
 
-        if(hintUsed == false) {
+
+
+        fault = false;
+
+        System.out.println("Mainstack boolean: " + mainstack);
+        System.out.println("Fault: " + fault);
+
+        if(hintUsed == false && mainstack == false) {
 
             // check if card is place on the aces stacks, if so check value and symbol of card
-            if(((stack.getId() == 7) || (stack.getId() == 8) || (stack.getId() == 9) || (stack.getId() == 10)) && dubbeltap == false) { // this works
+            if(((stack.getId() == 7) || (stack.getId() == 8) || (stack.getId() == 9) || (stack.getId() == 10)) && fault == false) { // this works
                 if((stack.getTopCard().getValue() != card.getValue() - 1) || (stack.getTopCard().getColor() != card.getColor())) {
                     wrongColorCounter++;
                     System.out.println("Wrong number on aces stack " + wrongColorCounter);
+                    fault = true;
                 }
             }
-            else {
+            else if ((stack.getTopCard().getColor() % 2 == card.getColor() % 2) && fault == false){
                 // check if card has the same color as card on top of the stack
                 // problem with movement of cards, sometimes it counts an error twice
-                if ((stack.getTopCard().getColor() % 2 == card.getColor() % 2) && dubbeltap == false && fault == false) {
-                    wrongColorCounter++;
-                    System.out.println("Wrong color " + wrongColorCounter + ", fault= " + fault);
-                    fault = true;
-                }
-                else if((stack.getTopCard().getValue() != card.getValue() + 1) && fault == false && dubbeltap == false) {
-                    wrongNumberCounter++;
-                    System.out.println("Wrong value " + wrongNumberCounter + ", fault= " + fault);
-                    fault = true;
-                }
-
+                tapFaultColor = true;
+                wrongColorCounter++;
+                System.out.println("Wrong color " + wrongColorCounter + ", fault= " + fault);
+                fault = true;
             }
-        }
+            else if((stack.getTopCard().getValue() != card.getValue() + 1) && fault == false) {
+                tapFaultNumber = true;
+                wrongNumberCounter++;
+                System.out.println("Wrong value " + wrongNumberCounter + ", fault= " + fault);
+                fault = true;
+            }
 
+            else {
+                oldTapFaultColor = tapFaultColor;
+                oldTapFaultNumber = tapFaultNumber;
+                tapFaultNumber = false;
+                tapFaultColor = false;
+
+                if(mainstack == false) {
+                    if (oldTapFaultColor != tapFaultColor) {
+                        wrongColorCounter--;
+                        System.out.println("wrong color, wrong number :" + wrongColorCounter + " " + wrongNumberCounter);
+                    }
+                    else if(oldTapFaultNumber != tapFaultNumber) {
+                        wrongNumberCounter--;
+                        System.out.println("wrong color, wrong number :" + wrongColorCounter + " " + wrongNumberCounter);
+                    }
+                }
+            }
+
+
+        }
     }
 
     // @GN function to get the timestamp whenever a card is touched, used to calculate the time needed to do one move or to think of a move
@@ -486,7 +528,8 @@ public class Klondike extends Game {
 
     public CardAndStack hintTest() {
         Card card;
-        hintUsed = true;
+        if (hint.getHintVisible() == true)
+            hintUsed = true;
 
         for (int i = 0; i <= 6; i++) {
 

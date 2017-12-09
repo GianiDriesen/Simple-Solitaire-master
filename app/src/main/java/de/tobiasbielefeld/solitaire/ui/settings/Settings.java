@@ -41,7 +41,38 @@ import de.tobiasbielefeld.solitaire.classes.CustomPreferenceFragment;
 import de.tobiasbielefeld.solitaire.handler.HandlerStopBackgroundMusic;
 import de.tobiasbielefeld.solitaire.helper.Sounds;
 
-import static de.tobiasbielefeld.solitaire.SharedData.*;
+import static de.tobiasbielefeld.solitaire.SharedData.CARD_BACKGROUND;
+import static de.tobiasbielefeld.solitaire.SharedData.CARD_BACKGROUND_COLOR;
+import static de.tobiasbielefeld.solitaire.SharedData.CARD_DRAWABLES;
+import static de.tobiasbielefeld.solitaire.SharedData.DEFAULT_BACKGROUND_VOLUME;
+import static de.tobiasbielefeld.solitaire.SharedData.DEFAULT_MENU_BAR_POSITION_LANDSCAPE;
+import static de.tobiasbielefeld.solitaire.SharedData.DEFAULT_MENU_BAR_POSITION_PORTRAIT;
+import static de.tobiasbielefeld.solitaire.SharedData.DEFAULT_MENU_COLUMNS_LANDSCAPE;
+import static de.tobiasbielefeld.solitaire.SharedData.DEFAULT_MENU_COLUMNS_PORTRAIT;
+import static de.tobiasbielefeld.solitaire.SharedData.DEFAULT_ORIENTATION;
+import static de.tobiasbielefeld.solitaire.SharedData.DEFAULT_VEGAS_BET_AMOUNT;
+import static de.tobiasbielefeld.solitaire.SharedData.MENU_COLUMNS_LANDSCAPE;
+import static de.tobiasbielefeld.solitaire.SharedData.MENU_COLUMNS_PORTRAIT;
+import static de.tobiasbielefeld.solitaire.SharedData.PREF_KEY_4_COLOR_MODE;
+import static de.tobiasbielefeld.solitaire.SharedData.PREF_KEY_BACKGROUND_MUSIC;
+import static de.tobiasbielefeld.solitaire.SharedData.PREF_KEY_BACKGROUND_VOLUME;
+import static de.tobiasbielefeld.solitaire.SharedData.PREF_KEY_LANGUAGE;
+import static de.tobiasbielefeld.solitaire.SharedData.PREF_KEY_LEFT_HANDED_MODE;
+import static de.tobiasbielefeld.solitaire.SharedData.PREF_KEY_MOVEMENT_SPEED;
+import static de.tobiasbielefeld.solitaire.SharedData.PREF_KEY_ORIENTATION;
+import static de.tobiasbielefeld.solitaire.SharedData.PREF_KEY_SOUND_ENABLED;
+import static de.tobiasbielefeld.solitaire.SharedData.PREF_KEY_VEGAS_BET_AMOUNT;
+import static de.tobiasbielefeld.solitaire.SharedData.PREF_KEY_WIN_SOUND;
+import static de.tobiasbielefeld.solitaire.SharedData.activityCounter;
+import static de.tobiasbielefeld.solitaire.SharedData.animate;
+import static de.tobiasbielefeld.solitaire.SharedData.backgroundSound;
+import static de.tobiasbielefeld.solitaire.SharedData.gameLogic;
+import static de.tobiasbielefeld.solitaire.SharedData.getSharedBoolean;
+import static de.tobiasbielefeld.solitaire.SharedData.getSharedInt;
+import static de.tobiasbielefeld.solitaire.SharedData.getSharedString;
+import static de.tobiasbielefeld.solitaire.SharedData.reinitializeData;
+import static de.tobiasbielefeld.solitaire.SharedData.savedSharedData;
+import static de.tobiasbielefeld.solitaire.SharedData.sharedStringEqualsDefault;
 
 /**
  * Settings activity created with the "Create settings activity" tool from Android Studio.

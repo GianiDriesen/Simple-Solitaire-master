@@ -208,6 +208,10 @@ public abstract class Game {
 
     abstract public void setBetaError(int counter);
 
+    abstract public void setMainstackBoolean(boolean isTouched);
+
+    abstract public boolean getMainstackBoolean();
+
     /**
      * Tests if the card can be added to the movement to place on another stack.
      *
@@ -335,6 +339,7 @@ public abstract class Game {
      * @return True if the main stack got touched, false otherwise
      */
     public boolean testIfMainStackTouched(float X, float Y) {
+        setMainstackBoolean(false);
         timeStampForOneMove(X, Y);
         return getMainStack().isOnLocation(X, Y);
     }

@@ -328,6 +328,7 @@ public class GameManager extends CustomAppCompatActivity implements View.OnTouch
 
         //if the main stack got touched
         if (currentGame.hasMainStack() && currentGame.testIfMainStackTouched(X, Y)) {
+            currentGame.setMainstackBoolean(true);
 
             // @GN code for measuring beta errors, I think it's better to do that when the main stack is touched
             hint.setHintVisible(false);
@@ -352,7 +353,6 @@ public class GameManager extends CustomAppCompatActivity implements View.OnTouch
             currentGame.mainStackTouch();
             return resetTappedCard();
         }
-
 
         if (v.belongsToStack() && getSharedBoolean(PREF_KEY_TAP_TO_SELECT_ENABLED, DEFAULT_TAP_TO_SELECT_ENABLED)) {
             if (tapped != null && tapped.getStack() != stacks[v.getId()] && currentGame.addCardToMovementTest(tapped.getCard())) {
