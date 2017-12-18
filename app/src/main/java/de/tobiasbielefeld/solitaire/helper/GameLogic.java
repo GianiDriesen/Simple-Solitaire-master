@@ -20,11 +20,14 @@ package de.tobiasbielefeld.solitaire.helper;
 
 import android.util.Log;
 import android.view.View;
+import android.widget.Toast;
 
 import java.util.ArrayList;
+import java.util.Collections;
 import java.util.Random;
 
 import de.tobiasbielefeld.solitaire.R;
+import de.tobiasbielefeld.solitaire.SharedData;
 import de.tobiasbielefeld.solitaire.classes.Card;
 import de.tobiasbielefeld.solitaire.classes.Stack;
 import de.tobiasbielefeld.solitaire.ui.GameManager;
@@ -77,6 +80,8 @@ public class GameLogic {
     private boolean won, wonAndReloaded;                                                            //shows if the player has won, needed to know if the timer can stop, or to deal new cards on game start
     private GameManager gm;
     private boolean movedFirstCard = false;
+    private Toast toast;
+
 
     public GameLogic(GameManager gm) {
         this.gm = gm;
@@ -222,7 +227,8 @@ public class GameLogic {
         currentGame.setStackCounter(new int[15]);
         currentGame.setBetaError(0);
         System.arraycopy(cards, 0, randomCards, 0, cards.length);
-        randomize(randomCards);
+        randomize(randomCards); //@KG: aparte functie schrijven die het in sharedpref zet. (arraylistje ofzo).
+
 
         redeal();
     }
@@ -284,13 +290,28 @@ public class GameLogic {
 
     /**
      * Randomizes a given card array using the Fisher–Yates shuffle
-     *
+     * @KG carddeals here
      * @param array The array to randomize
      */
     private void randomize(Card[] array) {
         int index;
         Card dummy;
-        Random rand = new Random();
+        Random rand;
+        if(SharedData.gamecounter==10){SharedData.gamecounter=0;} //@kg remove this to also play random games
+        if(SharedData.gamecounter<10)
+        {
+            rand = new Random(SharedData.gameList.get(SharedData.gamecounter));
+            Log.i("SEED", "Now using "+ SharedData.gameList.get(SharedData.gamecounter));
+            gm.showToast("Now playing game "+ (SharedData.gamecounter+1));
+            SharedData.gamecounter++;
+        }
+        else
+        {
+            rand = new Random();
+            Log.i("SEED", "Now using a random seed");
+            gm.showToast("Now using a random seed");
+
+        }
 
         for (int i = array.length - 1; i > 0; i--) {
             if ((index = rand.nextInt(i + 1)) != i) {
@@ -300,6 +321,7 @@ public class GameLogic {
             }
         }
     }
+
 
     /**
      * for left handed mode: mirrors the stacks to the other side and then updates the card

@@ -24,7 +24,9 @@ import android.content.res.Resources;
 import android.preference.PreferenceManager;
 import android.util.Log;
 
+import java.lang.reflect.Array;
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.List;
 import java.util.StringTokenizer;
 
@@ -207,6 +209,22 @@ public class SharedData {
 
     public static EntityMapper entityMapper = EntityMapper.UNIQUEMAPPER;
     public static Person user = null;
+
+    //@KG manipulations to make the game deal in the same manner every time
+    public static int gamecounter = 0;
+    public static final List<Integer> gameList = Arrays.asList(
+            45678,
+            12345,
+            498512,
+            3657,
+            458967,
+            98752,
+            123458,
+            231472,
+            3248578,
+            7894515
+            );
+
 
     /**
      * Reload the needed data. Because if the android device runs out of memory, the app gets
