@@ -1,3 +1,5 @@
+//@GN
+
 package de.tobiasbielefeld.solitaire;
 
 import android.content.Intent;
@@ -16,6 +18,7 @@ import de.tobiasbielefeld.solitaire.helper.Database;
 import de.tobiasbielefeld.solitaire.helper.EntityMapper;
 import de.tobiasbielefeld.solitaire.helper.PersonColumns;
 import de.tobiasbielefeld.solitaire.ui.GameSelector;
+import de.tobiasbielefeld.solitaire.RegisterActivity;
 
 public class LoginActivity extends AppCompatActivity {
 
@@ -34,8 +37,14 @@ public class LoginActivity extends AppCompatActivity {
         new DatabaseLogin().execute();
     }
 
-    public void registerApp(View view) {
+    public void skipApp(View view) {
         Intent intent = new Intent(LoginActivity.this, GameSelector.class);
+        startActivity(intent);
+
+    }
+
+    public void registerApp(View view) {
+        Intent intent = new Intent(LoginActivity.this, RegisterActivity.class);
         startActivity(intent);
 
     }
@@ -70,7 +79,7 @@ public class LoginActivity extends AppCompatActivity {
         }
 
         protected void onPostExecute(Person person) {
-            if (!person.equals(null)) {
+            if (person != null) {
                 if (person.getPassword().equals(password.getText().toString())) {
                     Intent intent = new Intent(LoginActivity.this, GameSelector.class);
                     SharedData.user = person;
