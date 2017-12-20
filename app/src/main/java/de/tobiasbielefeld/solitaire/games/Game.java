@@ -170,10 +170,6 @@ public abstract class Game {
 
     abstract public int getWrongNumberCount();
 
-    abstract public void setWrongDubbletapCount(int count);
-
-    abstract public int getWrongDubbletapCount();
-
     abstract public void setFlipThroughMainstackCount(int count);
 
     abstract public int getFlipThroughMainstackCount();
@@ -198,9 +194,9 @@ public abstract class Game {
 
     abstract public void timeStampForOneMove(float X, float Y);
 
-    abstract public void setTimestamps(ArrayList<String> fetchedTimestamps);
+    abstract public void setMotorTime(ArrayList<String> fetchedTimestamps);
 
-    abstract public ArrayList<String> getTimestamps();
+    abstract public ArrayList<String> getMotorTime();
 
     abstract public void stackCounter(int stackId);
 
@@ -211,6 +207,10 @@ public abstract class Game {
     abstract public int getBetaError();
 
     abstract public void setBetaError(int counter);
+
+    abstract public void setMainstackBoolean(boolean isTouched);
+
+    abstract public boolean getMainstackBoolean();
 
     /**
      * Tests if the card can be added to the movement to place on another stack.
@@ -339,6 +339,7 @@ public abstract class Game {
      * @return True if the main stack got touched, false otherwise
      */
     public boolean testIfMainStackTouched(float X, float Y) {
+        setMainstackBoolean(false);
         timeStampForOneMove(X, Y);
         return getMainStack().isOnLocation(X, Y);
     }
