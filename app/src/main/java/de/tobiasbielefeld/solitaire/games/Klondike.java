@@ -85,7 +85,7 @@ public class Klondike extends Game {
     private int[] stackCounter = new int[15];
 
     // @GN
-    private ArrayList<String> timestamps;
+    private ArrayList<String> motorTime;
 
     // @GN
     private boolean dubbeltap = false;
@@ -105,7 +105,7 @@ public class Klondike extends Game {
         PREF_KEY_DRAW = PREF_KEY_KLONDIKE_DRAW;
         DEFAULT_DRAW = DEFAULT_KLONDIKE_DRAW;
 
-        timestamps = new ArrayList<>();
+        motorTime = new ArrayList<>();
         Arrays.fill(stackCounter, 0);
     }
 
@@ -190,12 +190,12 @@ public class Klondike extends Game {
         return mainstack;
     }
 
-    public void setTimestamps(ArrayList<String> fetchedTimestamps) {
-        this.timestamps = fetchedTimestamps;
+    public void setMotorTime(ArrayList<String> fetchedTimestamps) {
+        this.motorTime = fetchedTimestamps;
     }
 
-    public ArrayList<String> getTimestamps() {
-        return this.timestamps;
+    public ArrayList<String> getMotorTime() {
+        return this.motorTime;
     }
 
     public void setStacks(RelativeLayout layoutGame, boolean isLandscape) {
@@ -474,7 +474,7 @@ public class Klondike extends Game {
                 fault = true;
             }
 
-            else {
+            else { // code for removing dubbel faults by tap-to-tap
                 oldTapFaultColor = tapFaultColor;
                 oldTapFaultNumber = tapFaultNumber;
                 tapFaultNumber = false;
@@ -496,13 +496,13 @@ public class Klondike extends Game {
         }
     }
 
-    // @GN function to get the timestamp whenever a card is touched, used to calculate the time needed to do one move or to think of a move
+    // @GN function to get the timestamp whenever a card is touched, used to calculate the motorTime
     public void timeStampForOneMove(float X, float Y) {
         String currentDateTimeString = DateFormat.getDateTimeInstance().format(new Date());
         for (int i = 0; i < stacks.length; i++) {
             if (stacks[i].isOnLocation(X, Y)) {
-                timestamps.add(currentDateTimeString);
-                System.out.println(timestamps);
+                motorTime.add(currentDateTimeString);
+                System.out.println(motorTime);
             }
         }
     }

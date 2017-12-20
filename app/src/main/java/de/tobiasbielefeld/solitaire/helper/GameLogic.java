@@ -110,7 +110,7 @@ public class GameLogic {
         putInt("WRONGNUMBERCOUNT", currentGame.getWrongNumberCount());
         putInt("FLIPMAINSTACKCOUNT", currentGame.getFlipThroughMainstackCount());
         putInt("HINTCOUNT", currentGame.getHintCounter());
-        putStringList("TIMESTAMPS", currentGame.getTimestamps());
+        putStringList("TIMESTAMPS", currentGame.getMotorTime());
         putIntArray("STACKCOUNTS", currentGame.getStackCounter());
         putInt("BETAERROR", currentGame.getBetaError());
         // Timer will be saved in onPause()
@@ -149,7 +149,7 @@ public class GameLogic {
         currentGame.setHintCounter(getInt("HINTCOUNT", 0));
         currentGame.setWrongNumberCount(getInt("WRONGNUMBERCOUNT", 0));
         currentGame.setColorMoveCount(getInt("WRONGCOLORCOUNT", 0));
-        currentGame.setTimestamps(getStringList("TIMESTAMPS"));
+        currentGame.setMotorTime(getStringList("TIMESTAMPS"));
         currentGame.setStackCounter(getIntArray("STACKCOUNTS"));
         currentGame.setBetaError(getInt("BETAERROR", 0));
         //update and reset
@@ -215,7 +215,7 @@ public class GameLogic {
         currentGame.setUndoCounter(0);
         currentGame.setFlipThroughMainstackCount(0);
         currentGame.setHintCounter(0);
-        currentGame.setTimestamps(newTimestamps);
+        currentGame.setMotorTime(newTimestamps);
         currentGame.setStackCounter(new int[15]);
         currentGame.setBetaError(0);
         System.arraycopy(cards, 0, randomCards, 0, cards.length);

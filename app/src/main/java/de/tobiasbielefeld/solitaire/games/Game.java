@@ -194,9 +194,9 @@ public abstract class Game {
 
     abstract public void timeStampForOneMove(float X, float Y);
 
-    abstract public void setTimestamps(ArrayList<String> fetchedTimestamps);
+    abstract public void setMotorTime(ArrayList<String> fetchedTimestamps);
 
-    abstract public ArrayList<String> getTimestamps();
+    abstract public ArrayList<String> getMotorTime();
 
     abstract public void stackCounter(int stackId);
 
