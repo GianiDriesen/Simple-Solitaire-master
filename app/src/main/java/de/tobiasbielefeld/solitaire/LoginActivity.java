@@ -5,11 +5,9 @@ package de.tobiasbielefeld.solitaire;
 import android.content.Intent;
 import android.os.AsyncTask;
 import android.os.Bundle;
-import android.support.design.widget.FloatingActionButton;
-import android.support.design.widget.Snackbar;
 import android.support.v7.app.AppCompatActivity;
-import android.support.v7.widget.Toolbar;
 import android.view.View;
+import android.view.WindowManager;
 import android.widget.EditText;
 import android.widget.Toast;
 
@@ -18,7 +16,6 @@ import de.tobiasbielefeld.solitaire.helper.Database;
 import de.tobiasbielefeld.solitaire.helper.EntityMapper;
 import de.tobiasbielefeld.solitaire.helper.PersonColumns;
 import de.tobiasbielefeld.solitaire.ui.GameSelector;
-import de.tobiasbielefeld.solitaire.RegisterActivity;
 
 public class LoginActivity extends AppCompatActivity {
 
@@ -31,6 +28,9 @@ public class LoginActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_login);
         setupContent();
+        // @GN
+        getWindow().addFlags(WindowManager.LayoutParams.FLAG_KEEP_SCREEN_ON);
+
     }
 
     public void loginApp(View view) {
