@@ -334,8 +334,8 @@ public class SharedData {
         DEFAULT_FORTYEIGHT_LIMITED_RECYCLES = res.getBoolean(R.bool.default_fortyeight_limited_recycles);
         DEFAULT_YUKON_RULES = res.getStringArray(R.array.pref_yukon_rules_values)[0];
         DEFAULT_KLONDIKE_DRAW = res.getStringArray(R.array.pref_draw_values)[0];
-        DEFAULT_VEGAS_DRAW = res.getStringArray(R.array.pref_draw_values)[1];
-        DEFAULT_CANFIELD_DRAW = res.getStringArray(R.array.pref_draw_values)[1];
+        DEFAULT_VEGAS_DRAW = res.getStringArray(R.array.pref_draw_values)[0];
+        DEFAULT_CANFIELD_DRAW = res.getStringArray(R.array.pref_draw_values)[0];
 
         GAME_REDEAL_COUNT = res.getString(R.string.game_recycle_count);
         GAME_WON = res.getString(R.string.game_won);
