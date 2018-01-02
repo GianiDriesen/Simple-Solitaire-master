@@ -205,7 +205,7 @@ public class SharedData {
     public static int NUMBER_OF_CARD_BACKGROUNDS;
     public static int NUMBER_OF_CARD_THEMES;
 
-    public static EntityMapper entityMapper = EntityMapper.UNIQUEMAPPER;
+    private static EntityMapper entityMapper = EntityMapper.UNIQUEMAPPER;
     public static Person user = null;
 
     /**

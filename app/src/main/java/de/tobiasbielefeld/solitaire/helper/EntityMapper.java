@@ -1,12 +1,16 @@
 package de.tobiasbielefeld.solitaire.helper;
 
-import java.sql.PreparedStatement;
-import java.sql.ResultSet;
-import java.sql.SQLException;
+import com.android.volley.RequestQueue;
+import com.android.volley.Response;
+import com.android.volley.VolleyError;
+import com.android.volley.toolbox.JsonArrayRequest;
+
+import org.json.JSONArray;
+import org.json.JSONException;
+
 import java.util.LinkedList;
 import java.util.List;
 
-import de.tobiasbielefeld.solitaire.classes.GamePlayed;
 import de.tobiasbielefeld.solitaire.classes.Person;
 
 /**
@@ -17,77 +21,95 @@ import de.tobiasbielefeld.solitaire.classes.Person;
 public enum EntityMapper {
     UNIQUEMAPPER;
 
+    /** Singleton design applied; use only one mapper for each entity. */
+    private final PersonMapper pMapper = PersonMapper.UNIQUEMAPPER;
+    private final GameMapper gMapper = GameMapper.UNIQUEMAPPER;
+
+    private void initiateSingletons() {
+        this.pMapper.setEntityMapper(this);
+        this.gMapper.setEntityMapper(this);
+    }
+    private RequestQueue requestQueue;
+    public RequestQueue getRequestQueue() { return this.requestQueue; }
+    public void setRequestQueue(RequestQueue rq) { this.requestQueue = rq; }
+    /** Singleton design applied; return the single mappers to other mappers that need them. */
+    public PersonMapper getpMapper() { return pMapper; }
+
+    /**
+     * Prepare one of each entity, and one list for each of those entities.
+     * Each time an entity or a list of them is requested from the DB, start
+     * asynchronously requesting and parsing them, and fill the aforementioned
+     * empty entities or lists with the parsed ones. As soon as they are filled,
+     * set the dataReady field "true" to indicate the entities can be grabbed.
+     */
     public Person person;
     public List<Person> persons;
-    public GamePlayed game;
-    public List<GamePlayed> games;
-    public boolean dataReceived;
-    public void dataGrabbed() { // allow to reset the flag and all entities.
-        this.dataReceived = false;
+    private boolean dataReady = false;
+    public boolean dataReady() { return this.dataReady; }
+    public void dataGrabbed() {
+        this.dataReady = false;
         person = null;
         persons = new LinkedList<>();
     }
-    private PersonMapper personMapper = PersonMapper.UNIQUEMAPPER;
-    private GameMapper gameMapper = GameMapper.UNIQUEMAPPER;
 
-    EntityMapper() {}
-
-    public int executeDelete(String sql, int id) {
-        int rowsAffected = 0;
-        try {
-            PreparedStatement prepstat = Database.CONNECTION.getConnection().prepareStatement(sql);
-            prepstat.setInt(1, id);
-            rowsAffected = prepstat.executeUpdate();
-        } catch (SQLException e) {
-            e.printStackTrace();
-        }
-        return rowsAffected;
-    }
-
-    public int executeCreate(PreparedStatement preparedStatement) {
-        int id = -1;
-        try {
-            // executeUpdate() should be called to change something in the database
-        	int rowsAffected = preparedStatement.executeUpdate();
-            if (rowsAffected > 0) {
-                ResultSet rs = preparedStatement.getGeneratedKeys();
-                if (rs != null) {
-                    if (rs.next()) {
-                        id = rs.getInt(1);
-                    }
-                }
+    public void queryEntity(final Object obj, String url) {
+        JsonArrayRequest json = new JsonArrayRequest(url
+                , new Response.Listener<JSONArray>() { @Override
+        public void onResponse(JSONArray response) {
+            if (response.length() >= 1) {
+                mapToEntity(response, obj);
+            } else {
+                dataReady = true;
             }
-        } catch (SQLException e) {
+        } }
+                , new Response.ErrorListener() { @Override
+        public void onErrorResponse(VolleyError error) { error.printStackTrace(); } });
+        requestQueue.add(json);
+    }
+
+    public void queryEntities(final Object obj, String url) {
+        JsonArrayRequest json = new JsonArrayRequest(url
+                , new Response.Listener<JSONArray>() { @Override
+        public void onResponse(JSONArray response) {
+            if (response.length() >= 1) {
+                mapToEntities(response, obj);
+            } else {
+                dataReady = true;
+            }
+        } }
+                , new Response.ErrorListener() { @Override
+        public void onErrorResponse(VolleyError error) { error.printStackTrace(); } });
+        requestQueue.add(json);
+    }
+
+    private void mapToEntities(JSONArray json, Object obj) {
+        for (int i=0;i<json.length();i++) {
+            try {if (obj instanceof Person) {
+                persons.add(new Person(json.getJSONObject(i)));
+            }
+            } catch(JSONException e) {
+                e.printStackTrace();
+            }
+        }
+        this.dataReady = true;
+    }
+
+    private void mapToEntity(JSONArray json, Object obj) {
+        try {if (obj instanceof Person) {
+            person = new Person(json.getJSONObject(0));
+        }
+        } catch(JSONException e) {
             e.printStackTrace();
         }
-        return id;
+        this.dataReady = true;
     }
 
-    public PersonMapper getPersonMapper() {
-        return personMapper;
-    }
+    // Easter egg
+    @Override
+    public String toString() { return "Up Up Down Down Left Right Left Right B A Start, I get infinite fans!"; }
 
-    public GameMapper getGameMapper() {return gameMapper;}
-
-
-
-    public void setTmpPerson(Person person){
-        this.person = person;
-        this.dataReceived = true;
-    }
-
-    public void setTmpPersons(List<Person> persons) {
-        this.persons = persons;
-        this.dataReceived = true;
-    }
-
-    public void setTmpGame(GamePlayed game) {
-        this.game = game;
-        this.dataReceived = true;
-    }
-
-    public void setTmpGames (List<GamePlayed> games) {
-        this.games = games;
-        this.dataReceived = true;
+    EntityMapper() {
+        initiateSingletons();
+        dataGrabbed();
     }
 }
