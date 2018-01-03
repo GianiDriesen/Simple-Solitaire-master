@@ -648,6 +648,14 @@ public class SharedData {
         savedGameData.edit().putString(name, s).apply();
     }
 
+    public static void putIntArrayList(String name, ArrayList<Integer> list) {
+        String s = " ";
+        for (int i: list) {
+            s += i + "-";
+        }
+        savedGameData.edit().putString(name, s).apply();
+    }
+
     public static void putIntArray(String name, int[] array) {
         String s = "";
         for(int i: array) {

@@ -20,9 +20,9 @@ package de.tobiasbielefeld.solitaire.games;
 
 import android.widget.RelativeLayout;
 
-import java.text.DateFormat;
 import java.util.ArrayList;
 import java.util.Arrays;
+import java.util.Calendar;
 import java.util.Date;
 
 import de.tobiasbielefeld.solitaire.classes.Card;
@@ -80,12 +80,13 @@ public class Klondike extends Game {
     private boolean oldTapFaultNumber = false;
 
     private boolean mainstack = false;
+    private Date currentTime = Calendar.getInstance().getTime();
 
     // @GN
     private int[] stackCounter = new int[15]; // 15 because when you draw 3 cards, you have 2 more "discard" stacks
 
     // @GN
-    private ArrayList<String> motorTime;
+    private ArrayList<Integer> motorTime;
 
     // @GN
     private boolean dubbeltap = false;
@@ -190,12 +191,20 @@ public class Klondike extends Game {
         return mainstack;
     }
 
-    public void setMotorTime(ArrayList<String> fetchedTimestamps) {
+    public void setMotorTime(ArrayList<Integer> fetchedTimestamps) {
         this.motorTime = fetchedTimestamps;
     }
 
-    public ArrayList<String> getMotorTime() {
+    public ArrayList<Integer> getMotorTime() {
         return this.motorTime;
+    }
+
+    public Date getCurrentTime() {
+        return currentTime;
+    }
+
+    public void setCurrentTime(Date currentTime) {
+        this.currentTime = currentTime;
     }
 
     public void setStacks(RelativeLayout layoutGame, boolean isLandscape) {
@@ -498,11 +507,14 @@ public class Klondike extends Game {
 
     // @GN function to get the timestamp whenever a card is touched, used to calculate the motorTime
     public void timeStampForOneMove(float X, float Y) {
-        String currentDateTimeString = DateFormat.getDateTimeInstance().format(new Date());
+
+        Date secondTime = Calendar.getInstance().getTime();
+
+        long difference = secondTime.getTime() - currentTime.getTime();
 
         for (int i = 0; i < stacks.length; i++) {
             if (stacks[i].isOnLocation(X, Y)) {
-                motorTime.add(currentDateTimeString);
+                motorTime.add((int) difference);
                 System.out.println(motorTime);
             }
         }

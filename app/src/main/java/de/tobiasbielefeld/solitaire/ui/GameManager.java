@@ -33,8 +33,8 @@ import android.widget.RelativeLayout;
 import android.widget.TextView;
 import android.widget.Toast;
 
-import java.text.DateFormat;
 import java.util.ArrayList;
+import java.util.Calendar;
 import java.util.Date;
 import java.util.Locale;
 
@@ -465,11 +465,13 @@ public class GameManager extends CustomAppCompatActivity implements View.OnTouch
     private boolean motionActionUp(float X, float Y) {
 
         if (movingCards.moveStarted(X, Y)) {
-            String currentDateTimeString = DateFormat.getDateTimeInstance().format(new Date());
+            Date secondTime = Calendar.getInstance().getTime();
 
-            ArrayList<String> motortime = currentGame.getMotorTime();
+            long difference = secondTime.getTime() - currentGame.getCurrentTime().getTime();
 
-            motortime.add(currentDateTimeString);
+            ArrayList<Integer> motortime = currentGame.getMotorTime();
+
+            motortime.add((int) difference);
 
             cardHighlight.hide(this);
             Stack stack = getIntersectingStack(movingCards.first());

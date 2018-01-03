@@ -23,6 +23,7 @@ import android.support.annotation.CallSuper;
 import android.widget.RelativeLayout;
 
 import java.util.ArrayList;
+import java.util.Date;
 
 import de.tobiasbielefeld.solitaire.classes.Card;
 import de.tobiasbielefeld.solitaire.classes.CardAndStack;
@@ -194,9 +195,9 @@ public abstract class Game {
 
     abstract public void timeStampForOneMove(float X, float Y);
 
-    abstract public void setMotorTime(ArrayList<String> fetchedTimestamps);
+    abstract public void setMotorTime(ArrayList<Integer> fetchedTimestamps);
 
-    abstract public ArrayList<String> getMotorTime();
+    abstract public ArrayList<Integer> getMotorTime();
 
     abstract public void stackCounter(int stackId);
 
@@ -211,6 +212,10 @@ public abstract class Game {
     abstract public void setMainstackBoolean(boolean isTouched);
 
     abstract public boolean getMainstackBoolean();
+
+    abstract public Date getCurrentTime();
+
+    abstract public void setCurrentTime(Date currentTime);
 
     /**
      * Tests if the card can be added to the movement to place on another stack.
