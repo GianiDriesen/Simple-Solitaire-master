@@ -23,14 +23,15 @@ import android.util.Log;
 import android.view.View;
 
 import java.util.ArrayList;
-import java.util.Calendar;
 import java.util.Random;
 
 import de.tobiasbielefeld.solitaire.R;
 import de.tobiasbielefeld.solitaire.SharedData;
 import de.tobiasbielefeld.solitaire.classes.Card;
 import de.tobiasbielefeld.solitaire.classes.GamePlayed;
+import de.tobiasbielefeld.solitaire.classes.Person;
 import de.tobiasbielefeld.solitaire.classes.Stack;
+import de.tobiasbielefeld.solitaire.games.Game;
 import de.tobiasbielefeld.solitaire.ui.GameManager;
 
 import static de.tobiasbielefeld.solitaire.SharedData.DEFAULT_AUTO_START_NEW_GAME;
@@ -68,6 +69,7 @@ import static de.tobiasbielefeld.solitaire.SharedData.scores;
 import static de.tobiasbielefeld.solitaire.SharedData.sounds;
 import static de.tobiasbielefeld.solitaire.SharedData.stacks;
 import static de.tobiasbielefeld.solitaire.SharedData.timer;
+import static de.tobiasbielefeld.solitaire.SharedData.user;
 
 /**
  * Contains stuff for the game which i didn't know where i should put it.
@@ -82,6 +84,9 @@ public class GameLogic {
     private boolean movedFirstCard = false;
     private EntityMapper entityMapper = SharedData.getEntityMapper();
     private boolean dataSent = false;
+    private Game currentGameCopy;
+    private boolean wonCopy;
+    private int avgMotorTime;
 
     public GameLogic(GameManager gm) {
         this.gm = gm;
@@ -157,7 +162,6 @@ public class GameLogic {
         currentGame.setMotorTime(getIntList("TIMESTAMPS"));
         currentGame.setStackCounter(getIntArray("STACKCOUNTS"));
         currentGame.setBetaError(getInt("BETAERROR", 0));
-        currentGame.setCurrentTime(Calendar.getInstance().getTime());
         //update and reset
         Card.updateCardDrawableChoice();
         Card.updateCardBackgroundChoice();
@@ -215,10 +219,16 @@ public class GameLogic {
      */
     public void newGame() {
         // @GN
-        GamePlayed game = new GamePlayed(SharedData.user.getId(),0,true,0,0,
-                0,0,0,0,0,0,0,
-                0,0,0,0,0,0,0,
-                0,0,0,0); //TODO: Add all game veriables in a GamePlayed instance
+        avgMotorTime = calculateAvgMotorTime();
+        GamePlayed game = new GamePlayed(SharedData.user.getId(),(int) timer.getCurrentTime(),won,currentGame.getFlipThroughMainstackCount(),0, //TODO:write avgMotorTime here
+                currentGame.getStackCounter()[0],currentGame.getStackCounter()[1],currentGame.getStackCounter()[2],currentGame.getStackCounter()[3],
+                currentGame.getStackCounter()[4],currentGame.getStackCounter()[5],currentGame.getStackCounter()[6],currentGame.getStackCounter()[7],
+                currentGame.getStackCounter()[8],currentGame.getStackCounter()[9],currentGame.getStackCounter()[10],currentGame.getStackCounter()[13],
+                currentGame.getStackCounter()[14],currentGame.getColorMoveCount(), currentGame.getWrongNumberCount(),currentGame.getHintCounter(),
+                currentGame.getUndoCounter(),currentGame.getBetaError());
+        dataSent=true;
+        currentGameCopy = currentGame;
+        wonCopy = won;
         entityMapper.getgMapper().createGame(game);
         new SaveGameInDB().execute();
 
@@ -231,7 +241,6 @@ public class GameLogic {
         currentGame.setMotorTime(newTimestamps);
         currentGame.setStackCounter(new int[15]);
         currentGame.setBetaError(0);
-        currentGame.setCurrentTime(Calendar.getInstance().getTime());
         System.arraycopy(cards, 0, randomCards, 0, cards.length);
         randomize(randomCards);
 
@@ -244,13 +253,20 @@ public class GameLogic {
     public void redeal() {
         //reset EVERYTHING
 
+
         if (!dataSent) {
-            GamePlayed game = new GamePlayed(SharedData.user.getId(),0,true,0,0,
-                    0,0,0,0,0,0,0,
-                    0,0,0,0,0,0,0,
-                    0,0,0,0); //TODO: Add all game veriables in a GamePlayed instance
+            calculateAvgMotorTime();
+            GamePlayed game = new GamePlayed(SharedData.user.getId(),(int) timer.getCurrentTime(),won,currentGame.getFlipThroughMainstackCount(),0, //TODO:write avgMotorTime here
+                    currentGame.getStackCounter()[0],currentGame.getStackCounter()[1],currentGame.getStackCounter()[2],currentGame.getStackCounter()[3],
+                    currentGame.getStackCounter()[4],currentGame.getStackCounter()[5],currentGame.getStackCounter()[6],currentGame.getStackCounter()[7],
+                    currentGame.getStackCounter()[8],currentGame.getStackCounter()[9],currentGame.getStackCounter()[10],currentGame.getStackCounter()[13],
+                    currentGame.getStackCounter()[14],currentGame.getColorMoveCount(), currentGame.getWrongNumberCount(),currentGame.getHintCounter(),
+                    currentGame.getUndoCounter(),currentGame.getBetaError());
+            dataSent=true;
+            currentGameCopy = currentGame;
+            wonCopy = won;
             entityMapper.getgMapper().createGame(game);
-            new SaveGameInDB().execute();
+            new SaveGameInDB().execute(); //Process: 1. Create game in db 2. Update person in DB TODO:thorough testing
         }
 
         if (!won) {                                                                                 //if the game has been won, the score was already saved
@@ -269,6 +285,7 @@ public class GameLogic {
         recordList.reset();
         timer.reset();
         autoComplete.hideButton();
+        dataSent = false;
 
         for (Stack stack : stacks)
             stack.reset();
@@ -283,6 +300,17 @@ public class GameLogic {
 
         //and finally deal the cards from the game!
         currentGame.dealCards();
+    }
+
+
+    private int calculateAvgMotorTime() {
+        int avg = 0;
+        for (int i=0;i<currentGame.getMotorTime().size();i=i+2) {
+            avg = avg + (currentGame.getMotorTime().get(i+1) - currentGame.getMotorTime().get(i));
+        }
+        avg = avg/(currentGame.getMotorTime().size()/2);
+
+        return avg;
     }
 
     private class SaveGameInDB extends AsyncTask<Void, Void, GamePlayed> {
@@ -303,7 +331,40 @@ public class GameLogic {
                 throw new java.lang.Error("GameData not uploaded to the database! @/helper/GameLogic");
             }
             else {
-                dataSent=true;
+                int nrOfGames = user.getGamesFailed()+user.getGamesSucces();
+                int avgMovesCurrentGame = currentGameCopy.getMotorTime().size()/2;
+                int succesCurrentGame = 0, failedCurrentGame = 0;
+                if (wonCopy) {succesCurrentGame++;} else {failedCurrentGame++;}
+                int newAvgMoves = (user.getAvgMoves()*nrOfGames+avgMovesCurrentGame)/(nrOfGames+1);
+                int newAvgMotorTime = (user.getAvgTime()*nrOfGames+avgMotorTime)/(nrOfGames+1);
+                int newGamesSucces = (user.getGamesSucces()*nrOfGames+succesCurrentGame);
+                int newGamesFailed = (user.getGamesFailed()*nrOfGames+failedCurrentGame);
+                Person updatePerson = new Person(user.getId(),user.getUsername(),user.getPassword(),user.getAge(),
+                        user.isGender(),user.getLevel(),0,newAvgMoves,newAvgMotorTime,newGamesSucces,newGamesFailed);
+                entityMapper.getpMapper().updatePerson(updatePerson);
+                new UpdatePerson().execute();
+            }
+        }
+    }
+
+    private class UpdatePerson extends AsyncTask<Void, Void, Person> {
+        protected Person doInBackground(Void... voids) {
+            Person person = new Person();
+            while (!entityMapper.dataReady()) {
+                if (isCancelled()) break;
+            }
+            if (entityMapper.dataReady()) {
+                person = getEntityMapper().person;
+                getEntityMapper().dataGrabbed();
+            }
+            return person;
+        }
+
+        protected void onPostExecute(Person person) {
+            if (person != null) {
+            }
+            else {
+                throw new java.lang.Error("Person not updated in db after playing a game...! @/helper/GameLogic");
             }
         }
     }
