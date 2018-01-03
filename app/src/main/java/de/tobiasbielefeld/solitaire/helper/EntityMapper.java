@@ -11,6 +11,7 @@ import org.json.JSONException;
 import java.util.LinkedList;
 import java.util.List;
 
+import de.tobiasbielefeld.solitaire.classes.GamePlayed;
 import de.tobiasbielefeld.solitaire.classes.Person;
 
 /**
@@ -34,6 +35,7 @@ public enum EntityMapper {
     public void setRequestQueue(RequestQueue rq) { this.requestQueue = rq; }
     /** Singleton design applied; return the single mappers to other mappers that need them. */
     public PersonMapper getpMapper() { return pMapper; }
+    public GameMapper getgMapper() {return gMapper;}
 
     /**
      * Prepare one of each entity, and one list for each of those entities.
@@ -44,12 +46,16 @@ public enum EntityMapper {
      */
     public Person person;
     public List<Person> persons;
+    public GamePlayed game;
+    public List<GamePlayed> games;
     private boolean dataReady = false;
     public boolean dataReady() { return this.dataReady; }
     public void dataGrabbed() {
         this.dataReady = false;
         person = null;
         persons = new LinkedList<>();
+        game = null;
+        games = new LinkedList<>();
     }
 
     public void queryEntity(final Object obj, String url) {
@@ -87,6 +93,9 @@ public enum EntityMapper {
             try {if (obj instanceof Person) {
                 persons.add(new Person(json.getJSONObject(i)));
             }
+            else if (obj instanceof GamePlayed) {
+                games.add(new GamePlayed(json.getJSONObject(i)));
+            }
             } catch(JSONException e) {
                 e.printStackTrace();
             }
@@ -97,6 +106,9 @@ public enum EntityMapper {
     private void mapToEntity(JSONArray json, Object obj) {
         try {if (obj instanceof Person) {
             person = new Person(json.getJSONObject(0));
+        }
+        else if (obj instanceof GamePlayed) {
+            game = new GamePlayed(json.getJSONObject(0));
         }
         } catch(JSONException e) {
             e.printStackTrace();

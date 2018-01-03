@@ -1,5 +1,8 @@
 package de.tobiasbielefeld.solitaire.classes;
 
+import org.json.JSONException;
+import org.json.JSONObject;
+
 import java.sql.Date;
 
 /**
@@ -11,13 +14,10 @@ public class GamePlayed {
 
     private int id;
     private int personID;
-    private Date startTime;
-    private Date endTime;
-    private int isSolved;
-    private int moves;
+    private int gameTime;
+    private boolean isSolved;
     private int countTroughPile;
-    private int avgIdleTime;
-    private int avgSwipeTime;
+    private int avgMotorTime;
     private int buildStack1;
     private int buildStack2;
     private int buildStack3;
@@ -31,36 +31,52 @@ public class GamePlayed {
     private int suitStack4;
     private int talonStack;
     private int pileStack;
-    private int randomTapCounter;
-    private int movePileToSuitError;
-    private int movePileToBuildError;
-    private int moveBuildToBuildError;
     private int moveSameColorError;
     private int moveWrongNumberError;
-    private int ignoreAceTime;
     private int hintButtonCount;
     private int undoButtonCount;
-    private int badPrecisionCounter;
     private int betaError;
-
 
     public GamePlayed() {
     }
 
-    public GamePlayed(int id, int personID, Date startTime, Date endTime, int isSolved, int moves, int countTroughPile, int avgIdleTime, int avgSwipeTime,
-                      int buildStack1, int buildStack2, int buildStack3, int buildStack4, int buildStack5, int buildStack6, int buildStack7, int suitStack1,
-                      int suitStack2, int suitStack3, int suitStack4, int talonStack, int pileStack, int randomTapCounter, int movePileToSuitError,
-                      int movePileToBuildError, int moveBuildToBuildError, int moveSameColorError, int moveWrongNumberError, int ignoreAceTime,
-                      int hintButtonCount, int undoButtonCount, int badPrecisionCounter, int betaError) {
-        this.id = id;
+    public GamePlayed(JSONObject obj) {
+        try {
+            this.id = obj.getInt("id");
+            this.personID = obj.getInt("personID");
+            this.gameTime = obj.getInt("playTime");
+            this.isSolved = obj.getBoolean("isSolved");;
+            this.countTroughPile = obj.getInt("throughPileCounter");
+            this.avgMotorTime = obj.getInt("avgMotorTime");
+            this.buildStack1 = obj.getInt("buildStack1Counter");
+            this.buildStack2 = obj.getInt("buildStack2Counter");
+            this.buildStack3 = obj.getInt("buildStack3Counter");
+            this.buildStack4 = obj.getInt("buildStack4Counter");
+            this.buildStack5 = obj.getInt("buildStack5Counter");
+            this.buildStack6 = obj.getInt("buildStack6Counter");
+            this.buildStack7 = obj.getInt("buildStack7Counter");
+            this.suitStack1 = obj.getInt("suitStack1Counter");
+            this.suitStack2 = obj.getInt("suitStack2Counter");
+            this.suitStack3 = obj.getInt("suitStack3Counter");
+            this.suitStack4 = obj.getInt("suitStack4Counter");
+            this.talonStack = obj.getInt("talonStackCounter");
+            this.pileStack = obj.getInt("pileStackCounter");
+            this.moveSameColorError = obj.getInt("colorErrorCounter");
+            this.moveWrongNumberError = obj.getInt("numberErrorCounter");
+            this.hintButtonCount = obj.getInt("hintCounter");
+            this.undoButtonCount = obj.getInt("undoCounter");
+            this.betaError = obj.getInt("betaErrorCounter");
+        } catch (JSONException e) {
+            e.printStackTrace();
+        }
+    }
+
+    public GamePlayed(int personID, int gameTime, boolean isSolved, int countTroughPile, int avgMotorTime, int buildStack1, int buildStack2, int buildStack3, int buildStack4, int buildStack5, int buildStack6, int buildStack7, int suitStack1, int suitStack2, int suitStack3, int suitStack4, int talonStack, int pileStack, int moveSameColorError, int moveWrongNumberError, int hintButtonCount, int undoButtonCount, int betaError) {
         this.personID = personID;
-        this.startTime = startTime;
-        this.endTime = endTime;
+        this.gameTime = gameTime;
         this.isSolved = isSolved;
-        this.moves = moves;
         this.countTroughPile = countTroughPile;
-        this.avgIdleTime = avgIdleTime;
-        this.avgSwipeTime = avgSwipeTime;
+        this.avgMotorTime = avgMotorTime;
         this.buildStack1 = buildStack1;
         this.buildStack2 = buildStack2;
         this.buildStack3 = buildStack3;
@@ -74,33 +90,20 @@ public class GamePlayed {
         this.suitStack4 = suitStack4;
         this.talonStack = talonStack;
         this.pileStack = pileStack;
-        this.randomTapCounter = randomTapCounter;
-        this.movePileToSuitError = movePileToSuitError;
-        this.movePileToBuildError = movePileToBuildError;
-        this.moveBuildToBuildError = moveBuildToBuildError;
         this.moveSameColorError = moveSameColorError;
         this.moveWrongNumberError = moveWrongNumberError;
-        this.ignoreAceTime = ignoreAceTime;
         this.hintButtonCount = hintButtonCount;
         this.undoButtonCount = undoButtonCount;
-        this.badPrecisionCounter = badPrecisionCounter;
         this.betaError = betaError;
     }
 
-    public GamePlayed(int personID, Date startTime, Date endTime, int isSolved, int moves, int countTroughPile, int avgIdleTime, int avgSwipeTime,
-                      int buildStack1, int buildStack2, int buildStack3, int buildStack4, int buildStack5, int buildStack6, int buildStack7,
-                      int suitStack1, int suitStack2, int suitStack3, int suitStack4, int talonStack, int pileStack, int randomTapCounter,
-                      int movePileToSuitError, int movePiltToBuildError, int moveBuildToBuildError, int moveSameColorError, int moveWrongNumberError,
-                      int ignoreAceTime, int hintButtonCount, int undoButtonCount, int badPrecisionCounter, int betaError) {
-
+    public GamePlayed(int id, int personID, int gameTime, boolean isSolved, int countTroughPile, int avgMotorTime, int buildStack1, int buildStack2, int buildStack3, int buildStack4, int buildStack5, int buildStack6, int buildStack7, int suitStack1, int suitStack2, int suitStack3, int suitStack4, int talonStack, int pileStack, int moveSameColorError, int moveWrongNumberError, int hintButtonCount, int undoButtonCount, int betaError) {
+        this.id = id;
         this.personID = personID;
-        this.startTime = startTime;
-        this.endTime = endTime;
+        this.gameTime = gameTime;
         this.isSolved = isSolved;
-        this.moves = moves;
         this.countTroughPile = countTroughPile;
-        this.avgIdleTime = avgIdleTime;
-        this.avgSwipeTime = avgSwipeTime;
+        this.avgMotorTime = avgMotorTime;
         this.buildStack1 = buildStack1;
         this.buildStack2 = buildStack2;
         this.buildStack3 = buildStack3;
@@ -114,21 +117,19 @@ public class GamePlayed {
         this.suitStack4 = suitStack4;
         this.talonStack = talonStack;
         this.pileStack = pileStack;
-        this.randomTapCounter = randomTapCounter;
-        this.movePileToSuitError = movePileToSuitError;
-        this.movePileToBuildError = movePiltToBuildError;
-        this.moveBuildToBuildError = moveBuildToBuildError;
         this.moveSameColorError = moveSameColorError;
         this.moveWrongNumberError = moveWrongNumberError;
-        this.ignoreAceTime = ignoreAceTime;
         this.hintButtonCount = hintButtonCount;
         this.undoButtonCount = undoButtonCount;
-        this.badPrecisionCounter = badPrecisionCounter;
         this.betaError = betaError;
     }
 
     public int getId() {
         return id;
+    }
+
+    public void setId(int id) {
+        this.id = id;
     }
 
     public int getPersonID() {
@@ -139,36 +140,20 @@ public class GamePlayed {
         this.personID = personID;
     }
 
-    public Date getStartTime() {
-        return startTime;
+    public int getGameTime() {
+        return gameTime;
     }
 
-    public void setStartTime(Date startTime) {
-        this.startTime = startTime;
+    public void setGameTime(int gameTime) {
+        this.gameTime = gameTime;
     }
 
-    public Date getEndTime() {
-        return endTime;
-    }
-
-    public void setEndTime(Date endTime) {
-        this.endTime = endTime;
-    }
-
-    public int getIsSolved() {
+    public boolean isSolved() {
         return isSolved;
     }
 
-    public void setIsSolved(int isSolved) {
-        this.isSolved = isSolved;
-    }
-
-    public int getMoves() {
-        return moves;
-    }
-
-    public void setMoves(int moves) {
-        this.moves = moves;
+    public void setSolved(boolean solved) {
+        isSolved = solved;
     }
 
     public int getCountTroughPile() {
@@ -179,20 +164,12 @@ public class GamePlayed {
         this.countTroughPile = countTroughPile;
     }
 
-    public int getAvgIdleTime() {
-        return avgIdleTime;
+    public int getAvgMotorTime() {
+        return avgMotorTime;
     }
 
-    public void setAvgIdleTime(int avgIdleTime) {
-        this.avgIdleTime = avgIdleTime;
-    }
-
-    public int getAvgSwipeTime() {
-        return avgSwipeTime;
-    }
-
-    public void setAvgSwipeTime(int avgSwipeTime) {
-        this.avgSwipeTime = avgSwipeTime;
+    public void setAvgMotorTime(int avgMotorTime) {
+        this.avgMotorTime = avgMotorTime;
     }
 
     public int getBuildStack1() {
@@ -299,38 +276,6 @@ public class GamePlayed {
         this.pileStack = pileStack;
     }
 
-    public int getRandomTapCounter() {
-        return randomTapCounter;
-    }
-
-    public void setRandomTapCounter(int randomTapCounter) {
-        this.randomTapCounter = randomTapCounter;
-    }
-
-    public int getMovePileToSuitError() {
-        return movePileToSuitError;
-    }
-
-    public void setMovePileToSuitError(int movePileToSuitError) {
-        this.movePileToSuitError = movePileToSuitError;
-    }
-
-    public int getMovePileToBuildError() {
-        return movePileToBuildError;
-    }
-
-    public void setMovePileToBuildError(int movePiltToBuildError) {
-        this.movePileToBuildError = movePiltToBuildError;
-    }
-
-    public int getMoveBuildToBuildError() {
-        return moveBuildToBuildError;
-    }
-
-    public void setMoveBuildToBuildError(int moveBuildToBuildError) {
-        this.moveBuildToBuildError = moveBuildToBuildError;
-    }
-
     public int getMoveSameColorError() {
         return moveSameColorError;
     }
@@ -345,14 +290,6 @@ public class GamePlayed {
 
     public void setMoveWrongNumberError(int moveWrongNumberError) {
         this.moveWrongNumberError = moveWrongNumberError;
-    }
-
-    public int getIgnoreAceTime() {
-        return ignoreAceTime;
-    }
-
-    public void setIgnoreAceTime(int ignoreAceTime) {
-        this.ignoreAceTime = ignoreAceTime;
     }
 
     public int getHintButtonCount() {
@@ -371,14 +308,6 @@ public class GamePlayed {
         this.undoButtonCount = undoButtonCount;
     }
 
-    public int getBadPrecisionCounter() {
-        return badPrecisionCounter;
-    }
-
-    public void setBadPrecisionCounter(int badPrecisionCounter) {
-        this.badPrecisionCounter = badPrecisionCounter;
-    }
-
     public int getBetaError() {
         return betaError;
     }
@@ -386,5 +315,5 @@ public class GamePlayed {
     public void setBetaError(int betaError) {
         this.betaError = betaError;
     }
-
 }
+

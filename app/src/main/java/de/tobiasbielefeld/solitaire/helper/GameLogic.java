@@ -18,16 +18,24 @@
 
 package de.tobiasbielefeld.solitaire.helper;
 
+import android.content.Intent;
+import android.os.AsyncTask;
 import android.util.Log;
 import android.view.View;
+import android.widget.Toast;
 
 import java.util.ArrayList;
 import java.util.Random;
 
 import de.tobiasbielefeld.solitaire.R;
+import de.tobiasbielefeld.solitaire.RegisterActivity;
+import de.tobiasbielefeld.solitaire.SharedData;
 import de.tobiasbielefeld.solitaire.classes.Card;
+import de.tobiasbielefeld.solitaire.classes.GamePlayed;
+import de.tobiasbielefeld.solitaire.classes.Person;
 import de.tobiasbielefeld.solitaire.classes.Stack;
 import de.tobiasbielefeld.solitaire.ui.GameManager;
+import de.tobiasbielefeld.solitaire.ui.GameSelector;
 
 import static de.tobiasbielefeld.solitaire.SharedData.DEFAULT_AUTO_START_NEW_GAME;
 import static de.tobiasbielefeld.solitaire.SharedData.DEFAULT_FIRST_RUN;
@@ -48,6 +56,7 @@ import static de.tobiasbielefeld.solitaire.SharedData.autoComplete;
 import static de.tobiasbielefeld.solitaire.SharedData.cards;
 import static de.tobiasbielefeld.solitaire.SharedData.currentGame;
 import static de.tobiasbielefeld.solitaire.SharedData.getBoolean;
+import static de.tobiasbielefeld.solitaire.SharedData.getEntityMapper;
 import static de.tobiasbielefeld.solitaire.SharedData.getInt;
 import static de.tobiasbielefeld.solitaire.SharedData.getIntArray;
 import static de.tobiasbielefeld.solitaire.SharedData.getIntList;
@@ -77,6 +86,8 @@ public class GameLogic {
     private boolean won, wonAndReloaded;                                                            //shows if the player has won, needed to know if the timer can stop, or to deal new cards on game start
     private GameManager gm;
     private boolean movedFirstCard = false;
+    private EntityMapper entityMapper = SharedData.getEntityMapper();
+    private boolean dataSent = false;
 
     public GameLogic(GameManager gm) {
         this.gm = gm;
@@ -209,6 +220,14 @@ public class GameLogic {
      */
     public void newGame() {
         // @GN
+
+        GamePlayed game = new GamePlayed(SharedData.user.getId(),0,true,0,0,
+                0,0,0,0,0,0,0,
+                0,0,0,0,0,0,0,
+                0,0,0,0); //TODO: Add all game veriables in a GamePlayed instance
+        entityMapper.getgMapper().createGame(game);
+        new SaveGameInDB().execute();
+
         ArrayList<String> newTimestamps = new ArrayList<>();
         currentGame.setColorMoveCount(0); // if new game is started, set the wrongMoveCounter to 0
         currentGame.setWrongNumberCount(0);
@@ -229,6 +248,16 @@ public class GameLogic {
      */
     public void redeal() {
         //reset EVERYTHING
+
+        if (!dataSent) {
+            GamePlayed game = new GamePlayed(SharedData.user.getId(),0,true,0,0,
+                    0,0,0,0,0,0,0,
+                    0,0,0,0,0,0,0,
+                    0,0,0,0); //TODO: Add all game veriables in a GamePlayed instance
+            entityMapper.getgMapper().createGame(game);
+            new SaveGameInDB().execute();
+        }
+
         if (!won) {                                                                                 //if the game has been won, the score was already saved
             scores.addNewHighScore();
         }
@@ -259,6 +288,29 @@ public class GameLogic {
 
         //and finally deal the cards from the game!
         currentGame.dealCards();
+    }
+
+    private class SaveGameInDB extends AsyncTask<Void, Void, GamePlayed> {
+        protected GamePlayed doInBackground(Void... voids) {
+            GamePlayed game = new GamePlayed();
+            while (!entityMapper.dataReady()) {
+                if (isCancelled()) break;
+            }
+            if (entityMapper.dataReady()) {
+                game = getEntityMapper().game;
+                getEntityMapper().dataGrabbed();
+            }
+            return game;
+        }
+
+        protected void onPostExecute(GamePlayed game) {
+            if (game == null) {
+                throw new java.lang.Error("GameData not uploaded to the database! @/helper/GameLogic");
+            }
+            else {
+                dataSent=true;
+            }
+        }
     }
 
     /**

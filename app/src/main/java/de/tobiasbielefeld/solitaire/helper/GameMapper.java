@@ -33,6 +33,26 @@ public enum GameMapper {
         this.eMapper = entityMapper;
     }
 
+
+    /**
+     * Store a game in the database
+     *
+     * @param game The Person object that needs to be stored
+     */
+    public void createGame(GamePlayed game) {
+        int solved = 0;
+        if (game.isSolved()) solved=1;
+        String url = "https://iiw.kuleuven.be/onderzoek/drSolitaire/insertGame.php?" +
+                "pid=" + game.getPersonID() + "&playt=" + game.getGameTime() + "&solved=" + solved + "&throughpilectr=" + game.getCountTroughPile() +
+                "&undoctr=" + game.getUndoButtonCount() + "&hintctr=" + game.getHintButtonCount() + "&bs1ctr=" + game.getBuildStack1() + "&bs2ctr=" + game.getBuildStack2() +
+                "&bs3ctr=" + game.getBuildStack3() + "&bs4ctr=" + game.getBuildStack4() + "&bs5ctr=" + game.getBuildStack5() + "&bs6ctr=" + game.getBuildStack6() +
+                "&bs7ctr=" + game.getBuildStack7() + "&ss1ctr=" + game.getSuitStack1() + "&ss2ctr=" + game.getSuitStack2() + "&ss3ctr=" + game.getSuitStack3() +
+                "&ss4ctr=" + game.getSuitStack4() + "&tsctr=" + game.getTalonStack() + "&psctr=" + game.getPileStack() + "&colorerrctr=" + game.getMoveSameColorError() +
+                "&numbererrctr=" + game.getMoveWrongNumberError() + "&avgmotort=" + game.getAvgMotorTime() + "&betaerrctr=" + game.getBetaError();
+        System.out.println(url);
+        GamePlayed tmpGame = new GamePlayed();
+        eMapper.queryEntity(tmpGame, url);
+    }
 }
 /*
     */
