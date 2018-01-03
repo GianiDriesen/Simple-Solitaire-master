@@ -82,7 +82,7 @@ public class Klondike extends Game {
     private boolean mainstack = false;
 
     // @GN
-    private int[] stackCounter = new int[15];
+    private int[] stackCounter = new int[15]; // 15 because when you draw 3 cards, you have 2 more "discard" stacks
 
     // @GN
     private ArrayList<String> motorTime;

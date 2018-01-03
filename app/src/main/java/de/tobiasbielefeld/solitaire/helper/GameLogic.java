@@ -18,24 +18,19 @@
 
 package de.tobiasbielefeld.solitaire.helper;
 
-import android.content.Intent;
 import android.os.AsyncTask;
 import android.util.Log;
 import android.view.View;
-import android.widget.Toast;
 
 import java.util.ArrayList;
 import java.util.Random;
 
 import de.tobiasbielefeld.solitaire.R;
-import de.tobiasbielefeld.solitaire.RegisterActivity;
 import de.tobiasbielefeld.solitaire.SharedData;
 import de.tobiasbielefeld.solitaire.classes.Card;
 import de.tobiasbielefeld.solitaire.classes.GamePlayed;
-import de.tobiasbielefeld.solitaire.classes.Person;
 import de.tobiasbielefeld.solitaire.classes.Stack;
 import de.tobiasbielefeld.solitaire.ui.GameManager;
-import de.tobiasbielefeld.solitaire.ui.GameSelector;
 
 import static de.tobiasbielefeld.solitaire.SharedData.DEFAULT_AUTO_START_NEW_GAME;
 import static de.tobiasbielefeld.solitaire.SharedData.DEFAULT_FIRST_RUN;
