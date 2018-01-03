@@ -221,8 +221,8 @@ public class GameLogic {
      */
     public void newGame() {
         // @GN
-
-        GamePlayed game = new GamePlayed(SharedData.user.getId(),(int) timer.getCurrentTime(),won,currentGame.getFlipThroughMainstackCount(),0,
+        //avgMotorTime = ...; //TODO: Function to calculate AvgMotorTime
+        GamePlayed game = new GamePlayed(SharedData.user.getId(),(int) timer.getCurrentTime(),won,currentGame.getFlipThroughMainstackCount(),0, //TODO:write avgMotorTime here
                 currentGame.getStackCounter()[0],currentGame.getStackCounter()[1],currentGame.getStackCounter()[2],currentGame.getStackCounter()[3],
                 currentGame.getStackCounter()[4],currentGame.getStackCounter()[5],currentGame.getStackCounter()[6],currentGame.getStackCounter()[7],
                 currentGame.getStackCounter()[8],currentGame.getStackCounter()[9],currentGame.getStackCounter()[10],currentGame.getStackCounter()[13],
@@ -257,7 +257,8 @@ public class GameLogic {
 
 
         if (!dataSent) {
-            GamePlayed game = new GamePlayed(SharedData.user.getId(),(int) timer.getCurrentTime(),won,currentGame.getFlipThroughMainstackCount(),0,
+            //avgMotorTime = ...; //TODO: Function to calculate AvgMotorTime
+            GamePlayed game = new GamePlayed(SharedData.user.getId(),(int) timer.getCurrentTime(),won,currentGame.getFlipThroughMainstackCount(),0, //TODO:write avgMotorTime here
                     currentGame.getStackCounter()[0],currentGame.getStackCounter()[1],currentGame.getStackCounter()[2],currentGame.getStackCounter()[3],
                     currentGame.getStackCounter()[4],currentGame.getStackCounter()[5],currentGame.getStackCounter()[6],currentGame.getStackCounter()[7],
                     currentGame.getStackCounter()[8],currentGame.getStackCounter()[9],currentGame.getStackCounter()[10],currentGame.getStackCounter()[13],
@@ -267,7 +268,7 @@ public class GameLogic {
             currentGameCopy = currentGame;
             wonCopy = won;
             entityMapper.getgMapper().createGame(game);
-            new SaveGameInDB().execute();
+            new SaveGameInDB().execute(); //Process: 1. Create game in db 2. Update person in DB TODO:thorough testing
         }
 
         if (!won) {                                                                                 //if the game has been won, the score was already saved
@@ -321,42 +322,18 @@ public class GameLogic {
                 throw new java.lang.Error("GameData not uploaded to the database! @/helper/GameLogic");
             }
             else {
-                entityMapper.getpMapper().getPersonByUsernameAndPassword(user.getUsername(),user.getPassword());
-                new GetPerson().execute();
-            }
-        }
-    }
-
-    private class GetPerson extends AsyncTask<Void, Void, Person> {
-        protected Person doInBackground(Void... voids) {
-            Person person = new Person();
-            while (!entityMapper.dataReady()) {
-                if (isCancelled()) break;
-            }
-            if (entityMapper.dataReady()) {
-                person = getEntityMapper().person;
-                getEntityMapper().dataGrabbed();
-            }
-            return person;
-        }
-
-        protected void onPostExecute(Person person) {
-            if (person != null) {
-                int nrOfGames = person.getGamesFailed()+person.getGamesSucces();
+                int nrOfGames = user.getGamesFailed()+user.getGamesSucces();
                 int avgMovesCurrentGame = currentGameCopy.getMotorTime().size()/2;
                 int succesCurrentGame = 0, failedCurrentGame = 0;
                 if (wonCopy) {succesCurrentGame++;} else {failedCurrentGame++;}
-                int newAvgMoves = (person.getAvgMoves()*nrOfGames+avgMovesCurrentGame)/(nrOfGames+1);
-                int newAvgMotorTime = (person.getAvgTime()*nrOfGames+avgMotorTime)/(nrOfGames+1);
-                int newGamesSucces = (person.getGamesSucces()*nrOfGames+succesCurrentGame);
-                int newGamesFailed = (person.getGamesFailed()*nrOfGames+failedCurrentGame);
-                Person updatePerson = new Person(person.getId(),person.getUsername(),person.getPassword(),person.getAge(),
-                                        person.isGender(),person.getLevel(),0,newAvgMoves,newAvgMotorTime,newGamesSucces,newGamesFailed);
+                int newAvgMoves = (user.getAvgMoves()*nrOfGames+avgMovesCurrentGame)/(nrOfGames+1);
+                int newAvgMotorTime = (user.getAvgTime()*nrOfGames+avgMotorTime)/(nrOfGames+1);
+                int newGamesSucces = (user.getGamesSucces()*nrOfGames+succesCurrentGame);
+                int newGamesFailed = (user.getGamesFailed()*nrOfGames+failedCurrentGame);
+                Person updatePerson = new Person(user.getId(),user.getUsername(),user.getPassword(),user.getAge(),
+                        user.isGender(),user.getLevel(),0,newAvgMoves,newAvgMotorTime,newGamesSucces,newGamesFailed);
                 entityMapper.getpMapper().updatePerson(updatePerson);
                 new UpdatePerson().execute();
-            }
-            else {
-                throw new java.lang.Error("User doesn't exist in db... ->impossible! @/helper/GameLogic");
             }
         }
     }
