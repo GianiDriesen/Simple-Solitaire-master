@@ -45,7 +45,7 @@ public class GamePlayed {
             this.id = obj.getInt("id");
             this.personID = obj.getInt("personID");
             this.gameTime = obj.getInt("playTime");
-            this.isSolved = obj.getBoolean("isSolved");;
+            this.isSolved = obj.getBoolean("isSolved");
             this.countTroughPile = obj.getInt("throughPileCounter");
             this.avgMotorTime = obj.getInt("avgMotorTime");
             this.buildStack1 = obj.getInt("buildStack1Counter");
