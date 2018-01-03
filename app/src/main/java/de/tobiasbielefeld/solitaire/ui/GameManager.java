@@ -33,6 +33,9 @@ import android.widget.RelativeLayout;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import java.text.DateFormat;
+import java.util.ArrayList;
+import java.util.Date;
 import java.util.Locale;
 
 import de.tobiasbielefeld.solitaire.R;
@@ -438,7 +441,11 @@ public class GameManager extends CustomAppCompatActivity implements View.OnTouch
      */
     private boolean motionActionMove(float X, float Y) {
         if (movingCards.moveStarted(X, Y)) {
+
             movingCards.move(X, Y);
+
+
+
 
             if (tapped != null) {
                 cardHighlight.move(this, tapped.getCard());
@@ -458,6 +465,11 @@ public class GameManager extends CustomAppCompatActivity implements View.OnTouch
     private boolean motionActionUp(float X, float Y) {
 
         if (movingCards.moveStarted(X, Y)) {
+            String currentDateTimeString = DateFormat.getDateTimeInstance().format(new Date());
+
+            ArrayList<String> motortime = currentGame.getMotorTime();
+
+            motortime.add(currentDateTimeString);
 
             cardHighlight.hide(this);
             Stack stack = getIntersectingStack(movingCards.first());

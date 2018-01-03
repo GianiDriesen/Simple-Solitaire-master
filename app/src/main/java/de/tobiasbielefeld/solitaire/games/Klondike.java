@@ -499,6 +499,7 @@ public class Klondike extends Game {
     // @GN function to get the timestamp whenever a card is touched, used to calculate the motorTime
     public void timeStampForOneMove(float X, float Y) {
         String currentDateTimeString = DateFormat.getDateTimeInstance().format(new Date());
+
         for (int i = 0; i < stacks.length; i++) {
             if (stacks[i].isOnLocation(X, Y)) {
                 motorTime.add(currentDateTimeString);
