@@ -207,7 +207,7 @@ public class SharedData {
     public static int NUMBER_OF_CARD_BACKGROUNDS;
     public static int NUMBER_OF_CARD_THEMES;
 
-    public static EntityMapper entityMapper = EntityMapper.UNIQUEMAPPER;
+    private static EntityMapper entityMapper = EntityMapper.UNIQUEMAPPER;
     public static Person user = null;
 
     //@KG manipulations to make the game deal in the same manner every time
@@ -352,8 +352,8 @@ public class SharedData {
         DEFAULT_FORTYEIGHT_LIMITED_RECYCLES = res.getBoolean(R.bool.default_fortyeight_limited_recycles);
         DEFAULT_YUKON_RULES = res.getStringArray(R.array.pref_yukon_rules_values)[0];
         DEFAULT_KLONDIKE_DRAW = res.getStringArray(R.array.pref_draw_values)[0];
-        DEFAULT_VEGAS_DRAW = res.getStringArray(R.array.pref_draw_values)[1];
-        DEFAULT_CANFIELD_DRAW = res.getStringArray(R.array.pref_draw_values)[1];
+        DEFAULT_VEGAS_DRAW = res.getStringArray(R.array.pref_draw_values)[0];
+        DEFAULT_CANFIELD_DRAW = res.getStringArray(R.array.pref_draw_values)[0];
 
         GAME_REDEAL_COUNT = res.getString(R.string.game_recycle_count);
         GAME_WON = res.getString(R.string.game_won);
@@ -661,6 +661,14 @@ public class SharedData {
     public static void putStringList(String name, ArrayList<String> list) { // function to save the timestamps into savedGameData
         String s = " ";
         for (String i: list) {
+            s += i + "-";
+        }
+        savedGameData.edit().putString(name, s).apply();
+    }
+
+    public static void putIntArrayList(String name, ArrayList<Integer> list) {
+        String s = " ";
+        for (int i: list) {
             s += i + "-";
         }
         savedGameData.edit().putString(name, s).apply();

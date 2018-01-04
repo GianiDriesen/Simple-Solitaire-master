@@ -18,18 +18,20 @@
 
 package de.tobiasbielefeld.solitaire.helper;
 
+import android.os.AsyncTask;
 import android.util.Log;
 import android.view.View;
-import android.widget.Toast;
 
 import java.util.ArrayList;
-import java.util.Collections;
 import java.util.Random;
 
 import de.tobiasbielefeld.solitaire.R;
 import de.tobiasbielefeld.solitaire.SharedData;
 import de.tobiasbielefeld.solitaire.classes.Card;
+import de.tobiasbielefeld.solitaire.classes.GamePlayed;
+import de.tobiasbielefeld.solitaire.classes.Person;
 import de.tobiasbielefeld.solitaire.classes.Stack;
+import de.tobiasbielefeld.solitaire.games.Game;
 import de.tobiasbielefeld.solitaire.ui.GameManager;
 
 import static de.tobiasbielefeld.solitaire.SharedData.DEFAULT_AUTO_START_NEW_GAME;
@@ -51,23 +53,23 @@ import static de.tobiasbielefeld.solitaire.SharedData.autoComplete;
 import static de.tobiasbielefeld.solitaire.SharedData.cards;
 import static de.tobiasbielefeld.solitaire.SharedData.currentGame;
 import static de.tobiasbielefeld.solitaire.SharedData.getBoolean;
+import static de.tobiasbielefeld.solitaire.SharedData.getEntityMapper;
 import static de.tobiasbielefeld.solitaire.SharedData.getInt;
 import static de.tobiasbielefeld.solitaire.SharedData.getIntArray;
 import static de.tobiasbielefeld.solitaire.SharedData.getIntList;
 import static de.tobiasbielefeld.solitaire.SharedData.getLong;
 import static de.tobiasbielefeld.solitaire.SharedData.getSharedBoolean;
-import static de.tobiasbielefeld.solitaire.SharedData.getStringList;
 import static de.tobiasbielefeld.solitaire.SharedData.movingCards;
 import static de.tobiasbielefeld.solitaire.SharedData.putBoolean;
 import static de.tobiasbielefeld.solitaire.SharedData.putInt;
 import static de.tobiasbielefeld.solitaire.SharedData.putIntArray;
 import static de.tobiasbielefeld.solitaire.SharedData.putIntList;
-import static de.tobiasbielefeld.solitaire.SharedData.putStringList;
 import static de.tobiasbielefeld.solitaire.SharedData.recordList;
 import static de.tobiasbielefeld.solitaire.SharedData.scores;
 import static de.tobiasbielefeld.solitaire.SharedData.sounds;
 import static de.tobiasbielefeld.solitaire.SharedData.stacks;
 import static de.tobiasbielefeld.solitaire.SharedData.timer;
+import static de.tobiasbielefeld.solitaire.SharedData.user;
 
 /**
  * Contains stuff for the game which i didn't know where i should put it.
@@ -80,8 +82,11 @@ public class GameLogic {
     private boolean won, wonAndReloaded;                                                            //shows if the player has won, needed to know if the timer can stop, or to deal new cards on game start
     private GameManager gm;
     private boolean movedFirstCard = false;
-    private Toast toast;
-
+    private EntityMapper entityMapper = SharedData.getEntityMapper();
+    private boolean dataSent = false;
+    private Game currentGameCopy;
+    private boolean wonCopy;
+    private int avgMotorTime;
 
     public GameLogic(GameManager gm) {
         this.gm = gm;
@@ -113,10 +118,9 @@ public class GameLogic {
         putInt("UNDOCOUNT", currentGame.getUndoCounter());
         putInt("WRONGCOLORCOUNT", currentGame.getColorMoveCount());
         putInt("WRONGNUMBERCOUNT", currentGame.getWrongNumberCount());
-        putInt("WRONGDUBBLETAPCOUNT", currentGame.getWrongDubbletapCount());
         putInt("FLIPMAINSTACKCOUNT", currentGame.getFlipThroughMainstackCount());
         putInt("HINTCOUNT", currentGame.getHintCounter());
-        putStringList("TIMESTAMPS", currentGame.getTimestamps());
+        putIntList("TIMESTAMPS", currentGame.getMotorTime());
         putIntArray("STACKCOUNTS", currentGame.getStackCounter());
         putInt("BETAERROR", currentGame.getBetaError());
         // Timer will be saved in onPause()
@@ -153,10 +157,9 @@ public class GameLogic {
         currentGame.setUndoCounter(getInt("UNDOCOUNT", 0));
         currentGame.setFlipThroughMainstackCount(getInt("FLIPMAINSTACKCOUNT", 0));
         currentGame.setHintCounter(getInt("HINTCOUNT", 0));
-        currentGame.setWrongDubbletapCount(getInt("WRONGDUBBLETAPCOUNT", 0));
         currentGame.setWrongNumberCount(getInt("WRONGNUMBERCOUNT", 0));
         currentGame.setColorMoveCount(getInt("WRONGCOLORCOUNT", 0));
-        currentGame.setTimestamps(getStringList("TIMESTAMPS"));
+        currentGame.setMotorTime(getIntList("TIMESTAMPS"));
         currentGame.setStackCounter(getIntArray("STACKCOUNTS"));
         currentGame.setBetaError(getInt("BETAERROR", 0));
         //update and reset
@@ -216,19 +219,30 @@ public class GameLogic {
      */
     public void newGame() {
         // @GN
-        ArrayList<String> newTimestamps = new ArrayList<>();
+        avgMotorTime = calculateAvgMotorTime();
+        GamePlayed game = new GamePlayed(SharedData.user.getId(),(int) timer.getCurrentTime(),won,currentGame.getFlipThroughMainstackCount(),0, //TODO:write avgMotorTime here
+                currentGame.getStackCounter()[0],currentGame.getStackCounter()[1],currentGame.getStackCounter()[2],currentGame.getStackCounter()[3],
+                currentGame.getStackCounter()[4],currentGame.getStackCounter()[5],currentGame.getStackCounter()[6],currentGame.getStackCounter()[7],
+                currentGame.getStackCounter()[8],currentGame.getStackCounter()[9],currentGame.getStackCounter()[10],currentGame.getStackCounter()[13],
+                currentGame.getStackCounter()[14],currentGame.getColorMoveCount(), currentGame.getWrongNumberCount(),currentGame.getHintCounter(),
+                currentGame.getUndoCounter(),currentGame.getBetaError());
+        dataSent=true;
+        currentGameCopy = currentGame;
+        wonCopy = won;
+        entityMapper.getgMapper().createGame(game);
+        new SaveGameInDB().execute();
+
+        ArrayList<Integer> newTimestamps = new ArrayList<>();
         currentGame.setColorMoveCount(0); // if new game is started, set the wrongMoveCounter to 0
-        currentGame.setWrongDubbletapCount(0);
         currentGame.setWrongNumberCount(0);
         currentGame.setUndoCounter(0);
         currentGame.setFlipThroughMainstackCount(0);
         currentGame.setHintCounter(0);
-        currentGame.setTimestamps(newTimestamps);
+        currentGame.setMotorTime(newTimestamps);
         currentGame.setStackCounter(new int[15]);
         currentGame.setBetaError(0);
         System.arraycopy(cards, 0, randomCards, 0, cards.length);
-        randomize(randomCards); //@KG: aparte functie schrijven die het in sharedpref zet. (arraylistje ofzo).
-
+        randomize(randomCards);
 
         redeal();
     }
@@ -238,6 +252,23 @@ public class GameLogic {
      */
     public void redeal() {
         //reset EVERYTHING
+
+
+        if (!dataSent) {
+            calculateAvgMotorTime();
+            GamePlayed game = new GamePlayed(SharedData.user.getId(),(int) timer.getCurrentTime(),won,currentGame.getFlipThroughMainstackCount(),0, //TODO:write avgMotorTime here
+                    currentGame.getStackCounter()[0],currentGame.getStackCounter()[1],currentGame.getStackCounter()[2],currentGame.getStackCounter()[3],
+                    currentGame.getStackCounter()[4],currentGame.getStackCounter()[5],currentGame.getStackCounter()[6],currentGame.getStackCounter()[7],
+                    currentGame.getStackCounter()[8],currentGame.getStackCounter()[9],currentGame.getStackCounter()[10],currentGame.getStackCounter()[13],
+                    currentGame.getStackCounter()[14],currentGame.getColorMoveCount(), currentGame.getWrongNumberCount(),currentGame.getHintCounter(),
+                    currentGame.getUndoCounter(),currentGame.getBetaError());
+            dataSent=true;
+            currentGameCopy = currentGame;
+            wonCopy = won;
+            entityMapper.getgMapper().createGame(game);
+            new SaveGameInDB().execute(); //Process: 1. Create game in db 2. Update person in DB TODO:thorough testing
+        }
+
         if (!won) {                                                                                 //if the game has been won, the score was already saved
             scores.addNewHighScore();
         }
@@ -254,6 +285,7 @@ public class GameLogic {
         recordList.reset();
         timer.reset();
         autoComplete.hideButton();
+        dataSent = false;
 
         for (Stack stack : stacks)
             stack.reset();
@@ -268,6 +300,73 @@ public class GameLogic {
 
         //and finally deal the cards from the game!
         currentGame.dealCards();
+    }
+
+
+    private int calculateAvgMotorTime() {
+        int avg = 0;
+        for (int i=0;i<currentGame.getMotorTime().size();i=i+2) {
+            avg = avg + (currentGame.getMotorTime().get(i+1) - currentGame.getMotorTime().get(i));
+        }
+        avg = avg/(currentGame.getMotorTime().size()/2);
+
+        return avg;
+    }
+
+    private class SaveGameInDB extends AsyncTask<Void, Void, GamePlayed> {
+        protected GamePlayed doInBackground(Void... voids) {
+            GamePlayed game = new GamePlayed();
+            while (!entityMapper.dataReady()) {
+                if (isCancelled()) break;
+            }
+            if (entityMapper.dataReady()) {
+                game = getEntityMapper().game;
+                getEntityMapper().dataGrabbed();
+            }
+            return game;
+        }
+
+        protected void onPostExecute(GamePlayed game) {
+            if (game == null) {
+                throw new java.lang.Error("GameData not uploaded to the database! @/helper/GameLogic");
+            }
+            else {
+                int nrOfGames = user.getGamesFailed()+user.getGamesSucces();
+                int avgMovesCurrentGame = currentGameCopy.getMotorTime().size()/2;
+                int succesCurrentGame = 0, failedCurrentGame = 0;
+                if (wonCopy) {succesCurrentGame++;} else {failedCurrentGame++;}
+                int newAvgMoves = (user.getAvgMoves()*nrOfGames+avgMovesCurrentGame)/(nrOfGames+1);
+                int newAvgMotorTime = (user.getAvgTime()*nrOfGames+avgMotorTime)/(nrOfGames+1);
+                int newGamesSucces = (user.getGamesSucces()*nrOfGames+succesCurrentGame);
+                int newGamesFailed = (user.getGamesFailed()*nrOfGames+failedCurrentGame);
+                Person updatePerson = new Person(user.getId(),user.getUsername(),user.getPassword(),user.getAge(),
+                        user.isGender(),user.getLevel(),0,newAvgMoves,newAvgMotorTime,newGamesSucces,newGamesFailed);
+                entityMapper.getpMapper().updatePerson(updatePerson);
+                new UpdatePerson().execute();
+            }
+        }
+    }
+
+    private class UpdatePerson extends AsyncTask<Void, Void, Person> {
+        protected Person doInBackground(Void... voids) {
+            Person person = new Person();
+            while (!entityMapper.dataReady()) {
+                if (isCancelled()) break;
+            }
+            if (entityMapper.dataReady()) {
+                person = getEntityMapper().person;
+                getEntityMapper().dataGrabbed();
+            }
+            return person;
+        }
+
+        protected void onPostExecute(Person person) {
+            if (person != null) {
+            }
+            else {
+                throw new java.lang.Error("Person not updated in db after playing a game...! @/helper/GameLogic");
+            }
+        }
     }
 
     /**
@@ -290,28 +389,13 @@ public class GameLogic {
 
     /**
      * Randomizes a given card array using the Fisher–Yates shuffle
-     * @KG carddeals here
+     *
      * @param array The array to randomize
      */
     private void randomize(Card[] array) {
         int index;
         Card dummy;
-        Random rand;
-        if(SharedData.gamecounter==10){SharedData.gamecounter=0;} //@kg remove this to also play random games
-        if(SharedData.gamecounter<10)
-        {
-            rand = new Random(SharedData.gameList.get(SharedData.gamecounter));
-            Log.i("SEED", "Now using "+ SharedData.gameList.get(SharedData.gamecounter));
-            gm.showToast("Now playing game "+ (SharedData.gamecounter+1));
-            SharedData.gamecounter++;
-        }
-        else
-        {
-            rand = new Random();
-            Log.i("SEED", "Now using a random seed");
-            gm.showToast("Now using a random seed");
-
-        }
+        Random rand = new Random();
 
         for (int i = array.length - 1; i > 0; i--) {
             if ((index = rand.nextInt(i + 1)) != i) {
@@ -321,7 +405,6 @@ public class GameLogic {
             }
         }
     }
-
 
     /**
      * for left handed mode: mirrors the stacks to the other side and then updates the card

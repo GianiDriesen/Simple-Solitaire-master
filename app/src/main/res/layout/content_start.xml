@@ -11,7 +11,15 @@
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
+        android:background="?attr/colorButtonNormal"
         android:orientation="vertical">
+
+        <ImageView
+            android:id="@+id/imageView2"
+            android:layout_width="match_parent"
+            android:layout_height="100dp"
+            android:layout_marginTop="100px"
+            android:src="@drawable/kuleuvenlogo" />
 
         <LinearLayout
             android:layout_width="match_parent"
@@ -20,16 +28,12 @@
             android:paddingBottom="200dp"
             android:paddingTop="100dp">
 
-            <Space
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_weight="1" />
-
             <TextView
                 android:id="@+id/welcomTxt"
                 android:layout_width="285dp"
                 android:layout_height="28dp"
                 android:layout_weight="1"
+                android:paddingLeft="25dp"
                 android:text="Welcome to our incredible Solitaire App!"
                 android:textAlignment="center"
                 android:textAllCaps="false"
@@ -37,10 +41,6 @@
                 tools:layout_editor_absoluteX="33dp"
                 tools:layout_editor_absoluteY="85dp" />
 
-            <Space
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_weight="1" />
         </LinearLayout>
 
         <LinearLayout
@@ -58,6 +58,7 @@
                 android:layout_width="200dp"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
+                android:background="@color/white"
                 android:onClick="openApp"
                 android:text="I want to play!"
                 tools:layout_editor_absoluteX="148dp"

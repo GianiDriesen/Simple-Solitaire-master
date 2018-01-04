@@ -33,6 +33,9 @@ import android.widget.RelativeLayout;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import java.util.ArrayList;
+import java.util.Calendar;
+import java.util.Date;
 import java.util.Locale;
 
 import de.tobiasbielefeld.solitaire.R;
@@ -328,6 +331,7 @@ public class GameManager extends CustomAppCompatActivity implements View.OnTouch
 
         //if the main stack got touched
         if (currentGame.hasMainStack() && currentGame.testIfMainStackTouched(X, Y)) {
+            currentGame.setMainstackBoolean(true);
 
             // @GN code for measuring beta errors, I think it's better to do that when the main stack is touched
             hint.setHintVisible(false);
@@ -352,7 +356,6 @@ public class GameManager extends CustomAppCompatActivity implements View.OnTouch
             currentGame.mainStackTouch();
             return resetTappedCard();
         }
-
 
         if (v.belongsToStack() && getSharedBoolean(PREF_KEY_TAP_TO_SELECT_ENABLED, DEFAULT_TAP_TO_SELECT_ENABLED)) {
             if (tapped != null && tapped.getStack() != stacks[v.getId()] && currentGame.addCardToMovementTest(tapped.getCard())) {
@@ -438,7 +441,11 @@ public class GameManager extends CustomAppCompatActivity implements View.OnTouch
      */
     private boolean motionActionMove(float X, float Y) {
         if (movingCards.moveStarted(X, Y)) {
+
             movingCards.move(X, Y);
+
+
+
 
             if (tapped != null) {
                 cardHighlight.move(this, tapped.getCard());
@@ -458,6 +465,13 @@ public class GameManager extends CustomAppCompatActivity implements View.OnTouch
     private boolean motionActionUp(float X, float Y) {
 
         if (movingCards.moveStarted(X, Y)) {
+            Date secondTime = Calendar.getInstance().getTime();
+
+            long difference = secondTime.getTime() - currentGame.getCurrentTime().getTime();
+
+            ArrayList<Integer> motortime = currentGame.getMotorTime();
+
+            motortime.add((int) difference);
 
             cardHighlight.hide(this);
             Stack stack = getIntersectingStack(movingCards.first());

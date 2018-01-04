@@ -11,11 +11,18 @@
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
+        android:background="?attr/colorButtonNormal"
         android:orientation="vertical">
+
+        <ImageView
+            android:layout_width="match_parent"
+            android:layout_height="100dp"
+            android:layout_marginTop="100px"
+            android:src="@drawable/kuleuvenlogo" />
 
         <Space
             android:layout_width="match_parent"
-            android:layout_height="64dp" />
+            android:layout_height="29dp" />
 
         <LinearLayout
             android:layout_width="match_parent"
@@ -47,7 +54,7 @@
 
         <Space
             android:layout_width="match_parent"
-            android:layout_height="58dp" />
+            android:layout_height="31dp" />
 
         <LinearLayout
             android:layout_width="match_parent"
@@ -108,7 +115,7 @@
 
         <Space
             android:layout_width="match_parent"
-            android:layout_height="117dp" />
+            android:layout_height="30dp" />
 
         <LinearLayout
             android:layout_width="match_parent"
@@ -125,6 +132,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="50dp"
                 android:layout_weight="1"
+                android:background="@color/white"
                 android:onClick="loginApp"
                 android:text="Login"
                 tools:layout_editor_absoluteX="85dp"
@@ -139,6 +147,36 @@
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:layout_marginTop="10dp"
+            android:orientation="horizontal">
+
+            <Space
+                android:layout_width="200dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1" />
+
+            <Button
+                android:id="@+id/skipBtn"
+                android:layout_width="match_parent"
+                android:layout_height="50dp"
+                android:layout_weight="1"
+                android:background="@color/white"
+                android:onClick="skipApp"
+                android:text="SKIP LOGIN FOR NOW"
+                tools:layout_editor_absoluteX="85dp"
+                tools:layout_editor_absoluteY="400dp" />
+
+            <Space
+                android:layout_width="200dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1" />
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="10dp"
             android:orientation="horizontal">
 
             <Space
@@ -151,8 +189,9 @@
                 android:layout_width="match_parent"
                 android:layout_height="50dp"
                 android:layout_weight="1"
+                android:background="@color/white"
                 android:onClick="registerApp"
-                android:text="SKIP LOGIN FOR NOW"
+                android:text="Not an account yet?"
                 tools:layout_editor_absoluteX="85dp"
                 tools:layout_editor_absoluteY="400dp" />
 

@@ -20,9 +20,9 @@ package de.tobiasbielefeld.solitaire.games;
 
 import android.widget.RelativeLayout;
 
-import java.text.DateFormat;
 import java.util.ArrayList;
 import java.util.Arrays;
+import java.util.Calendar;
 import java.util.Date;
 
 import de.tobiasbielefeld.solitaire.classes.Card;
@@ -62,7 +62,6 @@ public class Klondike extends Game {
     // @GN
     private int wrongColorCounter = 0;
     private int wrongNumberCounter = 0;
-    private int wrongDubbletapCounter = 0;
 
     // @GN
     private int flipThroughMainStackCounter = 0;
@@ -72,12 +71,22 @@ public class Klondike extends Game {
 
     // @GN
     private boolean moveAvailable = false;
+    private boolean fault = false;
+
+
+    private boolean tapFaultColor = false;
+    private boolean tapFaultNumber = false;
+    private boolean oldTapFaultColor = false;
+    private boolean oldTapFaultNumber = false;
+
+    private boolean mainstack = false;
+    private Date currentTime = Calendar.getInstance().getTime();
 
     // @GN
-    private int[] stackCounter = new int[15];
+    private int[] stackCounter = new int[15]; // 15 because when you draw 3 cards, you have 2 more "discard" stacks
 
     // @GN
-    private ArrayList<String> timestamps;
+    private ArrayList<Integer> motorTime;
 
     // @GN
     private boolean dubbeltap = false;
@@ -97,7 +106,7 @@ public class Klondike extends Game {
         PREF_KEY_DRAW = PREF_KEY_KLONDIKE_DRAW;
         DEFAULT_DRAW = DEFAULT_KLONDIKE_DRAW;
 
-        timestamps = new ArrayList<>();
+        motorTime = new ArrayList<>();
         Arrays.fill(stackCounter, 0);
     }
 
@@ -114,14 +123,6 @@ public class Klondike extends Game {
 
     public int getWrongNumberCount() {
         return wrongNumberCounter;
-    }
-
-    public void setWrongDubbletapCount(int count) {
-        this.wrongDubbletapCounter = count;
-    }
-
-    public int getWrongDubbletapCount() {
-        return wrongDubbletapCounter;
     }
 
     public void setFlipThroughMainstackCount(int count) {
@@ -182,12 +183,28 @@ public class Klondike extends Game {
         betaError = counter;
     }
 
-    public void setTimestamps(ArrayList<String> fetchedTimestamps) {
-        this.timestamps = fetchedTimestamps;
+    public void setMainstackBoolean(boolean isTouched) {
+        mainstack = isTouched;
     }
 
-    public ArrayList<String> getTimestamps() {
-        return this.timestamps;
+    public boolean getMainstackBoolean() {
+        return mainstack;
+    }
+
+    public void setMotorTime(ArrayList<Integer> fetchedTimestamps) {
+        this.motorTime = fetchedTimestamps;
+    }
+
+    public ArrayList<Integer> getMotorTime() {
+        return this.motorTime;
+    }
+
+    public Date getCurrentTime() {
+        return currentTime;
+    }
+
+    public void setCurrentTime(Date currentTime) {
+        this.currentTime = currentTime;
     }
 
     public void setStacks(RelativeLayout layoutGame, boolean isLandscape) {
@@ -433,45 +450,72 @@ public class Klondike extends Game {
 
     // @GN function to count various fault moves
     public void faultCounter(Stack stack, Card card) {
-        boolean fault = false;
 
-        if(hintUsed == false) {
-            if(stack == null && dubbeltap == false) {
-                wrongDubbletapCounter++;
-                System.out.println("DubbelTap fault " + wrongDubbletapCounter);
-            }
+
+
+        fault = false;
+
+        System.out.println("Mainstack boolean: " + mainstack);
+        System.out.println("Fault: " + fault);
+
+        if(hintUsed == false && mainstack == false) {
 
             // check if card is place on the aces stacks, if so check value and symbol of card
-            else if(((stack.getId() == 7) || (stack.getId() == 8) || (stack.getId() == 9) || (stack.getId() == 10)) && dubbeltap == false) { // this works
+            if(((stack.getId() == 7) || (stack.getId() == 8) || (stack.getId() == 9) || (stack.getId() == 10)) && fault == false) { // this works
                 if((stack.getTopCard().getValue() != card.getValue() - 1) || (stack.getTopCard().getColor() != card.getColor())) {
                     wrongColorCounter++;
                     System.out.println("Wrong number on aces stack " + wrongColorCounter);
+                    fault = true;
                 }
             }
-            else {
+            else if ((stack.getTopCard().getColor() % 2 == card.getColor() % 2) && fault == false){
                 // check if card has the same color as card on top of the stack
                 // problem with movement of cards, sometimes it counts an error twice
-                if ((stack.getTopCard().getColor() % 2 == card.getColor() % 2) && dubbeltap == false && fault == false) {
-                    wrongColorCounter++;
-                    System.out.println("Wrong color " + wrongColorCounter + ", fault= " + fault);
-                    fault = true;
-                }
-                else if((stack.getTopCard().getValue() != card.getValue() + 1) && fault == false && dubbeltap == false) {
-                    wrongNumberCounter++;
-                    System.out.println("Wrong value " + wrongNumberCounter + ", fault= " + fault);
-                    fault = true;
+                tapFaultColor = true;
+                wrongColorCounter++;
+                System.out.println("Wrong color " + wrongColorCounter + ", fault= " + fault);
+                fault = true;
+            }
+            else if((stack.getTopCard().getValue() != card.getValue() + 1) && fault == false) {
+                tapFaultNumber = true;
+                wrongNumberCounter++;
+                System.out.println("Wrong value " + wrongNumberCounter + ", fault= " + fault);
+                fault = true;
+            }
+
+            else { // code for removing dubbel faults by tap-to-tap
+                oldTapFaultColor = tapFaultColor;
+                oldTapFaultNumber = tapFaultNumber;
+                tapFaultNumber = false;
+                tapFaultColor = false;
+
+                if(mainstack == false) {
+                    if (oldTapFaultColor != tapFaultColor) {
+                        wrongColorCounter--;
+                        System.out.println("wrong color, wrong number :" + wrongColorCounter + " " + wrongNumberCounter);
+                    }
+                    else if(oldTapFaultNumber != tapFaultNumber) {
+                        wrongNumberCounter--;
+                        System.out.println("wrong color, wrong number :" + wrongColorCounter + " " + wrongNumberCounter);
+                    }
                 }
             }
+
+
         }
     }
 
-    // @GN function to get the timestamp whenever a card is touched, used to calculate the time needed to do one move or to think of a move
+    // @GN function to get the timestamp whenever a card is touched, used to calculate the motorTime
     public void timeStampForOneMove(float X, float Y) {
-        String currentDateTimeString = DateFormat.getDateTimeInstance().format(new Date());
+
+        Date secondTime = Calendar.getInstance().getTime();
+
+        long difference = secondTime.getTime() - currentTime.getTime();
+
         for (int i = 0; i < stacks.length; i++) {
             if (stacks[i].isOnLocation(X, Y)) {
-                timestamps.add(currentDateTimeString);
-                System.out.println(timestamps);
+                motorTime.add((int) difference);
+                System.out.println(motorTime);
             }
         }
     }
@@ -497,7 +541,8 @@ public class Klondike extends Game {
 
     public CardAndStack hintTest() {
         Card card;
-        hintUsed = true;
+        if (hint.getHintVisible() == true)
+            hintUsed = true;
 
         for (int i = 0; i <= 6; i++) {
 

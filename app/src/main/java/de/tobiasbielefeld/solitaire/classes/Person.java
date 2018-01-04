@@ -1,5 +1,8 @@
 package de.tobiasbielefeld.solitaire.classes;
 
+import org.json.JSONException;
+import org.json.JSONObject;
+
 /**
  * Class representation of Person.
  */
@@ -20,6 +23,24 @@ public class Person {
     private int gamesFailed;
 
     public Person() {
+    }
+
+    public Person(JSONObject obj) {
+        try {
+            this.id = obj.getInt("id");
+            this.username = obj.getString("username");
+            this.password = obj.getString("password");
+            this.age = obj.getInt("age");
+            this.gender = obj.getBoolean("age");;
+            this.level = obj.getInt("level");
+            this.avgScore = obj.getInt("avgScore");
+            this.avgMoves = obj.getInt("avgMoves");
+            this.avgTime = obj.getInt("avgTime");
+            this.gamesSucces = obj.getInt("gamesSucces");
+            this.gamesFailed = obj.getInt("gamesFailed");
+        } catch (JSONException e) {
+            e.printStackTrace();
+        }
     }
 
     /**

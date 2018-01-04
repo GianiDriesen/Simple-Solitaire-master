@@ -10,6 +10,7 @@ import java.util.List;
 
 import de.tobiasbielefeld.solitaire.SharedData;
 import de.tobiasbielefeld.solitaire.classes.GamePlayed;
+import de.tobiasbielefeld.solitaire.classes.Person;
 
 /**
  * Singleton to map Person entities to-and-from the database.
@@ -18,19 +19,50 @@ import de.tobiasbielefeld.solitaire.classes.GamePlayed;
 
 // @GN
 public enum GameMapper {
-    UNIQUEMAPPER();
+    UNIQUEMAPPER;
 
-    /** Private constructor for Singleton design pattern */
-    GameMapper() {}
-
-    private EntityMapper eMapper = EntityMapper.UNIQUEMAPPER;
+    private GamePlayed game = new GamePlayed();
+    private EntityMapper eMapper;
 
     /**
+     * Use only one entity mapper for all mappers
+     *
+     * @param entityMapper Applying the singleton design
+     */
+    public void setEntityMapper(EntityMapper entityMapper) {
+        this.eMapper = entityMapper;
+    }
+
+
+    /**
+     * Store a game in the database
+     *
+     * @param game The Person object that needs to be stored
+     */
+    public void createGame(GamePlayed game) {
+        int solved = 0;
+        if (game.isSolved()) solved=1;
+        String url = "https://iiw.kuleuven.be/onderzoek/drSolitaire/insertGame.php?" +
+                "pid=" + game.getPersonID() + "&playt=" + game.getGameTime() + "&solved=" + solved + "&throughpilectr=" + game.getCountTroughPile() +
+                "&undoctr=" + game.getUndoButtonCount() + "&hintctr=" + game.getHintButtonCount() + "&bs1ctr=" + game.getBuildStack1() + "&bs2ctr=" + game.getBuildStack2() +
+                "&bs3ctr=" + game.getBuildStack3() + "&bs4ctr=" + game.getBuildStack4() + "&bs5ctr=" + game.getBuildStack5() + "&bs6ctr=" + game.getBuildStack6() +
+                "&bs7ctr=" + game.getBuildStack7() + "&ss1ctr=" + game.getSuitStack1() + "&ss2ctr=" + game.getSuitStack2() + "&ss3ctr=" + game.getSuitStack3() +
+                "&ss4ctr=" + game.getSuitStack4() + "&tsctr=" + game.getTalonStack() + "&psctr=" + game.getPileStack() + "&colorerrctr=" + game.getMoveSameColorError() +
+                "&numbererrctr=" + game.getMoveWrongNumberError() + "&avgmotort=" + game.getAvgMotorTime() + "&betaerrctr=" + game.getBetaError();
+        System.out.println(url);
+        GamePlayed tmpGame = new GamePlayed();
+        eMapper.queryEntity(tmpGame, url);
+    }
+}
+/*
+    */
+/**
      * Get a Person object by X
      * @param string The item of the Person to be found
      * @param column the column the item must be found
      * @return Person object (or null if it was not found)
-     */
+     *//*
+
     public void getGameByX(String string, GameColumns column) {
         String select = "SELECT * FROM Game where "+column.getColName()+" = ?";
         System.out.println(select);
@@ -45,12 +77,14 @@ public enum GameMapper {
         EntityMapper.UNIQUEMAPPER.setTmpGame(game);
     }
 
-    /**
+    */
+/**
      * Get all gamees where X
      * @param  string the field value you're looking for in the database
      * @param  column the Column this item belongs to
      * @return A Collection of all persons
-     */
+     *//*
+
     public void getGamesByX(String string, PersonColumns column) {
         List<GamePlayed> games = new LinkedList<GamePlayed>();
         try {
@@ -76,11 +110,13 @@ public enum GameMapper {
     }
 
 
-    /**
+    */
+/**
      * Store a game in the database; new Java 7 try-with-resources used
      * @param game The GamePlayed object that needs to be stored
      * @return The ID for the game that is inserted, -1 if the insert did not succeed
-     */
+     *//*
+
     public int createGame(GamePlayed game) {
         int id = -1;
         try {
@@ -132,10 +168,12 @@ public enum GameMapper {
         return id;
     }
 
-    /**
+    */
+/**
      * Get all games
      * @return A Collection of all persons
-     */
+     *//*
+
     public void getAllGames() {
         List<GamePlayed> games = new LinkedList<GamePlayed>();
         try {
@@ -160,21 +198,25 @@ public enum GameMapper {
         EntityMapper.UNIQUEMAPPER.setTmpGames(games);
     }
 
-    /**
+    */
+/**
      * Delete a person from the database
      * @param id The id of the Person to be deleted
      * @return Number of rows affected (should be 1)
-     */
+     *//*
+
     public int deletePerson(int id) {
         String sql = "DELETE FROM person WHERE id = ?";
         return eMapper.executeDelete(sql, id);
     }
 
-    /**
+    */
+/**
      * Update the columns of a game in the database
      * @param game The gameplayed object with the new data
      * @return Number of rows affected (should be 1)
-     */
+     *//*
+
     public int updatePerson(GamePlayed game) {
         int rowsAffected = 0;
         String sql = "UPDATE Game personID = ?, startTime= ?, endTime = ?, isSolved = ?, moves = ?, countTroughPile = ?, avgIdleTime = ?, avgSwipeTime = ?," +
@@ -223,9 +265,11 @@ public enum GameMapper {
     }
 
 
-    /*
+    */
+/*
      * Private helper method to query a Person object based on database structure
-     */
+     *//*
+
     private GamePlayed queryGame(PreparedStatement prepstat) {
         GamePlayed game = null;
         ResultSet rs = null;
@@ -302,3 +346,4 @@ public enum GameMapper {
         return game;
     }
 }
+*/
