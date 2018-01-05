@@ -6,7 +6,8 @@
     </shared>
   </component>
   <component name="AndroidLogFilters">
-    <option name="TOOL_WINDOW_LOG_LEVEL" value="error" />
+    <option name="TOOL_WINDOW_CUSTOM_FILTER" value="SEED" />
+    <option name="TOOL_WINDOW_LOG_LEVEL" value="verbose" />
     <option name="TOOL_WINDOW_CONFIGURED_FILTER" value="No Filters" />
   </component>
   <component name="ChangeListManager">
@@ -27,13 +28,11 @@
       <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/.idea/libraries/com_android_support_support_v4_26_1_0.xml" />
       <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/.idea/libraries/com_android_support_support_vector_drawable_26_1_0.xml" />
       <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/.idea/libraries/com_android_support_transition_26_1_0.xml" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/.idea/libraries/com_android_volley_volley_1_1_0.xml" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/app.iml" afterPath="$PROJECT_DIR$/app/app.iml" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/build.gradle" afterPath="$PROJECT_DIR$/app/build.gradle" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/src/main/java/de/tobiasbielefeld/solitaire/helper/GameLogic.java" afterPath="$PROJECT_DIR$/app/src/main/java/de/tobiasbielefeld/solitaire/helper/GameLogic.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/src/main/res/layout-xlarge/activity_manual.xml" afterPath="$PROJECT_DIR$/app/src/main/res/layout-xlarge/activity_manual.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/src/main/res/layout/content_login.xml" afterPath="$PROJECT_DIR$/app/src/main/res/layout/content_login.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/src/main/res/layout/dialog_won.xml" afterPath="$PROJECT_DIR$/app/src/main/res/layout/dialog_won.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/src/main/res/layout/fragment_manual_games.xml" afterPath="$PROJECT_DIR$/app/src/main/res/layout/fragment_manual_games.xml" />
     </list>
     <ignored path="Simple-Solitaire-master.iws" />
     <ignored path=".idea/workspace.xml" />
@@ -281,8 +280,38 @@
       <file leaf-file-name="GameLogic.java" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/app/src/main/java/de/tobiasbielefeld/solitaire/helper/GameLogic.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="357">
-              <caret line="243" column="65" lean-forward="true" selection-start-line="243" selection-start-column="65" selection-end-line="243" selection-end-column="65" />
+            <state relative-caret-position="270">
+              <caret line="243" column="0" lean-forward="false" selection-start-line="243" selection-start-column="0" selection-end-line="243" selection-end-column="0" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="DialogRestart.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/app/src/main/java/de/tobiasbielefeld/solitaire/dialogs/DialogRestart.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="171">
+              <caret line="53" column="0" lean-forward="false" selection-start-line="53" selection-start-column="0" selection-end-line="53" selection-end-column="0" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="GameManager.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/app/src/main/java/de/tobiasbielefeld/solitaire/ui/GameManager.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="168">
+              <caret line="556" column="107" lean-forward="false" selection-start-line="556" selection-start-column="107" selection-end-line="556" selection-end-column="107" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="build.gradle" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/app/build.gradle">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="399">
+              <caret line="33" column="30" lean-forward="false" selection-start-line="33" selection-start-column="30" selection-end-line="33" selection-end-column="30" />
               <folding />
             </state>
           </provider>
@@ -291,9 +320,11 @@
       <file leaf-file-name="LoginActivity.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/app/src/main/java/de/tobiasbielefeld/solitaire/LoginActivity.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="1003">
-              <caret line="75" column="0" lean-forward="false" selection-start-line="75" selection-start-column="0" selection-end-line="75" selection-end-column="0" />
-              <folding />
+            <state relative-caret-position="207">
+              <caret line="73" column="0" lean-forward="false" selection-start-line="73" selection-start-column="0" selection-end-line="73" selection-end-column="0" />
+              <folding>
+                <marker date="1515158338599" expanded="true" signature="2385:2975" ph="{...}" />
+              </folding>
             </state>
           </provider>
         </entry>
@@ -321,95 +352,10 @@
       <file leaf-file-name="SharedData.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/app/src/main/java/de/tobiasbielefeld/solitaire/SharedData.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="448">
+            <state relative-caret-position="3043">
               <caret line="225" column="14" lean-forward="false" selection-start-line="225" selection-start-column="14" selection-end-line="225" selection-end-column="14" />
               <folding>
-                <marker date="1515148446763" expanded="false" signature="11123:11151" ph="&quot;game&quot;" />
-                <marker date="1515148446763" expanded="false" signature="11207:11251" ph="&quot;pref_key_yukon_rules&quot;" />
-                <marker date="1515148446763" expanded="false" signature="11286:11332" ph="&quot;pref_key_klondike_draw&quot;" />
-                <marker date="1515148446763" expanded="false" signature="11364:11407" ph="&quot;pref_key_vegas_draw&quot;" />
-                <marker date="1515148446763" expanded="false" signature="11442:11488" ph="&quot;pref_key_canfield_draw&quot;" />
-                <marker date="1515148446763" expanded="false" signature="11779:11823" ph="&quot;pref_key_golf_cyclic&quot;" />
-                <marker date="1515148446763" expanded="false" signature="11863:11914" ph="&quot;pref_key_pyramid_difficult&quot;" />
-                <marker date="1515148446763" expanded="false" signature="11953:12003" ph="&quot;pref_key_spider_difficulty&quot;" />
-                <marker date="1515148446763" expanded="false" signature="12108:12149" ph="&quot;pref_key_language&quot;" />
-                <marker date="1515148446763" expanded="false" signature="12183:12228" ph="&quot;pref_key_current_game_v2&quot;" />
-                <marker date="1515148446763" expanded="false" signature="12260:12303" ph="&quot;pref_key_menu_games&quot;" />
-                <marker date="1515148446763" expanded="false" signature="12336:12380" ph="&quot;pref_key_orientation&quot;" />
-                <marker date="1515148446763" expanded="false" signature="12414:12459" ph="&quot;pref_key_4_color_mode&quot;" />
-                <marker date="1515148446763" expanded="false" signature="12497:12546" ph="&quot;pref_key_left_handed_mode&quot;" />
-                <marker date="1515148446763" expanded="false" signature="12589:12648" ph="&quot;pref_key_menu_bar_position_portrait&quot;" />
-                <marker date="1515148446763" expanded="false" signature="12692:12752" ph="&quot;pref_key_menu_bar_position_landscape&quot;" />
-                <marker date="1515148446763" expanded="false" signature="12792:12842" ph="&quot;pref_key_double_tap_enable&quot;" />
-                <marker date="1515148446763" expanded="false" signature="12884:12937" ph="&quot;pref_key_double_tap_all_cards&quot;" />
-                <marker date="1515148446763" expanded="false" signature="12986:13046" ph="&quot;pref_key_double_tap_foundation_first&quot;" />
-                <marker date="1515148446763" expanded="false" signature="13089:13142" ph="&quot;pref_key_tap_to_select_enable&quot;" />
-                <marker date="1515148446763" expanded="false" signature="13181:13231" ph="&quot;pref_key_single_tap_enable&quot;" />
-                <marker date="1515148446763" expanded="false" signature="13274:13328" ph="&quot;pref_key_background_color_type&quot;" />
-                <marker date="1515148446763" expanded="false" signature="13366:13415" ph="&quot;pref_key_background_color&quot;" />
-                <marker date="1515148446763" expanded="false" signature="13460:13516" ph="&quot;pref_key_background_color_custom&quot;" />
-                <marker date="1515148446763" expanded="false" signature="13552:13599" ph="&quot;pref_key_movement_speed&quot;" />
-                <marker date="1515148446763" expanded="false" signature="13634:13680" ph="&quot;pref_key_sound_enabled&quot;" />
-                <marker date="1515148446763" expanded="false" signature="13711:13753" ph="&quot;pref_key_win_sound&quot;" />
-                <marker date="1515148446763" expanded="false" signature="13791:13840" ph="&quot;pref_key_background_music&quot;" />
-                <marker date="1515148446763" expanded="false" signature="13879:13929" ph="&quot;pref_key_background_volume&quot;" />
-                <marker date="1515148446763" expanded="false" signature="13975:14030" ph="&quot;pref_key_pyramid_limit_recycles&quot;" />
-                <marker date="1515148446763" expanded="false" signature="14079:14137" ph="&quot;pref_key_fortyeight_limit_recycles&quot;" />
-                <marker date="1515148446763" expanded="false" signature="14185:14244" ph="&quot;pref_key_pyramid_number_of_recycles&quot;" />
-                <marker date="1515148446763" expanded="false" signature="14295:14357" ph="&quot;pref_key_fortyeight_number_of_recycles&quot;" />
-                <marker date="1515148446763" expanded="false" signature="14403:14460" ph="&quot;pref_key_vegas_number_of_recycles&quot;" />
-                <marker date="1515148446763" expanded="false" signature="14498:14547" ph="&quot;pref_key_vegas_bet_amount&quot;" />
-                <marker date="1515148446763" expanded="false" signature="14579:14622" ph="&quot;pref_key_menu_order&quot;" />
-                <marker date="1515148446763" expanded="false" signature="14736:14788" ph="&quot;pref_key_auto_start_new_game&quot;" />
-                <marker date="1515148446763" expanded="false" signature="15898:15944" ph="default_current_game: 0" />
-                <marker date="1515148446763" expanded="false" signature="15987:16041" ph="&quot;5&quot;" />
-                <marker date="1515148446763" expanded="false" signature="16083:16136" ph="&quot;3&quot;" />
-                <marker date="1515148446763" expanded="false" signature="16184:16243" ph="&quot;right&quot;" />
-                <marker date="1515148446763" expanded="false" signature="16290:16348" ph="&quot;bottom&quot;" />
-                <marker date="1515148446763" expanded="false" signature="16756:16805" ph="default_card_background: 0" />
-                <marker date="1515148446763" expanded="false" signature="16847:16902" ph="default_card_background_color: 0" />
-                <marker date="1515148446763" expanded="false" signature="16935:16981" ph="default_winning_time: 0" />
-                <marker date="1515148446763" expanded="false" signature="17023:17078" ph="default_background_color_type: 1" />
-                <marker date="1515148446763" expanded="false" signature="17115:17163" ph="&quot;2&quot;" />
-                <marker date="1515148446763" expanded="false" signature="17207:17264" ph="0xffe5e5e5" />
-                <marker date="1515148446763" expanded="false" signature="17299:17345" ph="&quot;2&quot;" />
-                <marker date="1515148446763" expanded="false" signature="17453:17494" ph="&quot;0&quot;" />
-                <marker date="1515148446763" expanded="false" signature="17531:17579" ph="&quot;1&quot;" />
-                <marker date="1515148446763" expanded="false" signature="17617:17668" ph="100" />
-                <marker date="1515148446763" expanded="false" signature="17705:17755" ph="default_vegas_bet_amount: 5" />
-                <marker date="1515148446763" expanded="false" signature="17802:17860" ph="&quot;2&quot;" />
-                <marker date="1515148446763" expanded="false" signature="17910:17971" ph="&quot;1&quot;" />
-                <marker date="1515148446763" expanded="false" signature="18016:18072" ph="&quot;1&quot;" />
-                <marker date="1515148446763" expanded="false" signature="18635:18677" ph="&quot;GameRecycleCount&quot;" />
-                <marker date="1515148446763" expanded="false" signature="18698:18730" ph="&quot;GameWon&quot;" />
-                <marker date="1515148446763" expanded="false" signature="18751:18796" ph="&quot;GameWonAndReloaded&quot;" />
-                <marker date="1515148446763" expanded="false" signature="18833:18881" ph="&quot;GameNumberOfWonGames&quot;" />
-                <marker date="1515148446763" expanded="false" signature="18921:18972" ph="&quot;GameNumberOfPlayedGames&quot;" />
-                <marker date="1515148446763" expanded="false" signature="19002:19043" ph="&quot;GameRandomCards&quot;" />
-                <marker date="1515148446763" expanded="false" signature="19070:19108" ph="&quot;GameFirstRun&quot;" />
-                <marker date="1515148446763" expanded="false" signature="19142:19187" ph="&quot;GameMovedFirstCard&quot;" />
-                <marker date="1515148446763" expanded="false" signature="19215:19253" ph="&quot;dialogRestart&quot;" />
-                <marker date="1515148446763" expanded="false" signature="19276:19310" ph="&quot;dialogWon&quot;" />
-                <marker date="1515148446763" expanded="false" signature="19348:19392" ph="&quot;canfield_startCardValue&quot;" />
-                <marker date="1515148446763" expanded="false" signature="19410:19439" ph="&quot;Score&quot;" />
-                <marker date="1515148446763" expanded="false" signature="19464:19500" ph="&quot;SavedScores&quot;" />
-                <marker date="1515148446763" expanded="false" signature="19531:19572" ph="&quot;RecordListEntry&quot;" />
-                <marker date="1515148446763" expanded="false" signature="19609:19657" ph="&quot;RecordListEntriesSize&quot;" />
-                <marker date="1515148446763" expanded="false" signature="19679:19712" ph="&quot;FlipCard&quot;" />
-                <marker date="1515148446763" expanded="false" signature="19731:19761" ph="&quot;Origin&quot;" />
-                <marker date="1515148446763" expanded="false" signature="19778:19806" ph="&quot;Card&quot;" />
-                <marker date="1515148446763" expanded="false" signature="19824:19853" ph="&quot;Cards&quot;" />
-                <marker date="1515148446763" expanded="false" signature="19871:19900" ph="&quot;Stack&quot;" />
-                <marker date="1515148446763" expanded="false" signature="19928:19970" ph="&quot;SavedCurrentTime&quot;" />
-                <marker date="1515148446763" expanded="false" signature="19999:20039" ph="&quot;SavedStartTime&quot;" />
-                <marker date="1515148446763" expanded="false" signature="20070:20110" ph="&quot;SavedShownTime&quot;" />
-                <marker date="1515148446763" expanded="false" signature="20138:20185" ph="&quot;CardDrawables&quot;" />
-                <marker date="1515148446763" expanded="false" signature="20213:20262" ph="&quot;pref_key_cards_background_new&quot;" />
-                <marker date="1515148446763" expanded="false" signature="20296:20351" ph="&quot;pref_key_cards_background_color&quot;" />
-                <marker date="1515148446763" expanded="false" signature="20385:20439" ph="&quot;MenuColumnsPortrait&quot;" />
-                <marker date="1515148446763" expanded="false" signature="20474:20529" ph="&quot;MenuColumnsLandscape&quot;" />
-                <marker date="1515148446763" expanded="false" signature="20569:20621" ph="number_of_card_backgrounds: 9" />
-                <marker date="1515148446763" expanded="false" signature="20655:20702" ph="number_of_card_themes: 8" />
+                <marker date="1515158338604" expanded="true" signature="29602:29712" ph="{...}" />
               </folding>
             </state>
           </provider>
@@ -427,14 +373,6 @@
   </component>
   <component name="FindInProjectRecents">
     <findStrings>
-      <find>win</find>
-      <find>save</find>
-      <find>getIntArray</find>
-      <find>putIntArray</find>
-      <find>newgame</find>
-      <find>cardTest</find>
-      <find>test</find>
-      <find>cardtest</find>
       <find>registerBtn</find>
       <find>Gradle sync failed: 'android-android-26' already disposed</find>
       <find>kg</find>
@@ -452,11 +390,24 @@
       <find>g</find>
       <find>@KG</find>
       <find>r</find>
+      <find>randomi</find>
       <find>random</find>
+      <find>v</find>
+      <find>volelyt</find>
+      <find>volely</find>
+      <find>volel</find>
+      <find>vole</find>
+      <find>vol</find>
+      <find>voll</find>
+      <find>volle</find>
+      <find>volley</find>
+      <find>rando</find>
+      <find>randomize</find>
     </findStrings>
     <dirStrings>
       <dir>C:\Users\karst\AndroidStudioProjects\Simple-Solitaire-master\app\src\main\java\de\tobiasbielefeld\solitaire</dir>
       <dir>C:\Users\karst\AndroidStudioProjects\Simple-Solitaire-master\app</dir>
+      <dir>C:\Users\karst\AndroidStudioProjects\Simple-Solitaire-master\app\src\main\java\de\tobiasbielefeld\solitaire\games</dir>
     </dirStrings>
   </component>
   <component name="Git.Settings">
@@ -464,7 +415,7 @@
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
     <option name="RECENT_BRANCH_BY_REPOSITORY">
       <map>
-        <entry key="$PROJECT_DIR$" value="master" />
+        <entry key="$PROJECT_DIR$" value="0adc90004883fbba22514fc01091c5ad76d2534c" />
       </map>
     </option>
   </component>
@@ -2372,12 +2323,12 @@
         <option value="$PROJECT_DIR$/app/src/main/java/de/tobiasbielefeld/solitaire/games/Game.java" />
         <option value="$PROJECT_DIR$/app/src/main/java/de/tobiasbielefeld/solitaire/games/Klondike.java" />
         <option value="$PROJECT_DIR$/app/src/main/java/de/tobiasbielefeld/solitaire/ui/GameManager.java" />
-        <option value="$PROJECT_DIR$/app/build.gradle" />
         <option value="$PROJECT_DIR$/app/src/main/res/layout-xlarge/activity_manual.xml" />
         <option value="$PROJECT_DIR$/app/src/main/res/layout/content_login.xml" />
         <option value="$PROJECT_DIR$/app/src/main/res/layout/dialog_won.xml" />
         <option value="$PROJECT_DIR$/app/src/main/res/layout/fragment_manual_games.xml" />
         <option value="$PROJECT_DIR$/app/src/main/java/de/tobiasbielefeld/solitaire/SharedData.java" />
+        <option value="$PROJECT_DIR$/app/build.gradle" />
         <option value="$PROJECT_DIR$/app/src/main/java/de/tobiasbielefeld/solitaire/helper/GameLogic.java" />
       </list>
     </option>
@@ -2404,20 +2355,7 @@
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
-      <pane id="AndroidView">
-        <subPane>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="Simple-Solitaire-master" />
-              <option name="myItemType" value="com.android.tools.idea.navigator.nodes.AndroidViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="Gradle Scripts" />
-              <option name="myItemType" value="com.android.tools.idea.navigator.nodes.android.AndroidBuildScriptsGroupNode" />
-            </PATH_ELEMENT>
-          </PATH>
-        </subPane>
-      </pane>
+      <pane id="Scratches" />
       <pane id="ProjectPane">
         <subPane>
           <PATH>
@@ -2468,6 +2406,20 @@
           </PATH>
         </subPane>
       </pane>
+      <pane id="AndroidView">
+        <subPane>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="Simple-Solitaire-master" />
+              <option name="myItemType" value="com.android.tools.idea.navigator.nodes.AndroidViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="Gradle Scripts" />
+              <option name="myItemType" value="com.android.tools.idea.navigator.nodes.android.AndroidBuildScriptsGroupNode" />
+            </PATH_ELEMENT>
+          </PATH>
+        </subPane>
+      </pane>
       <pane id="PackagesPane" />
       <pane id="Scope">
         <subPane subId="Project Files">
@@ -2483,7 +2435,6 @@
           </PATH>
         </subPane>
       </pane>
-      <pane id="Scratches" />
     </panes>
   </component>
   <component name="PropertiesComponent">
@@ -2612,7 +2563,7 @@
       <option name="ACTIVITY_CLASS" value="" />
       <method>
         <option name="Android.Gradle.BeforeRunTask" enabled="true" />
-        <option name="com.android.instantApps.provision.BeforeRunTask" enabled="true" clearCache="false" clearProvisionedDevices="false" myTimestamp="1515158208812" />
+        <option name="com.android.instantApps.provision.BeforeRunTask" enabled="true" clearCache="false" clearProvisionedDevices="false" myTimestamp="1515159165845" />
       </method>
     </configuration>
     <configuration default="true" type="AndroidTestRunConfigurationType" factoryName="Android Instrumented Tests">
@@ -2660,7 +2611,7 @@
       </Profilers>
       <method>
         <option name="Android.Gradle.BeforeRunTask" enabled="true" />
-        <option name="com.android.instantApps.provision.BeforeRunTask" enabled="true" clearCache="false" clearProvisionedDevices="false" myTimestamp="1515158208812" />
+        <option name="com.android.instantApps.provision.BeforeRunTask" enabled="true" clearCache="false" clearProvisionedDevices="false" myTimestamp="1515159165845" />
       </method>
     </configuration>
     <configuration default="true" type="Application" factoryName="Application">
@@ -2692,6 +2643,27 @@
         </option>
         <option name="vmOptions" />
       </ExternalSystemSettings>
+      <method />
+    </configuration>
+    <configuration default="true" type="JUnit" factoryName="JUnit">
+      <extension name="coverage" enabled="false" merge="false" sample_coverage="true" runner="idea" />
+      <module name="" />
+      <option name="ALTERNATIVE_JRE_PATH_ENABLED" value="false" />
+      <option name="ALTERNATIVE_JRE_PATH" />
+      <option name="PACKAGE_NAME" />
+      <option name="MAIN_CLASS_NAME" />
+      <option name="METHOD_NAME" />
+      <option name="TEST_OBJECT" value="class" />
+      <option name="VM_PARAMETERS" />
+      <option name="PARAMETERS" />
+      <option name="WORKING_DIRECTORY" />
+      <option name="ENV_VARIABLES" />
+      <option name="PASS_PARENT_ENVS" value="true" />
+      <option name="TEST_SEARCH_SCOPE">
+        <value defaultName="singleModule" />
+      </option>
+      <envs />
+      <patterns />
       <method />
     </configuration>
     <configuration default="true" type="JarApplication" factoryName="JAR Application">
@@ -2822,7 +2794,7 @@
       <option name="ACTIVITY_CLASS" value="" />
       <method>
         <option name="Android.Gradle.BeforeRunTask" enabled="true" />
-        <option name="com.android.instantApps.provision.BeforeRunTask" enabled="true" clearCache="false" clearProvisionedDevices="false" myTimestamp="1515158208814" />
+        <option name="com.android.instantApps.provision.BeforeRunTask" enabled="true" clearCache="false" clearProvisionedDevices="false" myTimestamp="1515159165848" />
       </method>
     </configuration>
     <list size="2">
@@ -3049,30 +3021,30 @@
   </component>
   <component name="ToolWindowManager">
     <frame x="-8" y="-8" width="1936" height="1056" extended-state="6" />
+    <editor active="true" />
     <layout>
-      <window_info id="Android Profiler" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="false" weight="0.32962137" sideWeight="0.49573562" order="7" side_tool="false" content_ui="tabs" />
+      <window_info id="Android Profiler" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32962137" sideWeight="0.49573562" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32850778" sideWeight="0.4978678" order="6" side_tool="false" content_ui="tabs" />
       <window_info id="Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32516703" sideWeight="0.56929636" order="14" side_tool="false" content_ui="tabs" />
       <window_info id="Build Variants" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="true" content_ui="tabs" />
       <window_info id="Palette&#9;" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="8" side_tool="false" content_ui="tabs" />
       <window_info id="Image Layers" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
       <window_info id="Capture Analysis" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
-      <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.32628062" sideWeight="0.50852877" order="8" side_tool="true" content_ui="tabs" />
-      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32516703" sideWeight="0.48933902" order="2" side_tool="false" content_ui="tabs" />
-      <window_info id="Version Control" active="true" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.32628062" sideWeight="0.4914712" order="10" side_tool="false" content_ui="tabs" />
+      <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.34855235" sideWeight="0.11140725" order="8" side_tool="true" content_ui="tabs" />
+      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32516703" sideWeight="0.48720682" order="2" side_tool="false" content_ui="tabs" />
+      <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32516703" sideWeight="0.48933902" order="10" side_tool="false" content_ui="tabs" />
       <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32739422" sideWeight="0.4936034" order="11" side_tool="false" content_ui="tabs" />
-      <window_info id="Logcat" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.34855235" sideWeight="0.90351814" order="9" side_tool="false" content_ui="tabs" />
+      <window_info id="Logcat" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.34855235" sideWeight="0.8885928" order="9" side_tool="false" content_ui="tabs" />
       <window_info id="Captures" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Capture Tool" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
       <window_info id="Gradle Console" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32941177" sideWeight="0.50322235" order="13" side_tool="true" content_ui="tabs" />
       <window_info id="Designer" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.19349681" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
-      <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32941177" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Gradle" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
-      <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.39532295" sideWeight="0.695629" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Device File Explorer" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="true" content_ui="tabs" />
       <window_info id="Theme Preview" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
+      <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.39532295" sideWeight="0.6876333" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="6" side_tool="true" content_ui="tabs" />
       <window_info id="Cvs" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
       <window_info id="Nl-Palette" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
@@ -3088,6 +3060,7 @@
       <window_info id="Documentation" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="FLOATING" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="10" side_tool="false" content_ui="tabs" x="92" y="92" width="1736" height="856" />
       <window_info id="Inspection" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
       <window_info id="Preview" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32994652" sideWeight="0.5" order="9" side_tool="false" content_ui="tabs" />
+      <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32941177" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
     </layout>
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -3154,35 +3127,21 @@
   <component name="XDebuggerManager">
     <breakpoint-manager>
       <breakpoints>
-        <line-breakpoint enabled="true" type="java-line">
+        <line-breakpoint type="java-line">
           <url>file://$PROJECT_DIR$/app/src/main/java/de/tobiasbielefeld/solitaire/LoginActivity.java</url>
           <line>73</line>
           <properties />
           <option name="timeStamp" value="81" />
         </line-breakpoint>
-        <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/app/src/main/java/de/tobiasbielefeld/solitaire/helper/GameLogic.java</url>
-          <line>149</line>
-          <properties />
-          <option name="timeStamp" value="83" />
-        </line-breakpoint>
       </breakpoints>
-      <option name="time" value="84" />
+      <breakpoints-dialog>
+        <breakpoints-dialog />
+      </breakpoints-dialog>
+      <option name="time" value="85" />
     </breakpoint-manager>
     <watches-manager />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/app/src/main/AndroidManifest.xml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1054">
-          <caret line="62" column="55" lean-forward="false" selection-start-line="62" selection-start-column="55" selection-end-line="62" selection-end-column="55" />
-          <folding />
-        </state>
-      </provider>
-      <provider editor-type-id="android-manifest">
-        <state />
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/app/src/main/java/de/tobiasbielefeld/solitaire/DatabaseLogin.java" />
     <entry file="file://$PROJECT_DIR$/app/src/main/java/de/tobiasbielefeld/solitaire/classes/Person.java">
       <provider selected="true" editor-type-id="text-editor">
@@ -3395,14 +3354,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/main/java/de/tobiasbielefeld/solitaire/ui/GameManager.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="5508">
-          <caret line="422" column="31" lean-forward="false" selection-start-line="422" selection-start-column="31" selection-end-line="422" selection-end-column="31" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="android-dummy://C:/Users/karst/AndroidStudioProjects/Simple-Solitaire-master/app/Translations Editor">
       <provider selected="true" editor-type-id="string-resource-editor">
         <state />
@@ -3470,19 +3421,10 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/app/build.gradle">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="442">
-          <caret line="26" column="0" lean-forward="false" selection-start-line="26" selection-start-column="0" selection-end-line="26" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/app/src/main/java/de/tobiasbielefeld/solitaire/classes/CustomAppCompatActivity.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="171">
           <caret line="67" column="0" lean-forward="false" selection-start-line="67" selection-start-column="0" selection-end-line="67" selection-end-column="0" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -3537,113 +3479,54 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/main/java/de/tobiasbielefeld/solitaire/LoginActivity.java">
+    <entry file="file://$PROJECT_DIR$/app/src/main/java/de/tobiasbielefeld/solitaire/SharedData.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1003">
-          <caret line="75" column="0" lean-forward="false" selection-start-line="75" selection-start-column="0" selection-end-line="75" selection-end-column="0" />
+        <state relative-caret-position="3043">
+          <caret line="225" column="14" lean-forward="false" selection-start-line="225" selection-start-column="14" selection-end-line="225" selection-end-column="14" />
+          <folding>
+            <marker date="1515158338604" expanded="true" signature="29602:29712" ph="{...}" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/build.gradle">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="399">
+          <caret line="33" column="30" lean-forward="false" selection-start-line="33" selection-start-column="30" selection-end-line="33" selection-end-column="30" />
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/main/java/de/tobiasbielefeld/solitaire/SharedData.java">
+    <entry file="file://$PROJECT_DIR$/app/src/main/java/de/tobiasbielefeld/solitaire/ui/GameManager.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="448">
-          <caret line="225" column="14" lean-forward="false" selection-start-line="225" selection-start-column="14" selection-end-line="225" selection-end-column="14" />
+        <state relative-caret-position="168">
+          <caret line="556" column="107" lean-forward="false" selection-start-line="556" selection-start-column="107" selection-end-line="556" selection-end-column="107" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/java/de/tobiasbielefeld/solitaire/dialogs/DialogRestart.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="171">
+          <caret line="53" column="0" lean-forward="false" selection-start-line="53" selection-start-column="0" selection-end-line="53" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/java/de/tobiasbielefeld/solitaire/LoginActivity.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="207">
+          <caret line="73" column="0" lean-forward="false" selection-start-line="73" selection-start-column="0" selection-end-line="73" selection-end-column="0" />
           <folding>
-            <marker date="1515148446763" expanded="false" signature="11123:11151" ph="&quot;game&quot;" />
-            <marker date="1515148446763" expanded="false" signature="11207:11251" ph="&quot;pref_key_yukon_rules&quot;" />
-            <marker date="1515148446763" expanded="false" signature="11286:11332" ph="&quot;pref_key_klondike_draw&quot;" />
-            <marker date="1515148446763" expanded="false" signature="11364:11407" ph="&quot;pref_key_vegas_draw&quot;" />
-            <marker date="1515148446763" expanded="false" signature="11442:11488" ph="&quot;pref_key_canfield_draw&quot;" />
-            <marker date="1515148446763" expanded="false" signature="11779:11823" ph="&quot;pref_key_golf_cyclic&quot;" />
-            <marker date="1515148446763" expanded="false" signature="11863:11914" ph="&quot;pref_key_pyramid_difficult&quot;" />
-            <marker date="1515148446763" expanded="false" signature="11953:12003" ph="&quot;pref_key_spider_difficulty&quot;" />
-            <marker date="1515148446763" expanded="false" signature="12108:12149" ph="&quot;pref_key_language&quot;" />
-            <marker date="1515148446763" expanded="false" signature="12183:12228" ph="&quot;pref_key_current_game_v2&quot;" />
-            <marker date="1515148446763" expanded="false" signature="12260:12303" ph="&quot;pref_key_menu_games&quot;" />
-            <marker date="1515148446763" expanded="false" signature="12336:12380" ph="&quot;pref_key_orientation&quot;" />
-            <marker date="1515148446763" expanded="false" signature="12414:12459" ph="&quot;pref_key_4_color_mode&quot;" />
-            <marker date="1515148446763" expanded="false" signature="12497:12546" ph="&quot;pref_key_left_handed_mode&quot;" />
-            <marker date="1515148446763" expanded="false" signature="12589:12648" ph="&quot;pref_key_menu_bar_position_portrait&quot;" />
-            <marker date="1515148446763" expanded="false" signature="12692:12752" ph="&quot;pref_key_menu_bar_position_landscape&quot;" />
-            <marker date="1515148446763" expanded="false" signature="12792:12842" ph="&quot;pref_key_double_tap_enable&quot;" />
-            <marker date="1515148446763" expanded="false" signature="12884:12937" ph="&quot;pref_key_double_tap_all_cards&quot;" />
-            <marker date="1515148446763" expanded="false" signature="12986:13046" ph="&quot;pref_key_double_tap_foundation_first&quot;" />
-            <marker date="1515148446763" expanded="false" signature="13089:13142" ph="&quot;pref_key_tap_to_select_enable&quot;" />
-            <marker date="1515148446763" expanded="false" signature="13181:13231" ph="&quot;pref_key_single_tap_enable&quot;" />
-            <marker date="1515148446763" expanded="false" signature="13274:13328" ph="&quot;pref_key_background_color_type&quot;" />
-            <marker date="1515148446763" expanded="false" signature="13366:13415" ph="&quot;pref_key_background_color&quot;" />
-            <marker date="1515148446763" expanded="false" signature="13460:13516" ph="&quot;pref_key_background_color_custom&quot;" />
-            <marker date="1515148446763" expanded="false" signature="13552:13599" ph="&quot;pref_key_movement_speed&quot;" />
-            <marker date="1515148446763" expanded="false" signature="13634:13680" ph="&quot;pref_key_sound_enabled&quot;" />
-            <marker date="1515148446763" expanded="false" signature="13711:13753" ph="&quot;pref_key_win_sound&quot;" />
-            <marker date="1515148446763" expanded="false" signature="13791:13840" ph="&quot;pref_key_background_music&quot;" />
-            <marker date="1515148446763" expanded="false" signature="13879:13929" ph="&quot;pref_key_background_volume&quot;" />
-            <marker date="1515148446763" expanded="false" signature="13975:14030" ph="&quot;pref_key_pyramid_limit_recycles&quot;" />
-            <marker date="1515148446763" expanded="false" signature="14079:14137" ph="&quot;pref_key_fortyeight_limit_recycles&quot;" />
-            <marker date="1515148446763" expanded="false" signature="14185:14244" ph="&quot;pref_key_pyramid_number_of_recycles&quot;" />
-            <marker date="1515148446763" expanded="false" signature="14295:14357" ph="&quot;pref_key_fortyeight_number_of_recycles&quot;" />
-            <marker date="1515148446763" expanded="false" signature="14403:14460" ph="&quot;pref_key_vegas_number_of_recycles&quot;" />
-            <marker date="1515148446763" expanded="false" signature="14498:14547" ph="&quot;pref_key_vegas_bet_amount&quot;" />
-            <marker date="1515148446763" expanded="false" signature="14579:14622" ph="&quot;pref_key_menu_order&quot;" />
-            <marker date="1515148446763" expanded="false" signature="14736:14788" ph="&quot;pref_key_auto_start_new_game&quot;" />
-            <marker date="1515148446763" expanded="false" signature="15898:15944" ph="default_current_game: 0" />
-            <marker date="1515148446763" expanded="false" signature="15987:16041" ph="&quot;5&quot;" />
-            <marker date="1515148446763" expanded="false" signature="16083:16136" ph="&quot;3&quot;" />
-            <marker date="1515148446763" expanded="false" signature="16184:16243" ph="&quot;right&quot;" />
-            <marker date="1515148446763" expanded="false" signature="16290:16348" ph="&quot;bottom&quot;" />
-            <marker date="1515148446763" expanded="false" signature="16756:16805" ph="default_card_background: 0" />
-            <marker date="1515148446763" expanded="false" signature="16847:16902" ph="default_card_background_color: 0" />
-            <marker date="1515148446763" expanded="false" signature="16935:16981" ph="default_winning_time: 0" />
-            <marker date="1515148446763" expanded="false" signature="17023:17078" ph="default_background_color_type: 1" />
-            <marker date="1515148446763" expanded="false" signature="17115:17163" ph="&quot;2&quot;" />
-            <marker date="1515148446763" expanded="false" signature="17207:17264" ph="0xffe5e5e5" />
-            <marker date="1515148446763" expanded="false" signature="17299:17345" ph="&quot;2&quot;" />
-            <marker date="1515148446763" expanded="false" signature="17453:17494" ph="&quot;0&quot;" />
-            <marker date="1515148446763" expanded="false" signature="17531:17579" ph="&quot;1&quot;" />
-            <marker date="1515148446763" expanded="false" signature="17617:17668" ph="100" />
-            <marker date="1515148446763" expanded="false" signature="17705:17755" ph="default_vegas_bet_amount: 5" />
-            <marker date="1515148446763" expanded="false" signature="17802:17860" ph="&quot;2&quot;" />
-            <marker date="1515148446763" expanded="false" signature="17910:17971" ph="&quot;1&quot;" />
-            <marker date="1515148446763" expanded="false" signature="18016:18072" ph="&quot;1&quot;" />
-            <marker date="1515148446763" expanded="false" signature="18635:18677" ph="&quot;GameRecycleCount&quot;" />
-            <marker date="1515148446763" expanded="false" signature="18698:18730" ph="&quot;GameWon&quot;" />
-            <marker date="1515148446763" expanded="false" signature="18751:18796" ph="&quot;GameWonAndReloaded&quot;" />
-            <marker date="1515148446763" expanded="false" signature="18833:18881" ph="&quot;GameNumberOfWonGames&quot;" />
-            <marker date="1515148446763" expanded="false" signature="18921:18972" ph="&quot;GameNumberOfPlayedGames&quot;" />
-            <marker date="1515148446763" expanded="false" signature="19002:19043" ph="&quot;GameRandomCards&quot;" />
-            <marker date="1515148446763" expanded="false" signature="19070:19108" ph="&quot;GameFirstRun&quot;" />
-            <marker date="1515148446763" expanded="false" signature="19142:19187" ph="&quot;GameMovedFirstCard&quot;" />
-            <marker date="1515148446763" expanded="false" signature="19215:19253" ph="&quot;dialogRestart&quot;" />
-            <marker date="1515148446763" expanded="false" signature="19276:19310" ph="&quot;dialogWon&quot;" />
-            <marker date="1515148446763" expanded="false" signature="19348:19392" ph="&quot;canfield_startCardValue&quot;" />
-            <marker date="1515148446763" expanded="false" signature="19410:19439" ph="&quot;Score&quot;" />
-            <marker date="1515148446763" expanded="false" signature="19464:19500" ph="&quot;SavedScores&quot;" />
-            <marker date="1515148446763" expanded="false" signature="19531:19572" ph="&quot;RecordListEntry&quot;" />
-            <marker date="1515148446763" expanded="false" signature="19609:19657" ph="&quot;RecordListEntriesSize&quot;" />
-            <marker date="1515148446763" expanded="false" signature="19679:19712" ph="&quot;FlipCard&quot;" />
-            <marker date="1515148446763" expanded="false" signature="19731:19761" ph="&quot;Origin&quot;" />
-            <marker date="1515148446763" expanded="false" signature="19778:19806" ph="&quot;Card&quot;" />
-            <marker date="1515148446763" expanded="false" signature="19824:19853" ph="&quot;Cards&quot;" />
-            <marker date="1515148446763" expanded="false" signature="19871:19900" ph="&quot;Stack&quot;" />
-            <marker date="1515148446763" expanded="false" signature="19928:19970" ph="&quot;SavedCurrentTime&quot;" />
-            <marker date="1515148446763" expanded="false" signature="19999:20039" ph="&quot;SavedStartTime&quot;" />
-            <marker date="1515148446763" expanded="false" signature="20070:20110" ph="&quot;SavedShownTime&quot;" />
-            <marker date="1515148446763" expanded="false" signature="20138:20185" ph="&quot;CardDrawables&quot;" />
-            <marker date="1515148446763" expanded="false" signature="20213:20262" ph="&quot;pref_key_cards_background_new&quot;" />
-            <marker date="1515148446763" expanded="false" signature="20296:20351" ph="&quot;pref_key_cards_background_color&quot;" />
-            <marker date="1515148446763" expanded="false" signature="20385:20439" ph="&quot;MenuColumnsPortrait&quot;" />
-            <marker date="1515148446763" expanded="false" signature="20474:20529" ph="&quot;MenuColumnsLandscape&quot;" />
-            <marker date="1515148446763" expanded="false" signature="20569:20621" ph="number_of_card_backgrounds: 9" />
-            <marker date="1515148446763" expanded="false" signature="20655:20702" ph="number_of_card_themes: 8" />
+            <marker date="1515158338599" expanded="true" signature="2385:2975" ph="{...}" />
           </folding>
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/app/src/main/java/de/tobiasbielefeld/solitaire/helper/GameLogic.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="357">
-          <caret line="243" column="65" lean-forward="true" selection-start-line="243" selection-start-column="65" selection-end-line="243" selection-end-column="65" />
+        <state relative-caret-position="270">
+          <caret line="243" column="0" lean-forward="false" selection-start-line="243" selection-start-column="0" selection-end-line="243" selection-end-column="0" />
           <folding />
         </state>
       </provider>

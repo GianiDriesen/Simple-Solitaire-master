@@ -308,7 +308,7 @@ public class GameLogic {
         for (int i=0;i<currentGame.getMotorTime().size();i=i+2) {
             avg = avg + (currentGame.getMotorTime().get(i+1) - currentGame.getMotorTime().get(i));
         }
-        avg = avg/(currentGame.getMotorTime().size()/2);
+        //avg = avg/(currentGame.getMotorTime().size()/2); @TODO motortime failing here
 
         return avg;
     }
@@ -393,9 +393,25 @@ public class GameLogic {
      * @param array The array to randomize
      */
     private void randomize(Card[] array) {
+        //@KG Games are fixed here
         int index;
         Card dummy;
-        Random rand = new Random();
+        Random rand;
+        if(SharedData.gamecounter==10){SharedData.gamecounter=0;} //@kg remove this to also play random games
+        if(SharedData.gamecounter<10)
+        {
+            rand = new Random(SharedData.gameList.get(SharedData.gamecounter));
+            Log.i("SEED", "Now using "+ SharedData.gameList.get(SharedData.gamecounter));
+            gm.showToast("Now playing game "+ (SharedData.gamecounter+1));
+            SharedData.gamecounter++;
+        }
+        else
+        {
+            rand = new Random();
+            Log.i("SEED", "Now using a random seed");
+            gm.showToast("Now using a random seed");
+
+        }
 
         for (int i = array.length - 1; i > 0; i--) {
             if ((index = rand.nextInt(i + 1)) != i) {
