@@ -1,5 +1,5 @@
 <resources>
-    <string name="app_name" translatable="false">Simple Solitaire Collection</string>
+    <string name="app_name" translatable="false">Dr. Solitaire</string>
     <string name="app_version">Version</string>
 
     <string name="portrait">Portrait</string>
@@ -60,7 +60,8 @@
     <string name="dialog_win_score">Score: %1$d</string>
     <string name="dialog_win_bonus">Bonus: %1$d</string>
     <string name="dialog_win_total">Total: %1$d</string>
-    <string name="title_activity_start" translatable="false">StartActivity</string>
+    <string name="DrSolitaire" translatable="false">StartActivity</string>
     <string name="title_activity_login" translatable="false">LoginActivity</string>
+    <string name="title_activity_start">Dr Solitaire</string>
 
 </resources>

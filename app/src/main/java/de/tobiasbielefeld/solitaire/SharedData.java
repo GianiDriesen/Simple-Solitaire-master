@@ -211,7 +211,6 @@ public class SharedData {
     public static Person user = null;
 
     //@KG manipulations to make the game deal in the same manner every time
-    public static int gamecounter = 0;
     public static final List<Integer> gameList = Arrays.asList(
             45678,
             12345,

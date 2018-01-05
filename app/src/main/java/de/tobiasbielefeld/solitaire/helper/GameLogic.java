@@ -159,7 +159,7 @@ public class GameLogic {
         currentGame.setHintCounter(getInt("HINTCOUNT", 0));
         currentGame.setWrongNumberCount(getInt("WRONGNUMBERCOUNT", 0));
         currentGame.setColorMoveCount(getInt("WRONGCOLORCOUNT", 0));
-        currentGame.setMotorTime(getIntList("TIMESTAMPS"));
+        //currentGame.setMotorTime(getIntList("TIMESTAMPS")); @TODO motortime error
         currentGame.setStackCounter(getIntArray("STACKCOUNTS"));
         currentGame.setBetaError(getInt("BETAERROR", 0));
         //update and reset
@@ -397,13 +397,13 @@ public class GameLogic {
         int index;
         Card dummy;
         Random rand;
-        if(SharedData.gamecounter==10){SharedData.gamecounter=0;} //@kg remove this to also play random games
-        if(SharedData.gamecounter<10)
+        if(SharedData.getInt("gamecounter",0)==10){SharedData.putInt("gamecounter", 0);} //@kg remove this to also play random games
+        if(SharedData.getInt("gamecounter",0)<10)
         {
-            rand = new Random(SharedData.gameList.get(SharedData.gamecounter));
-            Log.i("SEED", "Now using "+ SharedData.gameList.get(SharedData.gamecounter));
-            gm.showToast("Now playing game "+ (SharedData.gamecounter+1));
-            SharedData.gamecounter++;
+            rand = new Random(SharedData.gameList.get(SharedData.getInt("gamecounter",0)));
+            Log.i("SEED", "Now using "+ SharedData.gameList.get(SharedData.getInt("gamecounter",0)) + ". Playing game "+ (SharedData.getInt("gamecounter",0)+1));
+            gm.showToast("Now playing game "+ (SharedData.getInt("gamecounter",0)+1));
+            SharedData.putInt("gamecounter", (SharedData.getInt("gamecounter",0)+1));
         }
         else
         {
