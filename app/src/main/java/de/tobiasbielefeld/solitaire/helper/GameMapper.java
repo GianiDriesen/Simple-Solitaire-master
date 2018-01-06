@@ -40,8 +40,7 @@ public enum GameMapper {
      * @param game The Person object that needs to be stored
      */
     public void createGame(GamePlayed game) {
-        int solved = 0;
-        if (game.isSolved()) solved=1;
+        int solved = (game.isSolved() ? 1 : 0);
         String url = "https://iiw.kuleuven.be/onderzoek/drSolitaire/insertGame.php?" +
                 "pid=" + game.getPersonID() + "&playt=" + game.getGameTime() + "&solved=" + solved + "&throughpilectr=" + game.getCountTroughPile() +
                 "&undoctr=" + game.getUndoButtonCount() + "&hintctr=" + game.getHintButtonCount() + "&bs1ctr=" + game.getBuildStack1() + "&bs2ctr=" + game.getBuildStack2() +

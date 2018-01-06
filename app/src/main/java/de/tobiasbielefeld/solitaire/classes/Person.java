@@ -31,7 +31,7 @@ public class Person {
             this.username = obj.getString("username");
             this.password = obj.getString("password");
             this.age = obj.getInt("age");
-            this.gender = obj.getBoolean("age");;
+            this.gender = obj.getBoolean("gender");;
             this.level = obj.getInt("level");
             this.avgScore = obj.getInt("avgScore");
             this.avgMoves = obj.getInt("avgMoves");

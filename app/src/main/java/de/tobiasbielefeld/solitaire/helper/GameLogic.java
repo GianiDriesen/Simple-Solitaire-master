@@ -219,7 +219,7 @@ public class GameLogic {
      */
     public void newGame() {
         // @GN
-        avgMotorTime = calculateAvgMotorTime();
+        //avgMotorTime = calculateAvgMotorTime(); @TODO solve indexoutofboundexception
         GamePlayed game = new GamePlayed(SharedData.user.getId(),(int) timer.getCurrentTime(),won,currentGame.getFlipThroughMainstackCount(),0, //TODO:write avgMotorTime here
                 currentGame.getStackCounter()[0],currentGame.getStackCounter()[1],currentGame.getStackCounter()[2],currentGame.getStackCounter()[3],
                 currentGame.getStackCounter()[4],currentGame.getStackCounter()[5],currentGame.getStackCounter()[6],currentGame.getStackCounter()[7],
