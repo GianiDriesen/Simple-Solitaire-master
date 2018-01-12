@@ -12,6 +12,10 @@ import java.sql.Date;
 // @NG
 public class GamePlayed {
 
+
+
+
+    private int gameseed;
     private int id;
     private int personID;
     private int gameTime;
@@ -36,6 +40,7 @@ public class GamePlayed {
     private int hintButtonCount;
     private int undoButtonCount;
     private int betaError;
+    private long score;
 
     public GamePlayed() {
     }
@@ -45,7 +50,7 @@ public class GamePlayed {
             this.id = obj.getInt("id");
             this.personID = obj.getInt("personID");
             this.gameTime = obj.getInt("playTime");
-            this.isSolved = obj.getBoolean("isSolved");
+            this.isSolved = (obj.getInt("isSolved") == 1); //@kg
             this.countTroughPile = obj.getInt("throughPileCounter");
             this.avgMotorTime = obj.getInt("avgMotorTime");
             this.buildStack1 = obj.getInt("buildStack1Counter");
@@ -66,12 +71,15 @@ public class GamePlayed {
             this.hintButtonCount = obj.getInt("hintCounter");
             this.undoButtonCount = obj.getInt("undoCounter");
             this.betaError = obj.getInt("betaErrorCounter");
+            this.gameseed = obj.getInt("seed");
+            this.score = obj.getLong("score");
         } catch (JSONException e) {
             e.printStackTrace();
         }
     }
 
-    public GamePlayed(int personID, int gameTime, boolean isSolved, int countTroughPile, int avgMotorTime, int buildStack1, int buildStack2, int buildStack3, int buildStack4, int buildStack5, int buildStack6, int buildStack7, int suitStack1, int suitStack2, int suitStack3, int suitStack4, int talonStack, int pileStack, int moveSameColorError, int moveWrongNumberError, int hintButtonCount, int undoButtonCount, int betaError) {
+
+    public GamePlayed(int personID, int gameTime, boolean isSolved, int countTroughPile, int avgMotorTime, int buildStack1, int buildStack2, int buildStack3, int buildStack4, int buildStack5, int buildStack6, int buildStack7, int suitStack1, int suitStack2, int suitStack3, int suitStack4, int talonStack, int pileStack, int moveSameColorError, int moveWrongNumberError, int hintButtonCount, int undoButtonCount, int betaError, int gameseed, long score) {
         this.personID = personID;
         this.gameTime = gameTime;
         this.isSolved = isSolved;
@@ -95,6 +103,8 @@ public class GamePlayed {
         this.hintButtonCount = hintButtonCount;
         this.undoButtonCount = undoButtonCount;
         this.betaError = betaError;
+        this.gameseed = gameseed;
+        this.score = score;
     }
 
     public GamePlayed(int id, int personID, int gameTime, boolean isSolved, int countTroughPile, int avgMotorTime, int buildStack1, int buildStack2, int buildStack3, int buildStack4, int buildStack5, int buildStack6, int buildStack7, int suitStack1, int suitStack2, int suitStack3, int suitStack4, int talonStack, int pileStack, int moveSameColorError, int moveWrongNumberError, int hintButtonCount, int undoButtonCount, int betaError) {
@@ -315,5 +325,22 @@ public class GamePlayed {
     public void setBetaError(int betaError) {
         this.betaError = betaError;
     }
+
+    public int getGameseed() {
+        return gameseed;
+    }
+
+    public void setGameseed(int gameseed) {
+        this.gameseed = gameseed;
+    }
+
+    public long getScore() {
+        return score;
+    }
+
+    public void setScore(long score) {
+        this.score = score;
+    }
+
 }
 

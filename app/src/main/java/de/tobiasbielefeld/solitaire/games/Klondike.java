@@ -92,6 +92,10 @@ public class Klondike extends Game {
     private boolean dubbeltap = false;
     private boolean hintUsed = false;
 
+    //@KG
+    private int gameseed = -1;
+    private long score;
+
     protected String PREF_KEY_DRAW_OLD, PREF_KEY_DRAW, DEFAULT_DRAW;
 
     public Klondike() {
@@ -181,6 +185,22 @@ public class Klondike extends Game {
 
     public void setBetaError(int counter) {
         betaError = counter;
+    }
+
+    public int getGameseed() {
+        return gameseed;
+    }
+
+    public void setGameseed(int gameseed) {
+        this.gameseed = gameseed;
+    }
+
+    public long getScore() {
+        return score;
+    }
+
+    public void setScore(long score) {
+        this.score = score;
     }
 
     public void setMainstackBoolean(boolean isTouched) {

@@ -47,7 +47,8 @@ public enum GameMapper {
                 "&bs3ctr=" + game.getBuildStack3() + "&bs4ctr=" + game.getBuildStack4() + "&bs5ctr=" + game.getBuildStack5() + "&bs6ctr=" + game.getBuildStack6() +
                 "&bs7ctr=" + game.getBuildStack7() + "&ss1ctr=" + game.getSuitStack1() + "&ss2ctr=" + game.getSuitStack2() + "&ss3ctr=" + game.getSuitStack3() +
                 "&ss4ctr=" + game.getSuitStack4() + "&tsctr=" + game.getTalonStack() + "&psctr=" + game.getPileStack() + "&colorerrctr=" + game.getMoveSameColorError() +
-                "&numbererrctr=" + game.getMoveWrongNumberError() + "&avgmotort=" + game.getAvgMotorTime() + "&betaerrctr=" + game.getBetaError();
+                "&numbererrctr=" + game.getMoveWrongNumberError() + "&avgmotort=" + game.getAvgMotorTime() + "&betaerrctr=" + game.getBetaError() + "&seedctr=" +game.getGameseed()
+                + "&scorectr=" +game.getScore();
         System.out.println(url);
         GamePlayed tmpGame = new GamePlayed();
         eMapper.queryEntity(tmpGame, url);

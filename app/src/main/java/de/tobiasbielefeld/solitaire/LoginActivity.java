@@ -36,7 +36,8 @@ public class LoginActivity extends AppCompatActivity {
     }
 
     public void loginApp(View view) {
-        getEntityMapper().getpMapper().getPersonByUsernameAndPassword(username.getText().toString(),password.getText().toString());
+        //getEntityMapper().getpMapper().getPersonByUsernameAndPassword(username.getText().toString(),password.getText().toString()); // @TODO shortcutted login
+        getEntityMapper().getpMapper().getPersonByUsernameAndPassword("Karsten","azerty");
         new GetPerson().execute();
     }
 

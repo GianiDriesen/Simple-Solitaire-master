@@ -58,6 +58,8 @@ public class SharedData {
 
     public final static int OPTION_UNDO = 1, OPTION_NO_RECORD = 2, OPTION_REVERSED_RECORD = 3;
     //Strings
+    public static String GAME_SEED;
+
     public static String SCORE;
     public static String SAVED_SCORES;
     public static String OLD;
@@ -362,6 +364,7 @@ public class SharedData {
         GAME_RANDOM_CARDS = res.getString(R.string.game_random_cards);
         GAME_FIRST_RUN = res.getString(R.string.game_first_run);
         GAME_MOVED_FIRST_CARD = res.getString(R.string.game_moved_first_card);
+        GAME_SEED = "GameSeed";
 
         RESTART_DIALOG = res.getString(R.string.restart_dialog);
         WON_DIALOG = res.getString(R.string.won_dialog);
@@ -646,6 +649,7 @@ public class SharedData {
     public static void putInt(String name, int value) {
         savedGameData.edit().putInt(name, value).apply();
     }
+
 
     /**
      * Saves data for games individually
