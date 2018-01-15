@@ -71,6 +71,7 @@ import static de.tobiasbielefeld.solitaire.SharedData.stacks;
 import static de.tobiasbielefeld.solitaire.SharedData.timer;
 import static de.tobiasbielefeld.solitaire.SharedData.user;
 import static de.tobiasbielefeld.solitaire.SharedData.putLong;
+import static de.tobiasbielefeld.solitaire.helper.Scores.*;
 
 /**
  * Contains stuff for the game which i didn't know where i should put it.
@@ -225,12 +226,13 @@ public class GameLogic {
     public void newGame() {
         // @GN //TODO: a lot of code duplication
         //avgMotorTime = calculateAvgMotorTime(); TODO solve indexoutofboundexception
+
         GamePlayed game = new GamePlayed(SharedData.user.getId(),(int) timer.getCurrentTime(),won,currentGame.getFlipThroughMainstackCount(),0, //TODO:write avgMotorTime here
                 currentGame.getStackCounter()[0],currentGame.getStackCounter()[1],currentGame.getStackCounter()[2],currentGame.getStackCounter()[3],
                 currentGame.getStackCounter()[4],currentGame.getStackCounter()[5],currentGame.getStackCounter()[6],currentGame.getStackCounter()[7],
                 currentGame.getStackCounter()[8],currentGame.getStackCounter()[9],currentGame.getStackCounter()[10],currentGame.getStackCounter()[13],
                 currentGame.getStackCounter()[14],currentGame.getColorMoveCount(), currentGame.getWrongNumberCount(),currentGame.getHintCounter(),
-                currentGame.getUndoCounter(),currentGame.getBetaError(), SharedData.getInt(SharedData.GAME_SEED,-1), SharedData.getLong(SharedData.SCORE,-1));
+                currentGame.getUndoCounter(),currentGame.getBetaError(), SharedData.getInt(SharedData.GAME_SEED,-1), SharedData.scores.getScore());
         dataSent=true;
         currentGameCopy = currentGame; //TODO why?
         wonCopy = won;

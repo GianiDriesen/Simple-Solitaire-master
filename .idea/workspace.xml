@@ -11,8 +11,11 @@
     <option name="TOOL_WINDOW_CONFIGURED_FILTER" value="No Filters" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="61ebc4f1-8c6b-4787-b1e9-e8598d2c6b31" name="Default" comment="">
+    <list default="true" id="61ebc4f1-8c6b-4787-b1e9-e8598d2c6b31" name="Default" comment="Found silly login bypass bugg">
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/src/main/java/de/tobiasbielefeld/solitaire/SharedData.java" afterPath="$PROJECT_DIR$/app/src/main/java/de/tobiasbielefeld/solitaire/SharedData.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/src/main/java/de/tobiasbielefeld/solitaire/helper/GameLogic.java" afterPath="$PROJECT_DIR$/app/src/main/java/de/tobiasbielefeld/solitaire/helper/GameLogic.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/src/main/res/values/strings.xml" afterPath="$PROJECT_DIR$/app/src/main/res/values/strings.xml" />
     </list>
     <ignored path="Simple-Solitaire-master.iws" />
     <ignored path=".idea/workspace.xml" />
@@ -260,8 +263,8 @@
       <file leaf-file-name="GameMapper.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/app/src/main/java/de/tobiasbielefeld/solitaire/helper/GameMapper.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="238">
-              <caret line="44" column="60" lean-forward="false" selection-start-line="44" selection-start-column="60" selection-end-line="44" selection-end-column="60" />
+            <state relative-caret-position="187">
+              <caret line="41" column="42" lean-forward="false" selection-start-line="41" selection-start-column="38" selection-end-line="41" selection-end-column="42" />
               <folding />
             </state>
           </provider>
@@ -270,7 +273,7 @@
       <file leaf-file-name="GamePlayed.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/app/src/main/java/de/tobiasbielefeld/solitaire/classes/GamePlayed.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="187">
+            <state relative-caret-position="839">
               <caret line="80" column="0" lean-forward="false" selection-start-line="80" selection-start-column="0" selection-end-line="80" selection-end-column="0" />
               <folding />
             </state>
@@ -280,8 +283,8 @@
       <file leaf-file-name="GameLogic.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/app/src/main/java/de/tobiasbielefeld/solitaire/helper/GameLogic.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="110">
-              <caret line="227" column="0" lean-forward="false" selection-start-line="227" selection-start-column="0" selection-end-line="227" selection-end-column="0" />
+            <state relative-caret-position="252">
+              <caret line="235" column="0" lean-forward="false" selection-start-line="235" selection-start-column="0" selection-end-line="235" selection-end-column="0" />
               <folding>
                 <element signature="imports" expanded="true" />
               </folding>
@@ -289,11 +292,11 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="SharedData.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/app/src/main/java/de/tobiasbielefeld/solitaire/SharedData.java">
+      <file leaf-file-name="Person.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/app/src/main/java/de/tobiasbielefeld/solitaire/classes/Person.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="128">
-              <caret line="201" column="34" lean-forward="false" selection-start-line="201" selection-start-column="23" selection-end-line="201" selection-end-column="34" />
+            <state relative-caret-position="-1124">
+              <caret line="18" column="19" lean-forward="false" selection-start-line="18" selection-start-column="19" selection-end-line="18" selection-end-column="19" />
               <folding />
             </state>
           </provider>
@@ -302,51 +305,152 @@
       <file leaf-file-name="Scores.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/app/src/main/java/de/tobiasbielefeld/solitaire/helper/Scores.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="331">
-              <caret line="232" column="24" lean-forward="false" selection-start-line="232" selection-start-column="24" selection-end-line="232" selection-end-column="24" />
+            <state relative-caret-position="348">
+              <caret line="287" column="20" lean-forward="false" selection-start-line="287" selection-start-column="16" selection-end-line="287" selection-end-column="24" />
               <folding>
-                <element signature="e#5543#5544#0" expanded="true" />
-                <element signature="e#5580#5581#0" expanded="true" />
+                <element signature="imports" expanded="true" />
               </folding>
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="LoginActivity.java" pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/app/src/main/java/de/tobiasbielefeld/solitaire/LoginActivity.java">
+      <file leaf-file-name="DialogWon.java" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/app/src/main/java/de/tobiasbielefeld/solitaire/dialogs/DialogWon.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="-425">
-              <caret line="30" column="55" lean-forward="false" selection-start-line="30" selection-start-column="55" selection-end-line="30" selection-end-column="55" />
+            <state relative-caret-position="850">
+              <caret line="105" column="117" lean-forward="false" selection-start-line="105" selection-start-column="117" selection-end-line="105" selection-end-column="117" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="SharedData.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/app/src/main/java/de/tobiasbielefeld/solitaire/SharedData.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="128">
+              <caret line="230" column="90" lean-forward="false" selection-start-line="230" selection-start-column="89" selection-end-line="230" selection-end-column="90" />
               <folding>
-                <marker date="1515755289339" expanded="true" signature="2529:3098" ph="{...}" />
+                <element signature="e#11121#11149#0" expanded="true" />
+                <element signature="e#11205#11249#0" expanded="true" />
+                <element signature="e#11284#11330#0" expanded="true" />
+                <element signature="e#11362#11405#0" expanded="true" />
+                <element signature="e#11440#11486#0" expanded="true" />
+                <element signature="e#11777#11821#0" expanded="true" />
+                <element signature="e#11861#11912#0" expanded="true" />
+                <element signature="e#11951#12001#0" expanded="true" />
+                <element signature="e#12106#12147#0" expanded="true" />
+                <element signature="e#12181#12226#0" expanded="true" />
+                <element signature="e#12258#12301#0" expanded="true" />
+                <element signature="e#12334#12378#0" expanded="true" />
+                <element signature="e#12412#12457#0" expanded="true" />
+                <element signature="e#12495#12544#0" expanded="true" />
+                <element signature="e#12587#12646#0" expanded="true" />
+                <element signature="e#12690#12750#0" expanded="true" />
+                <element signature="e#12790#12840#0" expanded="true" />
+                <element signature="e#12882#12935#0" expanded="true" />
+                <element signature="e#12984#13044#0" expanded="true" />
+                <element signature="e#13087#13140#0" expanded="true" />
+                <element signature="e#13179#13229#0" expanded="true" />
+                <element signature="e#13272#13326#0" expanded="true" />
+                <element signature="e#13364#13413#0" expanded="true" />
+                <element signature="e#13458#13514#0" expanded="true" />
+                <element signature="e#13550#13597#0" expanded="true" />
+                <element signature="e#13632#13678#0" expanded="true" />
+                <element signature="e#13709#13751#0" expanded="true" />
+                <element signature="e#13789#13838#0" expanded="true" />
+                <element signature="e#13877#13927#0" expanded="true" />
+                <element signature="e#13973#14028#0" expanded="true" />
+                <element signature="e#14077#14135#0" expanded="true" />
+                <element signature="e#14183#14242#0" expanded="true" />
+                <element signature="e#14293#14355#0" expanded="true" />
+                <element signature="e#14401#14458#0" expanded="true" />
+                <element signature="e#14496#14545#0" expanded="true" />
+                <element signature="e#14577#14620#0" expanded="true" />
+                <element signature="e#14734#14786#0" expanded="true" />
+                <element signature="e#15896#15942#0" expanded="true" />
+                <element signature="e#15985#16039#0" expanded="true" />
+                <element signature="e#16081#16134#0" expanded="true" />
+                <element signature="e#16182#16241#0" expanded="true" />
+                <element signature="e#16288#16346#0" expanded="true" />
+                <element signature="e#16754#16803#0" expanded="true" />
+                <element signature="e#16845#16900#0" expanded="true" />
+                <element signature="e#16933#16979#0" expanded="true" />
+                <element signature="e#17021#17076#0" expanded="true" />
+                <element signature="e#17113#17161#0" expanded="true" />
+                <element signature="e#17205#17262#0" expanded="true" />
+                <element signature="e#17297#17343#0" expanded="true" />
+                <element signature="e#17451#17492#0" expanded="true" />
+                <element signature="e#17529#17577#0" expanded="true" />
+                <element signature="e#17615#17666#0" expanded="true" />
+                <element signature="e#17703#17753#0" expanded="true" />
+                <element signature="e#17800#17858#0" expanded="true" />
+                <element signature="e#17908#17969#0" expanded="true" />
+                <element signature="e#18014#18070#0" expanded="true" />
+                <element signature="e#18633#18675#0" expanded="true" />
+                <element signature="e#18696#18728#0" expanded="true" />
+                <element signature="e#18749#18794#0" expanded="true" />
+                <element signature="e#18831#18879#0" expanded="true" />
+                <element signature="e#18919#18970#0" expanded="true" />
+                <element signature="e#19000#19041#0" expanded="true" />
+                <element signature="e#19068#19106#0" expanded="true" />
+                <element signature="e#19140#19185#0" expanded="true" />
+                <element signature="e#19207#19240#0" expanded="true" />
+                <element signature="e#19268#19306#0" expanded="true" />
+                <element signature="e#19329#19363#0" expanded="true" />
+                <element signature="e#19401#19445#0" expanded="true" />
+                <element signature="e#19463#19492#0" expanded="true" />
+                <element signature="e#19517#19553#0" expanded="true" />
+                <element signature="e#19584#19625#0" expanded="true" />
+                <element signature="e#19662#19710#0" expanded="true" />
+                <element signature="e#19732#19765#0" expanded="true" />
+                <element signature="e#19784#19814#0" expanded="true" />
+                <element signature="e#19831#19859#0" expanded="true" />
+                <element signature="e#19877#19906#0" expanded="true" />
+                <element signature="e#19924#19953#0" expanded="true" />
+                <element signature="e#19981#20023#0" expanded="true" />
+                <element signature="e#20052#20092#0" expanded="true" />
+                <element signature="e#20123#20163#0" expanded="true" />
+                <element signature="e#20191#20238#0" expanded="true" />
+                <element signature="e#20266#20315#0" expanded="true" />
+                <element signature="e#20349#20404#0" expanded="true" />
+                <element signature="e#20438#20492#0" expanded="true" />
+                <element signature="e#20527#20582#0" expanded="true" />
+                <element signature="e#20622#20674#0" expanded="true" />
+                <element signature="e#20708#20755#0" expanded="true" />
               </folding>
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="activity_login.xml" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/app/src/main/res/layout/activity_login.xml">
+      <file leaf-file-name="styles.xml" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/app/src/main/res/values/styles.xml">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="0">
               <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
               <folding />
             </state>
           </provider>
-          <provider editor-type-id="android-designer2">
-            <state />
-          </provider>
         </entry>
       </file>
-      <file leaf-file-name="content_login.xml" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/app/src/main/res/layout/content_login.xml">
+      <file leaf-file-name="strings.xml" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/app/src/main/res/values/strings.xml">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="223">
-              <caret line="135" column="41" lean-forward="false" selection-start-line="135" selection-start-column="33" selection-end-line="135" selection-end-column="41" />
+            <state relative-caret-position="583">
+              <caret line="65" column="26" lean-forward="false" selection-start-line="65" selection-start-column="0" selection-end-line="66" selection-end-column="0" />
               <folding />
             </state>
           </provider>
-          <provider editor-type-id="android-designer2">
-            <state />
+        </entry>
+      </file>
+      <file leaf-file-name="LoginActivity.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/app/src/main/java/de/tobiasbielefeld/solitaire/LoginActivity.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="238">
+              <caret line="76" column="0" lean-forward="false" selection-start-line="76" selection-start-column="0" selection-end-line="76" selection-end-column="0" />
+              <folding>
+                <marker date="1515755289339" expanded="true" signature="2529:3098" ph="{...}" />
+              </folding>
+            </state>
           </provider>
         </entry>
       </file>
@@ -362,9 +466,6 @@
   </component>
   <component name="FindInProjectRecents">
     <findStrings>
-      <find>setGamesee</find>
-      <find>setGameseed</find>
-      <find>set</find>
       <find>setInt</find>
       <find>setInt(</find>
       <find>setIn</find>
@@ -375,8 +476,6 @@
       <find>singleton</find>
       <find>e</find>
       <find>s</find>
-      <find>score</find>
-      <find>S</find>
       <find>putInt</find>
       <find>putLong</find>
       <find>SCORE</find>
@@ -392,11 +491,17 @@
       <find>setg</find>
       <find>currentGame</find>
       <find>getGameTime</find>
+      <find>sc</find>
+      <find>score</find>
+      <find>S</find>
+      <find>Sc</find>
+      <find>Score</find>
     </findStrings>
     <dirStrings>
       <dir>C:\Users\karst\AndroidStudioProjects\Simple-Solitaire-master\app\src\main\java\de\tobiasbielefeld\solitaire\games</dir>
       <dir>C:\Users\karst\AndroidStudioProjects\Simple-Solitaire-master\app</dir>
       <dir>C:\Users\karst\AndroidStudioProjects\Simple-Solitaire-master\app\src\main\java\de\tobiasbielefeld\solitaire</dir>
+      <dir>C:\Users\karst\AndroidStudioProjects\Simple-Solitaire-master\app\src\main\res</dir>
     </dirStrings>
   </component>
   <component name="Git.Settings">
@@ -2317,10 +2422,10 @@
         <option value="$PROJECT_DIR$/app/src/main/java/de/tobiasbielefeld/solitaire/games/Klondike.java" />
         <option value="$PROJECT_DIR$/app/src/main/java/de/tobiasbielefeld/solitaire/games/Game.java" />
         <option value="$PROJECT_DIR$/app/src/main/java/de/tobiasbielefeld/solitaire/helper/GameMapper.java" />
-        <option value="$PROJECT_DIR$/app/src/main/java/de/tobiasbielefeld/solitaire/SharedData.java" />
-        <option value="$PROJECT_DIR$/app/src/main/java/de/tobiasbielefeld/solitaire/helper/GameLogic.java" />
         <option value="$PROJECT_DIR$/app/src/main/java/de/tobiasbielefeld/solitaire/classes/GamePlayed.java" />
         <option value="$PROJECT_DIR$/app/src/main/java/de/tobiasbielefeld/solitaire/LoginActivity.java" />
+        <option value="$PROJECT_DIR$/app/src/main/java/de/tobiasbielefeld/solitaire/SharedData.java" />
+        <option value="$PROJECT_DIR$/app/src/main/java/de/tobiasbielefeld/solitaire/helper/GameLogic.java" />
       </list>
     </option>
   </component>
@@ -2346,95 +2451,6 @@
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
-      <pane id="Scratches" />
-      <pane id="Scope">
-        <subPane subId="Project Files">
-          <PATH>
-            <PATH_ELEMENT USER_OBJECT="Root">
-              <option name="myItemId" value="" />
-              <option name="myItemType" value="" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT USER_OBJECT="app">
-              <option name="myItemId" value="" />
-              <option name="myItemType" value="" />
-            </PATH_ELEMENT>
-          </PATH>
-        </subPane>
-      </pane>
-      <pane id="AndroidView">
-        <subPane>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="Simple-Solitaire-master" />
-              <option name="myItemType" value="com.android.tools.idea.navigator.nodes.AndroidViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="Gradle Scripts" />
-              <option name="myItemType" value="com.android.tools.idea.navigator.nodes.android.AndroidBuildScriptsGroupNode" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="Simple-Solitaire-master" />
-              <option name="myItemType" value="com.android.tools.idea.navigator.nodes.AndroidViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="app" />
-              <option name="myItemType" value="com.android.tools.idea.navigator.nodes.android.AndroidModuleNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="res" />
-              <option name="myItemType" value="com.android.tools.idea.navigator.nodes.android.AndroidResFolderNode" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="Simple-Solitaire-master" />
-              <option name="myItemType" value="com.android.tools.idea.navigator.nodes.AndroidViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="app" />
-              <option name="myItemType" value="com.android.tools.idea.navigator.nodes.android.AndroidModuleNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="res" />
-              <option name="myItemType" value="com.android.tools.idea.navigator.nodes.android.AndroidResFolderNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="layout" />
-              <option name="myItemType" value="com.android.tools.idea.navigator.nodes.android.AndroidResFolderTypeNode" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="Simple-Solitaire-master" />
-              <option name="myItemType" value="com.android.tools.idea.navigator.nodes.AndroidViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="app" />
-              <option name="myItemType" value="com.android.tools.idea.navigator.nodes.android.AndroidModuleNode" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="Simple-Solitaire-master" />
-              <option name="myItemType" value="com.android.tools.idea.navigator.nodes.AndroidViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="app" />
-              <option name="myItemType" value="com.android.tools.idea.navigator.nodes.android.AndroidModuleNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="java" />
-              <option name="myItemType" value="com.android.tools.idea.navigator.nodes.android.AndroidSourceTypeNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="solitaire" />
-              <option name="myItemType" value="com.android.tools.idea.navigator.nodes.android.AndroidPsiDirectoryNode" />
-            </PATH_ELEMENT>
-          </PATH>
-        </subPane>
-      </pane>
       <pane id="ProjectPane">
         <subPane>
           <PATH>
@@ -2481,6 +2497,183 @@
             <PATH_ELEMENT>
               <option name="myItemId" value="main" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+        </subPane>
+      </pane>
+      <pane id="AndroidView">
+        <subPane>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="Simple-Solitaire-master" />
+              <option name="myItemType" value="com.android.tools.idea.navigator.nodes.AndroidViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="Gradle Scripts" />
+              <option name="myItemType" value="com.android.tools.idea.navigator.nodes.android.AndroidBuildScriptsGroupNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="Simple-Solitaire-master" />
+              <option name="myItemType" value="com.android.tools.idea.navigator.nodes.AndroidViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="app" />
+              <option name="myItemType" value="com.android.tools.idea.navigator.nodes.android.AndroidModuleNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="res" />
+              <option name="myItemType" value="com.android.tools.idea.navigator.nodes.android.AndroidResFolderNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="Simple-Solitaire-master" />
+              <option name="myItemType" value="com.android.tools.idea.navigator.nodes.AndroidViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="app" />
+              <option name="myItemType" value="com.android.tools.idea.navigator.nodes.android.AndroidModuleNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="res" />
+              <option name="myItemType" value="com.android.tools.idea.navigator.nodes.android.AndroidResFolderNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="values" />
+              <option name="myItemType" value="com.android.tools.idea.navigator.nodes.android.AndroidResFolderTypeNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="Simple-Solitaire-master" />
+              <option name="myItemType" value="com.android.tools.idea.navigator.nodes.AndroidViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="app" />
+              <option name="myItemType" value="com.android.tools.idea.navigator.nodes.android.AndroidModuleNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="res" />
+              <option name="myItemType" value="com.android.tools.idea.navigator.nodes.android.AndroidResFolderNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="values" />
+              <option name="myItemType" value="com.android.tools.idea.navigator.nodes.android.AndroidResFolderTypeNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="strings.xml" />
+              <option name="myItemType" value="com.android.tools.idea.navigator.nodes.android.AndroidResGroupNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="Simple-Solitaire-master" />
+              <option name="myItemType" value="com.android.tools.idea.navigator.nodes.AndroidViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="app" />
+              <option name="myItemType" value="com.android.tools.idea.navigator.nodes.android.AndroidModuleNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="Simple-Solitaire-master" />
+              <option name="myItemType" value="com.android.tools.idea.navigator.nodes.AndroidViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="app" />
+              <option name="myItemType" value="com.android.tools.idea.navigator.nodes.android.AndroidModuleNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="java" />
+              <option name="myItemType" value="com.android.tools.idea.navigator.nodes.android.AndroidSourceTypeNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="solitaire" />
+              <option name="myItemType" value="com.android.tools.idea.navigator.nodes.android.AndroidPsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="Simple-Solitaire-master" />
+              <option name="myItemType" value="com.android.tools.idea.navigator.nodes.AndroidViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="app" />
+              <option name="myItemType" value="com.android.tools.idea.navigator.nodes.android.AndroidModuleNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="java" />
+              <option name="myItemType" value="com.android.tools.idea.navigator.nodes.android.AndroidSourceTypeNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="solitaire" />
+              <option name="myItemType" value="com.android.tools.idea.navigator.nodes.android.AndroidPsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="helper" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="Simple-Solitaire-master" />
+              <option name="myItemType" value="com.android.tools.idea.navigator.nodes.AndroidViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="app" />
+              <option name="myItemType" value="com.android.tools.idea.navigator.nodes.android.AndroidModuleNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="java" />
+              <option name="myItemType" value="com.android.tools.idea.navigator.nodes.android.AndroidSourceTypeNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="solitaire" />
+              <option name="myItemType" value="com.android.tools.idea.navigator.nodes.android.AndroidPsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="handler" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="Simple-Solitaire-master" />
+              <option name="myItemType" value="com.android.tools.idea.navigator.nodes.AndroidViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="app" />
+              <option name="myItemType" value="com.android.tools.idea.navigator.nodes.android.AndroidModuleNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="java" />
+              <option name="myItemType" value="com.android.tools.idea.navigator.nodes.android.AndroidSourceTypeNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="solitaire" />
+              <option name="myItemType" value="com.android.tools.idea.navigator.nodes.android.AndroidPsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="games" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+        </subPane>
+      </pane>
+      <pane id="Scratches" />
+      <pane id="Scope">
+        <subPane subId="Project Files">
+          <PATH>
+            <PATH_ELEMENT USER_OBJECT="Root">
+              <option name="myItemId" value="" />
+              <option name="myItemType" value="" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT USER_OBJECT="app">
+              <option name="myItemId" value="" />
+              <option name="myItemType" value="" />
             </PATH_ELEMENT>
           </PATH>
         </subPane>
@@ -2614,7 +2807,7 @@
       <option name="ACTIVITY_CLASS" value="" />
       <method>
         <option name="Android.Gradle.BeforeRunTask" enabled="true" />
-        <option name="com.android.instantApps.provision.BeforeRunTask" enabled="true" clearCache="false" clearProvisionedDevices="false" myTimestamp="1515755391367" />
+        <option name="com.android.instantApps.provision.BeforeRunTask" enabled="true" clearCache="false" clearProvisionedDevices="false" myTimestamp="1516006877992" />
       </method>
     </configuration>
     <configuration default="true" type="AndroidTestRunConfigurationType" factoryName="Android Instrumented Tests">
@@ -2662,7 +2855,7 @@
       </Profilers>
       <method>
         <option name="Android.Gradle.BeforeRunTask" enabled="true" />
-        <option name="com.android.instantApps.provision.BeforeRunTask" enabled="true" clearCache="false" clearProvisionedDevices="false" myTimestamp="1515755391367" />
+        <option name="com.android.instantApps.provision.BeforeRunTask" enabled="true" clearCache="false" clearProvisionedDevices="false" myTimestamp="1516006877992" />
       </method>
     </configuration>
     <configuration default="true" type="Application" factoryName="Application">
@@ -2845,7 +3038,7 @@
       <option name="ACTIVITY_CLASS" value="" />
       <method>
         <option name="Android.Gradle.BeforeRunTask" enabled="true" />
-        <option name="com.android.instantApps.provision.BeforeRunTask" enabled="true" clearCache="false" clearProvisionedDevices="false" myTimestamp="1515755391368" />
+        <option name="com.android.instantApps.provision.BeforeRunTask" enabled="true" clearCache="false" clearProvisionedDevices="false" myTimestamp="1516006877993" />
       </method>
     </configuration>
     <list size="2">
@@ -3093,7 +3286,14 @@
       <option name="project" value="LOCAL" />
       <updated>1515755385465</updated>
     </task>
-    <option name="localTasksCounter" value="30" />
+    <task id="LOCAL-00030" summary="Found silly login bypass bugg">
+      <created>1515755395299</created>
+      <option name="number" value="00030" />
+      <option name="presentableId" value="LOCAL-00030" />
+      <option name="project" value="LOCAL" />
+      <updated>1515755395299</updated>
+    </task>
+    <option name="localTasksCounter" value="31" />
     <servers />
   </component>
   <component name="TodoView">
@@ -3110,29 +3310,28 @@
     <editor active="true" />
     <layout>
       <window_info id="Android Profiler" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32962137" sideWeight="0.48933902" order="7" side_tool="false" content_ui="tabs" />
-      <window_info id="Build Variants" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="true" content_ui="tabs" />
-      <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.47995546" sideWeight="0.3576759" order="8" side_tool="true" content_ui="tabs" />
-      <window_info id="Logcat" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.3429844" sideWeight="0.66471213" order="9" side_tool="false" content_ui="tabs" />
-      <window_info id="Capture Tool" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
-      <window_info id="Designer" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
-      <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
-      <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.47995546" sideWeight="0.6423241" order="3" side_tool="false" content_ui="tabs" />
-      <window_info id="Device File Explorer" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="true" content_ui="tabs" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32850778" sideWeight="0.47867805" order="6" side_tool="false" content_ui="tabs" />
-      <window_info id="Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32516703" sideWeight="0.554371" order="15" side_tool="false" content_ui="tabs" />
+      <window_info id="Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32516703" sideWeight="0.5522388" order="15" side_tool="false" content_ui="tabs" />
+      <window_info id="Build Variants" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="true" content_ui="tabs" />
       <window_info id="Palette&#9;" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="8" side_tool="false" content_ui="tabs" />
       <window_info id="Image Layers" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
       <window_info id="Capture Analysis" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
-      <window_info id="Preview" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32994652" sideWeight="0.5" order="9" side_tool="false" content_ui="tabs" />
+      <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.47995546" sideWeight="0.36034116" order="8" side_tool="true" content_ui="tabs" />
       <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33106577" sideWeight="0.4784946" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32516703" sideWeight="0.47228146" order="10" side_tool="false" content_ui="tabs" />
       <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32739422" sideWeight="0.47654584" order="11" side_tool="false" content_ui="tabs" />
+      <window_info id="Logcat" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.3429844" sideWeight="0.66471213" order="9" side_tool="false" content_ui="tabs" />
       <window_info id="Captures" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
+      <window_info id="Capture Tool" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
       <window_info id="Gradle Console" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32941177" sideWeight="0.50322235" order="13" side_tool="true" content_ui="tabs" />
+      <window_info id="Designer" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.19349681" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
       <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32850778" sideWeight="0.4978678" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Gradle" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
+      <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
+      <window_info id="Device File Explorer" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="true" content_ui="tabs" />
       <window_info id="Theme Preview" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
+      <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.47995546" sideWeight="0.63965887" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="6" side_tool="true" content_ui="tabs" />
       <window_info id="Cvs" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
       <window_info id="Nl-Palette" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
@@ -3147,6 +3346,7 @@
       <window_info id="StringPreview" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="9" side_tool="false" content_ui="tabs" />
       <window_info id="Documentation" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="FLOATING" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="10" side_tool="false" content_ui="tabs" x="92" y="92" width="1736" height="856" />
       <window_info id="Inspection" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
+      <window_info id="Preview" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32994652" sideWeight="0.5" order="9" side_tool="false" content_ui="tabs" />
     </layout>
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -3221,15 +3421,9 @@
       <breakpoints>
         <line-breakpoint enabled="true" type="java-line">
           <url>file://$PROJECT_DIR$/app/src/main/java/de/tobiasbielefeld/solitaire/helper/GameLogic.java</url>
-          <line>227</line>
+          <line>229</line>
           <properties />
           <option name="timeStamp" value="95" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/app/src/main/java/de/tobiasbielefeld/solitaire/LoginActivity.java</url>
-          <line>76</line>
-          <properties />
-          <option name="timeStamp" value="98" />
         </line-breakpoint>
       </breakpoints>
       <breakpoints-dialog>
@@ -3240,13 +3434,6 @@
     <watches-manager />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$USER_HOME$/AppData/Local/Android/sdk/sources/android-25/android/preference/PreferenceFragment.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="71">
-          <caret line="317" column="51" lean-forward="true" selection-start-line="317" selection-start-column="51" selection-end-line="317" selection-end-column="51" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/app/src/main/java/de/tobiasbielefeld/solitaire/classes/ListPreferenceWithSummary.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="100">
@@ -3269,13 +3456,13 @@
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/app/src/main/res/xml/pref_games_klondike.xml">
+      <provider editor-type-id="android-designer2">
+        <state />
+      </provider>
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="252">
           <caret line="12" column="30" lean-forward="false" selection-start-line="12" selection-start-column="30" selection-end-line="12" selection-end-column="30" />
         </state>
-      </provider>
-      <provider editor-type-id="android-designer2">
-        <state />
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/app/src/main/java/de/tobiasbielefeld/solitaire/ui/settings/SettingsGames.java">
@@ -3334,23 +3521,23 @@
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/app/src/main/res/layout-xlarge/activity_manual.xml">
+      <provider editor-type-id="android-designer2">
+        <state />
+      </provider>
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="436">
           <caret line="59" column="27" lean-forward="false" selection-start-line="59" selection-start-column="27" selection-end-line="59" selection-end-column="27" />
         </state>
       </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/res/layout/fragment_manual_games.xml">
       <provider editor-type-id="android-designer2">
         <state />
       </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/main/res/layout/fragment_manual_games.xml">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="181">
           <caret line="31" column="34" lean-forward="false" selection-start-line="31" selection-start-column="34" selection-end-line="31" selection-end-column="34" />
         </state>
-      </provider>
-      <provider editor-type-id="android-designer2">
-        <state />
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/pictures/cards/backgrounds_stacks.svg">
@@ -3443,14 +3630,10 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/main/res/values/strings.xml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="355">
-          <caret line="62" column="20" lean-forward="false" selection-start-line="62" selection-start-column="20" selection-end-line="62" selection-end-column="20" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/app/src/main/AndroidManifest.xml">
+      <provider editor-type-id="android-manifest">
+        <state />
+      </provider>
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="221">
           <caret line="13" column="40" lean-forward="true" selection-start-line="13" selection-start-column="40" selection-end-line="13" selection-end-column="40" />
@@ -3461,21 +3644,11 @@
           </folding>
         </state>
       </provider>
-      <provider editor-type-id="android-manifest">
-        <state />
-      </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/app/src/main/java/de/tobiasbielefeld/solitaire/ui/manual/ManualGames.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="183">
           <caret line="144" column="102" lean-forward="false" selection-start-line="144" selection-start-column="102" selection-end-line="144" selection-end-column="102" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/main/java/de/tobiasbielefeld/solitaire/dialogs/DialogWon.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="561">
-          <caret line="70" column="0" lean-forward="false" selection-start-line="70" selection-start-column="0" selection-end-line="70" selection-end-column="0" />
         </state>
       </provider>
     </entry>
@@ -3493,13 +3666,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/main/java/de/tobiasbielefeld/solitaire/classes/Person.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="306">
-          <caret line="38" column="57" lean-forward="false" selection-start-line="38" selection-start-column="57" selection-end-line="38" selection-end-column="57" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/app/src/main/java/de/tobiasbielefeld/solitaire/dialogs/DialogRestart.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="316">
@@ -3508,13 +3674,13 @@
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/app/src/main/res/layout/dialog_won.xml">
+      <provider editor-type-id="android-designer2">
+        <state />
+      </provider>
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="147">
           <caret line="14" column="33" lean-forward="false" selection-start-line="14" selection-start-column="33" selection-end-line="14" selection-end-column="33" />
         </state>
-      </provider>
-      <provider editor-type-id="android-designer2">
-        <state />
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/app/src/main/java/de/tobiasbielefeld/solitaire/ui/GameManager.java">
@@ -3528,7 +3694,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="183">
           <caret line="80" column="58" lean-forward="false" selection-start-line="80" selection-start-column="58" selection-end-line="80" selection-end-column="58" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -3556,25 +3721,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/main/java/de/tobiasbielefeld/solitaire/helper/Scores.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="331">
-          <caret line="232" column="24" lean-forward="false" selection-start-line="232" selection-start-column="24" selection-end-line="232" selection-end-column="24" />
-          <folding>
-            <element signature="e#5543#5544#0" expanded="true" />
-            <element signature="e#5580#5581#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/main/java/de/tobiasbielefeld/solitaire/helper/GameMapper.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="238">
-          <caret line="44" column="60" lean-forward="false" selection-start-line="44" selection-start-column="60" selection-end-line="44" selection-end-column="60" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/app/src/main/java/de/tobiasbielefeld/solitaire/helper/EntityMapper.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="137">
@@ -3583,61 +3729,199 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/main/java/de/tobiasbielefeld/solitaire/SharedData.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="128">
-          <caret line="201" column="34" lean-forward="false" selection-start-line="201" selection-start-column="23" selection-end-line="201" selection-end-column="34" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/main/java/de/tobiasbielefeld/solitaire/helper/GameLogic.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="110">
-          <caret line="227" column="0" lean-forward="false" selection-start-line="227" selection-start-column="0" selection-end-line="227" selection-end-column="0" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/main/java/de/tobiasbielefeld/solitaire/classes/GamePlayed.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="187">
-          <caret line="80" column="0" lean-forward="false" selection-start-line="80" selection-start-column="0" selection-end-line="80" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/app/src/main/res/layout/activity_login.xml">
+      <provider editor-type-id="android-designer2">
+        <state />
+      </provider>
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="0">
           <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
           <folding />
         </state>
       </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/res/layout/content_login.xml">
       <provider editor-type-id="android-designer2">
         <state />
       </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/main/res/layout/content_login.xml">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="223">
+        <state relative-caret-position="2295">
           <caret line="135" column="41" lean-forward="false" selection-start-line="135" selection-start-column="33" selection-end-line="135" selection-end-column="41" />
           <folding />
         </state>
       </provider>
-      <provider editor-type-id="android-designer2">
-        <state />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/java/de/tobiasbielefeld/solitaire/classes/GamePlayed.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="839">
+          <caret line="80" column="0" lean-forward="false" selection-start-line="80" selection-start-column="0" selection-end-line="80" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/res/values/styles.xml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/java/de/tobiasbielefeld/solitaire/helper/GameMapper.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="187">
+          <caret line="41" column="42" lean-forward="false" selection-start-line="41" selection-start-column="38" selection-end-line="41" selection-end-column="42" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/res/values/strings.xml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="583">
+          <caret line="65" column="26" lean-forward="false" selection-start-line="65" selection-start-column="0" selection-end-line="66" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/java/de/tobiasbielefeld/solitaire/classes/Person.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-1124">
+          <caret line="18" column="19" lean-forward="false" selection-start-line="18" selection-start-column="19" selection-end-line="18" selection-end-column="19" />
+          <folding />
+        </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/app/src/main/java/de/tobiasbielefeld/solitaire/LoginActivity.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-425">
-          <caret line="30" column="55" lean-forward="false" selection-start-line="30" selection-start-column="55" selection-end-line="30" selection-end-column="55" />
+        <state relative-caret-position="238">
+          <caret line="76" column="0" lean-forward="false" selection-start-line="76" selection-start-column="0" selection-end-line="76" selection-end-column="0" />
           <folding>
             <marker date="1515755289339" expanded="true" signature="2529:3098" ph="{...}" />
           </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/java/de/tobiasbielefeld/solitaire/helper/GameLogic.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="252">
+          <caret line="235" column="0" lean-forward="false" selection-start-line="235" selection-start-column="0" selection-end-line="235" selection-end-column="0" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/java/de/tobiasbielefeld/solitaire/SharedData.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="128">
+          <caret line="230" column="90" lean-forward="false" selection-start-line="230" selection-start-column="89" selection-end-line="230" selection-end-column="90" />
+          <folding>
+            <element signature="e#11121#11149#0" expanded="true" />
+            <element signature="e#11205#11249#0" expanded="true" />
+            <element signature="e#11284#11330#0" expanded="true" />
+            <element signature="e#11362#11405#0" expanded="true" />
+            <element signature="e#11440#11486#0" expanded="true" />
+            <element signature="e#11777#11821#0" expanded="true" />
+            <element signature="e#11861#11912#0" expanded="true" />
+            <element signature="e#11951#12001#0" expanded="true" />
+            <element signature="e#12106#12147#0" expanded="true" />
+            <element signature="e#12181#12226#0" expanded="true" />
+            <element signature="e#12258#12301#0" expanded="true" />
+            <element signature="e#12334#12378#0" expanded="true" />
+            <element signature="e#12412#12457#0" expanded="true" />
+            <element signature="e#12495#12544#0" expanded="true" />
+            <element signature="e#12587#12646#0" expanded="true" />
+            <element signature="e#12690#12750#0" expanded="true" />
+            <element signature="e#12790#12840#0" expanded="true" />
+            <element signature="e#12882#12935#0" expanded="true" />
+            <element signature="e#12984#13044#0" expanded="true" />
+            <element signature="e#13087#13140#0" expanded="true" />
+            <element signature="e#13179#13229#0" expanded="true" />
+            <element signature="e#13272#13326#0" expanded="true" />
+            <element signature="e#13364#13413#0" expanded="true" />
+            <element signature="e#13458#13514#0" expanded="true" />
+            <element signature="e#13550#13597#0" expanded="true" />
+            <element signature="e#13632#13678#0" expanded="true" />
+            <element signature="e#13709#13751#0" expanded="true" />
+            <element signature="e#13789#13838#0" expanded="true" />
+            <element signature="e#13877#13927#0" expanded="true" />
+            <element signature="e#13973#14028#0" expanded="true" />
+            <element signature="e#14077#14135#0" expanded="true" />
+            <element signature="e#14183#14242#0" expanded="true" />
+            <element signature="e#14293#14355#0" expanded="true" />
+            <element signature="e#14401#14458#0" expanded="true" />
+            <element signature="e#14496#14545#0" expanded="true" />
+            <element signature="e#14577#14620#0" expanded="true" />
+            <element signature="e#14734#14786#0" expanded="true" />
+            <element signature="e#15896#15942#0" expanded="true" />
+            <element signature="e#15985#16039#0" expanded="true" />
+            <element signature="e#16081#16134#0" expanded="true" />
+            <element signature="e#16182#16241#0" expanded="true" />
+            <element signature="e#16288#16346#0" expanded="true" />
+            <element signature="e#16754#16803#0" expanded="true" />
+            <element signature="e#16845#16900#0" expanded="true" />
+            <element signature="e#16933#16979#0" expanded="true" />
+            <element signature="e#17021#17076#0" expanded="true" />
+            <element signature="e#17113#17161#0" expanded="true" />
+            <element signature="e#17205#17262#0" expanded="true" />
+            <element signature="e#17297#17343#0" expanded="true" />
+            <element signature="e#17451#17492#0" expanded="true" />
+            <element signature="e#17529#17577#0" expanded="true" />
+            <element signature="e#17615#17666#0" expanded="true" />
+            <element signature="e#17703#17753#0" expanded="true" />
+            <element signature="e#17800#17858#0" expanded="true" />
+            <element signature="e#17908#17969#0" expanded="true" />
+            <element signature="e#18014#18070#0" expanded="true" />
+            <element signature="e#18633#18675#0" expanded="true" />
+            <element signature="e#18696#18728#0" expanded="true" />
+            <element signature="e#18749#18794#0" expanded="true" />
+            <element signature="e#18831#18879#0" expanded="true" />
+            <element signature="e#18919#18970#0" expanded="true" />
+            <element signature="e#19000#19041#0" expanded="true" />
+            <element signature="e#19068#19106#0" expanded="true" />
+            <element signature="e#19140#19185#0" expanded="true" />
+            <element signature="e#19207#19240#0" expanded="true" />
+            <element signature="e#19268#19306#0" expanded="true" />
+            <element signature="e#19329#19363#0" expanded="true" />
+            <element signature="e#19401#19445#0" expanded="true" />
+            <element signature="e#19463#19492#0" expanded="true" />
+            <element signature="e#19517#19553#0" expanded="true" />
+            <element signature="e#19584#19625#0" expanded="true" />
+            <element signature="e#19662#19710#0" expanded="true" />
+            <element signature="e#19732#19765#0" expanded="true" />
+            <element signature="e#19784#19814#0" expanded="true" />
+            <element signature="e#19831#19859#0" expanded="true" />
+            <element signature="e#19877#19906#0" expanded="true" />
+            <element signature="e#19924#19953#0" expanded="true" />
+            <element signature="e#19981#20023#0" expanded="true" />
+            <element signature="e#20052#20092#0" expanded="true" />
+            <element signature="e#20123#20163#0" expanded="true" />
+            <element signature="e#20191#20238#0" expanded="true" />
+            <element signature="e#20266#20315#0" expanded="true" />
+            <element signature="e#20349#20404#0" expanded="true" />
+            <element signature="e#20438#20492#0" expanded="true" />
+            <element signature="e#20527#20582#0" expanded="true" />
+            <element signature="e#20622#20674#0" expanded="true" />
+            <element signature="e#20708#20755#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/java/de/tobiasbielefeld/solitaire/helper/Scores.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="348">
+          <caret line="287" column="20" lean-forward="false" selection-start-line="287" selection-start-column="16" selection-end-line="287" selection-end-column="24" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/java/de/tobiasbielefeld/solitaire/dialogs/DialogWon.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="850">
+          <caret line="105" column="117" lean-forward="false" selection-start-line="105" selection-start-column="117" selection-end-line="105" selection-end-column="117" />
+          <folding />
         </state>
       </provider>
     </entry>

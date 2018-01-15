@@ -63,5 +63,6 @@
     <string name="DrSolitaire" translatable="false">StartActivity</string>
     <string name="title_activity_login" translatable="false">LoginActivity</string>
     <string name="title_activity_start">Dr Solitaire</string>
+    <string name="game_seed">GameSeed</string>
 
 </resources>

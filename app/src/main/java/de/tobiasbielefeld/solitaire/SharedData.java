@@ -364,7 +364,7 @@ public class SharedData {
         GAME_RANDOM_CARDS = res.getString(R.string.game_random_cards);
         GAME_FIRST_RUN = res.getString(R.string.game_first_run);
         GAME_MOVED_FIRST_CARD = res.getString(R.string.game_moved_first_card);
-        GAME_SEED = "GameSeed";
+        GAME_SEED = res.getString(R.string.game_seed);
 
         RESTART_DIALOG = res.getString(R.string.restart_dialog);
         WON_DIALOG = res.getString(R.string.won_dialog);
