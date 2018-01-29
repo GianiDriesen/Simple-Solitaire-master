@@ -236,7 +236,8 @@ public class GameLogic {
         dataSent=true;
         currentGameCopy = currentGame; //TODO why?
         wonCopy = won;
-        entityMapper.getgMapper().createGame(game);
+        entityMapper.getgMapper().createGame(game); //@KG here game is stored and gets its id. Need callback in onresponse in entitymapper to start storing moves then.
+        //Log.d("GAMEID", "newGame here, id is"+entityMapper.game.getId());
         new SaveGameInDB().execute();
 
         ArrayList<Integer> newTimestamps = new ArrayList<>();

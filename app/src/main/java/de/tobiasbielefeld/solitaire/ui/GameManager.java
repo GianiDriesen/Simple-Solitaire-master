@@ -39,6 +39,7 @@ import java.util.Date;
 import java.util.Locale;
 
 import de.tobiasbielefeld.solitaire.R;
+import de.tobiasbielefeld.solitaire.SharedData;
 import de.tobiasbielefeld.solitaire.classes.Card;
 import de.tobiasbielefeld.solitaire.classes.CardAndStack;
 import de.tobiasbielefeld.solitaire.classes.CustomAppCompatActivity;
@@ -332,14 +333,18 @@ public class GameManager extends CustomAppCompatActivity implements View.OnTouch
         //if the main stack got touched
         if (currentGame.hasMainStack() && currentGame.testIfMainStackTouched(X, Y)) {
             currentGame.setMainstackBoolean(true);
+            //@KG Start touch
+            SharedData.putMoveTime(timer.getCurrentTime());
+
+
 
             // @GN code for measuring beta errors, I think it's better to do that when the main stack is touched
             hint.setHintVisible(false);
             currentGame.hintTest();
-            System.out.println("Hint visible: " + hint.getHintVisible());
+            Log.d("HINT","Hint visible: " + hint.getHintVisible());
             if(hint.getHintVisible() == false && currentGame.getMoveAvailable() == true) {
                 currentGame.setBetaError(currentGame.getBetaError() + 1);
-                System.out.println("Beta error: " + currentGame.getBetaError());
+            Log.d("BETA", "Beta error: " + currentGame.getBetaError());
                 currentGame.setMoveAvailable(false);
             }
 

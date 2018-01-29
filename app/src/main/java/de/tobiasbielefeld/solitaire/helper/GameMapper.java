@@ -1,5 +1,7 @@
 package de.tobiasbielefeld.solitaire.helper;
 
+import android.util.Log;
+
 import java.sql.Date;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
@@ -10,6 +12,7 @@ import java.util.List;
 
 import de.tobiasbielefeld.solitaire.SharedData;
 import de.tobiasbielefeld.solitaire.classes.GamePlayed;
+import de.tobiasbielefeld.solitaire.classes.Move;
 import de.tobiasbielefeld.solitaire.classes.Person;
 
 /**
@@ -49,10 +52,12 @@ public enum GameMapper {
                 "&ss4ctr=" + game.getSuitStack4() + "&tsctr=" + game.getTalonStack() + "&psctr=" + game.getPileStack() + "&colorerrctr=" + game.getMoveSameColorError() +
                 "&numbererrctr=" + game.getMoveWrongNumberError() + "&avgmotort=" + game.getAvgMotorTime() + "&betaerrctr=" + game.getBetaError() + "&seedctr=" +game.getGameseed()
                 + "&scorectr=" +game.getScore();
-        System.out.println(url);
-        GamePlayed tmpGame = new GamePlayed();
+        Log.d("DB",url);
+        GamePlayed tmpGame = new GamePlayed(); //@KG why is this object created here and not in the eMapper?
         eMapper.queryEntity(tmpGame, url);
     }
+
+
 }
 /*
     */

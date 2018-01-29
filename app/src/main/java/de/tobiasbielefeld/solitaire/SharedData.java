@@ -227,6 +227,8 @@ public class SharedData {
             );
 
 
+
+
     /**
      * Reload the needed data. Because if the android device runs out of memory, the app gets
      * killed. If the user restarts the app and it loads  for example the settings activity, all
@@ -798,6 +800,34 @@ public class SharedData {
 
         while (st.hasMoreTokens()) {
             result.add(Integer.parseInt(st.nextToken()));
+        }
+
+        return result;
+    }
+
+    /**
+
+     */
+    public static void putMoveTime(Long move) {
+        String s = savedSharedData.getString("MOVES", "");
+        s += move + ",";
+        savedSharedData.edit().putString("MOVES", s).apply();
+        Log.d("MOVES", "Move has been logged at timestamp "+move);
+    }
+
+    /**
+     * Gets shared data (same for every game)
+     * thanks to this answer for this idea http://stackoverflow.com/a/11201225/7016229
+     *
+     * @param name The name in the shared pref
+     */
+    public static ArrayList<Long> getSharedLongList(String name) {
+        String s = savedSharedData.getString(name, "");
+        StringTokenizer st = new StringTokenizer(s, ",");
+        ArrayList<Long> result = new ArrayList<>();
+
+        while (st.hasMoreTokens()) {
+            result.add(Long.parseLong(st.nextToken()));
         }
 
         return result;

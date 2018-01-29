@@ -20,6 +20,7 @@ package de.tobiasbielefeld.solitaire.games;
 
 import android.content.res.Resources;
 import android.support.annotation.CallSuper;
+import android.util.Log;
 import android.widget.RelativeLayout;
 
 import java.util.ArrayList;
@@ -353,6 +354,7 @@ public abstract class Game {
      */
     public boolean testIfMainStackTouched(float X, float Y) {
         setMainstackBoolean(false);
+        Log.d("MOVE", "GAME, touched a card");
         timeStampForOneMove(X, Y);
         return getMainStack().isOnLocation(X, Y);
     }
