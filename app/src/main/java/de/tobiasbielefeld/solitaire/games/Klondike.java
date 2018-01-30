@@ -490,11 +490,11 @@ public class Klondike extends Game {
                 tapFaultColor = false;
 
                 if(mainstack == false) {
-                    if (oldTapFaultColor != tapFaultColor) {
+                    if (oldTapFaultColor != tapFaultColor && wrongColorCounter > 0) {
                         wrongColorCounter--;
                         System.out.println("wrong color, wrong number :" + wrongColorCounter + " " + wrongNumberCounter);
                     }
-                    else if(oldTapFaultNumber != tapFaultNumber) {
+                    else if(oldTapFaultNumber != tapFaultNumber && wrongNumberCounter > 0) {
                         wrongNumberCounter--;
                         System.out.println("wrong color, wrong number :" + wrongColorCounter + " " + wrongNumberCounter);
                     }

@@ -12,7 +12,7 @@
   <component name="ChangeListManager">
     <list default="true" id="61ebc4f1-8c6b-4787-b1e9-e8598d2c6b31" name="Default" comment="">
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/src/main/res/xml/pref_movement_methods.xml" afterPath="$PROJECT_DIR$/app/src/main/res/xml/pref_movement_methods.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/src/main/java/de/tobiasbielefeld/solitaire/games/Klondike.java" afterPath="$PROJECT_DIR$/app/src/main/java/de/tobiasbielefeld/solitaire/games/Klondike.java" />
     </list>
     <ignored path="Simple-Solitaire-master.iws" />
     <ignored path=".idea/workspace.xml" />
@@ -44,11 +44,11 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file leaf-file-name="GameLogic.java" pinned="false" current-in-tab="true">
+      <file leaf-file-name="GameLogic.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/app/src/main/java/de/tobiasbielefeld/solitaire/helper/GameLogic.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="21">
-              <caret line="305" column="16" lean-forward="false" selection-start-line="305" selection-start-column="16" selection-end-line="305" selection-end-column="16" />
+            <state relative-caret-position="362">
+              <caret line="221" column="0" lean-forward="false" selection-start-line="221" selection-start-column="0" selection-end-line="221" selection-end-column="0" />
               <folding>
                 <element signature="e#0#20606#0" expanded="true" />
                 <element signature="imports" expanded="true" />
@@ -80,53 +80,12 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="Klondike.java" pinned="false" current-in-tab="false">
+      <file leaf-file-name="Klondike.java" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/app/src/main/java/de/tobiasbielefeld/solitaire/games/Klondike.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="8883">
-              <caret line="510" column="59" lean-forward="false" selection-start-line="510" selection-start-column="26" selection-end-line="510" selection-end-column="59" />
-              <folding>
-                <element signature="e#0#27954#0" expanded="false" />
-                <element signature="imports" expanded="false" />
-                <element signature="e#4603#4604#0" expanded="false" />
-                <element signature="e#4650#4651#0" expanded="false" />
-                <element signature="e#4690#4691#0" expanded="false" />
-                <element signature="e#4731#4732#0" expanded="false" />
-                <element signature="e#4967#4968#0" expanded="false" />
-                <element signature="e#4998#4999#0" expanded="false" />
-                <element signature="e#5043#5044#0" expanded="false" />
-                <element signature="e#5079#5080#0" expanded="false" />
-                <element signature="e#5121#5122#0" expanded="false" />
-                <element signature="e#5155#5156#0" expanded="false" />
-                <element signature="e#5190#5191#0" expanded="false" />
-                <element signature="e#5224#5225#0" expanded="false" />
-                <element signature="e#5271#5272#0" expanded="false" />
-                <element signature="e#5313#5314#0" expanded="false" />
-                <element signature="e#5360#5361#0" expanded="false" />
-                <element signature="e#5402#5403#0" expanded="false" />
-                <element signature="e#5437#5438#0" expanded="false" />
-                <element signature="e#5471#5472#0" expanded="false" />
-                <element signature="e#5512#5513#0" expanded="false" />
-                <element signature="e#5548#5549#0" expanded="false" />
-                <element signature="e#5607#5608#0" expanded="false" />
-                <element signature="e#5657#5658#0" expanded="false" />
-                <element signature="e#5712#5713#0" expanded="false" />
-                <element signature="e#5760#5761#0" expanded="false" />
-                <element signature="e#5798#5799#0" expanded="false" />
-                <element signature="e#5833#5834#0" expanded="false" />
-                <element signature="e#5866#5867#0" expanded="false" />
-                <element signature="e#5898#5899#0" expanded="false" />
-                <element signature="e#5943#5944#0" expanded="false" />
-                <element signature="e#5978#5979#0" expanded="false" />
-                <element signature="e#6036#6037#0" expanded="false" />
-                <element signature="e#6073#6074#0" expanded="false" />
-                <element signature="e#6117#6118#0" expanded="false" />
-                <element signature="e#6149#6150#0" expanded="false" />
-                <element signature="e#6317#6318#0" expanded="false" />
-                <element signature="e#6354#6355#0" expanded="false" />
-                <element signature="e#23335#23336#0" expanded="false" />
-                <element signature="e#23362#23363#0" expanded="false" />
-              </folding>
+            <state relative-caret-position="403">
+              <caret line="496" column="87" lean-forward="false" selection-start-line="496" selection-start-column="87" selection-end-line="496" selection-end-column="87" />
+              <folding />
             </state>
           </provider>
         </entry>
@@ -2177,10 +2136,10 @@
         <option value="$PROJECT_DIR$/app/src/main/java/de/tobiasbielefeld/solitaire/LoginActivity.java" />
         <option value="$PROJECT_DIR$/app/src/main/java/de/tobiasbielefeld/solitaire/SharedData.java" />
         <option value="$PROJECT_DIR$/app/src/main/java/de/tobiasbielefeld/solitaire/games/Game.java" />
-        <option value="$PROJECT_DIR$/app/src/main/java/de/tobiasbielefeld/solitaire/games/Klondike.java" />
         <option value="$PROJECT_DIR$/app/src/main/java/de/tobiasbielefeld/solitaire/ui/GameManager.java" />
         <option value="$PROJECT_DIR$/app/src/main/java/de/tobiasbielefeld/solitaire/helper/GameLogic.java" />
         <option value="$PROJECT_DIR$/app/src/main/res/xml/pref_movement_methods.xml" />
+        <option value="$PROJECT_DIR$/app/src/main/java/de/tobiasbielefeld/solitaire/games/Klondike.java" />
       </list>
     </option>
   </component>
@@ -2208,38 +2167,6 @@
     <panes>
       <pane id="AndroidView">
         <subPane>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="Simple-Solitaire-master" />
-              <option name="myItemType" value="com.android.tools.idea.navigator.nodes.AndroidViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="app" />
-              <option name="myItemType" value="com.android.tools.idea.navigator.nodes.android.AndroidModuleNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="res" />
-              <option name="myItemType" value="com.android.tools.idea.navigator.nodes.android.AndroidResFolderNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="xml" />
-              <option name="myItemType" value="com.android.tools.idea.navigator.nodes.android.AndroidResFolderTypeNode" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="Simple-Solitaire-master" />
-              <option name="myItemType" value="com.android.tools.idea.navigator.nodes.AndroidViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="app" />
-              <option name="myItemType" value="com.android.tools.idea.navigator.nodes.android.AndroidModuleNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="res" />
-              <option name="myItemType" value="com.android.tools.idea.navigator.nodes.android.AndroidResFolderNode" />
-            </PATH_ELEMENT>
-          </PATH>
           <PATH>
             <PATH_ELEMENT>
               <option name="myItemId" value="Simple-Solitaire-master" />
@@ -2378,7 +2305,7 @@
       <option name="ACTIVITY_CLASS" value="" />
       <method>
         <option name="Android.Gradle.BeforeRunTask" enabled="true" />
-        <option name="com.android.instantApps.provision.BeforeRunTask" enabled="true" clearCache="false" clearProvisionedDevices="false" myTimestamp="1517301265910" />
+        <option name="com.android.instantApps.provision.BeforeRunTask" enabled="true" clearCache="false" clearProvisionedDevices="false" myTimestamp="1517301817421" />
       </method>
     </configuration>
     <configuration default="true" type="AndroidTestRunConfigurationType" factoryName="Android Instrumented Tests">
@@ -2426,7 +2353,7 @@
       </Profilers>
       <method>
         <option name="Android.Gradle.BeforeRunTask" enabled="true" />
-        <option name="com.android.instantApps.provision.BeforeRunTask" enabled="true" clearCache="false" clearProvisionedDevices="false" myTimestamp="1517301265910" />
+        <option name="com.android.instantApps.provision.BeforeRunTask" enabled="true" clearCache="false" clearProvisionedDevices="false" myTimestamp="1517301817421" />
       </method>
     </configuration>
     <configuration default="true" type="Application" factoryName="Application">
@@ -2588,7 +2515,7 @@
       <option name="ACTIVITY_CLASS" value="" />
       <method>
         <option name="Android.Gradle.BeforeRunTask" enabled="true" />
-        <option name="com.android.instantApps.provision.BeforeRunTask" enabled="true" clearCache="false" clearProvisionedDevices="false" myTimestamp="1517301265910" />
+        <option name="com.android.instantApps.provision.BeforeRunTask" enabled="true" clearCache="false" clearProvisionedDevices="false" myTimestamp="1517301817422" />
       </method>
     </configuration>
     <list size="1">
@@ -2802,7 +2729,14 @@
       <option name="project" value="LOCAL" />
       <updated>1515013239707</updated>
     </task>
-    <option name="localTasksCounter" value="26" />
+    <task id="LOCAL-00026" summary="Dubble tap completely removed">
+      <created>1517301316455</created>
+      <option name="number" value="00026" />
+      <option name="presentableId" value="LOCAL-00026" />
+      <option name="project" value="LOCAL" />
+      <updated>1517301316455</updated>
+    </task>
+    <option name="localTasksCounter" value="27" />
     <servers />
   </component>
   <component name="TodoView">
@@ -2827,7 +2761,7 @@
       <window_info id="Capture Analysis" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.3283237" sideWeight="0.3641246" order="8" side_tool="true" content_ui="tabs" />
       <window_info id="Preview" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32994652" sideWeight="0.5" order="9" side_tool="false" content_ui="tabs" />
-      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.32601157" sideWeight="0.49785176" order="2" side_tool="false" content_ui="tabs" />
+      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32601157" sideWeight="0.49785176" order="5" side_tool="false" content_ui="tabs" />
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32716763" sideWeight="0.5" order="10" side_tool="false" content_ui="tabs" />
       <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.3277533" sideWeight="0.5" order="11" side_tool="false" content_ui="tabs" />
       <window_info id="Logcat" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.35028902" sideWeight="0.6358754" order="9" side_tool="false" content_ui="tabs" />
@@ -2840,16 +2774,16 @@
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Device File Explorer" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="true" content_ui="tabs" />
       <window_info id="Theme Preview" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
-      <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.39537573" sideWeight="0.716971" order="3" side_tool="false" content_ui="tabs" />
+      <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.39537573" sideWeight="0.716971" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="6" side_tool="true" content_ui="tabs" />
-      <window_info id="Cvs" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
+      <window_info id="Cvs" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Message" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="Commander" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="Android Monitor" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32941177" sideWeight="0.49677765" order="12" side_tool="false" content_ui="tabs" />
       <window_info id="Hierarchy" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="2" side_tool="false" content_ui="combo" />
       <window_info id="Ant Build" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Android Model" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="6" side_tool="true" content_ui="tabs" />
-      <window_info id="Inspection" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
+      <window_info id="Inspection" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
       <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32941177" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
     </layout>
   </component>
@@ -2886,7 +2820,8 @@
     <MESSAGE value="no big changes" />
     <MESSAGE value="motortime improved to difference in ints" />
     <MESSAGE value="swipe motortime added" />
-    <option name="LAST_COMMIT_MESSAGE" value="swipe motortime added" />
+    <MESSAGE value="Dubble tap completely removed" />
+    <option name="LAST_COMMIT_MESSAGE" value="Dubble tap completely removed" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
@@ -3354,55 +3289,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/main/java/de/tobiasbielefeld/solitaire/games/Klondike.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="8883">
-          <caret line="510" column="59" lean-forward="false" selection-start-line="510" selection-start-column="26" selection-end-line="510" selection-end-column="59" />
-          <folding>
-            <element signature="e#0#27954#0" expanded="false" />
-            <element signature="imports" expanded="false" />
-            <element signature="e#4603#4604#0" expanded="false" />
-            <element signature="e#4650#4651#0" expanded="false" />
-            <element signature="e#4690#4691#0" expanded="false" />
-            <element signature="e#4731#4732#0" expanded="false" />
-            <element signature="e#4967#4968#0" expanded="false" />
-            <element signature="e#4998#4999#0" expanded="false" />
-            <element signature="e#5043#5044#0" expanded="false" />
-            <element signature="e#5079#5080#0" expanded="false" />
-            <element signature="e#5121#5122#0" expanded="false" />
-            <element signature="e#5155#5156#0" expanded="false" />
-            <element signature="e#5190#5191#0" expanded="false" />
-            <element signature="e#5224#5225#0" expanded="false" />
-            <element signature="e#5271#5272#0" expanded="false" />
-            <element signature="e#5313#5314#0" expanded="false" />
-            <element signature="e#5360#5361#0" expanded="false" />
-            <element signature="e#5402#5403#0" expanded="false" />
-            <element signature="e#5437#5438#0" expanded="false" />
-            <element signature="e#5471#5472#0" expanded="false" />
-            <element signature="e#5512#5513#0" expanded="false" />
-            <element signature="e#5548#5549#0" expanded="false" />
-            <element signature="e#5607#5608#0" expanded="false" />
-            <element signature="e#5657#5658#0" expanded="false" />
-            <element signature="e#5712#5713#0" expanded="false" />
-            <element signature="e#5760#5761#0" expanded="false" />
-            <element signature="e#5798#5799#0" expanded="false" />
-            <element signature="e#5833#5834#0" expanded="false" />
-            <element signature="e#5866#5867#0" expanded="false" />
-            <element signature="e#5898#5899#0" expanded="false" />
-            <element signature="e#5943#5944#0" expanded="false" />
-            <element signature="e#5978#5979#0" expanded="false" />
-            <element signature="e#6036#6037#0" expanded="false" />
-            <element signature="e#6073#6074#0" expanded="false" />
-            <element signature="e#6117#6118#0" expanded="false" />
-            <element signature="e#6149#6150#0" expanded="false" />
-            <element signature="e#6317#6318#0" expanded="false" />
-            <element signature="e#6354#6355#0" expanded="false" />
-            <element signature="e#23335#23336#0" expanded="false" />
-            <element signature="e#23362#23363#0" expanded="false" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/app/src/main/res/xml/pref_movement_methods.xml">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="609">
@@ -3416,14 +3302,22 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/app/src/main/java/de/tobiasbielefeld/solitaire/helper/GameLogic.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="21">
-          <caret line="305" column="16" lean-forward="false" selection-start-line="305" selection-start-column="16" selection-end-line="305" selection-end-column="16" />
+        <state relative-caret-position="362">
+          <caret line="221" column="0" lean-forward="false" selection-start-line="221" selection-start-column="0" selection-end-line="221" selection-end-column="0" />
           <folding>
             <element signature="e#0#20606#0" expanded="true" />
             <element signature="imports" expanded="true" />
             <element signature="e#9530#9572#0" expanded="true" />
             <element signature="e#9614#9652#0" expanded="true" />
           </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/java/de/tobiasbielefeld/solitaire/games/Klondike.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="403">
+          <caret line="496" column="87" lean-forward="false" selection-start-line="496" selection-start-column="87" selection-end-line="496" selection-end-column="87" />
+          <folding />
         </state>
       </provider>
     </entry>
