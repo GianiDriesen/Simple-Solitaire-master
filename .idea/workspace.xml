@@ -12,7 +12,6 @@
   <component name="ChangeListManager">
     <list default="true" id="61ebc4f1-8c6b-4787-b1e9-e8598d2c6b31" name="Default" comment="">
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/src/main/java/de/tobiasbielefeld/solitaire/games/Klondike.java" afterPath="$PROJECT_DIR$/app/src/main/java/de/tobiasbielefeld/solitaire/games/Klondike.java" />
     </list>
     <ignored path="Simple-Solitaire-master.iws" />
     <ignored path=".idea/workspace.xml" />
@@ -83,7 +82,7 @@
       <file leaf-file-name="Klondike.java" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/app/src/main/java/de/tobiasbielefeld/solitaire/games/Klondike.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="403">
+            <state relative-caret-position="592">
               <caret line="496" column="87" lean-forward="false" selection-start-line="496" selection-start-column="87" selection-end-line="496" selection-end-column="87" />
               <folding />
             </state>
@@ -2305,7 +2304,7 @@
       <option name="ACTIVITY_CLASS" value="" />
       <method>
         <option name="Android.Gradle.BeforeRunTask" enabled="true" />
-        <option name="com.android.instantApps.provision.BeforeRunTask" enabled="true" clearCache="false" clearProvisionedDevices="false" myTimestamp="1517301817421" />
+        <option name="com.android.instantApps.provision.BeforeRunTask" enabled="true" clearCache="false" clearProvisionedDevices="false" myTimestamp="1517301947890" />
       </method>
     </configuration>
     <configuration default="true" type="AndroidTestRunConfigurationType" factoryName="Android Instrumented Tests">
@@ -2353,7 +2352,7 @@
       </Profilers>
       <method>
         <option name="Android.Gradle.BeforeRunTask" enabled="true" />
-        <option name="com.android.instantApps.provision.BeforeRunTask" enabled="true" clearCache="false" clearProvisionedDevices="false" myTimestamp="1517301817421" />
+        <option name="com.android.instantApps.provision.BeforeRunTask" enabled="true" clearCache="false" clearProvisionedDevices="false" myTimestamp="1517301947890" />
       </method>
     </configuration>
     <configuration default="true" type="Application" factoryName="Application">
@@ -2515,7 +2514,7 @@
       <option name="ACTIVITY_CLASS" value="" />
       <method>
         <option name="Android.Gradle.BeforeRunTask" enabled="true" />
-        <option name="com.android.instantApps.provision.BeforeRunTask" enabled="true" clearCache="false" clearProvisionedDevices="false" myTimestamp="1517301817422" />
+        <option name="com.android.instantApps.provision.BeforeRunTask" enabled="true" clearCache="false" clearProvisionedDevices="false" myTimestamp="1517301947891" />
       </method>
     </configuration>
     <list size="1">
@@ -2736,7 +2735,14 @@
       <option name="project" value="LOCAL" />
       <updated>1517301316455</updated>
     </task>
-    <option name="localTasksCounter" value="27" />
+    <task id="LOCAL-00027" summary="Added code so that wrongcollor and wrongnumber counter can not become smaller than 0">
+      <created>1517301847159</created>
+      <option name="number" value="00027" />
+      <option name="presentableId" value="LOCAL-00027" />
+      <option name="project" value="LOCAL" />
+      <updated>1517301847159</updated>
+    </task>
+    <option name="localTasksCounter" value="28" />
     <servers />
   </component>
   <component name="TodoView">
@@ -2821,7 +2827,8 @@
     <MESSAGE value="motortime improved to difference in ints" />
     <MESSAGE value="swipe motortime added" />
     <MESSAGE value="Dubble tap completely removed" />
-    <option name="LAST_COMMIT_MESSAGE" value="Dubble tap completely removed" />
+    <MESSAGE value="Added code so that wrongcollor and wrongnumber counter can not become smaller than 0" />
+    <option name="LAST_COMMIT_MESSAGE" value="Added code so that wrongcollor and wrongnumber counter can not become smaller than 0" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
@@ -3315,7 +3322,7 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/app/src/main/java/de/tobiasbielefeld/solitaire/games/Klondike.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="403">
+        <state relative-caret-position="592">
           <caret line="496" column="87" lean-forward="false" selection-start-line="496" selection-start-column="87" selection-end-line="496" selection-end-column="87" />
           <folding />
         </state>
