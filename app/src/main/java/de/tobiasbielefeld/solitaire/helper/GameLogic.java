@@ -162,7 +162,7 @@ public class GameLogic {
         currentGame.setHintCounter(getInt("HINTCOUNT", 0));
         currentGame.setWrongNumberCount(getInt("WRONGNUMBERCOUNT", 0));
         currentGame.setColorMoveCount(getInt("WRONGCOLORCOUNT", 0));
-        //currentGame.setMotorTime(getIntList("TIMESTAMPS")); @TODO motortime error
+        currentGame.setMotorTime(getIntList("TIMESTAMPS")); //@TODO motortime error
         currentGame.setStackCounter(getIntArray("STACKCOUNTS"));
         currentGame.setBetaError(getInt("BETAERROR", 0));
         currentGame.setScore(getLong(SharedData.SCORE, -1));
@@ -233,7 +233,6 @@ public class GameLogic {
                 currentGame.getStackCounter()[14],currentGame.getColorMoveCount(), currentGame.getWrongNumberCount(),currentGame.getHintCounter(),
                 currentGame.getUndoCounter(),currentGame.getBetaError(), SharedData.getInt(SharedData.GAME_SEED,-1), SharedData.scores.getScore());
         dataSent=true;
-        currentGameCopy = currentGame; //TODO why?
         wonCopy = won;
         entityMapper.getgMapper().createGame(game); //@KG here game is stored and gets its id. Need callback in onresponse in entitymapper to start storing moves then.
         //Log.d("GAMEID", "newGame here, id is"+entityMapper.game.getId());
@@ -268,9 +267,8 @@ public class GameLogic {
                     currentGame.getStackCounter()[4],currentGame.getStackCounter()[5],currentGame.getStackCounter()[6],currentGame.getStackCounter()[7],
                     currentGame.getStackCounter()[8],currentGame.getStackCounter()[9],currentGame.getStackCounter()[10],currentGame.getStackCounter()[13],
                     currentGame.getStackCounter()[14],currentGame.getColorMoveCount(), currentGame.getWrongNumberCount(),currentGame.getHintCounter(),
-                    currentGame.getUndoCounter(),currentGame.getBetaError(), SharedData.getInt(SharedData.GAME_SEED,-1), SharedData.getLong(SharedData.SCORE,-1));
+                    currentGame.getUndoCounter(),currentGame.getBetaError(), SharedData.getInt(SharedData.GAME_SEED,-1), SharedData.scores.getScore());
             dataSent=true;
-            currentGameCopy = currentGame;
             wonCopy = won;
             entityMapper.getgMapper().createGame(game);
             new SaveGameInDB().execute(); //Process: 1. Create game in db 2. Update person in DB TODO:thorough testing
@@ -348,7 +346,7 @@ public class GameLogic {
             }
             else {
                 int nrOfGames = user.getGamesFailed()+user.getGamesSucces();
-                int avgMovesCurrentGame = currentGameCopy.getMotorTime().size()/2;
+                int avgMovesCurrentGame = currentGame.getMotorTime().size()/2;
                 int succesCurrentGame = 0, failedCurrentGame = 0;
                 if (wonCopy) {succesCurrentGame++;} else {failedCurrentGame++;}
                 int newAvgMoves = (user.getAvgMoves()*nrOfGames+avgMovesCurrentGame)/(nrOfGames+1);
