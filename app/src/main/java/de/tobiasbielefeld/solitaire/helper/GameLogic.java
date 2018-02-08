@@ -64,14 +64,13 @@ import static de.tobiasbielefeld.solitaire.SharedData.putBoolean;
 import static de.tobiasbielefeld.solitaire.SharedData.putInt;
 import static de.tobiasbielefeld.solitaire.SharedData.putIntArray;
 import static de.tobiasbielefeld.solitaire.SharedData.putIntList;
+import static de.tobiasbielefeld.solitaire.SharedData.putLong;
 import static de.tobiasbielefeld.solitaire.SharedData.recordList;
 import static de.tobiasbielefeld.solitaire.SharedData.scores;
 import static de.tobiasbielefeld.solitaire.SharedData.sounds;
 import static de.tobiasbielefeld.solitaire.SharedData.stacks;
 import static de.tobiasbielefeld.solitaire.SharedData.timer;
 import static de.tobiasbielefeld.solitaire.SharedData.user;
-import static de.tobiasbielefeld.solitaire.SharedData.putLong;
-import static de.tobiasbielefeld.solitaire.helper.Scores.*;
 
 /**
  * Contains stuff for the game which i didn't know where i should put it.
@@ -225,9 +224,9 @@ public class GameLogic {
      */
     public void newGame() {
         // @GN //TODO: a lot of code duplication
-        //avgMotorTime = calculateAvgMotorTime(); TODO solve indexoutofboundexception
+        avgMotorTime = calculateAvgMotorTime();
 
-        GamePlayed game = new GamePlayed(SharedData.user.getId(),(int) timer.getCurrentTime(),won,currentGame.getFlipThroughMainstackCount(),0, //TODO:write avgMotorTime here
+        GamePlayed game = new GamePlayed(SharedData.user.getId(),(int) timer.getCurrentTime(),won,currentGame.getFlipThroughMainstackCount(),avgMotorTime,
                 currentGame.getStackCounter()[0],currentGame.getStackCounter()[1],currentGame.getStackCounter()[2],currentGame.getStackCounter()[3],
                 currentGame.getStackCounter()[4],currentGame.getStackCounter()[5],currentGame.getStackCounter()[6],currentGame.getStackCounter()[7],
                 currentGame.getStackCounter()[8],currentGame.getStackCounter()[9],currentGame.getStackCounter()[10],currentGame.getStackCounter()[13],
@@ -263,8 +262,8 @@ public class GameLogic {
 
 
         if (!dataSent) {
-            calculateAvgMotorTime();
-            GamePlayed game = new GamePlayed(SharedData.user.getId(),(int) timer.getCurrentTime(),won,currentGame.getFlipThroughMainstackCount(),0, //TODO:write avgMotorTime here
+            avgMotorTime = calculateAvgMotorTime();
+            GamePlayed game = new GamePlayed(SharedData.user.getId(),(int) timer.getCurrentTime(),won,currentGame.getFlipThroughMainstackCount(),avgMotorTime,
                     currentGame.getStackCounter()[0],currentGame.getStackCounter()[1],currentGame.getStackCounter()[2],currentGame.getStackCounter()[3],
                     currentGame.getStackCounter()[4],currentGame.getStackCounter()[5],currentGame.getStackCounter()[6],currentGame.getStackCounter()[7],
                     currentGame.getStackCounter()[8],currentGame.getStackCounter()[9],currentGame.getStackCounter()[10],currentGame.getStackCounter()[13],
@@ -313,10 +312,19 @@ public class GameLogic {
 
     private int calculateAvgMotorTime() {
         int avg = 0;
+        /*
         for (int i=0;i<currentGame.getMotorTime().size();i=i+2) {
             avg = avg + (currentGame.getMotorTime().get(i+1) - currentGame.getMotorTime().get(i));
         }
-        //avg = avg/(currentGame.getMotorTime().size()/2); @TODO motortime failing here
+        avg = avg/(currentGame.getMotorTime().size()/2);
+        */
+        if (currentGame.getMotorTime().size() > 0) {
+            for (int i = 0; i < currentGame.getMotorTime().size() - 1; i++) {
+                avg = avg + currentGame.getMotorTime().get(i);
+            }
+
+            avg = avg / currentGame.getMotorTime().size();
+        }
 
         return avg;
     }

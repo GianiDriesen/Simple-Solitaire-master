@@ -18,7 +18,6 @@
 
 package de.tobiasbielefeld.solitaire.games;
 
-import android.util.Log;
 import android.widget.RelativeLayout;
 
 import java.util.ArrayList;

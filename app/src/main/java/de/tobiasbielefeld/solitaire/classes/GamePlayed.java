@@ -3,8 +3,6 @@ package de.tobiasbielefeld.solitaire.classes;
 import org.json.JSONException;
 import org.json.JSONObject;
 
-import java.sql.Date;
-
 /**
  * Class representation of Games Played by Persons.
  */
