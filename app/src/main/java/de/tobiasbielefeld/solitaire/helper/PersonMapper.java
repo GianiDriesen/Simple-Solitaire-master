@@ -1,5 +1,7 @@
 package de.tobiasbielefeld.solitaire.helper;
 
+import android.util.Log;
+
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
@@ -31,7 +33,7 @@ public enum PersonMapper {
 
 	public void getPersonByUsernameAndPassword(String username, String password) {
 		String url = "https://iiw.kuleuven.be/onderzoek/drSolitaire/getPerson.php?username=" + username + "&password=" + password;
-		System.out.println(url);
+		Log.d("DB",url);
 		Person tmpPerson = new Person();
 		eMapper.queryEntity(tmpPerson, url);
 	}
@@ -46,7 +48,7 @@ public enum PersonMapper {
 		if (person.isGender()) gender=1;
 		String url = "https://iiw.kuleuven.be/onderzoek/drSolitaire/insertPerson.php?username=" + person.getUsername() + "&password=" + person.getPassword() + "&age=" + person.getAge() +
 				"&gender=" + gender + "&level=" + person.getLevel();
-		System.out.println(url);
+		Log.d("DB",url);
 		Person tmpPerson = new Person();
 		eMapper.queryEntity(tmpPerson, url);
 	}
@@ -62,7 +64,7 @@ public enum PersonMapper {
 		String url = "https://iiw.kuleuven.be/onderzoek/drSolitaire/updatePerson.php?username=" + person.getUsername() + "&password=" + person.getPassword() + "&age=" + person.getAge() +
 				"&gender=" + gender + "&level=" + person.getLevel() + "&avgScore=" + person.getAvgScore() + "&avgMoves=" + person.getAvgMoves() + "&avgTime=" + person.getAvgTime() +
 				"&gamesSucces=" + person.getGamesSucces() + "&gamesFailed=" + person.getGamesFailed();
-		System.out.println(url);
+		Log.d("DB",url);
 		Person tmpPerson = new Person();
 		eMapper.queryEntity(tmpPerson, url);
 	}

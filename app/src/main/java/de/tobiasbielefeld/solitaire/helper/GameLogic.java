@@ -70,6 +70,8 @@ import static de.tobiasbielefeld.solitaire.SharedData.sounds;
 import static de.tobiasbielefeld.solitaire.SharedData.stacks;
 import static de.tobiasbielefeld.solitaire.SharedData.timer;
 import static de.tobiasbielefeld.solitaire.SharedData.user;
+import static de.tobiasbielefeld.solitaire.SharedData.putLong;
+import static de.tobiasbielefeld.solitaire.helper.Scores.*;
 
 /**
  * Contains stuff for the game which i didn't know where i should put it.
@@ -122,7 +124,9 @@ public class GameLogic {
         putInt("HINTCOUNT", currentGame.getHintCounter());
         putIntList("TIMESTAMPS", currentGame.getMotorTime());
         putIntArray("STACKCOUNTS", currentGame.getStackCounter());
-        putInt("BETAERROR", currentGame.getBetaError());
+        putInt("FBETAERROR", currentGame.getBetaError());
+        putInt("SEED", currentGame.getGameseed());
+        putLong("SCORE", currentGame.getScore());
         // Timer will be saved in onPause()
         for (Stack stack : stacks)
             stack.save();
@@ -159,9 +163,11 @@ public class GameLogic {
         currentGame.setHintCounter(getInt("HINTCOUNT", 0));
         currentGame.setWrongNumberCount(getInt("WRONGNUMBERCOUNT", 0));
         currentGame.setColorMoveCount(getInt("WRONGCOLORCOUNT", 0));
-        currentGame.setMotorTime(getIntList("TIMESTAMPS"));
+        //currentGame.setMotorTime(getIntList("TIMESTAMPS")); @TODO motortime error
         currentGame.setStackCounter(getIntArray("STACKCOUNTS"));
         currentGame.setBetaError(getInt("BETAERROR", 0));
+        currentGame.setScore(getLong(SharedData.SCORE, -1));
+        currentGame.setGameseed(getInt("SEED", -1));
         //update and reset
         Card.updateCardDrawableChoice();
         Card.updateCardBackgroundChoice();
@@ -218,18 +224,20 @@ public class GameLogic {
      * starts a new game. The only difference to a re-deal is the shuffling of the cards
      */
     public void newGame() {
-        // @GN
-        avgMotorTime = calculateAvgMotorTime();
+        // @GN //TODO: a lot of code duplication
+        //avgMotorTime = calculateAvgMotorTime(); TODO solve indexoutofboundexception
+
         GamePlayed game = new GamePlayed(SharedData.user.getId(),(int) timer.getCurrentTime(),won,currentGame.getFlipThroughMainstackCount(),0, //TODO:write avgMotorTime here
                 currentGame.getStackCounter()[0],currentGame.getStackCounter()[1],currentGame.getStackCounter()[2],currentGame.getStackCounter()[3],
                 currentGame.getStackCounter()[4],currentGame.getStackCounter()[5],currentGame.getStackCounter()[6],currentGame.getStackCounter()[7],
                 currentGame.getStackCounter()[8],currentGame.getStackCounter()[9],currentGame.getStackCounter()[10],currentGame.getStackCounter()[13],
                 currentGame.getStackCounter()[14],currentGame.getColorMoveCount(), currentGame.getWrongNumberCount(),currentGame.getHintCounter(),
-                currentGame.getUndoCounter(),currentGame.getBetaError());
+                currentGame.getUndoCounter(),currentGame.getBetaError(), SharedData.getInt(SharedData.GAME_SEED,-1), SharedData.scores.getScore());
         dataSent=true;
-        currentGameCopy = currentGame;
+        currentGameCopy = currentGame; //TODO why?
         wonCopy = won;
-        entityMapper.getgMapper().createGame(game);
+        entityMapper.getgMapper().createGame(game); //@KG here game is stored and gets its id. Need callback in onresponse in entitymapper to start storing moves then.
+        //Log.d("GAMEID", "newGame here, id is"+entityMapper.game.getId());
         new SaveGameInDB().execute();
 
         ArrayList<Integer> newTimestamps = new ArrayList<>();
@@ -261,7 +269,7 @@ public class GameLogic {
                     currentGame.getStackCounter()[4],currentGame.getStackCounter()[5],currentGame.getStackCounter()[6],currentGame.getStackCounter()[7],
                     currentGame.getStackCounter()[8],currentGame.getStackCounter()[9],currentGame.getStackCounter()[10],currentGame.getStackCounter()[13],
                     currentGame.getStackCounter()[14],currentGame.getColorMoveCount(), currentGame.getWrongNumberCount(),currentGame.getHintCounter(),
-                    currentGame.getUndoCounter(),currentGame.getBetaError());
+                    currentGame.getUndoCounter(),currentGame.getBetaError(), SharedData.getInt(SharedData.GAME_SEED,-1), SharedData.getLong(SharedData.SCORE,-1));
             dataSent=true;
             currentGameCopy = currentGame;
             wonCopy = won;
@@ -292,7 +300,7 @@ public class GameLogic {
 
         //Put cards to the specified "deal from" stack. (=main stack if the game has one, else specify it in the game
         for (Card card : randomCards) {
-            ///TODO there is an error somewhere here "null pointer exception"
+            ///TODO there is an error somewhere here "null pointer exception" --> put breakpoint and see what is not initialised. Candidates: card, currentGame, dealstack
             card.setLocationWithoutMovement(currentGame.getDealStack().getX(), currentGame.getDealStack().getY());
             currentGame.getDealStack().addCard(card);
             card.flipDown();
@@ -308,7 +316,7 @@ public class GameLogic {
         for (int i=0;i<currentGame.getMotorTime().size();i=i+2) {
             avg = avg + (currentGame.getMotorTime().get(i+1) - currentGame.getMotorTime().get(i));
         }
-        avg = avg/(currentGame.getMotorTime().size()/2);
+        //avg = avg/(currentGame.getMotorTime().size()/2); @TODO motortime failing here
 
         return avg;
     }
@@ -393,9 +401,26 @@ public class GameLogic {
      * @param array The array to randomize
      */
     private void randomize(Card[] array) {
+        //@KG Games are fixed here
         int index;
         Card dummy;
-        Random rand = new Random();
+        Random rand;
+        if(SharedData.getInt("gamecounter",0)==10){SharedData.putInt("gamecounter", 0);} //@kg remove this to also play random games
+        if(SharedData.getInt("gamecounter",0)<10)
+        {
+            rand = new Random(SharedData.gameList.get(SharedData.getInt("gamecounter",0)));
+            SharedData.putInt(SharedData.GAME_SEED,SharedData.gameList.get(SharedData.getInt("gamecounter",0)));
+            Log.i("SEED", "Now using "+ SharedData.gameList.get(SharedData.getInt("gamecounter",0)) + ". Playing game "+ (SharedData.getInt("gamecounter",0)+1));
+            gm.showToast("Now playing game "+ (SharedData.getInt("gamecounter",0)+1));
+            SharedData.putInt("gamecounter", (SharedData.getInt("gamecounter",0)+1));
+        }
+        else
+        {
+            rand = new Random();
+            Log.i("SEED", "Now using a random seed");
+            gm.showToast("Now using a random seed");
+
+        }
 
         for (int i = array.length - 1; i > 0; i--) {
             if ((index = rand.nextInt(i + 1)) != i) {

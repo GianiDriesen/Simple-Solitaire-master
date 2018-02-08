@@ -19,6 +19,7 @@ public class StartActivity extends AppCompatActivity {
         setContentView(R.layout.activity_start);
         RequestQueue rq = Volley.newRequestQueue(this.getApplicationContext());
         SharedData.getEntityMapper().setRequestQueue(rq);
+        openApp(null);
 
     }
 

@@ -1,5 +1,7 @@
 package de.tobiasbielefeld.solitaire.helper;
 
+import android.util.Log;
+
 import com.android.volley.RequestQueue;
 import com.android.volley.Response;
 import com.android.volley.VolleyError;
@@ -12,6 +14,7 @@ import java.util.LinkedList;
 import java.util.List;
 
 import de.tobiasbielefeld.solitaire.classes.GamePlayed;
+import de.tobiasbielefeld.solitaire.classes.Move;
 import de.tobiasbielefeld.solitaire.classes.Person;
 
 /**
@@ -25,10 +28,12 @@ public enum EntityMapper {
     /** Singleton design applied; use only one mapper for each entity. */
     private final PersonMapper pMapper = PersonMapper.UNIQUEMAPPER;
     private final GameMapper gMapper = GameMapper.UNIQUEMAPPER;
+    private final MoveMapper mMapper = MoveMapper.UNIQUEMAPPER;
 
     private void initiateSingletons() {
         this.pMapper.setEntityMapper(this);
         this.gMapper.setEntityMapper(this);
+        this.mMapper.setEntityMapper(this);
     }
     private RequestQueue requestQueue;
     public RequestQueue getRequestQueue() { return this.requestQueue; }
@@ -36,6 +41,7 @@ public enum EntityMapper {
     /** Singleton design applied; return the single mappers to other mappers that need them. */
     public PersonMapper getpMapper() { return pMapper; }
     public GameMapper getgMapper() {return gMapper;}
+    public MoveMapper getmMapper() {return mMapper;}
 
     /**
      * Prepare one of each entity, and one list for each of those entities.
@@ -48,6 +54,8 @@ public enum EntityMapper {
     public List<Person> persons;
     public GamePlayed game;
     public List<GamePlayed> games;
+    public Move move;
+    public List<Move> moves;
     private boolean dataReady = false;
     public boolean dataReady() { return this.dataReady; }
     public void dataGrabbed() {
@@ -56,6 +64,8 @@ public enum EntityMapper {
         persons = new LinkedList<>();
         game = null;
         games = new LinkedList<>();
+        move = null;
+        moves = new LinkedList<>();
     }
 
     public void queryEntity(final Object obj, String url) {
@@ -96,6 +106,9 @@ public enum EntityMapper {
             else if (obj instanceof GamePlayed) {
                 games.add(new GamePlayed(json.getJSONObject(i)));
             }
+            else if (obj instanceof Move) {
+                moves.add(new Move(json.getJSONObject(i)));
+            }
             } catch(JSONException e) {
                 e.printStackTrace();
             }
@@ -108,13 +121,18 @@ public enum EntityMapper {
             person = new Person(json.getJSONObject(0));
         }
         else if (obj instanceof GamePlayed) {
-            game = new GamePlayed(json.getJSONObject(0));
+            game = new GamePlayed(json.getJSONObject(0)); //@KG Wouldn't you want to add this to the games?
+            Log.d("GAMEID", "emapper, id is "+ game.getId()); //@KG  here start uploading moves. Because you need to sql id for the game to uniquely link games.
+        }
+        else if (obj instanceof Move) {
+            move = new Move(json.getJSONObject(0));
         }
         } catch(JSONException e) {
             e.printStackTrace();
         }
         this.dataReady = true;
     }
+
 
     // Easter egg
     @Override

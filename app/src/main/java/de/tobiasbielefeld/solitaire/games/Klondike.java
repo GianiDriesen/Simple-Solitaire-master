@@ -18,6 +18,7 @@
 
 package de.tobiasbielefeld.solitaire.games;
 
+import android.util.Log;
 import android.widget.RelativeLayout;
 
 import java.util.ArrayList;
@@ -91,6 +92,10 @@ public class Klondike extends Game {
     // @GN
     private boolean dubbeltap = false;
     private boolean hintUsed = false;
+
+    //@KG
+    private int gameseed = -1;
+    private long score;
 
     protected String PREF_KEY_DRAW_OLD, PREF_KEY_DRAW, DEFAULT_DRAW;
 
@@ -181,6 +186,22 @@ public class Klondike extends Game {
 
     public void setBetaError(int counter) {
         betaError = counter;
+    }
+
+    public int getGameseed() {
+        return gameseed;
+    }
+
+    public void setGameseed(int gameseed) {
+        this.gameseed = gameseed;
+    }
+
+    public long getScore() {
+        return score;
+    }
+
+    public void setScore(long score) {
+        this.score = score;
     }
 
     public void setMainstackBoolean(boolean isTouched) {
@@ -539,7 +560,7 @@ public class Klondike extends Game {
                 || (card.getStackId() == 11 && !stacks[12].isEmpty()));
     }
 
-    public CardAndStack hintTest() {
+    public CardAndStack hintTest() { //TODO KG is goed uitpluizen
         Card card;
         if (hint.getHintVisible() == true)
             hintUsed = true;

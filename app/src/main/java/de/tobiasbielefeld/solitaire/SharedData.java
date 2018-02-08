@@ -24,7 +24,9 @@ import android.content.res.Resources;
 import android.preference.PreferenceManager;
 import android.util.Log;
 
+import java.lang.reflect.Array;
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.List;
 import java.util.StringTokenizer;
 
@@ -56,6 +58,8 @@ public class SharedData {
 
     public final static int OPTION_UNDO = 1, OPTION_NO_RECORD = 2, OPTION_REVERSED_RECORD = 3;
     //Strings
+    public static String GAME_SEED;
+
     public static String SCORE;
     public static String SAVED_SCORES;
     public static String OLD;
@@ -208,6 +212,23 @@ public class SharedData {
     private static EntityMapper entityMapper = EntityMapper.UNIQUEMAPPER;
     public static Person user = null;
 
+    //@KG manipulations to make the game deal in the same manner every time
+    public static final List<Integer> gameList = Arrays.asList(
+            45678,
+            12345,
+            498512,
+            3657,
+            458967,
+            98752,
+            123458,
+            231472,
+            3248578,
+            7894515
+            );
+
+
+
+
     /**
      * Reload the needed data. Because if the android device runs out of memory, the app gets
      * killed. If the user restarts the app and it loads  for example the settings activity, all
@@ -345,6 +366,7 @@ public class SharedData {
         GAME_RANDOM_CARDS = res.getString(R.string.game_random_cards);
         GAME_FIRST_RUN = res.getString(R.string.game_first_run);
         GAME_MOVED_FIRST_CARD = res.getString(R.string.game_moved_first_card);
+        GAME_SEED = res.getString(R.string.game_seed);
 
         RESTART_DIALOG = res.getString(R.string.restart_dialog);
         WON_DIALOG = res.getString(R.string.won_dialog);
@@ -630,6 +652,7 @@ public class SharedData {
         savedGameData.edit().putInt(name, value).apply();
     }
 
+
     /**
      * Saves data for games individually
      *
@@ -777,6 +800,34 @@ public class SharedData {
 
         while (st.hasMoreTokens()) {
             result.add(Integer.parseInt(st.nextToken()));
+        }
+
+        return result;
+    }
+
+    /**
+
+     */
+    public static void putMoveTime(Long move) {
+        String s = savedSharedData.getString("MOVES", "");
+        s += move + ",";
+        savedSharedData.edit().putString("MOVES", s).apply();
+        Log.d("MOVES", "Move has been logged at timestamp "+move);
+    }
+
+    /**
+     * Gets shared data (same for every game)
+     * thanks to this answer for this idea http://stackoverflow.com/a/11201225/7016229
+     *
+     * @param name The name in the shared pref
+     */
+    public static ArrayList<Long> getSharedLongList(String name) {
+        String s = savedSharedData.getString(name, "");
+        StringTokenizer st = new StringTokenizer(s, ",");
+        ArrayList<Long> result = new ArrayList<>();
+
+        while (st.hasMoreTokens()) {
+            result.add(Long.parseLong(st.nextToken()));
         }
 
         return result;

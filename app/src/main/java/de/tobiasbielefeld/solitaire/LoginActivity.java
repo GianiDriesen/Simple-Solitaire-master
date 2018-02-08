@@ -33,10 +33,12 @@ public class LoginActivity extends AppCompatActivity {
         setContentView(R.layout.activity_login);
         setupContent();
         getWindow().addFlags(WindowManager.LayoutParams.FLAG_KEEP_SCREEN_ON);
+        loginApp(null);
     }
 
     public void loginApp(View view) {
-        getEntityMapper().getpMapper().getPersonByUsernameAndPassword(username.getText().toString(),password.getText().toString());
+        //getEntityMapper().getpMapper().getPersonByUsernameAndPassword(username.getText().toString(),password.getText().toString()); //TODO bypassed login here
+        getEntityMapper().getpMapper().getPersonByUsernameAndPassword("Karsten","azerty");
         new GetPerson().execute();
     }
 
@@ -72,7 +74,7 @@ public class LoginActivity extends AppCompatActivity {
 
         protected void onPostExecute(Person person) {
             if (person != null) {
-                if (person.getPassword().equals(password.getText().toString())) {
+                if (person.getPassword().equals("azerty")) {
                     Intent intent = new Intent(LoginActivity.this, GameSelector.class);
                     SharedData.user = person;
                     startActivity(intent);

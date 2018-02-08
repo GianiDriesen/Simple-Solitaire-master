@@ -20,6 +20,7 @@ package de.tobiasbielefeld.solitaire.games;
 
 import android.content.res.Resources;
 import android.support.annotation.CallSuper;
+import android.util.Log;
 import android.widget.RelativeLayout;
 
 import java.util.ArrayList;
@@ -217,6 +218,14 @@ public abstract class Game {
 
     abstract public void setCurrentTime(Date currentTime);
 
+    abstract public int getGameseed();
+
+    abstract public void setGameseed(int gameseed);
+
+    abstract public long getScore();
+
+    abstract public void setScore(long score);
+
     /**
      * Tests if the card can be added to the movement to place on another stack.
      *
@@ -345,6 +354,7 @@ public abstract class Game {
      */
     public boolean testIfMainStackTouched(float X, float Y) {
         setMainstackBoolean(false);
+        Log.d("MOVE", "GAME, touched a card");
         timeStampForOneMove(X, Y);
         return getMainStack().isOnLocation(X, Y);
     }
@@ -914,6 +924,7 @@ public abstract class Game {
     public int getHintCosts(){
         return hintCosts;
     }
+
 
     protected enum testMode {
         SAME_COLOR, ALTERNATING_COLOR, DOESNT_MATTER, SAME_FAMILY
