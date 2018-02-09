@@ -69,7 +69,7 @@ public class GamePlayed {
             this.hintButtonCount = obj.getInt("hintCounter");
             this.undoButtonCount = obj.getInt("undoCounter");
             this.betaError = obj.getInt("betaErrorCounter");
-            this.gameseed = obj.getInt("seed");
+            this.gameseed = obj.getInt("seed"); // @Todo: this gives an error: W/System.err: org.json.JSONException: No value for seed
             this.score = obj.getLong("score");
         } catch (JSONException e) {
             e.printStackTrace();

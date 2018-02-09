@@ -162,7 +162,7 @@ public class GameLogic {
         currentGame.setHintCounter(getInt("HINTCOUNT", 0));
         currentGame.setWrongNumberCount(getInt("WRONGNUMBERCOUNT", 0));
         currentGame.setColorMoveCount(getInt("WRONGCOLORCOUNT", 0));
-        currentGame.setMotorTime(getIntList("TIMESTAMPS")); //@TODO motortime error
+        currentGame.setMotorTime(getIntList("TIMESTAMPS"));
         currentGame.setStackCounter(getIntArray("STACKCOUNTS"));
         currentGame.setBetaError(getInt("BETAERROR", 0));
         currentGame.setScore(getLong(SharedData.SCORE, -1));
@@ -223,30 +223,15 @@ public class GameLogic {
      * starts a new game. The only difference to a re-deal is the shuffling of the cards
      */
     public void newGame() {
-        // @GN //TODO: a lot of code duplication
-        avgMotorTime = calculateAvgMotorTime();
+        // @GN
 
-        GamePlayed game = new GamePlayed(SharedData.user.getId(),(int) timer.getCurrentTime(),won,currentGame.getFlipThroughMainstackCount(),avgMotorTime,
-                currentGame.getStackCounter()[0],currentGame.getStackCounter()[1],currentGame.getStackCounter()[2],currentGame.getStackCounter()[3],
-                currentGame.getStackCounter()[4],currentGame.getStackCounter()[5],currentGame.getStackCounter()[6],currentGame.getStackCounter()[7],
-                currentGame.getStackCounter()[8],currentGame.getStackCounter()[9],currentGame.getStackCounter()[10],currentGame.getStackCounter()[13],
-                currentGame.getStackCounter()[14],currentGame.getColorMoveCount(), currentGame.getWrongNumberCount(),currentGame.getHintCounter(),
-                currentGame.getUndoCounter(),currentGame.getBetaError(), SharedData.getInt(SharedData.GAME_SEED,-1), SharedData.scores.getScore());
+        createGamePlayed(); // function to reduce duplicated code, created GamePlayed to save in the DB
+
         dataSent=true;
         wonCopy = won;
-        entityMapper.getgMapper().createGame(game); //@KG here game is stored and gets its id. Need callback in onresponse in entitymapper to start storing moves then.
-        //Log.d("GAMEID", "newGame here, id is"+entityMapper.game.getId());
-        new SaveGameInDB().execute();
 
-        ArrayList<Integer> newTimestamps = new ArrayList<>();
-        currentGame.setColorMoveCount(0); // if new game is started, set the wrongMoveCounter to 0
-        currentGame.setWrongNumberCount(0);
-        currentGame.setUndoCounter(0);
-        currentGame.setFlipThroughMainstackCount(0);
-        currentGame.setHintCounter(0);
-        currentGame.setMotorTime(newTimestamps);
-        currentGame.setStackCounter(new int[15]);
-        currentGame.setBetaError(0);
+
+        resetAllPlayerActions(); // function to reduce code duplication, resets all playeractions
         System.arraycopy(cards, 0, randomCards, 0, cards.length);
         randomize(randomCards);
 
@@ -259,19 +244,13 @@ public class GameLogic {
     public void redeal() {
         //reset EVERYTHING
 
+        createGamePlayed();
 
         if (!dataSent) {
-            avgMotorTime = calculateAvgMotorTime();
-            GamePlayed game = new GamePlayed(SharedData.user.getId(),(int) timer.getCurrentTime(),won,currentGame.getFlipThroughMainstackCount(),avgMotorTime,
-                    currentGame.getStackCounter()[0],currentGame.getStackCounter()[1],currentGame.getStackCounter()[2],currentGame.getStackCounter()[3],
-                    currentGame.getStackCounter()[4],currentGame.getStackCounter()[5],currentGame.getStackCounter()[6],currentGame.getStackCounter()[7],
-                    currentGame.getStackCounter()[8],currentGame.getStackCounter()[9],currentGame.getStackCounter()[10],currentGame.getStackCounter()[13],
-                    currentGame.getStackCounter()[14],currentGame.getColorMoveCount(), currentGame.getWrongNumberCount(),currentGame.getHintCounter(),
-                    currentGame.getUndoCounter(),currentGame.getBetaError(), SharedData.getInt(SharedData.GAME_SEED,-1), SharedData.scores.getScore());
+
             dataSent=true;
             wonCopy = won;
-            entityMapper.getgMapper().createGame(game);
-            new SaveGameInDB().execute(); //Process: 1. Create game in db 2. Update person in DB TODO:thorough testing
+
         }
 
         if (!won) {                                                                                 //if the game has been won, the score was already saved
@@ -297,16 +276,42 @@ public class GameLogic {
 
         //Put cards to the specified "deal from" stack. (=main stack if the game has one, else specify it in the game
         for (Card card : randomCards) {
-            ///TODO there is an error somewhere here "null pointer exception" --> put breakpoint and see what is not initialised. Candidates: card, currentGame, dealstack
             card.setLocationWithoutMovement(currentGame.getDealStack().getX(), currentGame.getDealStack().getY());
             currentGame.getDealStack().addCard(card);
             card.flipDown();
         }
 
+        resetAllPlayerActions();
+
         //and finally deal the cards from the game!
         currentGame.dealCards();
     }
 
+
+    private void createGamePlayed() {
+        avgMotorTime = calculateAvgMotorTime();
+        GamePlayed game = new GamePlayed(SharedData.user.getId(),(int) timer.getCurrentTime(),won,currentGame.getFlipThroughMainstackCount(),avgMotorTime,
+                currentGame.getStackCounter()[0],currentGame.getStackCounter()[1],currentGame.getStackCounter()[2],currentGame.getStackCounter()[3],
+                currentGame.getStackCounter()[4],currentGame.getStackCounter()[5],currentGame.getStackCounter()[6],currentGame.getStackCounter()[7],
+                currentGame.getStackCounter()[8],currentGame.getStackCounter()[9],currentGame.getStackCounter()[10],currentGame.getStackCounter()[13],
+                currentGame.getStackCounter()[14],currentGame.getColorMoveCount(), currentGame.getWrongNumberCount(),currentGame.getHintCounter(),
+                currentGame.getUndoCounter(),currentGame.getBetaError(), SharedData.getInt(SharedData.GAME_SEED,-1), SharedData.scores.getScore());
+
+        entityMapper.getgMapper().createGame(game);
+        new SaveGameInDB().execute(); //Process: 1. Create game in db 2. Update person in DB TODO:thorough testing
+    }
+
+    private void resetAllPlayerActions() {
+        ArrayList<Integer> newTimestamps = new ArrayList<>();
+        currentGame.setColorMoveCount(0); // if new game is started, set the wrongMoveCounter to 0
+        currentGame.setWrongNumberCount(0);
+        currentGame.setUndoCounter(0);
+        currentGame.setFlipThroughMainstackCount(0);
+        currentGame.setHintCounter(0);
+        currentGame.setMotorTime(newTimestamps);
+        currentGame.setStackCounter(new int[15]);
+        currentGame.setBetaError(0);
+    }
 
     private int calculateAvgMotorTime() {
         int avg = 0;
