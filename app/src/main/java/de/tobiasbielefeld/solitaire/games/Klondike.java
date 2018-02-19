@@ -24,6 +24,7 @@ import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.Calendar;
 import java.util.Date;
+import java.util.HashMap;
 
 import de.tobiasbielefeld.solitaire.classes.Card;
 import de.tobiasbielefeld.solitaire.classes.CardAndStack;
@@ -87,6 +88,8 @@ public class Klondike extends Game {
 
     // @GN
     private ArrayList<Integer> motorTime;
+    private ArrayList<Long> stackTouchTimes;
+    private HashMap<String, ArrayList<Long>> moves; // Hashmap to save the type of move and the timestamp
 
     // @GN
     private boolean dubbeltap = false;
@@ -111,6 +114,8 @@ public class Klondike extends Game {
         DEFAULT_DRAW = DEFAULT_KLONDIKE_DRAW;
 
         motorTime = new ArrayList<>();
+        stackTouchTimes = new ArrayList<>();
+        moves = new HashMap<>();
         Arrays.fill(stackCounter, 0);
     }
 
@@ -225,6 +230,14 @@ public class Klondike extends Game {
 
     public void setCurrentTime(Date currentTime) {
         this.currentTime = currentTime;
+    }
+
+    public void setMovesHashmap(HashMap<String, ArrayList<Long>> newHashmap) {
+        this.moves = newHashmap;
+    }
+
+    public HashMap<String, ArrayList<Long>> getMovesHashmap() {
+        return this.moves;
     }
 
     public void setStacks(RelativeLayout layoutGame, boolean isLandscape) {
@@ -534,8 +547,11 @@ public class Klondike extends Game {
 
         for (int i = 0; i < stacks.length; i++) {
             if (stacks[i].isOnLocation(X, Y)) {
+                stackTouchTimes.add(Calendar.getInstance().getTime().getTime());
+                moves.put("STACK", stackTouchTimes);
                 motorTime.add((int) difference);
-                System.out.println(motorTime);
+                System.out.println("MotorTimes: " + motorTime);
+                System.out.println("Moves: " + moves);
             }
         }
     }

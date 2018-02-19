@@ -36,6 +36,7 @@ import android.widget.Toast;
 import java.util.ArrayList;
 import java.util.Calendar;
 import java.util.Date;
+import java.util.HashMap;
 import java.util.Locale;
 
 import de.tobiasbielefeld.solitaire.R;
@@ -122,6 +123,9 @@ public class GameManager extends CustomAppCompatActivity implements View.OnTouch
     private RelativeLayout mainRelativeLayoutBackground;
     private boolean activityPaused;
 
+    // @GN
+    private ArrayList<Long> releaseCardTimes;
+
 
     /*
      * Set up everything for the game. First get the ui elements, then initialize my helper stuff.
@@ -134,6 +138,9 @@ public class GameManager extends CustomAppCompatActivity implements View.OnTouch
     protected void onCreate(final Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_game_manager);
+
+        // @GN
+        releaseCardTimes = new ArrayList<>();
 
         // load stuff
         highlight = findViewById(R.id.card_highlight);
@@ -470,13 +477,18 @@ public class GameManager extends CustomAppCompatActivity implements View.OnTouch
     private boolean motionActionUp(float X, float Y) {
 
         if (movingCards.moveStarted(X, Y)) {
+
+            // @GN
             Date secondTime = Calendar.getInstance().getTime();
 
             long difference = secondTime.getTime() - currentGame.getCurrentTime().getTime();
 
             ArrayList<Integer> motortime = currentGame.getMotorTime();
+            HashMap<String, ArrayList<Long>> movesHashmap = currentGame.getMovesHashmap();
 
             motortime.add((int) difference);
+            releaseCardTimes.add(secondTime.getTime());
+            movesHashmap.put("RELEASE", releaseCardTimes);
 
             cardHighlight.hide(this);
             Stack stack = getIntersectingStack(movingCards.first());

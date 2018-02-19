@@ -25,6 +25,7 @@ import android.widget.RelativeLayout;
 
 import java.util.ArrayList;
 import java.util.Date;
+import java.util.HashMap;
 
 import de.tobiasbielefeld.solitaire.classes.Card;
 import de.tobiasbielefeld.solitaire.classes.CardAndStack;
@@ -225,6 +226,10 @@ public abstract class Game {
     abstract public long getScore();
 
     abstract public void setScore(long score);
+
+    abstract public void setMovesHashmap(HashMap<String, ArrayList<Long>> newHashmap);
+
+    abstract public HashMap<String, ArrayList<Long>> getMovesHashmap();
 
     /**
      * Tests if the card can be added to the movement to place on another stack.
