@@ -31,7 +31,6 @@ import de.tobiasbielefeld.solitaire.classes.Card;
 import de.tobiasbielefeld.solitaire.classes.GamePlayed;
 import de.tobiasbielefeld.solitaire.classes.Person;
 import de.tobiasbielefeld.solitaire.classes.Stack;
-import de.tobiasbielefeld.solitaire.games.Game;
 import de.tobiasbielefeld.solitaire.ui.GameManager;
 
 import static de.tobiasbielefeld.solitaire.SharedData.DEFAULT_AUTO_START_NEW_GAME;
@@ -85,7 +84,7 @@ public class GameLogic {
     private boolean movedFirstCard = false;
     private EntityMapper entityMapper = SharedData.getEntityMapper();
     private boolean dataSent = false;
-    private Game currentGameCopy;
+    // private Game currentGameCopy;
     private boolean wonCopy;
     private int avgMotorTime;
 

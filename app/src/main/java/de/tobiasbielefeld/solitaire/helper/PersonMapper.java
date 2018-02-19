@@ -2,13 +2,6 @@ package de.tobiasbielefeld.solitaire.helper;
 
 import android.util.Log;
 
-import java.sql.PreparedStatement;
-import java.sql.ResultSet;
-import java.sql.SQLException;
-import java.sql.Statement;
-import java.util.LinkedList;
-import java.util.List;
-
 import de.tobiasbielefeld.solitaire.classes.Person;
 
 /**
@@ -58,7 +51,7 @@ public enum PersonMapper {
 	 *
 	 * @param person The Person object with the new data
 	 */
-	public void updatePerson(Person person) {
+	public void 	updatePerson(Person person) {
 		int gender = 0;
 		if (person.isGender()) gender=1;
 		String url = "https://iiw.kuleuven.be/onderzoek/drSolitaire/updatePerson.php?username=" + person.getUsername() + "&password=" + person.getPassword() + "&age=" + person.getAge() +

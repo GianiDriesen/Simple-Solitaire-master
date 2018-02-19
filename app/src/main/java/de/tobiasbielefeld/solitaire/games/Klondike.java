@@ -484,7 +484,7 @@ public class Klondike extends Game {
             if(((stack.getId() == 7) || (stack.getId() == 8) || (stack.getId() == 9) || (stack.getId() == 10)) && fault == false) { // this works
                 if((stack.getTopCard().getValue() != card.getValue() - 1) || (stack.getTopCard().getColor() != card.getColor())) {
                     wrongColorCounter++;
-                    System.out.println("Wrong number on aces stack " + wrongColorCounter);
+                    System.out.println("Wrong color on aces stack " + wrongColorCounter);
                     fault = true;
                 }
             }
@@ -656,7 +656,7 @@ public class Klondike extends Game {
         return null;
     }
 
-    public CardAndStack autoCompletePhaseOne() {
+    /* public CardAndStack autoCompletePhaseOne() {
         return null;
     }
 
@@ -687,6 +687,7 @@ public class Klondike extends Game {
 
         return null;
     }
+    */
 
     public int addPointsToScore(ArrayList<Card> cards, int[] originIDs, int[] destinationIDs, boolean isUndoMovement) {
         int originID = originIDs[0];

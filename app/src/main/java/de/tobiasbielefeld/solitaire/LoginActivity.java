@@ -2,7 +2,6 @@
 
 package de.tobiasbielefeld.solitaire;
 
-import android.app.Application;
 import android.content.Intent;
 import android.os.AsyncTask;
 import android.os.Bundle;
@@ -13,9 +12,7 @@ import android.widget.EditText;
 import android.widget.Toast;
 
 import de.tobiasbielefeld.solitaire.classes.Person;
-import de.tobiasbielefeld.solitaire.helper.Database;
 import de.tobiasbielefeld.solitaire.helper.EntityMapper;
-import de.tobiasbielefeld.solitaire.helper.PersonColumns;
 import de.tobiasbielefeld.solitaire.ui.GameSelector;
 
 import static de.tobiasbielefeld.solitaire.SharedData.getEntityMapper;
@@ -37,8 +34,8 @@ public class LoginActivity extends AppCompatActivity {
     }
 
     public void loginApp(View view) {
-        //getEntityMapper().getpMapper().getPersonByUsernameAndPassword(username.getText().toString(),password.getText().toString()); //TODO bypassed login here
-        getEntityMapper().getpMapper().getPersonByUsernameAndPassword("Karsten","azerty");
+        getEntityMapper().getpMapper().getPersonByUsernameAndPassword(username.getText().toString(),password.getText().toString()); //TODO bypassed login here
+        //getEntityMapper().getpMapper().getPersonByUsernameAndPassword("Karsten","azerty");
         new GetPerson().execute();
     }
 
@@ -74,7 +71,7 @@ public class LoginActivity extends AppCompatActivity {
 
         protected void onPostExecute(Person person) {
             if (person != null) {
-                if (person.getPassword().equals("azerty")) {
+                if (person.getPassword().equals(person.getPassword())) {
                     Intent intent = new Intent(LoginActivity.this, GameSelector.class);
                     SharedData.user = person;
                     startActivity(intent);
