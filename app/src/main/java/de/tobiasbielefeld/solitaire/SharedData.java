@@ -24,21 +24,20 @@ import android.content.res.Resources;
 import android.preference.PreferenceManager;
 import android.util.Log;
 
-import java.lang.reflect.Array;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
 import java.util.StringTokenizer;
 
-import de.tobiasbielefeld.solitaire.classes.Person;
-import de.tobiasbielefeld.solitaire.helper.BackgroundMusic;
 import de.tobiasbielefeld.solitaire.classes.Card;
+import de.tobiasbielefeld.solitaire.classes.Person;
 import de.tobiasbielefeld.solitaire.classes.Stack;
 import de.tobiasbielefeld.solitaire.games.Game;
 import de.tobiasbielefeld.solitaire.handler.HandlerTestAfterMove;
 import de.tobiasbielefeld.solitaire.handler.HandlerTestIfWon;
 import de.tobiasbielefeld.solitaire.helper.Animate;
 import de.tobiasbielefeld.solitaire.helper.AutoComplete;
+import de.tobiasbielefeld.solitaire.helper.BackgroundMusic;
 import de.tobiasbielefeld.solitaire.helper.Bitmaps;
 import de.tobiasbielefeld.solitaire.helper.CardHighlight;
 import de.tobiasbielefeld.solitaire.helper.EntityMapper;
@@ -527,6 +526,16 @@ public class SharedData {
         savedGameData.edit().putString(name, s).apply();
     }
 
+    // @GN
+    public static void putLongArrayList(String name, ArrayList<Long> list) {
+        String s = "";
+        for (long i : list) {
+            s += i + ",";
+        }
+
+        savedGameData.edit().putString(name, s).apply();
+    }
+
     public static void saveErrorCount(String name, int errorCount) { // function to save error count when game is disrupted or app is closed.
         String s = " ";
         s += errorCount;
@@ -550,6 +559,19 @@ public class SharedData {
 
         while (st.hasMoreTokens()) {
             result.add(Integer.parseInt(st.nextToken()));
+        }
+
+        return result;
+    }
+
+    // @GN
+    public static ArrayList<Long> getLongArrayList(String name) {
+        String s = savedGameData.getString(name, "");
+        StringTokenizer st = new StringTokenizer(s, ",");
+        ArrayList<Long> result = new ArrayList<>();
+
+        while (st.hasMoreTokens()) {
+            result.add(Long.parseLong(st.nextToken()));
         }
 
         return result;

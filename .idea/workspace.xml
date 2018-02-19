@@ -12,8 +12,10 @@
   <component name="ChangeListManager">
     <list default="true" id="61ebc4f1-8c6b-4787-b1e9-e8598d2c6b31" name="Default" comment="">
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/src/main/java/de/tobiasbielefeld/solitaire/SharedData.java" afterPath="$PROJECT_DIR$/app/src/main/java/de/tobiasbielefeld/solitaire/SharedData.java" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/src/main/java/de/tobiasbielefeld/solitaire/games/Game.java" afterPath="$PROJECT_DIR$/app/src/main/java/de/tobiasbielefeld/solitaire/games/Game.java" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/src/main/java/de/tobiasbielefeld/solitaire/games/Klondike.java" afterPath="$PROJECT_DIR$/app/src/main/java/de/tobiasbielefeld/solitaire/games/Klondike.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/src/main/java/de/tobiasbielefeld/solitaire/helper/GameLogic.java" afterPath="$PROJECT_DIR$/app/src/main/java/de/tobiasbielefeld/solitaire/helper/GameLogic.java" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/src/main/java/de/tobiasbielefeld/solitaire/ui/GameManager.java" afterPath="$PROJECT_DIR$/app/src/main/java/de/tobiasbielefeld/solitaire/ui/GameManager.java" />
     </list>
     <ignored path="Simple-Solitaire-master.iws" />
@@ -46,14 +48,24 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file leaf-file-name="GameLogic.java" pinned="false" current-in-tab="false">
+      <file leaf-file-name="GameLogic.java" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/app/src/main/java/de/tobiasbielefeld/solitaire/helper/GameLogic.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="162">
-              <caret line="352" column="28" lean-forward="false" selection-start-line="352" selection-start-column="23" selection-end-line="352" selection-end-column="28" />
+            <state relative-caret-position="215">
+              <caret line="312" column="29" lean-forward="false" selection-start-line="312" selection-start-column="29" selection-end-line="312" selection-end-column="29" />
               <folding>
                 <element signature="imports" expanded="true" />
               </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="SharedData.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/app/src/main/java/de/tobiasbielefeld/solitaire/SharedData.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="479">
+              <caret line="576" column="22" lean-forward="false" selection-start-line="576" selection-start-column="22" selection-end-line="576" selection-end-column="22" />
+              <folding />
             </state>
           </provider>
         </entry>
@@ -71,11 +83,13 @@
       <file leaf-file-name="Klondike.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/app/src/main/java/de/tobiasbielefeld/solitaire/games/Klondike.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="189">
-              <caret line="234" column="31" lean-forward="false" selection-start-line="234" selection-start-column="16" selection-end-line="234" selection-end-column="31" />
+            <state relative-caret-position="374">
+              <caret line="557" column="48" lean-forward="false" selection-start-line="557" selection-start-column="48" selection-end-line="557" selection-end-column="48" />
               <folding>
-                <element signature="e#7307#7308#0" expanded="true" />
-                <element signature="e#7340#7341#0" expanded="true" />
+                <element signature="e#7387#7388#0" expanded="true" />
+                <element signature="e#7430#7431#0" expanded="true" />
+                <element signature="e#7617#7618#0" expanded="true" />
+                <element signature="e#7661#7662#0" expanded="true" />
               </folding>
             </state>
           </provider>
@@ -84,18 +98,18 @@
       <file leaf-file-name="Game.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/app/src/main/java/de/tobiasbielefeld/solitaire/games/Game.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="321">
-              <caret line="231" column="71" lean-forward="false" selection-start-line="231" selection-start-column="71" selection-end-line="231" selection-end-column="71" />
+            <state relative-caret-position="447">
+              <caret line="234" column="58" lean-forward="false" selection-start-line="234" selection-start-column="58" selection-end-line="234" selection-end-column="58" />
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="GameManager.java" pinned="false" current-in-tab="true">
+      <file leaf-file-name="GameManager.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/app/src/main/java/de/tobiasbielefeld/solitaire/ui/GameManager.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="383">
-              <caret line="498" column="42" lean-forward="false" selection-start-line="498" selection-start-column="42" selection-end-line="498" selection-end-column="42" />
+            <state relative-caret-position="393">
+              <caret line="484" column="55" lean-forward="false" selection-start-line="484" selection-start-column="55" selection-end-line="484" selection-end-column="55" />
               <folding />
             </state>
           </provider>
@@ -128,8 +142,8 @@
       <find>auto</find>
       <find>flipT</find>
       <find>mainstack</find>
-      <find>moves</find>
       <find>movesa</find>
+      <find>moves</find>
     </findStrings>
   </component>
   <component name="Git.Settings">
@@ -2036,16 +2050,16 @@
         <option value="$PROJECT_DIR$/app/build.gradle" />
         <option value="$PROJECT_DIR$/app/src/main/res/values/array.xml" />
         <option value="$PROJECT_DIR$/app/src/main/res/xml/pref_games_klondike.xml" />
-        <option value="$PROJECT_DIR$/app/src/main/java/de/tobiasbielefeld/solitaire/SharedData.java" />
         <option value="$PROJECT_DIR$/app/src/main/res/xml/pref_movement_methods.xml" />
         <option value="$PROJECT_DIR$/app/src/main/java/de/tobiasbielefeld/solitaire/classes/GamePlayed.java" />
-        <option value="$PROJECT_DIR$/app/src/main/java/de/tobiasbielefeld/solitaire/helper/GameLogic.java" />
         <option value="$USER_HOME$/AppData/Local/Android/sdk/platforms/android-26/android.jar!/android/os/AsyncTask.class" />
         <option value="$PROJECT_DIR$/app/src/main/java/de/tobiasbielefeld/solitaire/LoginActivity.java" />
         <option value="$PROJECT_DIR$/app/src/main/java/de/tobiasbielefeld/solitaire/helper/PersonMapper.java" />
         <option value="$PROJECT_DIR$/app/src/main/java/de/tobiasbielefeld/solitaire/games/Game.java" />
-        <option value="$PROJECT_DIR$/app/src/main/java/de/tobiasbielefeld/solitaire/games/Klondike.java" />
         <option value="$PROJECT_DIR$/app/src/main/java/de/tobiasbielefeld/solitaire/ui/GameManager.java" />
+        <option value="$PROJECT_DIR$/app/src/main/java/de/tobiasbielefeld/solitaire/games/Klondike.java" />
+        <option value="$PROJECT_DIR$/app/src/main/java/de/tobiasbielefeld/solitaire/SharedData.java" />
+        <option value="$PROJECT_DIR$/app/src/main/java/de/tobiasbielefeld/solitaire/helper/GameLogic.java" />
       </list>
     </option>
   </component>
@@ -2229,7 +2243,7 @@
       <option name="ACTIVITY_CLASS" value="" />
       <method>
         <option name="Android.Gradle.BeforeRunTask" enabled="true" />
-        <option name="com.android.instantApps.provision.BeforeRunTask" enabled="true" clearCache="false" clearProvisionedDevices="false" myTimestamp="1519045259056" />
+        <option name="com.android.instantApps.provision.BeforeRunTask" enabled="true" clearCache="false" clearProvisionedDevices="false" myTimestamp="1519048611034" />
       </method>
     </configuration>
     <configuration default="true" type="AndroidTestRunConfigurationType" factoryName="Android Instrumented Tests">
@@ -2277,7 +2291,7 @@
       </Profilers>
       <method>
         <option name="Android.Gradle.BeforeRunTask" enabled="true" />
-        <option name="com.android.instantApps.provision.BeforeRunTask" enabled="true" clearCache="false" clearProvisionedDevices="false" myTimestamp="1519045259056" />
+        <option name="com.android.instantApps.provision.BeforeRunTask" enabled="true" clearCache="false" clearProvisionedDevices="false" myTimestamp="1519048611034" />
       </method>
     </configuration>
     <configuration default="true" type="Application" factoryName="Application">
@@ -2439,7 +2453,7 @@
       <option name="ACTIVITY_CLASS" value="" />
       <method>
         <option name="Android.Gradle.BeforeRunTask" enabled="true" />
-        <option name="com.android.instantApps.provision.BeforeRunTask" enabled="true" clearCache="false" clearProvisionedDevices="false" myTimestamp="1519045259057" />
+        <option name="com.android.instantApps.provision.BeforeRunTask" enabled="true" clearCache="false" clearProvisionedDevices="false" myTimestamp="1519048611035" />
       </method>
     </configuration>
     <list size="1">
@@ -2709,7 +2723,14 @@
       <option name="project" value="LOCAL" />
       <updated>1519031944844</updated>
     </task>
-    <option name="localTasksCounter" value="34" />
+    <task id="LOCAL-00034" summary="Added code to capture moves and the tags per move.">
+      <created>1519045298529</created>
+      <option name="number" value="00034" />
+      <option name="presentableId" value="LOCAL-00034" />
+      <option name="project" value="LOCAL" />
+      <updated>1519045298529</updated>
+    </task>
+    <option name="localTasksCounter" value="35" />
     <servers />
   </component>
   <component name="TodoView">
@@ -2723,7 +2744,6 @@
   </component>
   <component name="ToolWindowManager">
     <frame x="-9" y="-9" width="1938" height="1048" extended-state="6" />
-    <editor active="true" />
     <layout>
       <window_info id="Android Profiler" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32991204" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32863435" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
@@ -2733,7 +2753,7 @@
       <window_info id="Image Layers" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
       <window_info id="Capture Analysis" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32827103" sideWeight="0.5064171" order="8" side_tool="true" content_ui="tabs" />
-      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32485548" sideWeight="0.49358287" order="5" side_tool="false" content_ui="tabs" />
+      <window_info id="Run" active="true" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.32485548" sideWeight="0.49358287" order="5" side_tool="false" content_ui="tabs" />
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32716763" sideWeight="0.5" order="10" side_tool="false" content_ui="tabs" />
       <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.3277533" sideWeight="0.5" order="11" side_tool="false" content_ui="tabs" />
       <window_info id="Logcat" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.34913296" sideWeight="0.6358754" order="9" side_tool="false" content_ui="tabs" />
@@ -2772,7 +2792,6 @@
     <option name="myLimit" value="2678400000" />
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="Counter for hints removed, game count number of hints itself&#10;" />
     <MESSAGE value="Error in counter for hints is fixed, now when you press the hint button, the counters for wrong color and wrong value won't increment&#10;" />
     <MESSAGE value="Undo counter implemented" />
     <MESSAGE value="Hint counter works" />
@@ -2797,7 +2816,8 @@
     <MESSAGE value="Redeal error fixed" />
     <MESSAGE value="Created 2 function: resetAllPlayerActions and createGamePlayed to reduce code duplication&#10;Found a problem in GamePlayed class with the game seed" />
     <MESSAGE value="Removed autocomplete function because it gave a problem with the colorErrorCounter and numberErrorCounter&#10;Added login again to test" />
-    <option name="LAST_COMMIT_MESSAGE" value="Removed autocomplete function because it gave a problem with the colorErrorCounter and numberErrorCounter&#10;Added login again to test" />
+    <MESSAGE value="Added code to capture moves and the tags per move." />
+    <option name="LAST_COMMIT_MESSAGE" value="Added code to capture moves and the tags per move." />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
@@ -3080,13 +3100,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/main/java/de/tobiasbielefeld/solitaire/SharedData.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="21">
-          <caret line="523" column="28" lean-forward="false" selection-start-line="523" selection-start-column="28" selection-end-line="523" selection-end-column="28" />
-        </state>
-      </provider>
-    </entry>
     <entry file="jar://$USER_HOME$/AppData/Local/Android/sdk/platforms/android-26/android.jar!/org/json/JSONObject.class">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="277">
@@ -3140,16 +3153,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/main/java/de/tobiasbielefeld/solitaire/helper/GameLogic.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="162">
-          <caret line="352" column="28" lean-forward="false" selection-start-line="352" selection-start-column="23" selection-end-line="352" selection-end-column="28" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/app/src/main/java/de/tobiasbielefeld/solitaire/classes/GamePlayed.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="162">
@@ -3168,28 +3171,48 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/app/src/main/java/de/tobiasbielefeld/solitaire/games/Game.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="321">
-          <caret line="231" column="71" lean-forward="false" selection-start-line="231" selection-start-column="71" selection-end-line="231" selection-end-column="71" />
+        <state relative-caret-position="447">
+          <caret line="234" column="58" lean-forward="false" selection-start-line="234" selection-start-column="58" selection-end-line="234" selection-end-column="58" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/java/de/tobiasbielefeld/solitaire/ui/GameManager.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="393">
+          <caret line="484" column="55" lean-forward="false" selection-start-line="484" selection-start-column="55" selection-end-line="484" selection-end-column="55" />
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/app/src/main/java/de/tobiasbielefeld/solitaire/games/Klondike.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="189">
-          <caret line="234" column="31" lean-forward="false" selection-start-line="234" selection-start-column="16" selection-end-line="234" selection-end-column="31" />
+        <state relative-caret-position="374">
+          <caret line="557" column="48" lean-forward="false" selection-start-line="557" selection-start-column="48" selection-end-line="557" selection-end-column="48" />
           <folding>
-            <element signature="e#7307#7308#0" expanded="true" />
-            <element signature="e#7340#7341#0" expanded="true" />
+            <element signature="e#7387#7388#0" expanded="true" />
+            <element signature="e#7430#7431#0" expanded="true" />
+            <element signature="e#7617#7618#0" expanded="true" />
+            <element signature="e#7661#7662#0" expanded="true" />
           </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/main/java/de/tobiasbielefeld/solitaire/ui/GameManager.java">
+    <entry file="file://$PROJECT_DIR$/app/src/main/java/de/tobiasbielefeld/solitaire/SharedData.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="383">
-          <caret line="498" column="42" lean-forward="false" selection-start-line="498" selection-start-column="42" selection-end-line="498" selection-end-column="42" />
+        <state relative-caret-position="479">
+          <caret line="576" column="22" lean-forward="false" selection-start-line="576" selection-start-column="22" selection-end-line="576" selection-end-column="22" />
           <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/java/de/tobiasbielefeld/solitaire/helper/GameLogic.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="215">
+          <caret line="312" column="29" lean-forward="false" selection-start-line="312" selection-start-column="29" selection-end-line="312" selection-end-column="29" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>

@@ -57,6 +57,7 @@ import static de.tobiasbielefeld.solitaire.SharedData.getInt;
 import static de.tobiasbielefeld.solitaire.SharedData.getIntArray;
 import static de.tobiasbielefeld.solitaire.SharedData.getIntList;
 import static de.tobiasbielefeld.solitaire.SharedData.getLong;
+import static de.tobiasbielefeld.solitaire.SharedData.getLongArrayList;
 import static de.tobiasbielefeld.solitaire.SharedData.getSharedBoolean;
 import static de.tobiasbielefeld.solitaire.SharedData.movingCards;
 import static de.tobiasbielefeld.solitaire.SharedData.putBoolean;
@@ -64,6 +65,7 @@ import static de.tobiasbielefeld.solitaire.SharedData.putInt;
 import static de.tobiasbielefeld.solitaire.SharedData.putIntArray;
 import static de.tobiasbielefeld.solitaire.SharedData.putIntList;
 import static de.tobiasbielefeld.solitaire.SharedData.putLong;
+import static de.tobiasbielefeld.solitaire.SharedData.putLongArrayList;
 import static de.tobiasbielefeld.solitaire.SharedData.recordList;
 import static de.tobiasbielefeld.solitaire.SharedData.scores;
 import static de.tobiasbielefeld.solitaire.SharedData.sounds;
@@ -125,6 +127,8 @@ public class GameLogic {
         putInt("FBETAERROR", currentGame.getBetaError());
         putInt("SEED", currentGame.getGameseed());
         putLong("SCORE", currentGame.getScore());
+        putLongArrayList("STACKTOUCHTIMES", currentGame.getStackTouchTimes());
+        putLongArrayList("RELEASECARDTIMES", currentGame.getReleaseCardTimes());
         // Timer will be saved in onPause()
         for (Stack stack : stacks)
             stack.save();
@@ -166,6 +170,8 @@ public class GameLogic {
         currentGame.setBetaError(getInt("BETAERROR", 0));
         currentGame.setScore(getLong(SharedData.SCORE, -1));
         currentGame.setGameseed(getInt("SEED", -1));
+        currentGame.setStackTouchTimes(getLongArrayList("STACKTOUCHTIMES"));
+        currentGame.setReleaseCardTimes(getLongArrayList("RELEASECARDTIMES"));
         //update and reset
         Card.updateCardDrawableChoice();
         Card.updateCardBackgroundChoice();
@@ -310,6 +316,8 @@ public class GameLogic {
         currentGame.setMotorTime(newTimestamps);
         currentGame.setStackCounter(new int[15]);
         currentGame.setBetaError(0);
+        currentGame.setStackTouchTimes(new ArrayList<>());
+        currentGame.setReleaseCardTimes(new ArrayList<>());
     }
 
     private int calculateAvgMotorTime() {

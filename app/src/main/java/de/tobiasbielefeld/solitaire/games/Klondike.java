@@ -24,7 +24,6 @@ import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.Calendar;
 import java.util.Date;
-import java.util.HashMap;
 
 import de.tobiasbielefeld.solitaire.classes.Card;
 import de.tobiasbielefeld.solitaire.classes.CardAndStack;
@@ -88,8 +87,8 @@ public class Klondike extends Game {
 
     // @GN
     private ArrayList<Integer> motorTime;
-    private ArrayList<Long> stackTouchTimes;
-    private HashMap<String, ArrayList<Long>> moves; // Hashmap to save the type of move and the timestamp
+    private ArrayList<Long> stackTouchTimes; // Timestamps in long when a card is touched to save it in Moves table of DB
+    private ArrayList<Long> releaseCardTimes; // Timestamps in long when a card is released to save it in Moves table of DB
 
     // @GN
     private boolean dubbeltap = false;
@@ -115,7 +114,7 @@ public class Klondike extends Game {
 
         motorTime = new ArrayList<>();
         stackTouchTimes = new ArrayList<>();
-        moves = new HashMap<>();
+        releaseCardTimes = new ArrayList<>();
         Arrays.fill(stackCounter, 0);
     }
 
@@ -232,12 +231,20 @@ public class Klondike extends Game {
         this.currentTime = currentTime;
     }
 
-    public void setMovesHashmap(HashMap<String, ArrayList<Long>> newHashmap) {
-        this.moves = newHashmap;
+    public void setStackTouchTimes(ArrayList<Long> newStackTouchTimes) {
+        this.stackTouchTimes = newStackTouchTimes;
     }
 
-    public HashMap<String, ArrayList<Long>> getMovesHashmap() {
-        return this.moves;
+    public ArrayList<Long> getStackTouchTimes() {
+        return this.stackTouchTimes;
+    }
+
+    public void setReleaseCardTimes(ArrayList<Long> newReleaseCardTimes) {
+        this.releaseCardTimes = newReleaseCardTimes;
+    }
+
+    public ArrayList<Long> getReleaseCardTimes() {
+        return this.releaseCardTimes;
     }
 
     public void setStacks(RelativeLayout layoutGame, boolean isLandscape) {
@@ -548,10 +555,10 @@ public class Klondike extends Game {
         for (int i = 0; i < stacks.length; i++) {
             if (stacks[i].isOnLocation(X, Y)) {
                 stackTouchTimes.add(Calendar.getInstance().getTime().getTime());
-                moves.put("STACK", stackTouchTimes);
                 motorTime.add((int) difference);
                 System.out.println("MotorTimes: " + motorTime);
-                System.out.println("Moves: " + moves);
+                System.out.println("stack touched times:" + stackTouchTimes);
+                System.out.println("Release card times: " + releaseCardTimes);
             }
         }
     }
