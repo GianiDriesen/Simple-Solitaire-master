@@ -45,6 +45,7 @@ import static de.tobiasbielefeld.solitaire.SharedData.recordList;
 import static de.tobiasbielefeld.solitaire.SharedData.sharedStringEquals;
 import static de.tobiasbielefeld.solitaire.SharedData.sharedStringEqualsDefault;
 import static de.tobiasbielefeld.solitaire.SharedData.stacks;
+import static de.tobiasbielefeld.solitaire.SharedData.timer;
 import static de.tobiasbielefeld.solitaire.games.Game.testMode.ALTERNATING_COLOR;
 import static de.tobiasbielefeld.solitaire.games.Game.testMode.SAME_FAMILY;
 import static de.tobiasbielefeld.solitaire.games.Game.testMode2.SAME_VALUE_AND_COLOR;
@@ -554,7 +555,7 @@ public class Klondike extends Game {
 
         for (int i = 0; i < stacks.length; i++) {
             if (stacks[i].isOnLocation(X, Y)) {
-                stackTouchTimes.add(Calendar.getInstance().getTime().getTime());
+                stackTouchTimes.add(timer.getCurrentTime());
                 motorTime.add((int) difference);
                 System.out.println("MotorTimes: " + motorTime);
                 System.out.println("stack touched times:" + stackTouchTimes);

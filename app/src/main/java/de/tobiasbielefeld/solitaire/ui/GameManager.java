@@ -482,7 +482,7 @@ public class GameManager extends CustomAppCompatActivity implements View.OnTouch
             ArrayList<Long> releaseCardTimes = currentGame.getReleaseCardTimes();
 
             motortime.add((int) difference);
-            releaseCardTimes.add(secondTime.getTime());
+            releaseCardTimes.add(timer.getCurrentTime());
 
             cardHighlight.hide(this);
             Stack stack = getIntersectingStack(movingCards.first());
