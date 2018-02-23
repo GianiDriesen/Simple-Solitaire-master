@@ -91,8 +91,6 @@ public class Klondike extends Game {
     private ArrayList<Long> stackTouchTimes; // Timestamps in long when a card is touched to save it in Moves table of DB
     private ArrayList<Long> releaseCardTimes; // Timestamps in long when a card is released to save it in Moves table of DB
 
-    // @GN
-    private boolean dubbeltap = false;
     private boolean hintUsed = false;
 
     //@KG
@@ -113,9 +111,11 @@ public class Klondike extends Game {
         PREF_KEY_DRAW = PREF_KEY_KLONDIKE_DRAW;
         DEFAULT_DRAW = DEFAULT_KLONDIKE_DRAW;
 
+        // @GN
         motorTime = new ArrayList<>();
         stackTouchTimes = new ArrayList<>();
         releaseCardTimes = new ArrayList<>();
+
         Arrays.fill(stackCounter, 0);
     }
 
@@ -648,7 +648,7 @@ public class Klondike extends Game {
 
     public Stack doubleTapTest(Card card) {
         //foundation stacks
-        dubbeltap = true;
+        boolean dubbeltap = true;
         if (card.isTopCard()) {
             for (int j = 7; j < 11; j++) {
                 if (card.test(stacks[j])) {

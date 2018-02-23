@@ -104,9 +104,16 @@ public class GameSelector extends CustomAppCompatActivity implements NavigationV
      * set to be hidden. Add the end, add some dummies, so the last row doesn't have less entries.
      */
     private void loadGameList() {
+        // @GN
+        ArrayList<Integer> gameOrder = lg.getOrderedGameList();
+        Integer game = gameOrder.get(7);
+        gameOrder.clear();
+        gameOrder.add(game);
+
+        putSharedIntList(PREF_KEY_MENU_GAMES, gameOrder);
+
         ArrayList<Integer> isShownList = lg.getMenuShownList();
         ArrayList<Integer> orderedList = lg.getOrderedGameList();
-
         TableRow row = new TableRow(this);
         int counter = 0;
 
@@ -125,7 +132,7 @@ public class GameSelector extends CustomAppCompatActivity implements NavigationV
         params.weight = 1;
 
         //add the game buttons
-        for (int i = 0; i < lg.getGameCount(); i++) {
+        for (int i = 0; i < 2; i++) {
 
             int index = orderedList.indexOf(i);
 
@@ -141,7 +148,7 @@ public class GameSelector extends CustomAppCompatActivity implements NavigationV
                     tableLayout.addView(row);
                 }
 
-                imageView.setImageBitmap(bitmaps.getMenu(index));
+                imageView.setImageBitmap(bitmaps.getMenu(7));
                 imageView.setOnTouchListener(this);
                 indexes.add(i);
                 row.addView(imageView);

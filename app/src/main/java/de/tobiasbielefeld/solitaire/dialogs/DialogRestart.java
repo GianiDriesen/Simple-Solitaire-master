@@ -18,7 +18,6 @@
 
 package de.tobiasbielefeld.solitaire.dialogs;
 
-import android.app.Activity;
 import android.app.AlertDialog;
 import android.app.Dialog;
 import android.content.DialogInterface;
@@ -31,7 +30,13 @@ import de.tobiasbielefeld.solitaire.R;
 import de.tobiasbielefeld.solitaire.ui.GameManager;
 import de.tobiasbielefeld.solitaire.ui.manual.Manual;
 
-import static de.tobiasbielefeld.solitaire.SharedData.*;
+import static de.tobiasbielefeld.solitaire.SharedData.DEFAULT_CURRENT_GAME;
+import static de.tobiasbielefeld.solitaire.SharedData.GAME;
+import static de.tobiasbielefeld.solitaire.SharedData.PREF_KEY_CURRENT_GAME;
+import static de.tobiasbielefeld.solitaire.SharedData.gameLogic;
+import static de.tobiasbielefeld.solitaire.SharedData.lg;
+import static de.tobiasbielefeld.solitaire.SharedData.putSharedInt;
+import static de.tobiasbielefeld.solitaire.SharedData.timer;
 
 /**
  * dialog to handle new games or returning to main menu( in that case, cancel the current activity)
@@ -45,7 +50,7 @@ public class DialogRestart extends DialogFragment {
         final GameManager gameManager = (GameManager) getActivity();
         AlertDialog.Builder builder = new AlertDialog.Builder(getActivity());
 
-        builder.setTitle(lg.getGameName())
+        builder.setTitle("Klondike Solitaire") // hard coded name of game, as the only game is Klondike Solitaire, can be changes if hard coded is not good enough
                 .setItems(R.array.restart_menu, new DialogInterface.OnClickListener() {
                     public void onClick(DialogInterface dialog, int which) {
                         // "which" argument contains index of selected item
