@@ -322,12 +322,6 @@ public class GameLogic {
 
     private int calculateAvgMotorTime() {
         int avg = 0;
-        /*
-        for (int i=0;i<currentGame.getMotorTime().size();i=i+2) {
-            avg = avg + (currentGame.getMotorTime().get(i+1) - currentGame.getMotorTime().get(i));
-        }
-        avg = avg/(currentGame.getMotorTime().size()/2);
-        */
         if (currentGame.getMotorTime().size() > 0) {
             for (int i = 0; i < currentGame.getMotorTime().size() - 1; i++) {
                 avg = avg + currentGame.getMotorTime().get(i);
@@ -540,7 +534,11 @@ public class GameLogic {
         gm.updateMenuBar();
     }
 
+    /*
+    Function is never used
     public void incrementNumberWonGames(){
         numberWonGames++;
     }
+
+    */
 }

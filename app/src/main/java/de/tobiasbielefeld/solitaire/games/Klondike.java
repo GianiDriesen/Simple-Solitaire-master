@@ -648,7 +648,6 @@ public class Klondike extends Game {
 
     public Stack doubleTapTest(Card card) {
         //foundation stacks
-        boolean dubbeltap = true;
         if (card.isTopCard()) {
             for (int j = 7; j < 11; j++) {
                 if (card.test(stacks[j])) {
@@ -676,7 +675,6 @@ public class Klondike extends Game {
             if (stacks[j].isEmpty() && card.test(stacks[j]))
                 return stacks[j];
         }
-        dubbeltap = false;
         return null;
     }
 
