@@ -12,7 +12,7 @@ import java.sql.Time;
 
 public class Move {
     private int id;
-    private String type;
+    private MoveType type;
     private int time;
     private int gameid;
 
@@ -20,7 +20,7 @@ public class Move {
 
     }
 
-    public Move(String type, int time, int gameid)
+    public Move(MoveType type, int time, int gameid)
     {
         this.type = type;
         this.time = time;
@@ -30,7 +30,7 @@ public class Move {
     public Move(JSONObject obj) {
         try {
             this.id = obj.getInt("id");
-            this.type = obj.getString("type");
+            this.type = MoveType.valueOf(obj.getString("type"));
             this.time = obj.getInt("time");
             this.gameid = obj.getInt("gameid");
         } catch (JSONException e) {
@@ -38,7 +38,7 @@ public class Move {
         }
     }
 
-    public String getType() {
+    public MoveType getType() {
         return type;
     }
 
