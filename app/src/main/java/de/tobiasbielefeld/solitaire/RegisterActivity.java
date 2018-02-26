@@ -3,17 +3,22 @@
 package de.tobiasbielefeld.solitaire;
 
 import android.content.Intent;
+import android.icu.text.IDNA;
 import android.os.AsyncTask;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
+import android.telephony.CellIdentityGsm;
 import android.view.View;
+import android.widget.CheckBox;
 import android.widget.EditText;
+import android.widget.SeekBar;
 import android.widget.Toast;
 
 import de.tobiasbielefeld.solitaire.classes.Person;
 import de.tobiasbielefeld.solitaire.helper.EntityMapper;
 import de.tobiasbielefeld.solitaire.ui.GameSelector;
 
+import static de.tobiasbielefeld.solitaire.SharedData.ERROR;
 import static de.tobiasbielefeld.solitaire.SharedData.getEntityMapper;
 
 public class RegisterActivity extends AppCompatActivity {
@@ -21,8 +26,10 @@ public class RegisterActivity extends AppCompatActivity {
     private EditText password;
     private EditText password2;
     private EditText age;
-    private EditText gender;
-    private EditText level;
+    private CheckBox manBox;
+    private CheckBox womanBox;
+    private SeekBar levelBar;
+    boolean isMan = true;
     private EntityMapper entityMapper = SharedData.getEntityMapper();
 
 
@@ -39,8 +46,17 @@ public class RegisterActivity extends AppCompatActivity {
         password  = (EditText) findViewById(R.id.password);
         password2  = (EditText) findViewById(R.id.password2);
         age = (EditText) findViewById(R.id.age);
-        gender = (EditText) findViewById(R.id.gender);
-        level = (EditText) findViewById(R.id.level);
+        manBox = (CheckBox) findViewById(R.id.manCheck);
+        womanBox = (CheckBox) findViewById(R.id.womanCheck);
+        levelBar = (SeekBar) findViewById(R.id.level);
+    }
+
+    public void onCheckboxClicked(View view) {
+        if (((CheckBox) view) == manBox && manBox.isChecked()) womanBox.setChecked(false);
+        else if (((CheckBox) view) == manBox && !manBox.isChecked()) womanBox.setChecked(true);
+        else if (((CheckBox) view) == womanBox && womanBox.isChecked()) manBox.setChecked(false);
+        else if (((CheckBox) view) == womanBox && !womanBox.isChecked()) manBox.setChecked(true);
+        else System.out.println("Something weird happening with genders...");
     }
 
     public void registerApp(View view) {
@@ -71,32 +87,23 @@ public class RegisterActivity extends AppCompatActivity {
                 Toast.makeText(RegisterActivity.this, "This username already exists!", Toast.LENGTH_SHORT).show();
             }
             else {
-                if (isInteger(age.getText().toString()) && isInteger(level.getText().toString()) && genderInRightFormat(gender.getText().toString().toLowerCase())) {
+                if (isInteger(age.getText().toString())) {
                     Toast.makeText(RegisterActivity.this, "Registration ok. Have fun!", Toast.LENGTH_SHORT).show();
                     person = new Person(username.getText().toString(),
                             password.getText().toString(),
                             Integer.parseInt(age.getText().toString()),
-                            genderToBool(gender.getText().toString().toLowerCase()),
-                            Integer.parseInt(level.getText().toString()), 0, 0, 0, 0, 0);
+                            isMan,
+                            levelBar.getProgress(), 0, 0, 0, 0, 0);
                     System.out.println("Person push to db: "+person);
                     entityMapper.getpMapper().createPerson(person);
                     new RegisterActivity.CreatePerson().execute();
                 }
                 else {
-                    Toast.makeText(RegisterActivity.this, "Some fields are not correctly filled in", Toast.LENGTH_SHORT).show();
+                    Toast.makeText(RegisterActivity.this, "Your age is not a number!", Toast.LENGTH_SHORT).show();
 
                 }
             }
         }
-    }
-
-    private boolean genderInRightFormat(String gender) {
-        if (gender.equals("man") || gender.equals("woman")) return true;
-        else return false;
-    }
-    private boolean genderToBool(String gender) {
-        if (gender.equals("man")) return true;
-        else return false;
     }
     public static boolean isInteger(String s) {
         try {
@@ -106,7 +113,6 @@ public class RegisterActivity extends AppCompatActivity {
         } catch(NullPointerException e) {
             return false;
         }
-        // only got here if we didn't return false
         return true;
     }
 
@@ -127,6 +133,7 @@ public class RegisterActivity extends AppCompatActivity {
             if (person != null) {
                 Intent intent = new Intent(RegisterActivity.this, GameSelector.class);
                 startActivity(intent);
+                finish();
             }
             else {
                 Toast.makeText(RegisterActivity.this, "Registration failed!", Toast.LENGTH_SHORT).show();

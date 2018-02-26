@@ -20,7 +20,9 @@ import android.widget.TableRow;
 
 import java.util.ArrayList;
 
+import de.tobiasbielefeld.solitaire.LoginActivity;
 import de.tobiasbielefeld.solitaire.R;
+import de.tobiasbielefeld.solitaire.SharedData;
 import de.tobiasbielefeld.solitaire.classes.CustomAppCompatActivity;
 import de.tobiasbielefeld.solitaire.ui.about.AboutActivity;
 import de.tobiasbielefeld.solitaire.ui.manual.Manual;
@@ -90,6 +92,8 @@ public class GameSelector extends CustomAppCompatActivity implements NavigationV
                 startActivity(new Intent(getApplicationContext(), AboutActivity.class));
                 break;
             case R.id.item_close:
+                SharedData.user = null;
+                startActivity(new Intent(getApplicationContext(), LoginActivity.class));
                 finish();
                 break;
         }

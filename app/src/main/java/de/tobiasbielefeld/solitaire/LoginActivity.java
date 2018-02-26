@@ -11,6 +11,9 @@ import android.view.WindowManager;
 import android.widget.EditText;
 import android.widget.Toast;
 
+import com.android.volley.RequestQueue;
+import com.android.volley.toolbox.Volley;
+
 import de.tobiasbielefeld.solitaire.classes.Person;
 import de.tobiasbielefeld.solitaire.helper.EntityMapper;
 import de.tobiasbielefeld.solitaire.ui.GameSelector;
@@ -29,8 +32,9 @@ public class LoginActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_login);
         setupContent();
+        RequestQueue rq = Volley.newRequestQueue(this.getApplicationContext());
+        SharedData.getEntityMapper().setRequestQueue(rq);
         getWindow().addFlags(WindowManager.LayoutParams.FLAG_KEEP_SCREEN_ON);
-        loginApp(null);
     }
 
     public void loginApp(View view) {
@@ -75,6 +79,7 @@ public class LoginActivity extends AppCompatActivity {
                     Intent intent = new Intent(LoginActivity.this, GameSelector.class);
                     SharedData.user = person;
                     startActivity(intent);
+                    finish();
                 } else {
                     Toast.makeText(LoginActivity.this, "Login credentials are wrong. ", Toast.LENGTH_SHORT).show();
                 }
