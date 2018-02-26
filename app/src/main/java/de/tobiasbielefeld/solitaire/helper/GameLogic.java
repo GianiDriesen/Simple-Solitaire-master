@@ -231,7 +231,6 @@ public class GameLogic {
         // @GN
 
         createGamePlayed(); // function to reduce duplicated code, created GamePlayed to save in the DB
-
         dataSent=true;
         wonCopy = won;
 
@@ -249,13 +248,10 @@ public class GameLogic {
     public void redeal() {
         //reset EVERYTHING
 
-        createGamePlayed();
-
         if (!dataSent) {
-
+            createGamePlayed();
             dataSent=true;
             wonCopy = won;
-
         }
 
         if (!won) {                                                                                 //if the game has been won, the score was already saved
@@ -265,6 +261,7 @@ public class GameLogic {
         movedFirstCard = false;
         won = false;
         wonAndReloaded = false;
+        dataSent=false;
         currentGame.reset(gm);
         sounds.playSound(Sounds.names.DEAL_CARDS);
 

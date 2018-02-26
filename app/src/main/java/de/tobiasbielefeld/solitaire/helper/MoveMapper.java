@@ -14,14 +14,11 @@ import de.tobiasbielefeld.solitaire.classes.Person;
 
 /**
  * Singleton to map Move entities to-and-from the database.
- * @author Koen Pelsmaekers
  */
 
 public enum MoveMapper {
     UNIQUEMAPPER;
 
-
-    private Move move = new Move();
     private EntityMapper eMapper;
 
     /**
@@ -41,7 +38,7 @@ public enum MoveMapper {
      */
     public void createMove(Move move) {
         String url = "https://iiw.kuleuven.be/onderzoek/drSolitaire/insertMove.php?" +
-                "pid=" + move.getPersonID() + "&gseed=" + move.getGameseed()+"&time=" + move.getTime()+"&gid=" + move.getGameid();
+                "type=" + move.getType() + "&time=" + move.getTime()+"&gid=" + move.getGameid();
         Log.d("DB",url);
         Move tmpMove = new Move();
         eMapper.queryEntity(tmpMove, url); //TODO fix this at switchcase emapper
