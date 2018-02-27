@@ -34,6 +34,7 @@ import static de.tobiasbielefeld.solitaire.SharedData.OPTION_NO_RECORD;
 import static de.tobiasbielefeld.solitaire.SharedData.OPTION_REVERSED_RECORD;
 import static de.tobiasbielefeld.solitaire.SharedData.PREF_KEY_KLONDIKE_DRAW;
 import static de.tobiasbielefeld.solitaire.SharedData.PREF_KEY_KLONDIKE_DRAW_OLD;
+import static de.tobiasbielefeld.solitaire.SharedData.autoComplete;
 import static de.tobiasbielefeld.solitaire.SharedData.gameLogic;
 import static de.tobiasbielefeld.solitaire.SharedData.getSharedString;
 import static de.tobiasbielefeld.solitaire.SharedData.hint;
@@ -295,13 +296,19 @@ public class Klondike extends Game {
 
     public boolean winTest() {
         //if the foundation stacks aren't full, not won. Else won
+        /*
         for (int i = 7; i <= 10; i++) {
             if (stacks[i].getSize() != 13) {
                 return false;
             }
         }
+        */
+        // @GN
+        if (autoComplete.buttonIsShown() == true) { // to check if a game is won or not
+            return true;
+        }
 
-        return true;
+        return false;
     }
 
     public void dealCards() {
@@ -678,7 +685,7 @@ public class Klondike extends Game {
         return null;
     }
 
-    /* public CardAndStack autoCompletePhaseOne() {
+     public CardAndStack autoCompletePhaseOne() {
         return null;
     }
 
@@ -709,7 +716,6 @@ public class Klondike extends Game {
 
         return null;
     }
-    */
 
     public int addPointsToScore(ArrayList<Card> cards, int[] originIDs, int[] destinationIDs, boolean isUndoMovement) {
         int originID = originIDs[0];
