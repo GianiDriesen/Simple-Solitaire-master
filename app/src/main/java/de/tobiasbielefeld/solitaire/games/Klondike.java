@@ -18,6 +18,7 @@
 
 package de.tobiasbielefeld.solitaire.games;
 
+import android.util.Log;
 import android.widget.RelativeLayout;
 
 import java.util.ArrayList;
@@ -296,7 +297,7 @@ public class Klondike extends Game {
 
     public boolean winTest() {
         //if the foundation stacks aren't full, not won. Else won
-        /*
+        /* @Todo remove this code if @GN is ok
         for (int i = 7; i <= 10; i++) {
             if (stacks[i].getSize() != 13) {
                 return false;
@@ -304,7 +305,8 @@ public class Klondike extends Game {
         }
         */
         // @GN
-        if (autoComplete.buttonIsShown() == true) { // to check if a game is won or not
+        // to check if a game is won or not, when the autocomplete button is shown, the game is won
+        if (autoComplete.buttonIsShown() == true) {
             return true;
         }
 
@@ -341,7 +343,7 @@ public class Klondike extends Game {
         boolean deal3 = sharedStringEquals(PREF_KEY_DRAW_OLD, DEFAULT_DRAW,"3");
         // @GN
         flipThroughMainStackCounter++;
-        System.out.println("Flip through main stack: " + flipThroughMainStackCounter);
+        Log.d("FLIPTHROUGHPILE", "Flip through pile: " + flipThroughMainStackCounter);
 
         //if there are cards on the main stack
         if (getMainStack().getSize() > 0) {
