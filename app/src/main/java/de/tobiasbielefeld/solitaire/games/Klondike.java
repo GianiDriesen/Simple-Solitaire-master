@@ -505,8 +505,8 @@ public class Klondike extends Game {
 
         fault = false;
 
-        System.out.println("Mainstack boolean: " + mainstack);
-        System.out.println("Fault: " + fault);
+        Log.d("MAINSTACKBOOLEAN", "Mainstack boolean: " + mainstack);
+        Log.d("FAULT", "Fault: " + fault);
 
         if(hintUsed == false && mainstack == false) {
 
@@ -514,7 +514,7 @@ public class Klondike extends Game {
             if(((stack.getId() == 7) || (stack.getId() == 8) || (stack.getId() == 9) || (stack.getId() == 10)) && fault == false) { // this works
                 if((stack.getTopCard().getValue() != card.getValue() - 1) || (stack.getTopCard().getColor() != card.getColor())) {
                     wrongColorCounter++;
-                    System.out.println("Wrong color on aces stack " + wrongColorCounter);
+                    Log.d("WRONGCOLORONACES", "Wrong color on aces stack: " + wrongColorCounter);
                     fault = true;
                 }
             }
@@ -523,13 +523,13 @@ public class Klondike extends Game {
                 // problem with movement of cards, sometimes it counts an error twice
                 tapFaultColor = true;
                 wrongColorCounter++;
-                System.out.println("Wrong color " + wrongColorCounter + ", fault= " + fault);
+                Log.d("WRONGCOLOR", "Wrong color: " + wrongColorCounter);
                 fault = true;
             }
             else if((stack.getTopCard().getValue() != card.getValue() + 1) && fault == false) {
                 tapFaultNumber = true;
                 wrongNumberCounter++;
-                System.out.println("Wrong value " + wrongNumberCounter + ", fault= " + fault);
+                Log.d("WRONGVALUE", "Wrong value: " + wrongNumberCounter);
                 fault = true;
             }
 
@@ -542,11 +542,11 @@ public class Klondike extends Game {
                 if(mainstack == false) {
                     if (oldTapFaultColor != tapFaultColor && wrongColorCounter > 0) {
                         wrongColorCounter--;
-                        System.out.println("wrong color, wrong number :" + wrongColorCounter + " " + wrongNumberCounter);
+                        Log.d("WRONGCOLORWRONGNUMBER", "Wrong color, wrong number: " + wrongColorCounter + ", " + wrongNumberCounter);
                     }
                     else if(oldTapFaultNumber != tapFaultNumber && wrongNumberCounter > 0) {
                         wrongNumberCounter--;
-                        System.out.println("wrong color, wrong number :" + wrongColorCounter + " " + wrongNumberCounter);
+                        Log.d("WRONGCOLORWRONGNUMBER", "Wrong color, wrong number: " + wrongColorCounter + ", " + wrongNumberCounter);
                     }
                 }
             }
