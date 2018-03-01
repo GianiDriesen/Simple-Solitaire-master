@@ -578,7 +578,7 @@ public class Klondike extends Game {
         for(int i = 0; i < stacks.length; i++) {
             if(stackId == stacks[i].getId()) {
                 stackCounter[i]++;
-                System.out.println("Stackcounter: " + Arrays.toString(stackCounter));
+                Log.d("STACKCOUNTER", "Stackcounter: " + Arrays.toString(stackCounter));
             }
         }
 
