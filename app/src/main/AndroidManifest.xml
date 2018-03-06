@@ -44,7 +44,7 @@
         </activity>
         <activity
             android:name=".LoginActivity"
-            android:label="@string/title_activity_login"
+            android:label="@string/DrSolitaire"
             android:theme="@style/AppThemeNoActionBar">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
@@ -55,7 +55,7 @@
         </activity>
         <activity
             android:name=".RegisterActivity"
-            android:label="@string/title_activity_login"
+            android:label="@string/registeractivity"
             android:theme="@style/AppThemeNoActionBar">
 
         </activity>

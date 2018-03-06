@@ -60,9 +60,10 @@
     <string name="dialog_win_score">Score: %1$d</string>
     <string name="dialog_win_bonus">Bonus: %1$d</string>
     <string name="dialog_win_total">Total: %1$d</string>
-    <string name="DrSolitaire" translatable="false">StartActivity</string>
+    <string name="DrSolitaire" translatable="false">Dr. Solitaire</string>
     <string name="title_activity_login" translatable="false">LoginActivity</string>
     <string name="title_activity_start">Dr Solitaire</string>
     <string name="game_seed">GameSeed</string>
+    <string name="registeractivity">Register Activity</string>
 
 </resources>
