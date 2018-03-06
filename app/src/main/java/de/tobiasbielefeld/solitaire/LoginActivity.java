@@ -75,7 +75,7 @@ public class LoginActivity extends AppCompatActivity {
 
         protected void onPostExecute(Person person) {
             if (person != null) {
-                if (person.getPassword().equals(person.getPassword())) {
+                if (password.getText().toString().equals(person.getPassword())) {
                     Intent intent = new Intent(LoginActivity.this, GameSelector.class);
                     SharedData.user = person;
                     startActivity(intent);

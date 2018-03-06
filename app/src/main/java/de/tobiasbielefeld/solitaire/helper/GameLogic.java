@@ -29,6 +29,8 @@ import de.tobiasbielefeld.solitaire.R;
 import de.tobiasbielefeld.solitaire.SharedData;
 import de.tobiasbielefeld.solitaire.classes.Card;
 import de.tobiasbielefeld.solitaire.classes.GamePlayed;
+import de.tobiasbielefeld.solitaire.classes.Move;
+import de.tobiasbielefeld.solitaire.classes.MoveType;
 import de.tobiasbielefeld.solitaire.classes.Person;
 import de.tobiasbielefeld.solitaire.classes.Stack;
 import de.tobiasbielefeld.solitaire.ui.GameManager;
@@ -86,9 +88,7 @@ public class GameLogic {
     private boolean movedFirstCard = false;
     private EntityMapper entityMapper = SharedData.getEntityMapper();
     private boolean dataSent = false;
-    // private Game currentGameCopy;
-    private boolean wonCopy;
-    private int avgMotorTime;
+    private int previousGameID;
 
     public GameLogic(GameManager gm) {
         this.gm = gm;
@@ -230,12 +230,9 @@ public class GameLogic {
     public void newGame() {
         // @GN
 
-        createGamePlayed(); // function to reduce duplicated code, created GamePlayed to save in the DB
+        if (currentGame.getMotorTime().size()!=0) createGamePlayed(); // function to reduce duplicated code, created GamePlayed to save in the DB
         dataSent=true;
-        wonCopy = won;
 
-
-        resetAllPlayerActions(); // function to reduce code duplication, resets all playeractions
         System.arraycopy(cards, 0, randomCards, 0, cards.length);
         randomize(randomCards);
 
@@ -248,10 +245,9 @@ public class GameLogic {
     public void redeal() {
         //reset EVERYTHING
 
-        if (!dataSent) {
+        if (!dataSent && currentGame.getMotorTime().size()!=0) {
             createGamePlayed();
             dataSent=true;
-            wonCopy = won;
         }
 
         if (!won) {                                                                                 //if the game has been won, the score was already saved
@@ -289,10 +285,19 @@ public class GameLogic {
         currentGame.dealCards();
     }
 
+    private int calculateAvgMotorTime() {
+        int avg = 0;
+        for (int i=0;i<currentGame.getMotorTime().size();i=i+2) {
+            avg = avg + (currentGame.getMotorTime().get(i+1) - currentGame.getMotorTime().get(i));
+        }
+        avg = avg/(currentGame.getMotorTime().size()/2);
+
+        return avg;
+    }
+
 
     private void createGamePlayed() {
-        avgMotorTime = calculateAvgMotorTime();
-        GamePlayed game = new GamePlayed(SharedData.user.getId(),(int) timer.getCurrentTime(),won,currentGame.getFlipThroughMainstackCount(),avgMotorTime,
+        GamePlayed game = new GamePlayed(SharedData.user.getId(),(int) timer.getCurrentTime(),won,currentGame.getFlipThroughMainstackCount(),calculateAvgMotorTime(),
                 currentGame.getStackCounter()[0],currentGame.getStackCounter()[1],currentGame.getStackCounter()[2],currentGame.getStackCounter()[3],
                 currentGame.getStackCounter()[4],currentGame.getStackCounter()[5],currentGame.getStackCounter()[6],currentGame.getStackCounter()[7],
                 currentGame.getStackCounter()[8],currentGame.getStackCounter()[9],currentGame.getStackCounter()[10],currentGame.getStackCounter()[13],
@@ -317,19 +322,6 @@ public class GameLogic {
         currentGame.setReleaseCardTimes(new ArrayList<>());
     }
 
-    private int calculateAvgMotorTime() {
-        int avg = 0;
-        if (currentGame.getMotorTime().size() > 0) {
-            for (int i = 0; i < currentGame.getMotorTime().size() - 1; i++) {
-                avg = avg + currentGame.getMotorTime().get(i);
-            }
-
-            avg = avg / currentGame.getMotorTime().size();
-        }
-
-        return avg;
-    }
-
     private class SaveGameInDB extends AsyncTask<Void, Void, GamePlayed> {
         protected GamePlayed doInBackground(Void... voids) {
             GamePlayed game = new GamePlayed();
@@ -345,44 +337,49 @@ public class GameLogic {
 
         protected void onPostExecute(GamePlayed game) {
             if (game == null) {
+                Log.d("DB","Push Not Succesful");
                 throw new java.lang.Error("GameData not uploaded to the database! @/helper/GameLogic");
             }
             else {
-                int nrOfGames = user.getGamesFailed()+user.getGamesSucces();
-                int avgMovesCurrentGame = currentGame.getMotorTime().size()/2;
-                int succesCurrentGame = 0, failedCurrentGame = 0;
-                if (wonCopy) {succesCurrentGame++;} else {failedCurrentGame++;}
-                int newAvgMoves = (user.getAvgMoves()*nrOfGames+avgMovesCurrentGame)/(nrOfGames+1);
-                int newAvgMotorTime = (user.getAvgTime()*nrOfGames+avgMotorTime)/(nrOfGames+1);
-                int newGamesSucces = (user.getGamesSucces()*nrOfGames+succesCurrentGame);
-                int newGamesFailed = (user.getGamesFailed()*nrOfGames+failedCurrentGame);
-                Person updatePerson = new Person(user.getId(),user.getUsername(),user.getPassword(),user.getAge(),
-                        user.isGender(),user.getLevel(),0,newAvgMoves,newAvgMotorTime,newGamesSucces,newGamesFailed);
-                entityMapper.getpMapper().updatePerson(updatePerson);
-                new UpdatePerson().execute();
+                Log.d("DB","Push Succesful");
+                new StoreMovesInDb().execute();
             }
         }
     }
 
-    private class UpdatePerson extends AsyncTask<Void, Void, Person> {
-        protected Person doInBackground(Void... voids) {
-            Person person = new Person();
-            while (!entityMapper.dataReady()) {
-                if (isCancelled()) break;
+    private class StoreMovesInDb extends AsyncTask<Void, Void, Void> {
+        protected Void doInBackground(Void... voids) {
+            ArrayList<Long> releaseCardTimes = currentGame.getReleaseCardTimes();
+            ArrayList<Long> stackTouchTimes = currentGame.getStackTouchTimes();
+            int counter = 0;
+            Log.d("DB","RELEASECARD SEND START! "+releaseCardTimes.size()+" TIMES TO SEND");
+            while (counter != releaseCardTimes.size()) {
+                entityMapper.resetAnswerlessReceived();
+                Move move = new Move(MoveType.RELEASECARD, releaseCardTimes.get(counter).intValue(), previousGameID);
+                entityMapper.getmMapper().createMove(move);
+                Log.d("DB","Move RELEASECARD "+counter+" send");
+//                try {
+//                    wait(50);
+//                } catch (InterruptedException e) {
+//                    e.printStackTrace();
+//                }
+                counter++;
             }
-            if (entityMapper.dataReady()) {
-                person = getEntityMapper().person;
-                getEntityMapper().dataGrabbed();
+            counter = 0;
+            Log.d("DB","STACKTOUCH SEND START! "+stackTouchTimes.size()+" TIMES TO SEND");
+            while (counter != stackTouchTimes.size()) {
+                entityMapper.resetAnswerlessReceived();
+                Move move = new Move(MoveType.TOUCHSTACK, stackTouchTimes.get(counter).intValue(), previousGameID);
+                entityMapper.getmMapper().createMove(move);
+                Log.d("DB","Move STACKTOUCH "+counter+" send");
+//                try {
+//                    wait(50);
+//                } catch (InterruptedException e) {
+//                    e.printStackTrace();
+//                }
+                counter++;
             }
-            return person;
-        }
-
-        protected void onPostExecute(Person person) {
-            if (person != null) {
-            }
-            else {
-                throw new java.lang.Error("Person not updated in db after playing a game...! @/helper/GameLogic");
-            }
+            return null;
         }
     }
 

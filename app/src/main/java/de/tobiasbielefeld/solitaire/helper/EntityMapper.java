@@ -57,6 +57,14 @@ public enum EntityMapper {
     public Move move;
     public List<Move> moves;
     private boolean dataReady = false;
+    private boolean answerlessReceived = true;
+    public void answerlessReceived() {
+        this.answerlessReceived = true;
+    }
+    public void resetAnswerlessReceived() {
+        this.answerlessReceived = false;
+    }
+    public boolean isAnswerlessReceived() {return answerlessReceived;}
     public boolean dataReady() { return this.dataReady; }
     public void dataGrabbed() {
         this.dataReady = false;
@@ -95,6 +103,13 @@ public enum EntityMapper {
         } }
                 , new Response.ErrorListener() { @Override
         public void onErrorResponse(VolleyError error) { error.printStackTrace(); } });
+        requestQueue.add(json);
+    }
+
+    public void queryAnswerless(Object obj, String url) {
+        JsonArrayRequest json = new JsonArrayRequest(url
+                , new Response.Listener<JSONArray>() { @Override public void onResponse(JSONArray response) { if (response.length() >= 1) { System.out.println("Were you expecting data with that query?"); } else answerlessReceived();  } }
+                , new Response.ErrorListener() { @Override public void onErrorResponse(VolleyError error) {System.out.println("A resend was nescessary!"); UNIQUEMAPPER.getmMapper().createMove((Move) obj);} });
         requestQueue.add(json);
     }
 

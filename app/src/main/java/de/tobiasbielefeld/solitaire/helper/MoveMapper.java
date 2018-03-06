@@ -40,8 +40,7 @@ public enum MoveMapper {
         String url = "https://iiw.kuleuven.be/onderzoek/drSolitaire/insertMove.php?" +
                 "type=" + move.getType().toString() + "&time=" + move.getTime()+"&gid=" + move.getGameid();
         Log.d("DB",url);
-        Move tmpMove = new Move();
-        eMapper.queryEntity(tmpMove, url); //TODO fix this at switchcase emapper
+        eMapper.queryAnswerless(move, url); //TODO fix this at switchcase emapper
     }
 
 
