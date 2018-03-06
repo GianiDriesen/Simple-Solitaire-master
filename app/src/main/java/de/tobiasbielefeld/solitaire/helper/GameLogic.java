@@ -89,6 +89,9 @@ public class GameLogic {
     private EntityMapper entityMapper = SharedData.getEntityMapper();
     private boolean dataSent = false;
     private int previousGameID;
+    private ArrayList<Long> previousReleaseCardTimes;
+    private ArrayList<Long> previousStackTouchTimes;
+
 
     public GameLogic(GameManager gm) {
         this.gm = gm;
@@ -287,7 +290,7 @@ public class GameLogic {
 
     private int calculateAvgMotorTime() {
         int avg = 0;
-        for (int i=0;i<currentGame.getMotorTime().size();i=i+2) {
+        for (int i=0;i<currentGame.getMotorTime().size()-1;i=i+2) {
             avg = avg + (currentGame.getMotorTime().get(i+1) - currentGame.getMotorTime().get(i));
         }
         avg = avg/(currentGame.getMotorTime().size()/2);
@@ -304,6 +307,8 @@ public class GameLogic {
                 currentGame.getStackCounter()[14],currentGame.getColorMoveCount(), currentGame.getWrongNumberCount(),currentGame.getHintCounter(),
                 currentGame.getUndoCounter(),currentGame.getBetaError(), SharedData.getInt(SharedData.GAME_SEED,-1), SharedData.scores.getScore());
 
+        previousStackTouchTimes = currentGame.getStackTouchTimes();
+        previousReleaseCardTimes = currentGame.getReleaseCardTimes();
         entityMapper.getgMapper().createGame(game);
         new SaveGameInDB().execute(); //Process: 1. Create game in db 2. Update person in DB
     }
@@ -344,6 +349,7 @@ public class GameLogic {
             }
             else {
                 Log.d("DB","Push Succesful");
+                previousGameID=game.getId();
                 new StoreMovesInDb().execute();
             }
         }
@@ -354,31 +360,31 @@ public class GameLogic {
             ArrayList<Long> releaseCardTimes = currentGame.getReleaseCardTimes();
             ArrayList<Long> stackTouchTimes = currentGame.getStackTouchTimes();
             int counter = 0;
-            Log.d("DB","RELEASECARD SEND START! "+releaseCardTimes.size()+" TIMES TO SEND");
-            while (counter != releaseCardTimes.size()) {
+            Log.d("DB","RELEASECARD SEND START! "+previousReleaseCardTimes.size()+" TIMES TO SEND");
+            while (counter != previousReleaseCardTimes.size()) {
                 entityMapper.resetAnswerlessReceived();
-                Move move = new Move(MoveType.RELEASECARD, releaseCardTimes.get(counter).intValue(), previousGameID);
+                Move move = new Move(MoveType.RELEASECARD, previousReleaseCardTimes.get(counter).intValue(), previousGameID);
                 entityMapper.getmMapper().createMove(move);
                 Log.d("DB","Move RELEASECARD "+counter+" send");
-//                try {
-//                    wait(50);
-//                } catch (InterruptedException e) {
-//                    e.printStackTrace();
-//                }
+                try {
+                    Thread.sleep(40);
+                } catch (InterruptedException e) {
+                    e.printStackTrace();
+                }
                 counter++;
             }
             counter = 0;
-            Log.d("DB","STACKTOUCH SEND START! "+stackTouchTimes.size()+" TIMES TO SEND");
-            while (counter != stackTouchTimes.size()) {
+            Log.d("DB","STACKTOUCH SEND START! "+previousStackTouchTimes.size()+" TIMES TO SEND");
+            while (counter != previousStackTouchTimes.size()) {
                 entityMapper.resetAnswerlessReceived();
-                Move move = new Move(MoveType.TOUCHSTACK, stackTouchTimes.get(counter).intValue(), previousGameID);
+                Move move = new Move(MoveType.TOUCHSTACK, previousStackTouchTimes.get(counter).intValue(), previousGameID);
                 entityMapper.getmMapper().createMove(move);
                 Log.d("DB","Move STACKTOUCH "+counter+" send");
-//                try {
-//                    wait(50);
-//                } catch (InterruptedException e) {
-//                    e.printStackTrace();
-//                }
+                try {
+                    Thread.sleep(40);
+                } catch (InterruptedException e) {
+                    e.printStackTrace();
+                }
                 counter++;
             }
             return null;
