@@ -305,12 +305,14 @@ public class GameLogic {
                 currentGame.getUndoCounter(),currentGame.getBetaError(), SharedData.getInt(SharedData.GAME_SEED,-1), SharedData.scores.getScore());
 
         entityMapper.getgMapper().createGame(game);
-        new SaveGameInDB().execute(); //Process: 1. Create game in db 2. Update person in DB TODO:thorough testing
+        new SaveGameInDB().execute(); //Process: 1. Create game in db 2. Update person in DB
     }
 
+    // @GN
+    // reset all the counters and arrayLists
     private void resetAllPlayerActions() {
         ArrayList<Integer> newTimestamps = new ArrayList<>();
-        currentGame.setColorMoveCount(0); // if new game is started, set the wrongMoveCounter to 0
+        currentGame.setColorMoveCount(0);
         currentGame.setWrongNumberCount(0);
         currentGame.setUndoCounter(0);
         currentGame.setFlipThroughMainstackCount(0);

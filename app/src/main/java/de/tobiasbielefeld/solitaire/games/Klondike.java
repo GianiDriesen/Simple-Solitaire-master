@@ -18,6 +18,7 @@
 
 package de.tobiasbielefeld.solitaire.games;
 
+import android.util.Log;
 import android.widget.RelativeLayout;
 
 import java.util.ArrayList;
@@ -34,6 +35,7 @@ import static de.tobiasbielefeld.solitaire.SharedData.OPTION_NO_RECORD;
 import static de.tobiasbielefeld.solitaire.SharedData.OPTION_REVERSED_RECORD;
 import static de.tobiasbielefeld.solitaire.SharedData.PREF_KEY_KLONDIKE_DRAW;
 import static de.tobiasbielefeld.solitaire.SharedData.PREF_KEY_KLONDIKE_DRAW_OLD;
+import static de.tobiasbielefeld.solitaire.SharedData.autoComplete;
 import static de.tobiasbielefeld.solitaire.SharedData.gameLogic;
 import static de.tobiasbielefeld.solitaire.SharedData.getSharedString;
 import static de.tobiasbielefeld.solitaire.SharedData.hint;
@@ -295,13 +297,20 @@ public class Klondike extends Game {
 
     public boolean winTest() {
         //if the foundation stacks aren't full, not won. Else won
+        /* @Todo remove this code if @GN is ok
         for (int i = 7; i <= 10; i++) {
             if (stacks[i].getSize() != 13) {
                 return false;
             }
         }
+        */
+        // @GN
+        // to check if a game is won or not, when the autocomplete button is shown, the game is won
+        if (autoComplete.buttonIsShown() == true) {
+            return true;
+        }
 
-        return true;
+        return false;
     }
 
     public void dealCards() {
@@ -334,7 +343,7 @@ public class Klondike extends Game {
         boolean deal3 = sharedStringEquals(PREF_KEY_DRAW_OLD, DEFAULT_DRAW,"3");
         // @GN
         flipThroughMainStackCounter++;
-        System.out.println("Flip through main stack: " + flipThroughMainStackCounter);
+        Log.d("FLIPTHROUGHPILE", "Flip through pile: " + flipThroughMainStackCounter);
 
         //if there are cards on the main stack
         if (getMainStack().getSize() > 0) {
@@ -496,8 +505,8 @@ public class Klondike extends Game {
 
         fault = false;
 
-        System.out.println("Mainstack boolean: " + mainstack);
-        System.out.println("Fault: " + fault);
+        Log.d("MAINSTACKBOOLEAN", "Mainstack boolean: " + mainstack);
+        Log.d("FAULT", "Fault: " + fault);
 
         if(hintUsed == false && mainstack == false) {
 
@@ -505,7 +514,7 @@ public class Klondike extends Game {
             if(((stack.getId() == 7) || (stack.getId() == 8) || (stack.getId() == 9) || (stack.getId() == 10)) && fault == false) { // this works
                 if((stack.getTopCard().getValue() != card.getValue() - 1) || (stack.getTopCard().getColor() != card.getColor())) {
                     wrongColorCounter++;
-                    System.out.println("Wrong color on aces stack " + wrongColorCounter);
+                    Log.d("WRONGCOLORONACES", "Wrong color on aces stack: " + wrongColorCounter);
                     fault = true;
                 }
             }
@@ -514,13 +523,13 @@ public class Klondike extends Game {
                 // problem with movement of cards, sometimes it counts an error twice
                 tapFaultColor = true;
                 wrongColorCounter++;
-                System.out.println("Wrong color " + wrongColorCounter + ", fault= " + fault);
+                Log.d("WRONGCOLOR", "Wrong color: " + wrongColorCounter);
                 fault = true;
             }
             else if((stack.getTopCard().getValue() != card.getValue() + 1) && fault == false) {
                 tapFaultNumber = true;
                 wrongNumberCounter++;
-                System.out.println("Wrong value " + wrongNumberCounter + ", fault= " + fault);
+                Log.d("WRONGVALUE", "Wrong value: " + wrongNumberCounter);
                 fault = true;
             }
 
@@ -533,11 +542,11 @@ public class Klondike extends Game {
                 if(mainstack == false) {
                     if (oldTapFaultColor != tapFaultColor && wrongColorCounter > 0) {
                         wrongColorCounter--;
-                        System.out.println("wrong color, wrong number :" + wrongColorCounter + " " + wrongNumberCounter);
+                        Log.d("WRONGCOLORWRONGNUMBER", "Wrong color, wrong number: " + wrongColorCounter + ", " + wrongNumberCounter);
                     }
                     else if(oldTapFaultNumber != tapFaultNumber && wrongNumberCounter > 0) {
                         wrongNumberCounter--;
-                        System.out.println("wrong color, wrong number :" + wrongColorCounter + " " + wrongNumberCounter);
+                        Log.d("WRONGCOLORWRONGNUMBER", "Wrong color, wrong number: " + wrongColorCounter + ", " + wrongNumberCounter);
                     }
                 }
             }
@@ -569,7 +578,7 @@ public class Klondike extends Game {
         for(int i = 0; i < stacks.length; i++) {
             if(stackId == stacks[i].getId()) {
                 stackCounter[i]++;
-                System.out.println("Stackcounter: " + Arrays.toString(stackCounter));
+                Log.d("STACKCOUNTER", "Stackcounter: " + Arrays.toString(stackCounter));
             }
         }
 
@@ -678,7 +687,7 @@ public class Klondike extends Game {
         return null;
     }
 
-    /* public CardAndStack autoCompletePhaseOne() {
+     public CardAndStack autoCompletePhaseOne() {
         return null;
     }
 
@@ -709,7 +718,6 @@ public class Klondike extends Game {
 
         return null;
     }
-    */
 
     public int addPointsToScore(ArrayList<Card> cards, int[] originIDs, int[] destinationIDs, boolean isUndoMovement) {
         int originID = originIDs[0];

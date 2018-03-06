@@ -18,6 +18,8 @@
 
 package de.tobiasbielefeld.solitaire.helper;
 
+import android.util.Log;
+
 import java.util.ArrayList;
 
 import de.tobiasbielefeld.solitaire.R;
@@ -111,7 +113,7 @@ public class Scores {
         int[] destinationIDs = new int[stacks.size()];
 
         currentGame.incrementUndoCounter();
-        System.out.println("Undo counter: " + currentGame.getUndoCounter());
+        Log.d("UNDOCOUNTER", "Undo counter: " + currentGame.getUndoCounter());
 
         for (int i = 0; i < originIDs.length; i++) {
             originIDs[i] = cards.get(i).getStackId();
