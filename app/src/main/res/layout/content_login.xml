@@ -8,200 +8,91 @@
     tools:context="de.tobiasbielefeld.solitaire.LoginActivity"
     tools:showIn="@layout/activity_login">
 
-    <LinearLayout
+    <EditText
+        android:id="@+id/username"
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:background="?attr/colorButtonNormal"
-        android:orientation="vertical">
+        android:layout_height="wrap_content"
+        android:layout_margin="30dp"
+        android:layout_weight="1"
+        android:ems="10"
+        android:hint="Username"
+        android:inputType="textPersonName"
+        android:textAlignment="viewStart"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/textView3" />
 
-        <ImageView
-            android:layout_width="match_parent"
-            android:layout_height="100dp"
-            android:layout_marginTop="100px"
-            android:src="@drawable/kuleuvenlogo" />
+    <ImageView
+        android:id="@+id/kuleuvenIMG"
+        android:layout_width="match_parent"
+        android:layout_height="100dp"
+        android:layout_marginTop="30dp"
+        android:src="@drawable/kuleuvenlogo"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
 
-        <Space
-            android:layout_width="match_parent"
-            android:layout_height="29dp" />
+    <Button
+        android:id="@+id/proceedBtn"
+        android:layout_width="match_parent"
+        android:layout_height="50dp"
+        android:layout_margin="30dp"
+        android:layout_marginTop="50dp"
+        android:layout_weight="1"
+        android:background="@color/white"
+        android:onClick="loginApp"
+        android:text="Login"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/password" />
 
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:orientation="horizontal">
+    <Button
+        android:id="@+id/skipBtn"
+        android:layout_width="match_parent"
+        android:layout_height="50dp"
+        android:layout_margin="30dp"
+        android:layout_marginTop="5dp"
+        android:layout_weight="1"
+        android:background="@color/white"
+        android:onClick="skipApp"
+        android:text="SKIP LOGIN FOR NOW"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/registerBtn" />
 
-            <Space
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_weight="1" />
+    <TextView
+        android:id="@+id/textView3"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_margin="30dp"
+        android:layout_weight="1"
+        android:gravity="center"
+        android:text="Login and Start playing!"
+        android:textAlignment="center"
+        android:textSize="16sp"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/kuleuvenIMG" />
 
-            <TextView
-                android:id="@+id/textView3"
-                android:layout_width="440dp"
-                android:layout_height="wrap_content"
-                android:layout_weight="1"
-                android:text="Login and Start playing!"
-                android:textAlignment="center"
-                android:textSize="16sp"
-                tools:layout_editor_absoluteX="16dp"
-                tools:layout_editor_absoluteY="70dp" />
+    <EditText
+        android:id="@+id/password"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_margin="30dp"
+        android:layout_weight="1"
+        android:ems="10"
+        android:hint="Password"
+        android:inputType="textEmailAddress|textPassword"
+        android:password="true"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/username" />
 
-            <Space
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_weight="1" />
-
-        </LinearLayout>
-
-        <Space
-            android:layout_width="match_parent"
-            android:layout_height="31dp" />
-
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:orientation="horizontal">
-
-            <Space
-                android:layout_width="200dp"
-                android:layout_height="wrap_content"
-                android:layout_weight="1" />
-
-            <EditText
-                android:id="@+id/username"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_weight="1"
-                android:ems="10"
-                android:hint="Username"
-                android:inputType="textPersonName"
-                android:textAlignment="viewStart"
-                tools:layout_editor_absoluteX="85dp"
-                tools:layout_editor_absoluteY="179dp" />
-
-            <Space
-                android:layout_width="200dp"
-                android:layout_height="wrap_content"
-                android:layout_weight="1" />
-
-        </LinearLayout>
-
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:orientation="horizontal">
-
-            <Space
-                android:layout_width="200dp"
-                android:layout_height="wrap_content"
-                android:layout_weight="1" />
-
-            <EditText
-                android:id="@+id/password"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_weight="1"
-                android:ems="10"
-                android:hint="Password"
-                android:inputType="textEmailAddress|textPassword"
-                android:password="true"
-                tools:layout_editor_absoluteX="85dp"
-                tools:layout_editor_absoluteY="242dp" />
-
-            <Space
-                android:layout_width="200dp"
-                android:layout_height="wrap_content"
-                android:layout_weight="1" />
-        </LinearLayout>
-
-        <Space
-            android:layout_width="match_parent"
-            android:layout_height="30dp" />
-
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:orientation="horizontal">
-
-            <Space
-                android:layout_width="200dp"
-                android:layout_height="wrap_content"
-                android:layout_weight="1" />
-
-            <Button
-                android:id="@+id/proceedBtn"
-                android:layout_width="match_parent"
-                android:layout_height="50dp"
-                android:layout_weight="1"
-                android:background="@color/white"
-                android:onClick="loginApp"
-                android:text="Login"
-                tools:layout_editor_absoluteX="85dp"
-                tools:layout_editor_absoluteY="336dp" />
-
-            <Space
-                android:layout_width="200dp"
-                android:layout_height="wrap_content"
-                android:layout_weight="1" />
-        </LinearLayout>
-
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="10dp"
-            android:orientation="horizontal">
-
-            <Space
-                android:layout_width="200dp"
-                android:layout_height="wrap_content"
-                android:layout_weight="1" />
-
-            <Button
-                android:id="@+id/skipBtn"
-                android:layout_width="match_parent"
-                android:layout_height="50dp"
-                android:layout_weight="1"
-                android:background="@color/white"
-                android:onClick="skipApp"
-                android:text="SKIP LOGIN FOR NOW"
-                tools:layout_editor_absoluteX="85dp"
-                tools:layout_editor_absoluteY="400dp" />
-
-            <Space
-                android:layout_width="200dp"
-                android:layout_height="wrap_content"
-                android:layout_weight="1" />
-
-        </LinearLayout>
-
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="10dp"
-            android:orientation="horizontal">
-
-            <Space
-                android:layout_width="200dp"
-                android:layout_height="wrap_content"
-                android:layout_weight="1" />
-
-            <Button
-                android:id="@+id/registerBtn"
-                android:layout_width="match_parent"
-                android:layout_height="50dp"
-                android:layout_weight="1"
-                android:background="@color/white"
-                android:onClick="registerApp"
-                android:text="Not an account yet?"
-                tools:layout_editor_absoluteX="85dp"
-                tools:layout_editor_absoluteY="400dp" />
-
-            <Space
-                android:layout_width="200dp"
-                android:layout_height="wrap_content"
-                android:layout_weight="1" />
-
-        </LinearLayout>
-
-    </LinearLayout>
+    <Button
+        android:id="@+id/registerBtn"
+        android:layout_width="match_parent"
+        android:layout_height="50dp"
+        android:layout_margin="30dp"
+        android:layout_marginTop="5dp"
+        android:layout_weight="1"
+        android:background="@color/white"
+        android:onClick="registerApp"
+        android:text="Not an account yet?"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/proceedBtn" />
 
 </android.support.constraint.ConstraintLayout>
