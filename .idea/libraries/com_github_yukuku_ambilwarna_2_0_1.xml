@@ -1,8 +1,8 @@
 <component name="libraryTable">
   <library name="com.github.yukuku:ambilwarna-2.0.1">
     <CLASSES>
-      <root url="jar://$USER_HOME$/.gradle/caches/transforms-1/files-1.1/ambilwarna-2.0.1.aar/c365254d83fdde384c93b66659a4b0a5/jars/classes.jar!/" />
-      <root url="file://$USER_HOME$/.gradle/caches/transforms-1/files-1.1/ambilwarna-2.0.1.aar/c365254d83fdde384c93b66659a4b0a5/res" />
+      <root url="file://$USER_HOME$/.gradle/caches/transforms-1/files-1.1/ambilwarna-2.0.1.aar/fdb34513cfd38c2641f87e06c2cf6e4d/res" />
+      <root url="jar://$USER_HOME$/.gradle/caches/transforms-1/files-1.1/ambilwarna-2.0.1.aar/fdb34513cfd38c2641f87e06c2cf6e4d/jars/classes.jar!/" />
     </CLASSES>
     <JAVADOC />
     <SOURCES>

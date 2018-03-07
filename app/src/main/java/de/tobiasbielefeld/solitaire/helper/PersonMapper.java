@@ -1,5 +1,6 @@
 package de.tobiasbielefeld.solitaire.helper;
 
+import android.support.annotation.NonNull;
 import android.util.Log;
 
 import de.tobiasbielefeld.solitaire.classes.Person;
@@ -25,10 +26,14 @@ public enum PersonMapper {
 	}
 
 	public void getPersonByUsernameAndPassword(String username, String password) {
-		String url = "https://iiw.kuleuven.be/onderzoek/drSolitaire/getPerson.php?username=" + username + "&password=" + password;
+		String url = getURLPersonByUserName(username, password);
 		Log.d("DB",url);
 		Person tmpPerson = new Person();
 		eMapper.queryEntity(tmpPerson, url);
+	}
+
+	private String getURLPersonByUserName(String username, String password) {
+		return "https://iiw.kuleuven.be/onderzoek/drSolitaire/getPerson.php?username=" + username + "&password=" + password;
 	}
 
 	/**
@@ -37,28 +42,17 @@ public enum PersonMapper {
 	 * @param person The Person object that needs to be stored
 	 */
 	public void createPerson(Person person) {
-		int gender = 0;
-		if (person.isGender()) gender=1;
-		String url = "https://iiw.kuleuven.be/onderzoek/drSolitaire/insertPerson.php?username=" + person.getUsername() + "&password=" + person.getPassword() + "&age=" + person.getAge() +
-				"&gender=" + gender + "&level=" + person.getLevel();
+		String url = getURLCreatePerson(person);
 		Log.d("DB",url);
 		Person tmpPerson = new Person();
 		eMapper.queryEntity(tmpPerson, url);
 	}
 
-	/**
-	 * Update all non-nullable columns of a Person in the database
-	 *
-	 * @param person The Person object with the new data
-	 */
-	public void 	updatePerson(Person person) {
+	@NonNull
+	private String getURLCreatePerson(Person person) {
 		int gender = 0;
 		if (person.isGender()) gender=1;
-		String url = "https://iiw.kuleuven.be/onderzoek/drSolitaire/updatePerson.php?username=" + person.getUsername() + "&password=" + person.getPassword() + "&age=" + person.getAge() +
-				"&gender=" + gender + "&level=" + person.getLevel() + "&avgScore=" + person.getAvgScore() + "&avgMoves=" + person.getAvgMoves() + "&avgTime=" + person.getAvgTime() +
-				"&gamesSucces=" + person.getGamesSucces() + "&gamesFailed=" + person.getGamesFailed();
-		Log.d("DB",url);
-		Person tmpPerson = new Person();
-		eMapper.queryEntity(tmpPerson, url);
+		return "https://iiw.kuleuven.be/onderzoek/drSolitaire/insertPerson.php?username=" + person.getUsername() + "&password=" + person.getPassword() + "&age=" + person.getAge() +
+				"&gender=" + gender + "&level=" + person.getLevel();
 	}
 }

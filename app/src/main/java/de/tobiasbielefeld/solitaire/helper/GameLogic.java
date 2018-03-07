@@ -18,6 +18,11 @@
 
 package de.tobiasbielefeld.solitaire.helper;
 
+import android.app.Activity;
+import android.app.ActivityManager;
+import android.content.Context;
+import android.net.ConnectivityManager;
+import android.net.NetworkInfo;
 import android.os.AsyncTask;
 import android.util.Log;
 import android.view.View;
@@ -25,6 +30,7 @@ import android.view.View;
 import java.util.ArrayList;
 import java.util.Random;
 
+import de.tobiasbielefeld.solitaire.MainApplication;
 import de.tobiasbielefeld.solitaire.R;
 import de.tobiasbielefeld.solitaire.SharedData;
 import de.tobiasbielefeld.solitaire.classes.Card;
@@ -35,6 +41,7 @@ import de.tobiasbielefeld.solitaire.classes.Person;
 import de.tobiasbielefeld.solitaire.classes.Stack;
 import de.tobiasbielefeld.solitaire.ui.GameManager;
 
+import static android.content.Context.ACTIVITY_SERVICE;
 import static de.tobiasbielefeld.solitaire.SharedData.DEFAULT_AUTO_START_NEW_GAME;
 import static de.tobiasbielefeld.solitaire.SharedData.DEFAULT_FIRST_RUN;
 import static de.tobiasbielefeld.solitaire.SharedData.DEFAULT_MOVED_FIRST_CARD;
@@ -240,6 +247,12 @@ public class GameLogic {
         randomize(randomCards);
 
         redeal();
+    }
+
+    public boolean isNetworkAvailable() {
+        ConnectivityManager connectivityManager = (ConnectivityManager) gm.getApplicationContext().getSystemService(Context.CONNECTIVITY_SERVICE);
+        NetworkInfo activeNetworkInfo = connectivityManager.getActiveNetworkInfo();
+        return activeNetworkInfo != null && activeNetworkInfo.isConnected();
     }
 
     /**
