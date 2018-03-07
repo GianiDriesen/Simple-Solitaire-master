@@ -93,6 +93,11 @@ public class GameSelector extends CustomAppCompatActivity implements NavigationV
                 break;
             case R.id.item_close:
                 SharedData.user = null;
+                getSharedPreferences(PREFS_NAME,MODE_PRIVATE)
+                        .edit()
+                        .putString(PREF_USERNAME, null)
+                        .putString(PREF_PASSWORD, null)
+                        .commit();
                 startActivity(new Intent(getApplicationContext(), LoginActivity.class));
                 finish();
                 break;

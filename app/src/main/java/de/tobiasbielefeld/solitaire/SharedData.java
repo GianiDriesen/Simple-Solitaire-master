@@ -90,6 +90,9 @@ public class SharedData {
     public static String CANFIELD_START_CARD_VALUE;
     public static String RESTART_DIALOG;
     public static String WON_DIALOG;
+    public static final String PREFS_NAME = "LoginRecordsFile";
+    public static final String PREF_USERNAME = "username";
+    public static final String PREF_PASSWORD = "password";
     public static String PREF_KEY_YUKON_RULES;
     public static String PREF_KEY_YUKON_RULES_OLD;
     public static String PREF_KEY_KLONDIKE_DRAW;

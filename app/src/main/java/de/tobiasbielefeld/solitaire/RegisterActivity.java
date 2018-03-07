@@ -19,6 +19,9 @@ import de.tobiasbielefeld.solitaire.helper.EntityMapper;
 import de.tobiasbielefeld.solitaire.ui.GameSelector;
 
 import static de.tobiasbielefeld.solitaire.SharedData.ERROR;
+import static de.tobiasbielefeld.solitaire.SharedData.PREFS_NAME;
+import static de.tobiasbielefeld.solitaire.SharedData.PREF_PASSWORD;
+import static de.tobiasbielefeld.solitaire.SharedData.PREF_USERNAME;
 import static de.tobiasbielefeld.solitaire.SharedData.getEntityMapper;
 
 public class RegisterActivity extends AppCompatActivity {
@@ -132,6 +135,11 @@ public class RegisterActivity extends AppCompatActivity {
         protected void onPostExecute(Person person) {
             if (person != null) {
                 Intent intent = new Intent(RegisterActivity.this, GameSelector.class);
+                getSharedPreferences(PREFS_NAME,MODE_PRIVATE)
+                        .edit()
+                        .putString(PREF_USERNAME, username.getText().toString())
+                        .putString(PREF_PASSWORD, password.getText().toString())
+                        .commit();
                 startActivity(intent);
                 finish();
             }
