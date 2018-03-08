@@ -62,8 +62,8 @@
     <string name="dialog_win_total">Total: %1$d</string>
     <string name="DrSolitaire" translatable="false">Dr. Solitaire</string>
     <string name="title_activity_login" translatable="false">LoginActivity</string>
-    <string name="title_activity_start">Dr Solitaire</string>
-    <string name="game_seed">GameSeed</string>
-    <string name="registeractivity">Register Activity</string>
+    <string name="title_activity_start" translatable="false">Dr Solitaire</string>
+    <string name="game_seed" translatable="false">GameSeed</string>
+    <string name="registeractivity" translatable="false">Register Activity</string>
 
 </resources>

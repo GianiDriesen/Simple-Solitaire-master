@@ -5,7 +5,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     app:layout_behavior="@string/appbar_scrolling_view_behavior"
-    tools:context="de.tobiasbielefeld.solitaire.RegisterActivity"
+    tools:context="be.kuleuven.drsolitaire.RegisterActivity"
     tools:showIn="@layout/activity_register">
 
     <LinearLayout
@@ -211,7 +211,6 @@
                 android:layout_weight="1"
                 android:paddingTop="5dp"
                 android:text="Level:"
-                android:textAppearance="@android:style/TextAppearance.Material.Body1"
                 android:textSize="20sp" />
 
             <SeekBar

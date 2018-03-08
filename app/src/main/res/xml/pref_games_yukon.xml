@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <PreferenceScreen xmlns:android="http://schemas.android.com/apk/res/android">
 
-    <de.tobiasbielefeld.solitaire.classes.ListPreferenceWithSummary
+    <be.kuleuven.drsolitaire.classes.ListPreferenceWithSummary
         android:defaultValue="default"
         android:entries="@array/pref_yukon_rules_titles"
         android:entryValues="@array/pref_yukon_rules_values"

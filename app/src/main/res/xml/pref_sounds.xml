@@ -5,7 +5,7 @@
         android:defaultValue="@bool/default_sound_enabled"
         android:title="@string/Settings_sound" />
 
-    <de.tobiasbielefeld.solitaire.classes.ListPreferenceWithSummary
+    <be.kuleuven.drsolitaire.classes.ListPreferenceWithSummary
         android:dependency="@string/pref_key_sound_enabled"
         android:defaultValue="@string/default_win_sound"
         android:entries="@array/pref_win_sounds_titles"
@@ -16,7 +16,7 @@
         android:summary="%s"
         android:title="@string/Settings_win_sound_title" />
 
-    <de.tobiasbielefeld.solitaire.classes.ListPreferenceWithSummary
+    <be.kuleuven.drsolitaire.classes.ListPreferenceWithSummary
         android:dependency="@string/pref_key_sound_enabled"
         android:defaultValue="@string/default_background_music"
         android:entries="@array/pref_background_musics_titles"
@@ -27,7 +27,7 @@
         android:summary="%s"
         android:title="@string/Settings_background_music" />
 
-    <de.tobiasbielefeld.solitaire.dialogs.DialogPreferenceMusicVolume
+    <be.kuleuven.drsolitaire.dialogs.DialogPreferenceMusicVolume
         android:dependency="@string/pref_key_sound_enabled"
         android:key="@string/pref_key_background_volume"
         android:title="@string/Settings_background_volume"

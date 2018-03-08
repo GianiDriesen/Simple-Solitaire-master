@@ -1,11 +1,11 @@
 <preference-headers xmlns:android="http://schemas.android.com/apk/res/android">
     <header
-        android:fragment="de.tobiasbielefeld.solitaire.ui.settings.Settings$CustomizationPreferenceFragment"
+        android:fragment="be.kuleuven.drsolitaire.ui.settings.Settings$CustomizationPreferenceFragment"
         android:summary="@string/settings_customization_description"
         android:title="@string/settings_customization" />
 
     <header
-        android:fragment="de.tobiasbielefeld.solitaire.ui.settings.Settings$MenuPreferenceFragment"
+        android:fragment="be.kuleuven.drsolitaire.ui.settings.Settings$MenuPreferenceFragment"
         android:summary="@string/settings_menu_description"
         android:title="@string/settings_menu" />
 
@@ -14,32 +14,24 @@
         android:title="@string/settings_games" >
 
         <intent
-            android:targetClass="de.tobiasbielefeld.solitaire.ui.settings.SettingsGames"
-            android:targetPackage="de.tobiasbielefeld.solitaire" />
+            android:targetClass="be.kuleuven.drsolitaire.ui.settings.SettingsGames"
+            android:targetPackage="be.kuleuven.drsolitaire" />
     </header>
 
     <header
-        android:fragment="de.tobiasbielefeld.solitaire.ui.settings.Settings$SoundPreferenceFragment"
+        android:fragment="be.kuleuven.drsolitaire.ui.settings.Settings$SoundPreferenceFragment"
         android:summary="@string/Settings_sounds_text"
         android:title="@string/Settings_sounds_title" />
 
     <header
-        android:fragment="de.tobiasbielefeld.solitaire.ui.settings.Settings$AdditionalMovementsPreferenceFragment"
+        android:fragment="be.kuleuven.drsolitaire.ui.settings.Settings$AdditionalMovementsPreferenceFragment"
         android:summary="@string/settings_additional_movements_description"
         android:title="@string/settings_additional_movements" />
 
     <header
-        android:fragment="de.tobiasbielefeld.solitaire.ui.settings.Settings$OtherPreferenceFragment"
+        android:fragment="be.kuleuven.drsolitaire.ui.settings.Settings$OtherPreferenceFragment"
         android:summary="@string/settings_other_description"
         android:title="@string/settings_other" />
 
-    <!--
-    <header
-        android:summary="@string/settings_about_description"
-        android:title="@string/about_name">
-        <intent
-            android:targetClass="de.tobiasbielefeld.solitaire.ui.about.AboutActivity"
-            android:targetPackage="de.tobiasbielefeld.solitaire" />
-    </header> -->
 
 </preference-headers>

@@ -6,7 +6,7 @@
     android:id="@+id/mainRelativeLayoutBackground"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".ui.GameManager">
+    tools:context="be.kuleuven.drsolitaire.ui.GameManager">
 
     <RelativeLayout
         android:id="@+id/mainRelativeLayoutGame"

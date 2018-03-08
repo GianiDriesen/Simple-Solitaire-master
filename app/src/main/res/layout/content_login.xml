@@ -5,7 +5,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     app:layout_behavior="@string/appbar_scrolling_view_behavior"
-    tools:context="de.tobiasbielefeld.solitaire.LoginActivity"
+    tools:context="be.kuleuven.drsolitaire.LoginActivity"
     tools:showIn="@layout/activity_login">
 
     <EditText
@@ -19,7 +19,8 @@
         android:inputType="textPersonName"
         android:textAlignment="viewStart"
         app:layout_constraintLeft_toLeftOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/textView3" />
+        app:layout_constraintTop_toBottomOf="@+id/textView3"
+        android:gravity="start" />
 
     <ImageView
         android:id="@+id/kuleuvenIMG"
@@ -53,6 +54,7 @@
         android:background="@color/white"
         android:onClick="skipApp"
         android:text="SKIP LOGIN FOR NOW"
+        android:visibility="invisible"
         app:layout_constraintLeft_toLeftOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/registerBtn" />
 
