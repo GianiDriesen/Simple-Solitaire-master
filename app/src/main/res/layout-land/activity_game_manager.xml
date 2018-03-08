@@ -61,6 +61,18 @@
             android:textAppearance="?android:attr/textAppearanceMedium" />
 
         <TextView
+            android:id="@+id/mainTextViewGameNumber"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentBottom="true"
+            android:text="Game -1"
+            android:layout_toRightOf="@+id/mainTextViewScore"
+            android:layout_toEndOf="@+id/mainTextViewScore"
+            android:layout_margin="5dp"
+            android:maxLines="1"
+            android:textAppearance="?android:attr/textAppearanceMedium" />
+
+        <TextView
             android:id="@+id/mainTextViewTime"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"

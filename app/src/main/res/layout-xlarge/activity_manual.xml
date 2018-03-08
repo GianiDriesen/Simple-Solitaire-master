@@ -43,7 +43,8 @@
         android:layout_height="match_parent"
         android:layout_below="@+id/appBarLayout"
         android:layout_toEndOf="@+id/linearLayout"
-        android:background="@drawable/shadow_left_to_right" />
+        android:background="@drawable/shadow_left_to_right"
+        android:layout_toRightOf="@+id/linearLayout" />
 
     <View
         android:id="@+id/shadow2"

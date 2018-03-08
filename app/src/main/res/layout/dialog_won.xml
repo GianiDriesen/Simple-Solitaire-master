@@ -13,7 +13,8 @@
         android:paddingBottom="10dp"
         android:paddingStart="10dp"
         android:text="@string/dialog_win_titel"
-        android:textAppearance="@style/TextAppearance.AppCompat.Title" />
+        android:textAppearance="@style/TextAppearance.AppCompat.Title"
+        android:paddingLeft="10dp" />
 
     <LinearLayout
         android:id="@+id/dialog_won_layout_scores"
