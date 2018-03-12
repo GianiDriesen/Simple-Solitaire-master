@@ -36,7 +36,6 @@ import de.tobiasbielefeld.solitaire.R;
 import de.tobiasbielefeld.solitaire.classes.CustomAppCompatActivity;
 
 import static de.tobiasbielefeld.solitaire.SharedData.GAME;
-import static de.tobiasbielefeld.solitaire.SharedData.logText;
 
 /**
  * Manual Activity: Uses some fragments to show the manual pages.
@@ -106,7 +105,9 @@ public class Manual extends CustomAppCompatActivity
 
                 //Put args, so the correct game page can be shown
                 Bundle args = new Bundle();
-                args.putString(GAME, getIntent().getStringExtra(GAME));
+                //args.putString(GAME, getIntent().getStringExtra(GAME));
+                // @GN: fixed the error when the manual was opened on Canfield in stead of Klondike
+                args.putString(GAME, "Klondike");
                 fragment.setArguments(args);
 
                 FragmentManager fragmentManager = getSupportFragmentManager();

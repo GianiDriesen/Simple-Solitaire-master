@@ -84,13 +84,13 @@
         <item>Start new game</item>
         <item>Give cards again</item>
         <item>Game rules</item>
-        <item>Return to main menu</item>
+
     </string-array>
 
     <string-array name="won_menu">
         <item>Start new game</item>
         <item>Give cards again</item>
-        <item>Return to main menu</item>
+
     </string-array>
 
     <string-array name="pref_orientation_titles">
