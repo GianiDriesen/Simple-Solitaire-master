@@ -35,7 +35,7 @@ import static de.tobiasbielefeld.solitaire.SharedData.*;
 
 public class Hint {
 
-    public static final int MAX_NUMBER_OF_HINTS = 3;                                                //max number of hints which are shown when pressing the button
+    public static final int MAX_NUMBER_OF_HINTS = 1;                                                //max number of hints which are shown when pressing the button
     public HandlerHint handlerHint = new HandlerHint();                                             //handler to show the hinzd
 
     private int counter = 0;                                                                        //counter to know how many hints were shown

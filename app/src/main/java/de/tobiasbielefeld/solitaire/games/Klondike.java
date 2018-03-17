@@ -501,8 +501,6 @@ public class Klondike extends Game {
     // @GN function to count various fault moves
     public void faultCounter(Stack stack, Card card) {
 
-
-
         fault = false;
 
         Log.d("MAINSTACKBOOLEAN", "Mainstack boolean: " + mainstack);
