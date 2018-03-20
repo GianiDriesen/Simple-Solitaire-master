@@ -3,7 +3,6 @@
   <component name="ProjectModuleManager">
     <modules>
       <module fileurl="file://$PROJECT_DIR$/Simple-Solitaire-master.iml" filepath="$PROJECT_DIR$/Simple-Solitaire-master.iml" />
-      <module fileurl="file://C:\Users\karst\AndroidStudioProjects\Simple-Solitaire-master\Simple-Solitaire-master3.iml" filepath="C:\Users\karst\AndroidStudioProjects\Simple-Solitaire-master\Simple-Solitaire-master3.iml" />
       <module fileurl="file://$PROJECT_DIR$/app/app.iml" filepath="$PROJECT_DIR$/app/app.iml" />
     </modules>
   </component>
