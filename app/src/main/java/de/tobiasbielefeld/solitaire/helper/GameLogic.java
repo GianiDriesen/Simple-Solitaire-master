@@ -130,7 +130,7 @@ public class GameLogic {
         putInt("UNDOCOUNT", currentGame.getUndoCounter());
         putInt("WRONGCOLORCOUNT", currentGame.getColorMoveCount());
         putInt("WRONGNUMBERCOUNT", currentGame.getWrongNumberCount());
-        putInt("FLIPMAINSTACKCOUNT", currentGame.getFlipThroughMainstackCount());
+        //putInt("FLIPMAINSTACKCOUNT", currentGame.getFlipThroughMainstackCount());
         putInt("HINTCOUNT", currentGame.getHintCounter());
         putIntList("TIMESTAMPS", currentGame.getMotorTime());
         putIntArray("STACKCOUNTS", currentGame.getStackCounter());
@@ -171,7 +171,7 @@ public class GameLogic {
 
         // @GN loading created counters when game is booted up
         currentGame.setUndoCounter(getInt("UNDOCOUNT", 0));
-        currentGame.setFlipThroughMainstackCount(getInt("FLIPMAINSTACKCOUNT", 0));
+        //currentGame.setFlipThroughMainstackCount(getInt("FLIPMAINSTACKCOUNT", 0));
         currentGame.setHintCounter(getInt("HINTCOUNT", 0));
         currentGame.setWrongNumberCount(getInt("WRONGNUMBERCOUNT", 0));
         currentGame.setColorMoveCount(getInt("WRONGCOLORCOUNT", 0));
@@ -249,11 +249,11 @@ public class GameLogic {
         redeal();
     }
 
-    public boolean isNetworkAvailable() {
-        ConnectivityManager connectivityManager = (ConnectivityManager) gm.getApplicationContext().getSystemService(Context.CONNECTIVITY_SERVICE);
-        NetworkInfo activeNetworkInfo = connectivityManager.getActiveNetworkInfo();
-        return activeNetworkInfo != null && activeNetworkInfo.isConnected();
-    }
+//    public boolean isNetworkAvailable() {
+//        ConnectivityManager connectivityManager = (ConnectivityManager) gm.getApplicationContext().getSystemService(Context.CONNECTIVITY_SERVICE);
+//        NetworkInfo activeNetworkInfo = connectivityManager.getActiveNetworkInfo();
+//        return activeNetworkInfo != null && activeNetworkInfo.isConnected();
+//    }
 
     /**
      * starts a new game, but with the same deal.
@@ -313,7 +313,7 @@ public class GameLogic {
 
 
     private void createGamePlayed() {
-        GamePlayed game = new GamePlayed(SharedData.user.getId(),(int) timer.getCurrentTime(),won,currentGame.getFlipThroughMainstackCount(),calculateAvgMotorTime(),
+        GamePlayed game = new GamePlayed(SharedData.user.getId(),(int) timer.getCurrentTime(),won,calculateAvgMotorTime(),
                 currentGame.getStackCounter()[0],currentGame.getStackCounter()[1],currentGame.getStackCounter()[2],currentGame.getStackCounter()[3],
                 currentGame.getStackCounter()[4],currentGame.getStackCounter()[5],currentGame.getStackCounter()[6],currentGame.getStackCounter()[7],
                 currentGame.getStackCounter()[8],currentGame.getStackCounter()[9],currentGame.getStackCounter()[10],currentGame.getStackCounter()[13],
@@ -333,7 +333,6 @@ public class GameLogic {
         currentGame.setColorMoveCount(0);
         currentGame.setWrongNumberCount(0);
         currentGame.setUndoCounter(0);
-        currentGame.setFlipThroughMainstackCount(0);
         currentGame.setHintCounter(0);
         currentGame.setMotorTime(newTimestamps);
         currentGame.setStackCounter(new int[15]);
@@ -345,8 +344,11 @@ public class GameLogic {
     private class SaveGameInDB extends AsyncTask<Void, Void, GamePlayed> {
         protected GamePlayed doInBackground(Void... voids) {
             GamePlayed game = new GamePlayed();
+            long startTime = System.currentTimeMillis(); //fetch starting time
             while (!entityMapper.dataReady()) {
+                Log.d("TEST","InWhileLoop");
                 if (isCancelled()) break;
+                if ((System.currentTimeMillis()-startTime)>3000) break;
             }
             if (entityMapper.dataReady()) {
                 game = getEntityMapper().game;
@@ -356,12 +358,12 @@ public class GameLogic {
         }
 
         protected void onPostExecute(GamePlayed game) {
-            if (game == null) {
-                Log.d("DB","Push Not Succesful");
-                throw new java.lang.Error("GameData not uploaded to the database! @/helper/GameLogic");
+            Log.d("TEST","Potential push! ID= "+game.getId());
+            if (game.getId() == 0) {
+                Log.d("TEST","Push Not Succesful");
             }
             else {
-                Log.d("DB","Push Succesful");
+                Log.d("TEST","Push Succesful");
                 previousGameID=game.getId();
                 new StoreMovesInDb().execute();
             }

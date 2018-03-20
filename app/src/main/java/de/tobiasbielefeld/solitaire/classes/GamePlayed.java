@@ -18,7 +18,6 @@ public class GamePlayed {
     private int personID;
     private int gameTime;
     private boolean isSolved;
-    private int countTroughPile;
     private int avgMotorTime;
     private int buildStack1;
     private int buildStack2;
@@ -49,7 +48,6 @@ public class GamePlayed {
             this.personID = obj.getInt("personID");
             this.gameTime = obj.getInt("playTime");
             this.isSolved = (obj.getInt("isSolved") == 1); //@kg
-            this.countTroughPile = obj.getInt("throughPileCounter");
             this.avgMotorTime = obj.getInt("avgMotorTime");
             this.buildStack1 = obj.getInt("buildStack1Counter");
             this.buildStack2 = obj.getInt("buildStack2Counter");
@@ -77,11 +75,10 @@ public class GamePlayed {
     }
 
 
-    public GamePlayed(int personID, int gameTime, boolean isSolved, int countTroughPile, int avgMotorTime, int buildStack1, int buildStack2, int buildStack3, int buildStack4, int buildStack5, int buildStack6, int buildStack7, int suitStack1, int suitStack2, int suitStack3, int suitStack4, int talonStack, int pileStack, int moveSameColorError, int moveWrongNumberError, int hintButtonCount, int undoButtonCount, int betaError, int gameseed, long score) {
+    public GamePlayed(int personID, int gameTime, boolean isSolved, int avgMotorTime, int buildStack1, int buildStack2, int buildStack3, int buildStack4, int buildStack5, int buildStack6, int buildStack7, int suitStack1, int suitStack2, int suitStack3, int suitStack4, int talonStack, int pileStack, int moveSameColorError, int moveWrongNumberError, int hintButtonCount, int undoButtonCount, int betaError, int gameseed, long score) {
         this.personID = personID;
         this.gameTime = gameTime;
         this.isSolved = isSolved;
-        this.countTroughPile = countTroughPile;
         this.avgMotorTime = avgMotorTime;
         this.buildStack1 = buildStack1;
         this.buildStack2 = buildStack2;
@@ -105,12 +102,11 @@ public class GamePlayed {
         this.score = score;
     }
 
-    public GamePlayed(int id, int personID, int gameTime, boolean isSolved, int countTroughPile, int avgMotorTime, int buildStack1, int buildStack2, int buildStack3, int buildStack4, int buildStack5, int buildStack6, int buildStack7, int suitStack1, int suitStack2, int suitStack3, int suitStack4, int talonStack, int pileStack, int moveSameColorError, int moveWrongNumberError, int hintButtonCount, int undoButtonCount, int betaError) {
+    public GamePlayed(int id, int personID, int gameTime, boolean isSolved, int avgMotorTime, int buildStack1, int buildStack2, int buildStack3, int buildStack4, int buildStack5, int buildStack6, int buildStack7, int suitStack1, int suitStack2, int suitStack3, int suitStack4, int talonStack, int pileStack, int moveSameColorError, int moveWrongNumberError, int hintButtonCount, int undoButtonCount, int betaError) {
         this.id = id;
         this.personID = personID;
         this.gameTime = gameTime;
         this.isSolved = isSolved;
-        this.countTroughPile = countTroughPile;
         this.avgMotorTime = avgMotorTime;
         this.buildStack1 = buildStack1;
         this.buildStack2 = buildStack2;
@@ -162,14 +158,6 @@ public class GamePlayed {
 
     public void setSolved(boolean solved) {
         isSolved = solved;
-    }
-
-    public int getCountTroughPile() {
-        return countTroughPile;
-    }
-
-    public void setCountTroughPile(int countTroughPile) {
-        this.countTroughPile = countTroughPile;
     }
 
     public int getAvgMotorTime() {
