@@ -2,8 +2,11 @@ package de.tobiasbielefeld.solitaire.helper;
 
 import android.util.Log;
 
+import com.android.volley.NetworkError;
+import com.android.volley.NoConnectionError;
 import com.android.volley.RequestQueue;
 import com.android.volley.Response;
+import com.android.volley.TimeoutError;
 import com.android.volley.VolleyError;
 import com.android.volley.toolbox.JsonArrayRequest;
 
@@ -58,6 +61,10 @@ public enum EntityMapper {
     public List<Move> moves;
     private boolean dataReady = false;
     private boolean answerlessReceived = true;
+    private boolean errorHappened = false;
+    public boolean isErrorHappened() {return this.errorHappened;}
+    private void errorHappened() {this.errorHappened = true;}
+    public void errorHandled() {this.errorHappened = false;}
     public void answerlessReceived() {
         this.answerlessReceived = true;
     }
@@ -66,6 +73,7 @@ public enum EntityMapper {
     }
     public boolean isAnswerlessReceived() {return answerlessReceived;}
     public boolean dataReady() { return this.dataReady; }
+
     public void dataGrabbed() {
         this.dataReady = false;
         person = null;
@@ -87,7 +95,12 @@ public enum EntityMapper {
             }
         } }
                 , new Response.ErrorListener() { @Override
-        public void onErrorResponse(VolleyError error) { error.printStackTrace(); } });
+        public void onErrorResponse(VolleyError error) {
+            errorHappened();
+            if (error instanceof NetworkError || error instanceof NoConnectionError || error instanceof TimeoutError) {
+                Log.d("DB","No connection available!");
+            }
+            else Log.d("DB","Some error in queryEntity occurs!");} });
         requestQueue.add(json);
     }
 

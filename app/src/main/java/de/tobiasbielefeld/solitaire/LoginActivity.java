@@ -82,7 +82,7 @@ public class LoginActivity extends AppCompatActivity {
     private class GetPerson extends AsyncTask<Void, Void, Person> {
         protected Person doInBackground(Void... voids) {
             Person person = new Person();
-            while (!entityMapper.dataReady()) {
+            while (!entityMapper.dataReady() && !entityMapper.isErrorHappened()) {
                 if (isCancelled()) break;
             }
             if (entityMapper.dataReady()) {
@@ -93,7 +93,7 @@ public class LoginActivity extends AppCompatActivity {
         }
 
         protected void onPostExecute(Person person) {
-            if (person != null) {
+            if (person.getId() != 0) {
                 if (password.getText().toString().equals(person.getPassword()) || isAutoLogin) {
                     Intent intent = new Intent(LoginActivity.this, GameSelector.class);
                     SharedData.user = person;
@@ -106,11 +106,16 @@ public class LoginActivity extends AppCompatActivity {
                     finish();
                     isAutoLogin = false;
                 } else {
-                    Toast.makeText(LoginActivity.this, "Login credentials are wrong. ", Toast.LENGTH_SHORT).show();
+                    Toast.makeText(LoginActivity.this, "Je logingegevens zijn incorrect", Toast.LENGTH_SHORT).show();
+
                 }
             }
             else {
-                Toast.makeText(LoginActivity.this, "Login credentials are wrong. ", Toast.LENGTH_SHORT).show();
+                if (entityMapper.isErrorHappened()) {
+                    entityMapper.errorHandled();
+                    Toast.makeText(LoginActivity.this, "Geen verbinding met het internet. Verbind je toestel met het netwerk om je in te loggen.", Toast.LENGTH_SHORT).show();
+                }
+                else Toast.makeText(LoginActivity.this,"Je logingegevens zijn incorrect", Toast.LENGTH_SHORT).show();
             }
         }
     }
