@@ -16,6 +16,7 @@ public class Person {
     private int age;
     private boolean gender; //1=male, 0=female
     private int level;
+    private int tabletLevel;
     private int avgScore;
     private int avgMoves;
     private int avgTime;
@@ -32,7 +33,8 @@ public class Person {
             this.password = obj.getString("password");
             this.age = obj.getInt("age");
             this.gender = (obj.getInt("gender") == 1 ? true : false);
-            this.level = obj.getInt("level");
+            this.level = obj.getInt("playLevel");
+            this.tabletLevel = obj.getInt("tabletLevel");
             this.avgScore = obj.getInt("avgScore");
             this.avgMoves = obj.getInt("avgMoves");
             this.avgTime = obj.getInt("avgTime");
@@ -46,13 +48,14 @@ public class Person {
     /**
      * Constructor for persons new to the database
      */
-    public Person(int id, String username, String password, int age, boolean gender, int level, int avgScore, int avgMoves, int avgTime, int gamesSucces, int gamesFailed) {
+    public Person(int id, String username, String password, int age, boolean gender, int level, int tabletLevel, int avgScore, int avgMoves, int avgTime, int gamesSucces, int gamesFailed) {
         this.id = id;
         this.username = username;
         this.password = password;
         this.age = age;
         this.gender = gender;
         this.level = level;
+        this.tabletLevel = tabletLevel;
         this.avgScore = avgScore;
         this.avgMoves = avgMoves;
         this.avgTime = avgTime;
@@ -63,12 +66,13 @@ public class Person {
     /**
      * Constructor for Person objects already in the database
      */
-    public Person(String username, String password, int age, boolean gender, int level, int avgScore, int avgMoves, int avgTime, int gamesSucces, int gamesFailed) {
+    public Person(String username, String password, int age, boolean gender, int level, int tabletLevel, int avgScore, int avgMoves, int avgTime, int gamesSucces, int gamesFailed) {
         this.username = username;
         this.password = password;
         this.age = age;
         this.gender = gender;
         this.level = level;
+        this.tabletLevel = tabletLevel;
         this.avgScore = avgScore;
         this.avgMoves = avgMoves;
         this.avgTime = avgTime;
@@ -122,6 +126,14 @@ public class Person {
 
     public void setLevel(int level) {
         this.level = level;
+    }
+
+    public int getTabletLevel() {
+        return tabletLevel;
+    }
+
+    public void setTabletLevel(int tabletLevel) {
+        this.tabletLevel = tabletLevel;
     }
 
     public int getAvgScore() {

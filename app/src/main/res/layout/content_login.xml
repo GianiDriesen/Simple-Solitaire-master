@@ -15,9 +15,8 @@
         android:layout_margin="30dp"
         android:layout_weight="1"
         android:ems="10"
-        android:hint="Username"
+        android:hint="Gebruikersnaam"
         android:inputType="textPersonName"
-        android:textAlignment="viewStart"
         app:layout_constraintLeft_toLeftOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/textView3" />
 
@@ -39,22 +38,9 @@
         android:layout_weight="1"
         android:background="@color/white"
         android:onClick="loginApp"
-        android:text="Login"
+        android:text="Log in"
         app:layout_constraintLeft_toLeftOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/password" />
-
-    <Button
-        android:id="@+id/skipBtn"
-        android:layout_width="match_parent"
-        android:layout_height="50dp"
-        android:layout_margin="30dp"
-        android:layout_marginTop="5dp"
-        android:layout_weight="1"
-        android:background="@color/white"
-        android:onClick="skipApp"
-        android:text="SKIP LOGIN FOR NOW"
-        app:layout_constraintLeft_toLeftOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/registerBtn" />
 
     <TextView
         android:id="@+id/textView3"
@@ -63,7 +49,7 @@
         android:layout_margin="30dp"
         android:layout_weight="1"
         android:gravity="center"
-        android:text="Login and Start playing!"
+        android:text="Log in en begin te spelen!"
         android:textAlignment="center"
         android:textSize="16sp"
         app:layout_constraintLeft_toLeftOf="parent"
@@ -76,7 +62,7 @@
         android:layout_margin="30dp"
         android:layout_weight="1"
         android:ems="10"
-        android:hint="Password"
+        android:hint="Wachtwoord"
         android:inputType="textEmailAddress|textPassword"
         android:password="true"
         app:layout_constraintLeft_toLeftOf="parent"
@@ -91,7 +77,7 @@
         android:layout_weight="1"
         android:background="@color/white"
         android:onClick="registerApp"
-        android:text="Not an account yet?"
+        android:text="Heb je nog geen account?"
         app:layout_constraintLeft_toLeftOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/proceedBtn" />
 
