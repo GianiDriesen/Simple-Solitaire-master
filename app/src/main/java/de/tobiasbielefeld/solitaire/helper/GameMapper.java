@@ -54,7 +54,7 @@ public enum GameMapper {
     public String getURL(GamePlayed game) {
         int solved = (game.isSolved() ? 1 : 0);
         return "https://iiw.kuleuven.be/onderzoek/drSolitaire/insertGame.php?" +
-                "pid=" + game.getPersonID() + "&playt=" + game.getGameTime() + "&solved=" + solved + "&throughpilectr=" + game.getCountTroughPile() +
+                "pid=" + game.getPersonID() + "&playt=" + game.getGameTime() + "&solved=" + solved +
                 "&undoctr=" + game.getUndoButtonCount() + "&hintctr=" + game.getHintButtonCount() + "&bs1ctr=" + game.getBuildStack1() + "&bs2ctr=" + game.getBuildStack2() +
                 "&bs3ctr=" + game.getBuildStack3() + "&bs4ctr=" + game.getBuildStack4() + "&bs5ctr=" + game.getBuildStack5() + "&bs6ctr=" + game.getBuildStack6() +
                 "&bs7ctr=" + game.getBuildStack7() + "&ss1ctr=" + game.getSuitStack1() + "&ss2ctr=" + game.getSuitStack2() + "&ss3ctr=" + game.getSuitStack3() +

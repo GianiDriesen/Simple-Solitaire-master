@@ -53,6 +53,6 @@ public enum PersonMapper {
 		int gender = 0;
 		if (person.isGender()) gender=1;
 		return "https://iiw.kuleuven.be/onderzoek/drSolitaire/insertPerson.php?username=" + person.getUsername() + "&password=" + person.getPassword() + "&age=" + person.getAge() +
-				"&gender=" + gender + "&level=" + person.getLevel();
+				"&gender=" + gender + "&playLevel=" + person.getLevel() + "&tabletLevel=" + person.getTabletLevel();
 	}
 }

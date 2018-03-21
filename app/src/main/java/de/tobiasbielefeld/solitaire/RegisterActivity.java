@@ -31,8 +31,7 @@ public class RegisterActivity extends AppCompatActivity {
     private EditText age;
     private CheckBox manBox;
     private CheckBox womanBox;
-    private SeekBar levelBar;
-    boolean isMan = true;
+    private SeekBar levelBar, tabletLevelBar;
     private EntityMapper entityMapper = SharedData.getEntityMapper();
 
 
@@ -52,6 +51,7 @@ public class RegisterActivity extends AppCompatActivity {
         manBox = (CheckBox) findViewById(R.id.manCheck);
         womanBox = (CheckBox) findViewById(R.id.womanCheck);
         levelBar = (SeekBar) findViewById(R.id.level);
+        tabletLevelBar = (SeekBar) findViewById(R.id.tabletLevel);
     }
 
     public void onCheckboxClicked(View view) {
@@ -75,7 +75,7 @@ public class RegisterActivity extends AppCompatActivity {
     private class GetPerson extends AsyncTask<Void, Void, Person> {
         protected Person doInBackground(Void... voids) {
             Person person = new Person();
-            while (!entityMapper.dataReady()) {
+            while (!entityMapper.dataReady() && !entityMapper.isErrorHappened()) {
                 if (isCancelled()) break;
             }
             if (entityMapper.dataReady()) {
@@ -87,22 +87,28 @@ public class RegisterActivity extends AppCompatActivity {
 
         protected void onPostExecute(Person person) {
             if (person != null) {
-                Toast.makeText(RegisterActivity.this, "This username already exists!", Toast.LENGTH_SHORT).show();
+                if (entityMapper.isErrorHappened()) {
+                    entityMapper.errorHandled();
+                    Toast.makeText(RegisterActivity.this, "Geen verbinding met het internet. Verbind je toestel met het netwerk om je te registreren.", Toast.LENGTH_SHORT).show();
+                }
+                else {
+                    Toast.makeText(RegisterActivity.this, "Deze gebruikersnaam bestaat al!", Toast.LENGTH_SHORT).show();
+                }
             }
             else {
                 if (isInteger(age.getText().toString())) {
-                    Toast.makeText(RegisterActivity.this, "Registration ok. Have fun!", Toast.LENGTH_SHORT).show();
+                    Toast.makeText(RegisterActivity.this, "Registratie gelukt. Veel plezier!", Toast.LENGTH_SHORT).show();
                     person = new Person(username.getText().toString(),
                             password.getText().toString(),
                             Integer.parseInt(age.getText().toString()),
-                            isMan,
-                            levelBar.getProgress(), 0, 0, 0, 0, 0);
+                            manBox.isChecked(),
+                            levelBar.getProgress(), tabletLevelBar.getProgress(), 0, 0, 0, 0, 0);
                     System.out.println("Person push to db: "+person);
                     entityMapper.getpMapper().createPerson(person);
                     new RegisterActivity.CreatePerson().execute();
                 }
                 else {
-                    Toast.makeText(RegisterActivity.this, "Your age is not a number!", Toast.LENGTH_SHORT).show();
+                    Toast.makeText(RegisterActivity.this, "De ingevoerde leeftijd is geen getal.", Toast.LENGTH_SHORT).show();
 
                 }
             }
@@ -122,7 +128,7 @@ public class RegisterActivity extends AppCompatActivity {
     private class CreatePerson extends AsyncTask<Void, Void, Person> {
         protected Person doInBackground(Void... voids) {
             Person person = new Person();
-            while (!entityMapper.dataReady()) {
+            while (!entityMapper.dataReady() && !entityMapper.isErrorHappened()) {
                 if (isCancelled()) break;
             }
             if (entityMapper.dataReady()) {
@@ -133,7 +139,7 @@ public class RegisterActivity extends AppCompatActivity {
         }
 
         protected void onPostExecute(Person person) {
-            if (person != null) {
+            if (person!= null) {
                 Intent intent = new Intent(RegisterActivity.this, GameSelector.class);
                 getSharedPreferences(PREFS_NAME,MODE_PRIVATE)
                         .edit()
@@ -144,7 +150,8 @@ public class RegisterActivity extends AppCompatActivity {
                 finish();
             }
             else {
-                Toast.makeText(RegisterActivity.this, "Registration failed!", Toast.LENGTH_SHORT).show();
+                entityMapper.errorHandled();
+                Toast.makeText(RegisterActivity.this, "Geen verbinding met het internet. Verbind je toestel met het netwerk om je te registreren.", Toast.LENGTH_SHORT).show();
             }
         }
     }
