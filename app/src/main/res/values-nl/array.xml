@@ -4,6 +4,7 @@
         <item>Nieuw spel starten</item>
         <item>Spel opnieuw spelen</item>
         <item>Spelregels</item>
+        <item>Uitloggen</item>
     </string-array>
 
     <string-array name="won_menu">

@@ -26,13 +26,19 @@ import android.os.Bundle;
 import android.support.annotation.NonNull;
 import android.support.v4.app.DialogFragment;
 
+import de.tobiasbielefeld.solitaire.LoginActivity;
 import de.tobiasbielefeld.solitaire.R;
+import de.tobiasbielefeld.solitaire.SharedData;
 import de.tobiasbielefeld.solitaire.ui.GameManager;
 import de.tobiasbielefeld.solitaire.ui.manual.Manual;
 
+import static android.content.Context.MODE_PRIVATE;
 import static de.tobiasbielefeld.solitaire.SharedData.DEFAULT_CURRENT_GAME;
 import static de.tobiasbielefeld.solitaire.SharedData.GAME;
+import static de.tobiasbielefeld.solitaire.SharedData.PREFS_NAME;
 import static de.tobiasbielefeld.solitaire.SharedData.PREF_KEY_CURRENT_GAME;
+import static de.tobiasbielefeld.solitaire.SharedData.PREF_PASSWORD;
+import static de.tobiasbielefeld.solitaire.SharedData.PREF_USERNAME;
 import static de.tobiasbielefeld.solitaire.SharedData.gameLogic;
 import static de.tobiasbielefeld.solitaire.SharedData.lg;
 import static de.tobiasbielefeld.solitaire.SharedData.putSharedInt;
@@ -71,6 +77,15 @@ public class DialogRestart extends DialogFragment {
                                     timer.save();
                                     gameLogic.setWonAndReloaded();
                                     gameLogic.save();
+
+                                    SharedData.user = null;
+                                    gameManager.getSharedPreferences(PREFS_NAME,MODE_PRIVATE)
+                                            .edit()
+                                            .putString(PREF_USERNAME, null)
+                                            .putString(PREF_PASSWORD, null)
+                                            .commit();
+                                    startActivity(new Intent(gameManager.getApplicationContext(), LoginActivity.class));
+                                    gameManager.finish();
                                 }
 
                                 putSharedInt(PREF_KEY_CURRENT_GAME, DEFAULT_CURRENT_GAME);          //otherwise the menu would load the current game again, because last played game will start
